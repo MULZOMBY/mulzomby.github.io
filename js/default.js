@@ -1,12 +1,8 @@
 
 window.onload = () => {
-
-
-
 	console.clear();
-
-	// init controller
 	var controller = new ScrollMagic.Controller();
+
 	
 	// build scene
 	var pageDuration = 1300;
