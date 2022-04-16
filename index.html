@@ -1,98 +1,62 @@
-<style>
-    * {
-  margin: 0;
-  padding: 0;
-  font-family: monospace;
-}
 
-html, body {
-  width: 100%;
-  height: 100%;
-  background-color: #f8f8f8;
-}
+<!DOCTYPE html>
+<!--[if lte IE 9]>
+<html class="ie" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="twitter:card" content="mulzomby">
+    <meta name="twitter:site" content="mulzomby">
+    <meta name="twitter:title" content="mulzomby">
+    <meta name="twitter:description" content="...">
+    <meta name="twitter:image" content="https://mulzomby.github.io/image/thumbnail.jpg">
+    <meta property="og:image" content="https://mulzomby.github.io/image/thumbnail.jpg" itemprop="thumbnailUrl">
+    <meta property="og:title" content="mulzomby">
+    <meta property="og:url" content="https://mulzomby.github.io">
+    <meta property="og:site_name" content="mulzomby">
+    <meta property="og:description" content="...">
 
-.wrap {
-  width: 100%;
-  height: 100%;
-}
+    <title>mulzomby</title>
 
-.panel {
-  position: relative;
-  margin: auto;
-  top: 0px;
-  left: 0px;
-  bottom: auto;
-  right: auto;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  font-size: 60px;
-  text-align: center;
-  color: #fff;
-  
-  &.green {
-    // margin-bottom: 400px;
-  }
-}
+    <!-- 제이쿼리 불러오기 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-.one {
-    background-color: #67D5B5;
-}
+<!-- gsap(애니메이션 라이브러리, 스크롤매직이 내부적으로 이 녀석을 쓴다.) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
 
-.two {
-    background-color: #EE7785;
-}
+<!-- 스크롤 매직 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 
-.three {
-    background-color: #C89EC4;
-}
+<!-- 디버그용 인디케이터, 실전에선 필요없음 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js"></script>
 
-.four {
-    background-color: #84B1ED;
-}
+<!-- gsap 용 플러그인 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
 
-.top {
-  height: 500px;
-  font-size: 30px;
-}
-</style>
-<script>
-    (function () {
+<link rel="stylesheet" href="./css/default.css"></script>
+<script src="./js/default.js"></script>
 
-var controller = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      triggerHook: 'onLeave',
-      duration: "100%"
-    }
-});
-var slides = document.querySelectorAll("section.panel");
-
-for (var i=0; i<slides.length; i++) {
-  var scene = new ScrollMagic.Scene({
-    triggerElement: slides[i]
-  })
-  .setPin(slides[i], {pushFollowers: false})
-  .addIndicators() 
-  .addTo(controller);
-}
-
-
-}())
-</script>
-<div class="wrap">
-    <div class="top">
-      ScrollMagic Demo !!!
-    </div>
-    <section class="panel one">
-      <b>ONE</b>
-    </section>
-    <section class="panel two">
-      <b>TWO</b>
-    </section>
-    <section class="panel three">
-      <b>THREE</b>
-    </section>
-    <section class="panel four">
-      <b>FOUR</b>
-    </section>
+  </head>
+  <body>
+    <div class="pages">
+      <div class="page page-1">
+          <h1>페이지 1</h1>
+      </div>
+      <div class="page page-2">
+          <h1>페이지 2</h1>
+      </div>
+      <div class="page page-3">
+          <h1>페이지 3</h1>
+      </div>
+      <div class="page page-4">
+          <h1>페이지 4</h1>
+      </div>
+      <div class="page page-5">
+          <h1>페이지 5</h1>
+      </div>
   </div>
+  </body>
+</html>
