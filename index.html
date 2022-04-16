@@ -1,3 +1,98 @@
-testcd 
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
 
-ssh-keygen -t rsa -C "mulzomby@gmail.com" -f "git"
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  position: relative;
+  margin: auto;
+  top: 0px;
+  left: 0px;
+  bottom: auto;
+  right: auto;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 60px;
+  text-align: center;
+  color: #fff;
+  
+  &.green {
+    // margin-bottom: 400px;
+  }
+}
+
+.one {
+    background-color: #67D5B5;
+}
+
+.two {
+    background-color: #EE7785;
+}
+
+.three {
+    background-color: #C89EC4;
+}
+
+.four {
+    background-color: #84B1ED;
+}
+
+.top {
+  height: 500px;
+  font-size: 30px;
+}
+</style>
+<script>
+    (function () {
+
+var controller = new ScrollMagic.Controller({
+    globalSceneOptions: {
+      triggerHook: 'onLeave',
+      duration: "100%"
+    }
+});
+var slides = document.querySelectorAll("section.panel");
+
+for (var i=0; i<slides.length; i++) {
+  var scene = new ScrollMagic.Scene({
+    triggerElement: slides[i]
+  })
+  .setPin(slides[i], {pushFollowers: false})
+  .addIndicators() 
+  .addTo(controller);
+}
+
+
+}())
+</script>
+<div class="wrap">
+    <div class="top">
+      ScrollMagic Demo !!!
+    </div>
+    <section class="panel one">
+      <b>ONE</b>
+    </section>
+    <section class="panel two">
+      <b>TWO</b>
+    </section>
+    <section class="panel three">
+      <b>THREE</b>
+    </section>
+    <section class="panel four">
+      <b>FOUR</b>
+    </section>
+  </div>
