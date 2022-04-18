@@ -1,2 +1,6 @@
+#	find . -size +20M | cat >> .gitignore
+
 .gitconfig
-.DS_
+.DS_Store
+
+RESOURCE/12welve website pc 1920 size.psd
