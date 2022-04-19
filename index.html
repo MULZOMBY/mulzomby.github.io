@@ -37,7 +37,8 @@ function animation() {
 }
 
 $(function(){
-
+  var controller = new ScrollMagic.Controller();
+ 
 	(function(){
 
 	}())
@@ -50,7 +51,7 @@ $(function(){
 
 
   // TWEEN ROTATE
-  var controller = new ScrollMagic.Controller();	// 1. ScrollMagic 컨트롤러 생성
+  
 	var tween = TweenMax.to('#animate', 0.5, {	//2. animation object 생성
 		backgroundColor: "#6431ff",
 		scale: 2.5,
@@ -66,9 +67,12 @@ $(function(){
 	.addTo(controller)	//5. 1번(controller)을 3번에 추가
 	.addIndicators();
 
+  $('.btnLettering').click(function(){
+    animation();
+  });
+
 });
 </script>
-
 
 </head>
 <body>
@@ -81,6 +85,83 @@ $(function(){
   </div>
 
   <div class="container">
+
+    <style>
+      #cont {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+#cont .txt {
+  display: block;
+  float: left;
+}
+
+#cont .txt1 {
+   color:#6271fd;
+}
+
+#cont .txt2 {
+   color:#8b72fa;
+}
+
+#cont .txt3 {
+   color:#121280;
+}
+
+#cont .txt span {
+  display: block;
+  float: left;
+  position: relative;
+  min-width: 8px;
+  min-height: 8px;
+  transform: skew(-10deg);
+}
+    </style>
+    <script>
+      $(function() {
+        var controller2 = new ScrollMagic.Controller();
+        var tween2 = TweenMax.staggerFromTo($('#cont span'), 0.5, {
+          ease: Back.easeOut.config(1.7),
+          opacity: 0,
+          bottom: -60
+        }, {
+          ease: Back.easeOut.config(1.7),
+          opacity: 1,
+          bottom: 0
+        }, 0.05);
+
+
+        var scene2 = new ScrollMagic.Scene({	//3. Scene object 생성
+          triggerElement: '#trigger2',	//스크롤 애니메이션 시작 지점 설정
+          duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+        })
+        .setTween(tween2)	//4. 2번을 3번에 추가
+        .addTo(controller2)	//5. 1번(controller)을 3번에 추가
+        .addIndicators();
+
+
+var $txt = $('#cont .txt');
+$txt.lettering();
+
+
+  $('.btnLettering').click(function(){
+    //ani();
+  });
+
+
+})
+    </script>
+    <section style="height:10em;">
+      <div class="trigger" id="trigger2">TRIGGER</div>
+      <p id="cont">
+        <span class="txt txt1">Hello,</span><br/>
+        <span class="txt txt2">Tweenmax Splittext</span><br/>
+        <span class="txt txt3">animation test!</span><br/>
+      </p>
+      <button class="btnLettering">trigger</button>
+    </section>
 
     <section>
       <h2>Let's start showing off some magic...</h2>
@@ -100,7 +181,7 @@ $(function(){
           <span class="title">Kashmir's Podcast App</span>
           <span class="title">#1</span>
           <br/><br/><br/><br/><br/><br/><br/>
-          <div class="button">restart</div>
+          <div class="button btnLettering">restart</div>
           <br/><br/>
         </h1>
       </div>

@@ -1,14 +1,19 @@
 
-
 /* LETTERING */
-.lettering{
+/*
+position: absolute;
+max-width: 450px;
   transform: translate(-50%, -50%);
+*/
+.lettering{
 	top: 50%;
 	left: 50%;
 	display: block;
-	position: absolute;
-	max-width: 450px;
 }
+
+/*
+transform: translateX(-50%) rotate(-10deg);
+*/
 .title {
 	transform: translateX(-50%) rotate(-10deg);
 	display: block;
@@ -34,16 +39,17 @@
 .title:nth-child(3) {
 	color: skyblue;
 }
-.button {
-	float: left;
-	position: relative;
+
+/*
 	bottom: -65px;
 	left: 50%;
 	transform: translateX(-50%) rotate(-10deg);
+*/
+.button {
+	float: left;
+	position: relative;
 	color: #e55643;
 	text-transform: uppercase;
-	opacity: 0;
-	visibility: hidden;
 	cursor: pointer;
 }
 .button span {

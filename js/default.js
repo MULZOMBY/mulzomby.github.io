@@ -2,7 +2,6 @@
 window.onload = () => {
 	console.clear();
 	var controller = new ScrollMagic.Controller();
-
 	
 	// build scene
 	var pageDuration = 1300;
@@ -13,7 +12,5 @@ window.onload = () => {
 		.addIndicators({name: i + " (duration: " + pageDuration + ")"})
 		.addTo(controller);
 	}
-
-
 
 }
