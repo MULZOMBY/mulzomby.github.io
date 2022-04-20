@@ -118,28 +118,28 @@ $(function(){
   min-height: 8px;
   transform: skew(-10deg);
 }
-    </style>
-    <script>
-      $(function() {
-        var controller2 = new ScrollMagic.Controller();
-        var tween2 = TweenMax.staggerFromTo($('#cont span'), 0.5, {
-          ease: Back.easeOut.config(1.7),
-          opacity: 0,
-          bottom: -60
-        }, {
-          ease: Back.easeOut.config(1.7),
-          opacity: 1,
-          bottom: 0
-        }, 0.05);
+</style>
+<script>
+  $(function() {
 
+    var controller2 = new ScrollMagic.Controller();
+    var tween2 = TweenMax.staggerFromTo($('#cont span'), 0.5, {
+      ease: Back.easeOut.config(1.7),
+      opacity: 0,
+      bottom: -60
+    }, {
+      ease: Back.easeOut.config(1.7),
+      opacity: 1,
+      bottom: 0
+    }, 0.05);
 
-        var scene2 = new ScrollMagic.Scene({	//3. Scene object 생성
-          triggerElement: '#trigger2',	//스크롤 애니메이션 시작 지점 설정
-          duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
-        })
-        .setTween(tween2)	//4. 2번을 3번에 추가
-        .addTo(controller2)	//5. 1번(controller)을 3번에 추가
-        .addIndicators();
+    var scene2 = new ScrollMagic.Scene({	//3. Scene object 생성
+      triggerElement: '#trigger2',	//스크롤 애니메이션 시작 지점 설정
+      duration: '150%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+    })
+    .setTween(tween2)
+    .addTo(controller2)
+    .addIndicators();
 
 
 var $txt = $('#cont .txt');
@@ -147,13 +147,13 @@ $txt.lettering();
 
 
   $('.btnLettering').click(function(){
-    //ani();
+    ani();
   });
 
 
 })
     </script>
-    <section style="height:10em;">
+    <section style="height:100vh;">
       <div class="trigger" id="trigger2">TRIGGER</div>
       <p id="cont">
         <span class="txt txt1">Hello,</span><br/>
