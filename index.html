@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="mulzomby">
 <meta property="og:description" content="mulzomby.github.io">
 <title>mulzomby</title>
-<link rel="stylesheet" type="text/css" href="./css/default.css"/>
+<!--<link rel="stylesheet" type="text/css" href="./css/default.css"/>-->
 <script src="./js/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
@@ -35,17 +35,24 @@ img {
   width: 100%;
   height: auto;
 }
+.title{
+  font-size:2em;
+	transform: translateX(-50%) rotate(-10deg);
+	display: block;
+	float: left;
+	left: 50%;
+	/*position: relative;*/
+}
 </style>
 </head>
 <body>
 <div id="wrap">
   <div id="header">
     <img src="./image/character01.png"/>
-    <p class="title1">9246 UNIQUE 12WELVE of NEXT-K POP</p>
+    <p class="title title1">9246 UNIQUE 12WELVE of NEXT-K POP</p>
     <h1 id="trigger1">ScrollMagic</h1>
     <p>스크롤매직 라이브러리 포스팅 예제입니다.<br/>스크롤매직 공식사이트 예제 라이브러리 : <a href="http://scrollmagic.io/examples/" target="_blank">http://scrollmagic.io/</a></p>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 <script>
 $(function(){
   /*
@@ -55,7 +62,8 @@ $(function(){
   });
   */
   var controller = new ScrollMagic.Controller();
-  var tween = TweenMax.fromTo('.title1', 0.6, {
+  /*
+  var tween1 = TweenMax.fromTo('.title1', 0.6, {
     //backgroundColor: "#6431ff",
     //scale: 2.5,
     //rotation: 360,
@@ -66,12 +74,30 @@ $(function(){
     yoyo:true,
     repeat:-1,
   });
+  */
+
+  var tween = TweenMax.to('.title1', 0.5, {	//2. animation object 생성
+		backgroundColor: "#6431ff",
+		scale: 2.5,
+		rotation: 360,
+		x: 600,
+		y: 100
+	});
+	var scene = new ScrollMagic.Scene({	//3. Scene object 생성
+		triggerElement: '#trigger2',	//스크롤 애니메이션 시작 지점 설정
+		duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+	})
+	.setTween(tween)	//4. 2번을 3번에 추가
+	.addTo(controller)	//5. 1번(controller)을 3번에 추가
+	.addIndicators();
+
+  /*
   var scene = new ScrollMagic.Scene({	//3. Scene object 생성
     triggerElement: '#trigger1',	//스크롤 애니메이션 시작 지점 설정
     duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
   })
   .setTween(tween).addTo(controller).addIndicators();
-
+*/
   
 });
 </script>
