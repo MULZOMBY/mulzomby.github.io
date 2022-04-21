@@ -54,6 +54,10 @@ img {
     <p>스크롤매직 라이브러리 포스팅 예제입니다.<br/>스크롤매직 공식사이트 예제 라이브러리 : <a href="http://scrollmagic.io/examples/" target="_blank">http://scrollmagic.io/</a></p>
   </div>
 <script>
+const clone = obj => JSON.parse(JSON.stringify(obj));
+
+//var animation1;
+var tween1;
 $(function(){
   /*
   gsap.to(".title1", {
@@ -76,20 +80,26 @@ $(function(){
   });
   */
 
-  var tween = TweenMax.to('.title1', 0.5, {	//2. animation object 생성
+  tween1 = TweenMax.to('.title1', 0.5, {	//2. animation object 생성
 		backgroundColor: "#6431ff",
 		scale: 2.5,
 		rotation: 360,
 		x: 600,
 		y: 100
 	});
+  //animation1=clone(tween1);
+  var animation1 = new TweenMax(Object.assign({}, tween1));
+
 	var scene = new ScrollMagic.Scene({	//3. Scene object 생성
 		triggerElement: '#trigger2',	//스크롤 애니메이션 시작 지점 설정
 		duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
 	})
-	.setTween(tween)	//4. 2번을 3번에 추가
+	.setTween(tween1)	//4. 2번을 3번에 추가
 	.addTo(controller)	//5. 1번(controller)을 3번에 추가
 	.addIndicators();
+
+  console.log(animation1);
+  animation1.resume();
 
   /*
   var scene = new ScrollMagic.Scene({	//3. Scene object 생성
