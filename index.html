@@ -26,7 +26,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
 
 <style type="text/css">
-body{background-color:#111111;}
+/*
+@font-face {font-family:'font';font-style: normal;
+  src:url('./font/kimberley bl.ttf') format('truetype');}
+*/
+@font-face {font-family:'font';font-style: normal;
+  src:url('./font/Headlines-Bold.otf') format('opentype');}
+  
+
+* {font-family: 'font', serif;}
+body{background-color:#111111;color:#EEEEEE;}
 img {
   width: 100%;
   height: auto;
@@ -89,6 +98,7 @@ $(function(){
 
   <div id="header">
     <img src="./image/character01.png"/>
+    <p>9246 UNIQUE 12WELVE of NEXT-K POP</p>
     <h1>ScrollMagic</h1>
     <p>스크롤매직 라이브러리 포스팅 예제입니다.<br/>스크롤매직 공식사이트 예제 라이브러리 : <a href="http://scrollmagic.io/examples/" target="_blank">http://scrollmagic.io/</a></p>
   </div>
