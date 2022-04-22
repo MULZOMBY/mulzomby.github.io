@@ -34,6 +34,7 @@
 
 *{font-family: dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
 body{background-color:#000000;color:#EEEEEE;}
+p{margin:0;}
 img {
   width: 100%;
   height: auto;
@@ -100,8 +101,6 @@ $(function(){
 	.setTween(tween1)	//4. 2번을 3번에 추가
 	.addTo(controller)	//5. 1번(controller)을 3번에 추가
 	.addIndicators();
-
-  console.log(animation1);
 
 
   /*
@@ -239,9 +238,10 @@ coming soon
 .bg_black{background-color:#000000;}
 
 .fg_black{color:#000000;}
-.fg_skyblue{color:#00ffee;}
-.fg_gray8{color:#888888}
+.fg_gray6{color:#666666;}
+.fg_gray8{color:#888888;}
 .fg_grayc{color:#cccccc;}
+.fg_skyblue{color:#00ffee;}
 
 .center{text-align: center;}
 
@@ -250,11 +250,17 @@ coming soon
 .oblique{font-style:oblique;}
 .underline{text-decoration: underline;}
 
+.ls20{letter-spacing:0.2vmin;}
 .ls50{letter-spacing:0.4vmin;}
+
+
+.lh11pt{line-height:7vmin;}
+.lh12pt{line-height:8vmin;}
 
 .fs6pt{font-size:3.2vmin;}
 .fs7pt{font-size:3.7vmin;}
-.fs8pt{font-size:4.5vmin;}
+.fs8pt{font-size:4.4vmin;}
+.fs9pt{font-size:4.7vmin;}
 .fs11pt{font-size:5.5vmin;}
 .fs30pt{font-size:16vmin;}
 .fs36pt{font-size:20vmin;}
@@ -272,18 +278,28 @@ coming soon
 </section>
 
 
-<section class="pad7v">
-  <p class="helv_black fs36pt oblique center">1</p>
-  <div style="width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative;">
-    <video muted autoplay loop style="width: 100%;">
-      <source src="image/cube.mp4" type="video/mp4">
-      <strong>Your browser does not support the video tag.</strong>
-    </video>
-  </div>
-  <div style="width: 80%;">
-    <p class="helv_black" style="margin-top: -24px; font-size: 10vmin; color: #ffffff;">Lorem Ipsum Dolor</p>
-  </div>
-</section>
+
+  <section class="">
+    <img src="./image/character02.png"/>
+  </section>
+
+
+  <section class="pad7v">
+    <p class="helv_black fs36pt oblique center">1</p>
+    <div style="width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative;">
+      <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline style="width: 100%;">
+        <source src="image/cube.mp4" type="video/mp4">
+        <strong>Your browser does not support the video tag.</strong>
+      </video>
+      <!--
+      document.getElementById('video1').play();
+      document.getElementById('video1').pause();
+      -->
+    </div>
+    <div style="width: 80%;">
+      <p class="helv_black" style="margin-top: -24px; font-size: 10vmin; color: #ffffff;">Lorem Ipsum Dolor</p>
+    </div>
+  </section>
 
 
 <p class="helv_black fs30pt">9.246</p> 
@@ -292,7 +308,7 @@ coming soon
 
 
 <p class="helv_black fs8pt ls20">mint is coming</p>
-<p class="">
+<p class="fs7pt">
 . 큐브는 12welve metaverse의 비밀 조직인 x label
 의 기술과 절대 파괴가 불가능한 lower side의 
 신비로운 5개 물질로 만들어졌습니다. 
@@ -305,7 +321,7 @@ coming soon
 . 큐브는 또한, 12welve metaverse의 특별한 정보에 
 접근 할 수 있는 키이며 다양한 아티스트와 협업한 
 고퀄리티의 ‘3d 아바타’를 무료로 지급받습니다.
-</p>fs7pt>
+</p>
 
 
 <p class="helv_black fs12pt ls20">launch / growth</p>
@@ -329,21 +345,18 @@ private sale Only
 </p>
 
 
-<p class="">
+<p class="fs7pt lh12pt">
 자세한 로드맵은 12welve 커뮤니티<br/>
 (discord)를 통해 공지될 것입니다.
-</p>fs7pt , 줄 간격 12pt)
-
+</p>
 
 
 
   <section class="pad7v bg_white fg_black">
     <div style="height:20vmin;"></div>
-    <p class="helv_comp fs9pt ls50">WE ARE ALL GHOSTS OF 12WELVE</p>
-
-    <p class="fs7pt lh11pt">
-    우리는 강력한 비전을 가진 팀입니다.<br/>
-    <br/>
+    <p class="helv_comp fs9pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
+    <p class="fs7pt fg_gray6 lh11pt center underline"><br/>우리는 강력한 비전을 가진 팀입니다.<br/><br/></p>
+    <p class="fs7pt fg_gray6 lh11pt center">
     팀은 next-k pop을 이끌어 갈<br/>
     46 meta 아이들(12 k-pop idol)의 성장을 위해<br/>
     물밑에서 전폭적인 지원과 지지를 보내고,<br/>
@@ -354,10 +367,16 @@ private sale Only
     z세대의 평범한 학생까지 12welve와 함께하는<br/>
     고스트가 될 수 있습니다.<br/>
     </p>
-    
+    <div style="height:25vmin;"></div>
+  </section>
+
     <style>
     .ghost{
+      text-align: center;
       float:left;
+      margin:4vmin;
+      height:40vmin;
+      width:40vmin;
     }
     .ghost .dot{
       height: 25vmin;
@@ -366,15 +385,18 @@ private sale Only
       border-radius: 50%;
       display: inline-block;
     }
+    .ghost p{font-family:helv_comp;color:#000000}
     </style>
-    <div class="ghost"><div class="dot"></div><p class="helv_comp fs7pt ls50">LEADER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="helv_comp fs7pt ls50">ARTIST</p></div>
-    <div class="ghost"><div class="dot"></div><p class="helv_comp fs7pt ls50">MUSIC<br/>PRODUCER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="helv_comp fs7pt ls50">MANAGER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="helv_comp fs7pt ls50">DEVELOPER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="helv_comp fs7pt ls50">ADVISOR</p></div>
-    <div style="height:90vmin;"></div>
-    
+  <section class="bg_white fg_black"></section>
+    <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">LEADER</p></div>
+    <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">ARTIST</p></div>
+    <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">MUSIC<br/>PRODUCER</p></div>
+    <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">MANAGER</p></div>
+    <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">DEVELOPER</p></div>
+    <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">ADVISOR</p></div>
+  </section>
+
+  <section class="pad7v bg_white fg_black">
     <p class="fs6pt lh9pt center">
     고스트 멤버, 프로젝트 협업
     및 기타 문의
@@ -386,17 +408,18 @@ private sale Only
   <section class="pad7v">
     <div style="height:10vmin;"></div>
     <p class="helv_black fs11pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
+    <div style="height:5vmin;"></div>
     <p class="fs6pt lh9pt fg_gray8 center">
     12welve 커뮤니티에 가입하시면<br/>
     special event와 private sale에 참여할 수 있습니다.
     </p>
-    <div style="height:10vmin;"></div>
+    <div style="height:15vmin;"></div>
     <div class="center">
       <a target="_blank" href="https://www.discord.com/"><img src="image/discord.svg" style="width:10vmin;"/></a>
       <div style="display:inline-block;width:5vmin;"></div>
       <a target="_blank" href="https://www.twitter.com/"><img src="image/twitter.svg" style="width:10vmin;"/></a>
     </div>
-    <div style="height:10vmin;"></div>
+    <div style="height:15vmin;"></div>
     <p class="helv fs6pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
   </section>
 
