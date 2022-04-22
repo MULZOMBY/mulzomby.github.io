@@ -17,3 +17,7 @@ https://www.biew.co.kr/entry/ScrollMagic-%EC%8A%A4%ED%81%AC%EB%A1%A4%EB%A7%A4%EC
 
 @@@@
 http://302chanwoo.com/lab/tween/
+
+
+### TEXT ANIMATION
+https://greensock.com/forums/topic/20694-how-animate-a-text-with-gradient/
