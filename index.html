@@ -167,11 +167,16 @@ $(function(){
     <img src="./image/character02.png"/>
   </section>
 
+  <style>
+    .cube{width: 100%;
+      /*height: 500px;*/ 
+      overflow: hidden;margin: 0px auto; position: relative;}
+  </style>
   <section class="pad7v">
     <div style="height:20vmin;"></div>
     <p class="helv_black fs36pt oblique center">1</p>
     <div style="height:5vmin;"></div>
-    <div style="width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative;">
+    <div class="cube">
       <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline style="width: 100%;">
         <source src="image/cube.mp4" type="video/mp4">
         <strong>Your browser does not support the video tag.</strong>
@@ -265,8 +270,9 @@ $(function(){
 
     <style>
     .ghost{
+      display:inline-block;
       text-align: center;
-      float:left;
+      vertical-align:top;
       margin:4vmin;
       height:40vmin;
       width:40vmin;
@@ -280,7 +286,7 @@ $(function(){
     }
     .ghost p{font-family:helv_comp;color:#000000}
     </style>
-  <section class="bg_white fg_black"></section>
+  <section class="bg_white fg_black center">
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">LEADER</p></div>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">ARTIST</p></div>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">MUSIC<br/>PRODUCER</p></div>
