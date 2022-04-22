@@ -33,7 +33,7 @@
 .helv_black{font-family:helv_black;}
 
 *{font-family: dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
-body{background-color:#666666;color:#EEEEEE;}
+body{background-color:#000000;color:#EEEEEE;}
 img {
   width: 100%;
   height: auto;
@@ -47,6 +47,7 @@ img {
 	left: 50%;
 	/*position: relative;*/
 }
+
 </style>
 </head>
 <body>
@@ -86,9 +87,9 @@ $(function(){
 
   tween1 = TweenMax.to('.title1', 0.5, {	//2. animation object 생성
 		backgroundColor: "transparent",
-		scale: 2.5,
+		scale: 1.5,
 		rotation: -360,
-		x: 600,
+		x: 0,
 		y: 100
 	});
 
@@ -227,19 +228,46 @@ of next-k pop
 coming soon
 </p>
 
-<p class="helv_black fs30pt ls0">12</p>
 
-<p class="helv_black fs8pt ls20">double 9246 unique 12welve</p>
 
-<p class="fs7pt">
-12welve 프로젝트는 next-K pop을 이끌어 갈 
-46 meta 아이들(12 k-pop idol)의 ‘9246 unique 
-avatars’와 12welve metaverse의 멤버쉽 키인 
-‘9246 unique cubes’로 구성된 이더리움 블록체인 
-기반의 제너레이티드 3d nfts 컬렉션입니다
-</p>
 
-<p class="helv_black fs36pt">1</p>
+
+<style>
+.oblique{font-style:oblique;}
+.center{text-align: center;}
+
+.pad7v{padding:0 7vmin 0 7vmin;}
+.fs7pt{font-size:3.7vmin;}
+.fs8pt{font-size:4.5vmin;}
+.fs30pt{font-size:16vmin;}
+.fs36pt{font-size:20vmin;}
+</style>
+<section class="pad7v">
+  <p class="helv_black fs30pt ls0">12</p>
+  <p class="helv_black fs8pt ls20 oblique">DOUBLE 9246 UNIQUE 12WELVE</p>
+  <p class="fs7pt">
+  12welve 프로젝트는 next-K pop을 이끌어 갈 
+  46 meta 아이들(12 k-pop idol)의 ‘9246 unique 
+  avatars’와 12welve metaverse의 멤버쉽 키인 
+  ‘9246 unique cubes’로 구성된 이더리움 블록체인 
+  기반의 제너레이티드 3d nfts 컬렉션입니다
+  </p>
+</section>
+
+
+<section class="pad7v" style="display:none;">
+  <p class="helv_black fs36pt oblique center">1</p>
+  <div style="width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative;">
+    <video muted autoplay loop style="width: 100%;">
+      <source src="image/cube.mp4" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+    </video>
+  </div>
+  <div style="position: absolute; top: 50%; width: 100%;">
+    <p class="helv_black" style="margin-top: -24px; text-align: center; font-size: 48px; color: #ffffff;">Lorem Ipsum Dolor</p>
+  </div>
+</section>
+
 
 <p class="helv_black fs30pt">9.246</p> 
 
@@ -327,8 +355,9 @@ contact@12welve.io
 special event와 private sale에 참여할 수 있습니다.
 </p>
 
-
-	<div id="footer"><p class="helv fs6pt">C 2022 12WELVE. ALL RIGHTS RESERVED</p></div>
+<img src="image/discord.svg" style="width:10vmin;"/>
+<img src="image/twitter.svg" style="width:10vmin;"/>
+	<div id="footer"><p class="helv fs6pt">© 2022 12WELVE. ALL RIGHTS RESERVED</p></div>
 </div>
 </body>
 </html>
