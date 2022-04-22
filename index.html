@@ -52,15 +52,19 @@ img {
 
 .center{text-align: center;}
 
-.pad7v{padding:0 7vmin 0 7vmin;}
+.pad5v{padding:0 5vmin 0 5vmin;}
+.pad6v{padding:0 6vmin 0 6vmin;}
+.pad7v{padding:0 6.8vmin 0 6.8vmin;}
 .pad8v{padding:0 8.1vmin 0 8.1vmin;}
 
 .oblique{font-style:oblique;}
 .underline{text-decoration: underline;}
 
 .ls20{letter-spacing:0.2vmin;}
+.ls25{letter-spacing:0.25vmin;}
 .ls50{letter-spacing:0.4vmin;}
 
+.lh7pt{line-height:4vmin;}
 .lh10pt{line-height:6.2vmin;}
 .lh11pt{line-height:7vmin;}
 .lh12pt{line-height:8vmin;}
@@ -71,6 +75,8 @@ img {
 .fs9pt{font-size:4.7vmin;}
 .fs11pt{font-size:5.5vmin;}
 .fs12pt{font-size:5.8vmin;}
+.fs15pt{font-size:8.3vmin;}
+.fs16pt{font-size:9vmin;}
 .fs30pt{font-size:16vmin;}
 .fs36pt{font-size:20vmin;}
 </style>
@@ -137,23 +143,28 @@ $(function(){
 <body>
 <div id="wrap">
 
-  <p class="helv_black fs7pt ls0" style="float:left;">12welve</p>
-  <p class="helv_narr fs7pt ls-10" style="float:right;">Connect Wallet</p>
-
-  <img src="./image/character01.png"/>
-  <p class="title title1" style="overflow:hidden;">9246 UNIQUE 12WELVE of NEXT-K POP</p>
-  <h1 id="trigger1">trigger1</h1>
-
-  <p class="helv_comp fs16pt ls25 lh7pt">
-  9246 unique 12welve
-  of next-k pop
-  coming soon
-  </p>
-
+  <section class="pad7v" style="display:flow-root">
+    <div style="height:20vmin;"></div>
+    <p class="helv_black fs7pt ls0" style="float:left;">12WELVE</p>
+    <p class="helv_narr fs7pt ls-10" style="float:right;">Connect Wallet</p>
+  </section>
+  
+  <section id="trigger1">
+    <div style="height:20vmin;"></div>
+    <p class="helv_comp fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p>
+    <div style="height:20vmin;"></div>
+    <img src="./image/character01.png"/>
+    <div style="height:20vmin;"></div>
+    <p class="helv_comp fs15pt ls25 lh7pt center">COMING SOON</p>
+    <div style="height:10vmin;"></div>
+  </section>
 
   <section class="pad8v">
+    <div style="height:10vmin;"></div>
     <p class="helv_black fs30pt ls0">12</p>
-    <p class="helv_black fs8pt ls20 oblique">DOUBLE 9246 UNIQUE 12WELVE</p>
+    <div style="height:12vmin;"></div>
+    <p class="helv_black fs8pt ls20 oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
+    <div style="height:4vmin;"></div>
     <p class="fs7pt lh10pt">
     12welve 프로젝트는 next-K pop을 이끌어 갈 
     46 meta 아이들(12 k-pop idol)의 ‘9246 unique 
@@ -161,10 +172,13 @@ $(function(){
     ‘9246 unique cubes’로 구성된 이더리움 블록체인 
     기반의 제너레이티드 3d nfts 컬렉션입니다
     </p>
+    <div style="height:10vmin;"></div>
   </section>
 
   <section class="">
+    <div style="height:10vmin;"></div>
     <img src="./image/character02.png"/>
+    <div style="height:10vmin;"></div>
   </section>
 
   <style>
@@ -173,10 +187,11 @@ $(function(){
       overflow: hidden;margin: 0px auto; position: relative;}
   </style>
   <section class="pad7v">
-    <div style="height:20vmin;"></div>
+    <div style="height:10vmin;"></div>
     <p class="helv_black fs36pt oblique center">1</p>
     <div style="height:5vmin;"></div>
     <div class="cube">
+      <div style="position:absolute;width:100%;height:100%;text-align:center; "><p class="helv_black oblique" style="position:relative; top:20%; font-size: 8vmin; color: #ffffff;">LOREM IPSUM DOLOR</p></div>
       <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline style="width: 100%;">
         <source src="image/cube.mp4" type="video/mp4">
         <strong>Your browser does not support the video tag.</strong>
@@ -186,13 +201,11 @@ $(function(){
       document.getElementById('video1').pause();
       -->
     </div>
-    <div style="width: 80%;">
-      <p class="helv_black" style="margin-top: -24px; font-size: 10vmin; color: #ffffff;">Lorem Ipsum Dolor</p>
-    </div>
+    <div style="height:10vmin;"></div>
   </section>
 
   <section class="pad7v">
-    <div style="height:25vmin;"></div>
+    <div style="height:10vmin;"></div>
     <p><font class="helv_black fs30pt">9.246</font>
       <font class="helv_black fs7pt">CUBES</font></p>
     <div style="height:8vmin;"></div>
