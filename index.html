@@ -39,26 +39,41 @@ img {
   width: 100%;
   height: auto;
 }
-.title{
-  font-family:helv_black;
-  font-size:2em;
-	transform: translateX(-50%) rotate(-10deg);
-	display: block;
-	float: left;
-	left: 50%;
-	/*position: relative;*/
-}
 
+.bg_white{background-color:#ffffff;}
+.bg_black{background-color:#000000;}
+.bg_skyblue{background-color:#00dddd;}
+
+.fg_black{color:#000000;}
+.fg_gray6{color:#666666;}
+.fg_gray8{color:#888888;}
+.fg_grayc{color:#cccccc;}
+.fg_skyblue{color:#00ffee;}
+
+.center{text-align: center;}
+
+.pad7v{padding:0 7vmin 0 7vmin;}
+.pad8v{padding:0 8.1vmin 0 8.1vmin;}
+
+.oblique{font-style:oblique;}
+.underline{text-decoration: underline;}
+
+.ls20{letter-spacing:0.2vmin;}
+.ls50{letter-spacing:0.4vmin;}
+
+.lh10pt{line-height:6.2vmin;}
+.lh11pt{line-height:7vmin;}
+.lh12pt{line-height:8vmin;}
+
+.fs6pt{font-size:3.2vmin;}
+.fs7pt{font-size:3.7vmin;}
+.fs8pt{font-size:4.4vmin;}
+.fs9pt{font-size:4.7vmin;}
+.fs11pt{font-size:5.5vmin;}
+.fs12pt{font-size:5.8vmin;}
+.fs30pt{font-size:16vmin;}
+.fs36pt{font-size:20vmin;}
 </style>
-</head>
-<body>
-<div id="wrap">
-  <div id="header">
-    <img src="./image/character01.png"/>
-    <p class="title title1" style="overflow:hidden;">9246 UNIQUE 12WELVE of NEXT-K POP</p>
-    <h1 id="trigger1">ScrollMagic</h1>
-    <p>스크롤매직 라이브러리 포스팅 예제입니다.<br/>스크롤매직 공식사이트 예제 라이브러리 : <a href="http://scrollmagic.io/examples/" target="_blank">http://scrollmagic.io/</a></p>
-  </div>
 <script>
 const clone = obj => JSON.parse(JSON.stringify(obj));
 
@@ -87,20 +102,20 @@ $(function(){
   */
 
   tween1 = TweenMax.to('.title1', 0.5, {	//2. animation object 생성
-		backgroundColor: "transparent",
-		scale: 0.8,
-		rotation: -20,
-		x: 0,
-		y: 100
-	});
+    backgroundColor: "transparent",
+    scale: 0.8,
+    rotation: -20,
+    x: 0,
+    y: 100
+  });
 
-	var scene = new ScrollMagic.Scene({	//3. Scene object 생성
-		triggerElement: '#trigger1',	//스크롤 애니메이션 시작 지점 설정
-		duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
-	})
-	.setTween(tween1)	//4. 2번을 3번에 추가
-	.addTo(controller)	//5. 1번(controller)을 3번에 추가
-	.addIndicators();
+  var scene = new ScrollMagic.Scene({	//3. Scene object 생성
+    triggerElement: '#trigger1',	//스크롤 애니메이션 시작 지점 설정
+    duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+  })
+  .setTween(tween1)	//4. 2번을 3번에 추가
+  .addTo(controller)	//5. 1번(controller)을 3번에 추가
+  .addIndicators();
 
 
   /*
@@ -118,132 +133,39 @@ $(function(){
   
 });
 </script>
+</head>
+<body>
+<div id="wrap">
 
+  <p class="helv_black fs7pt ls0" style="float:left;">12welve</p>
+  <p class="helv_narr fs7pt ls-10" style="float:right;">Connect Wallet</p>
 
-  <div class="container">
+  <img src="./image/character01.png"/>
+  <p class="title title1" style="overflow:hidden;">9246 UNIQUE 12WELVE of NEXT-K POP</p>
+  <h1 id="trigger1">trigger1</h1>
 
-
-    <style>
-      #cont {
-  font-size: 30px;
-  font-weight: bold;
-  color: #333;
-}
-
-#cont .txt {
-  display: block;
-  float: left;
-}
-
-#cont .txt1 {
-   color:#6271fd;
-}
-
-#cont .txt2 {
-   color:#8b72fa;
-}
-
-#cont .txt3 {
-   color:#121280;
-}
-
-#cont .txt span {
-  display: block;
-  float: left;
-  position: relative;
-  min-width: 8px;
-  min-height: 8px;
-  transform: skew(-10deg);
-}
-</style>
-    
-    <section>
-      <div class="trigger" id="trigger3">TRIGGER3</div>
-      <div id="animate1" class="icon">Hello</div>
-    </section>
-
-    <section>
-      <div class="trigger" id="trigger2">TRIGGER</div>
-    </section>
-
-  </div>
-
-
-
-
-
-  
-<p class="helv_black fs7pt ls0">12welve</p>
-
-
-<p class="helv_narr fs7pt ls-10">Connect Wallet</p>
-
-
-<p class="helv_comp fs16pt ls25 lh7pt">
-9246 unique 12welve
-of next-k pop
-coming soon
-</p>
-
-
-
-
-
-<style>
-
-.bg_white{background-color:#ffffff;}
-.bg_black{background-color:#000000;}
-.bg_skyblue{background-color:#00dddd;}
-
-.fg_black{color:#000000;}
-.fg_gray6{color:#666666;}
-.fg_gray8{color:#888888;}
-.fg_grayc{color:#cccccc;}
-.fg_skyblue{color:#00ffee;}
-
-.center{text-align: center;}
-
-.pad7v{padding:0 7vmin 0 7vmin;}
-.pad8v{padding:0 8.1vmin 0 8.1vmin;}
-
-.oblique{font-style:oblique;}
-.underline{text-decoration: underline;}
-
-.ls20{letter-spacing:0.2vmin;}
-.ls50{letter-spacing:0.4vmin;}
-
-
-.lh10pt{line-height:6.2vmin;}
-.lh11pt{line-height:7vmin;}
-.lh12pt{line-height:8vmin;}
-
-.fs6pt{font-size:3.2vmin;}
-.fs7pt{font-size:3.7vmin;}
-.fs8pt{font-size:4.4vmin;}
-.fs9pt{font-size:4.7vmin;}
-.fs11pt{font-size:5.5vmin;}
-.fs12pt{font-size:5.8vmin;}
-.fs30pt{font-size:16vmin;}
-.fs36pt{font-size:20vmin;}
-</style>
-<section class="pad8v">
-  <p class="helv_black fs30pt ls0">12</p>
-  <p class="helv_black fs8pt ls20 oblique">DOUBLE 9246 UNIQUE 12WELVE</p>
-  <p class="fs7pt lh10pt">
-  12welve 프로젝트는 next-K pop을 이끌어 갈 
-  46 meta 아이들(12 k-pop idol)의 ‘9246 unique 
-  avatars’와 12welve metaverse의 멤버쉽 키인 
-  ‘9246 unique cubes’로 구성된 이더리움 블록체인 
-  기반의 제너레이티드 3d nfts 컬렉션입니다
+  <p class="helv_comp fs16pt ls25 lh7pt">
+  9246 unique 12welve
+  of next-k pop
+  coming soon
   </p>
-</section>
 
 
+  <section class="pad8v">
+    <p class="helv_black fs30pt ls0">12</p>
+    <p class="helv_black fs8pt ls20 oblique">DOUBLE 9246 UNIQUE 12WELVE</p>
+    <p class="fs7pt lh10pt">
+    12welve 프로젝트는 next-K pop을 이끌어 갈 
+    46 meta 아이들(12 k-pop idol)의 ‘9246 unique 
+    avatars’와 12welve metaverse의 멤버쉽 키인 
+    ‘9246 unique cubes’로 구성된 이더리움 블록체인 
+    기반의 제너레이티드 3d nfts 컬렉션입니다
+    </p>
+  </section>
 
   <section class="">
     <img src="./image/character02.png"/>
   </section>
-
 
   <section class="pad7v">
     <div style="height:20vmin;"></div>
