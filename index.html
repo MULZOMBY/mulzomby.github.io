@@ -23,19 +23,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
 <style type="text/css">
-/*
-@font-face {font-family:'font';font-style: normal;
-  src:url('./font/kimberley bl.ttf') format('truetype');}
-*/
-@font-face {font-family:'font';font-style: normal;
-  src:url('./font/Headlines-Bold.otf') format('opentype');}
-* {font-family: 'font', serif;}
-body{background-color:#111111;color:#EEEEEE;}
+@font-face {font-family:'helv';font-style: normal;src:url('./font/Helvetica.otf') format('opentype');}
+@font-face {font-family:'helv_narr';font-style: normal;src:url('./font/Helvetica-Narrow.otf') format('opentype');}
+@font-face {font-family:'helv_comp';font-style: normal;src:url('./font/Helvetica-Compressed-Regular.otf') format('opentype');}
+@font-face {font-family:'helv_black';font-style: normal;src:url('./font/Helvetica-Condensed-Black.otf') format('opentype');}
+.helv{font-family:helv;}
+.helv_narr{font-family:helv_narr;}
+.helv_comp{font-family:helv_comp;}
+.helv_black{font-family:helv_black;}
+
+*{font-family: dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
+body{background-color:#666666;color:#EEEEEE;}
 img {
   width: 100%;
   height: auto;
 }
 .title{
+  font-family:<p class="helv_black"></p>;
   font-size:2em;
 	transform: translateX(-50%) rotate(-10deg);
 	display: block;
@@ -81,14 +85,12 @@ $(function(){
   */
 
   tween1 = TweenMax.to('.title1', 0.5, {	//2. animation object 생성
-		backgroundColor: "#6431ff",
+		backgroundColor: "transparent",
 		scale: 2.5,
-		rotation: 360,
+		rotation: -360,
 		x: 600,
 		y: 100
 	});
-  //animation1=clone(tween1);
-  var animation1 = new TweenMax(Object.assign({}, tween1));
 
 	var scene = new ScrollMagic.Scene({	//3. Scene object 생성
 		triggerElement: '#trigger2',	//스크롤 애니메이션 시작 지점 설정
@@ -99,7 +101,11 @@ $(function(){
 	.addIndicators();
 
   console.log(animation1);
-  animation1.resume();
+
+
+  var animation1=TweenMax.fromTo('.title1', 1,{
+    x:-200,
+  },{x:0,}).resume();
 
   /*
   var scene = new ScrollMagic.Scene({	//3. Scene object 생성
@@ -206,8 +212,123 @@ $(function(){
 
 
 
-	<div id="footer"><a href="https://mulzomby.github.io">mulzomby.github.io</a></div>
 
+
+  
+<p class="helv_black fs7pt ls0">12welve</p>
+
+
+<p class="helv_narr fs7pt ls-10">Connect Wallet</p>
+
+
+<p class="helv_comp fs16pt ls25 lh7pt">
+9246 unique 12welve
+of next-k pop
+coming soon
+</p>
+
+<p class="helv_black fs30pt ls0">12</p>
+
+<p class="helv_black fs8pt ls20">double 9246 unique 12welve</p>
+
+<p class="fs7pt">
+12welve 프로젝트는 next-K pop을 이끌어 갈 
+46 meta 아이들(12 k-pop idol)의 ‘9246 unique 
+avatars’와 12welve metaverse의 멤버쉽 키인 
+‘9246 unique cubes’로 구성된 이더리움 블록체인 
+기반의 제너레이티드 3d nfts 컬렉션입니다
+</p>
+
+<p class="helv_black fs36pt">1</p>
+
+<p class="helv_black fs30pt">9.246</p> 
+
+<p class="helv_black fs7pt">cubes</p> 
+
+
+<p class="helv_black fs8pt ls20">mint is coming</p>
+<p class="">
+. 큐브는 12welve metaverse의 비밀 조직인 x label
+의 기술과 절대 파괴가 불가능한 lower side의 
+신비로운 5개 물질로 만들어졌습니다. 
+. 큐브는 3개 차원의 12welve metaverse에서 부와 
+권력을 상징하며 높은 등급의 큐브를 수집 할수록 더 
+많은 권한을 가집니다.
+. 5개 등급의 큐브에는 최고의 가치를 지닌 46개의 
+스페셜 큐브가 있으며 12개 심볼의 동일 등급 큐브를 
+수집하여 더욱 가치있는 큐브를 만들 수 있습니다.
+. 큐브는 또한, 12welve metaverse의 특별한 정보에 
+접근 할 수 있는 키이며 다양한 아티스트와 협업한 
+고퀄리티의 ‘3d 아바타’를 무료로 지급받습니다.
+</p>fs7pt>
+
+
+<p class="helv_black fs12pt ls20">launch / growth</p>
+
+
+<p class="helv fs7pt">
+phase 1: <br/>
+9246 cubes mint<br/>
+phase 2:<br/>
+9246 avatars free mint<br/>
+phase 3:<br/>
+ip dev & business<br/>
+</p>
+
+
+<p class="fs7pt lh10pt">
+12welve metaverse를 시작하는<br/>
+큐브 민트를 진행합니다.<br/>
+special event<br/>
+private sale Only
+</p>
+
+
+<p class="">
+자세한 로드맵은 12welve 커뮤니티<br/>
+(discord)를 통해 공지될 것입니다.
+</p>fs7pt , 줄 간격 12pt)
+
+
+<p class="helv_comp">we are all ghosts of 12welve</p> fs9pt ls50 >
+
+
+
+<p class="fs7pt lh11pt">
+우리는 강력한 비전을 가진 팀입니다.<br/>
+<br/>
+팀은 next-k pop을 이끌어 갈<br/>
+46 meta 아이들(12 k-pop idol)의 성장을 위해<br/>
+물밑에서 전폭적인 지원과 지지를 보내고,<br/>
+12welve 커뮤니티와 함께 모든 일을 헤쳐나갑니다.<br/>
+<br/>
+아티스트, 프로듀서, 교수, 개발자 등의<br/>
+전문가부터 k-pop culture를 사랑하는<br/>
+z세대의 평범한 학생까지 12welve와 함께하는<br/>
+고스트가 될 수 있습니다.<br/>
+</p>
+
+
+<p class="helv_comp fs7pt ls50">Leader ~ advisor</p>
+
+
+<p class="fs6pt lh9pt">
+고스트 멤버, 프로젝트 협업
+및 기타 문의
+contact@12welve.io
+</p>
+
+
+<p class="helv_black fs11pt ls50">join our discord</p>
+
+
+<p class="fs6pt lh9pt">
+12welve 커뮤니티에 가입하시면
+special event와 private sale에 참여할 수 있습니다.
+</p>
+
+
+	<div id="footer"><p class="helv fs6pt">C 2022 12WELVE. ALL RIGHTS RESERVED</p></div>
 </div>
 </body>
 </html>
