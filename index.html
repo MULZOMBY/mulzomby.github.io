@@ -19,9 +19,11 @@
 <script src="./js/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+-->
 <style type="text/css">
 @font-face {font-family:'helv';font-style: normal;src:url('./font/Helvetica.otf') format('opentype');}
 @font-face {font-family:'helv_narr';font-style: normal;src:url('./font/Helvetica-Narrow.otf') format('opentype');}
@@ -35,6 +37,7 @@
 *{font-family: dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
 body{margin:0;background-color:#000000;color:#EEEEEE;}
 p{margin:0;}
+li{text-indent:-5vmin;}
 img {
   width: 100%;
   height: auto;
@@ -81,85 +84,92 @@ img {
 .fs36pt{font-size:20vmin;}
 </style>
 <script>
-const clone = obj => JSON.parse(JSON.stringify(obj));
+var controller = new ScrollMagic.Controller();
 
-//var animation1;
-var tween1;
+var controller2 = new ScrollMagic.Controller();
+
 $(function(){
-  /*
-  gsap.to(".title1", {
-    x: 200,
-    duration: 1,
-  });
-  */
-  var controller = new ScrollMagic.Controller();
-  /*
-  var tween1 = TweenMax.fromTo('.title1', 0.6, {
-    //backgroundColor: "#6431ff",
-    //scale: 2.5,
-    //rotation: 360,
-    x: 100,
-    //y: 100
-  },{
-    x:00,
-    yoyo:true,
-    repeat:-1,
-  });
-  */
 
-  tween1 = TweenMax.to('.title1', 0.5, {	//2. animation object 생성
-    backgroundColor: "transparent",
-    scale: 0.8,
-    rotation: -20,
+  /*
+  var tweenChar1 = TweenMax.to('#char1',1,{
+    backgroundColor:"transparent",
+    opacity: 100,
+    scale: 2,
+    rotation: 0,
     x: 0,
-    y: 100
+    y: 500
   });
-
-  var scene = new ScrollMagic.Scene({	//3. Scene object 생성
-    triggerElement: '#trigger1',	//스크롤 애니메이션 시작 지점 설정
-    duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+  var sceneChar1 = new ScrollMagic.Scene({
+    triggerElement: '#sect3',
+    duration: '100%',
   })
-  .setTween(tween1)	//4. 2번을 3번에 추가
-  .addTo(controller)	//5. 1번(controller)을 3번에 추가
+  .setTween(tweenChar1)
+  .addTo(controller)
   .addIndicators();
 
+  var sceneChar2 = new ScrollMagic.Scene({triggerElement: "#triggerChar2", duration: 1300})
+    .setPin("#char2")
+    .addIndicators({name: "char2 (duration: 1300)"}) // add indicators (requires plugin)
+    .addTo(controller2);
 
-  /*
-  var animation1=TweenMax.fromTo('.title1', 1,{
-    x:-200,
-  },{x:0,}).resume();
   */
-  /*
-  var scene = new ScrollMagic.Scene({	//3. Scene object 생성
-    triggerElement: '#trigger1',	//스크롤 애니메이션 시작 지점 설정
-    duration: '100%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+
+
+  $('#wrap').css({marginTop:'-100vmin'});
+  var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:'1000vmin'}).setPin("#char1").addTo(controller2).addIndicators({name: "char1 (duration: 1300)"})
+
+
+/*
+  var controller2 = new ScrollMagic.Controller();
+  var tween2 = TweenMax.staggerFromTo($('.ghost'), 0.5, {
+    ease: Back.easeOut.config(1.7),
+    opacity: 0,
+    bottom: -60
+  }, {
+    ease: Back.easeOut.config(1.7),
+    opacity: 1,
+    bottom: 0
+  }, 0.05);
+  var scene2 = new ScrollMagic.Scene({	//3. Scene object 생성
+    triggerElement: '#sectGhost',	//스크롤 애니메이션 시작 지점 설정
+    duration: '150%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
   })
-  .setTween(tween).addTo(controller).addIndicators();
+  .setTween(tween2)
+  .addTo(controller2)
+  .addIndicators();
 */
-  
+
 });
 </script>
 </head>
 <body>
-<div id="wrap">
 
-  <section class="pad7v" style="display:flow-root">
+<div id="header">
+  <section class="pad7v" style="display:flow-root" id="sect1">
     <div style="height:20vmin;"></div>
     <p class="helv_black fs7pt ls0" style="float:left;">12WELVE</p>
     <p class="helv_narr fs7pt ls-10" style="float:right;">Connect Wallet</p>
   </section>
-  
-  <section id="trigger1">
+
+  <section>
+    <div style="height:0vmin;" id="triggerChar1"></div>
+    <div id="char1"><img src="./image/character01.png"/></div>
+  </section>
+</div>
+
+<div id="wrap">
+
+  <section id="sect2">
     <div style="height:20vmin;"></div>
     <p class="helv_comp fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p>
     <div style="height:20vmin;"></div>
-    <img src="./image/character01.png"/>
+    <!--<img src="./image/character01.png" id="char12222"/>-->
     <div style="height:20vmin;"></div>
     <p class="helv_comp fs15pt ls25 lh7pt center">COMING SOON</p>
     <div style="height:10vmin;"></div>
-  </section>
+  </section>  
 
-  <section class="pad8v">
+  <section class="pad8v" id="sect3">
     <div style="height:10vmin;"></div>
     <p class="helv_black fs30pt ls0">12</p>
     <div style="height:12vmin;"></div>
@@ -175,9 +185,9 @@ $(function(){
     <div style="height:10vmin;"></div>
   </section>
 
-  <section class="">
-    <div style="height:10vmin;"></div>
-    <img src="./image/character02.png"/>
+  <section id="sect4">
+    <div style="height:10vmin;" id="triggerChar2"></div>
+    <div id="char2"><img src="./image/character02.png"/></div>
     <div style="height:10vmin;"></div>
   </section>
 
@@ -299,7 +309,7 @@ $(function(){
     }
     .ghost p{font-family:helv_comp;color:#000000}
     </style>
-  <section class="bg_white fg_black center">
+  <section class="bg_white fg_black center" id="sectGhost">
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">LEADER</p></div>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">ARTIST</p></div>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">MUSIC<br/>PRODUCER</p></div>
