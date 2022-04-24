@@ -115,8 +115,10 @@ $(function(){
   */
 
 
-  $('#wrap').css({marginTop:'-100vmin'});
-  var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:'1000vmin'}).setPin("#char1").addTo(controller2).addIndicators({name: "char1 (duration: 1300)"})
+  $('#wrap').css({marginTop:'-200vmin'});
+  var wrapMarginTop=$('#wrap').offset().top*-1;
+  console.log($('#wrap').offset().top*-1);
+  var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:wrapMarginTop}).setPin("#char1").addTo(controller2).addIndicators({name: "char1 (duration: 1300)"})
 
 
 /*
@@ -160,7 +162,7 @@ $(function(){
 <div id="wrap">
 
   <section id="sect2">
-    <div style="height:20vmin;"></div>
+    <div style="height:90vmin;"></div>
     <p class="helv_comp fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p>
     <div style="height:20vmin;"></div>
     <!--<img src="./image/character01.png" id="char12222"/>-->
