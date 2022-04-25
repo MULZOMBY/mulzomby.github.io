@@ -85,9 +85,6 @@ img {
 </style>
 <script>
 var controller = new ScrollMagic.Controller();
-
-var controller2 = new ScrollMagic.Controller();
-
 $(function(){
 
   /*
@@ -100,48 +97,80 @@ $(function(){
     y: 500
   });
   var sceneChar1 = new ScrollMagic.Scene({
-    triggerElement: '#sect3',
+    triggerElement: '#sectSummary',
     duration: '100%',
   })
   .setTween(tweenChar1)
   .addTo(controller)
   .addIndicators();
 
-  var sceneChar2 = new ScrollMagic.Scene({triggerElement: "#triggerChar2", duration: 1300})
+  var sceneChar02 = new ScrollMagic.Scene({triggerElement: "#triggerChar2", duration: 1300})
     .setPin("#char02")
     .addIndicators({name: "char02 (duration: 1300)"}) // add indicators (requires plugin)
-    .addTo(controller2);
-
-  */
-
+    .addTo(controller);
 
   $('#wrap').css({marginTop:'-200vmin'});
   var wrapMarginTop=$('#wrap').offset().top*-1;
   console.log($('#wrap').offset().top*-1);
-  var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:wrapMarginTop}).setPin("#char01").addTo(controller2).addIndicators({name: "char01 (duration: 1300)"})
+  var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:wrapMarginTop}).setPin("#char01").addTo(controller).addIndicators({name: "char01 (duration: 1300)"})
+  */
+
+  var tweenBack01=TweenMax.to('#back01',3,{
+    ease:Power0.easeOut,
+    width:'300vmin',
+    height:'250vmin',
+ });
+  var sceneBack01=new ScrollMagic.Scene({ triggerElement: '#triggerSectTitle',duration: '100%', }).setTween(tweenBack01).addTo(controller).addIndicators({name:'triggerSectTitle 100%'})
+  
 
 });
 </script>
 </head>
 <body>
 
-<div id="header">
-  <section class="pad7v" style="display:flow-root" id="sect1">
+<div id="layer">
+
+<style>
+#back01 {
+  width:100vmin;
+  height:500vmin;
+  background-image: url('./image/background01.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size:cover;
+}
+#sectMenu{
+  display:flow-root;
+  margin-top:-500vmin;
+}
+</style>
+  <section style="position:relative;z-index:-1;" id="sectBack01">
+    <div style="height:0vmin;" id="triggerBack01"></div>
+    <div class="center" id="back01"><!--<img src="./image/background01.png"/>--></div>
+  </section>
+  <section class="pad7v" id="sectMenu">
     <div style="height:20vmin;"></div>
     <p class="helv_black fs7pt ls0" style="float:left;">12WELVE</p>
     <p class="helv_narr fs7pt ls-10" style="float:right;">Connect Wallet</p>
   </section>
 
-  <section style="position:relative;z-index:-1;">
-    <div style="height:0vmin;" id="triggerChar1"></div>
+  <!--
+  <section style="position:relative;z-index:-1;" id="sectChar01">
+    <div style="height:0vmin;" id="triggerChar01"></div>
     <div class="center" id="char01"><img src="./image/character01.png"/></div>
   </section>
-</div>
+  -->
+
+  
+
+</div><!--<div id="layer">-->
 
 <div id="wrap">
 
-  <section id="sect2">
-    <div style="height:90vmin;"></div>
+  <section id="sectTitle">
+    <div style="height:0vmin;" id="triggerSectTitle"></div>
+    <div style="height:40vmin;"></div>
     <p class="helv_comp fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p>
     <div style="height:20vmin;"></div>
     <!--<img src="./image/character01.png" id="char012222"/>-->
@@ -150,7 +179,8 @@ $(function(){
     <div style="height:10vmin;"></div>
   </section>
 
-  <section class="pad8v" id="sect3">
+  <section class="pad8v" id="sectSummary">
+    <div style="height:0vmin;" id="triggerSectSummary"></div>
     <div style="height:10vmin;"></div>
     <p class="helv_black fs30pt ls0">12</p>
     <div style="height:12vmin;"></div>
@@ -168,7 +198,7 @@ $(function(){
 
 <script>
 $(function(){
-  var tweenChar2=TweenMax.fromTo($('#char02'), 10.5, {
+  var tweenChar02=TweenMax.fromTo($('#char02'), 10.5, {
     ease: Back.easeOut.config(1.7),
     opacity: 0,
     bottom: 0
@@ -178,16 +208,16 @@ $(function(){
     bottom: 0
   },1.05);
   var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
-    triggerElement: '#sect4',	//스크롤 애니메이션 시작 지점 설정
+    triggerElement: '#triggerSectSummary',	//스크롤 애니메이션 시작 지점 설정
     duration: '150%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
   })
-  .setTween(tweenChar2)
+  .setTween(tweenChar02)
   .addTo(controller)
   .addIndicators();
 });
 </script>
-  <section id="sect4">
-    <div style="height:10vmin;" id="triggerChar2"></div>
+  <section id="sectChar02">
+    <div style="height:10vmin;" id="triggerChar02"></div>
     <div id="char02"><img src="./image/character02.png"/></div>
     <div style="height:10vmin;"></div>
   </section>
@@ -215,10 +245,11 @@ $(function(){
     <div style="height:10vmin;"></div>
   </section>
 
+
 <script>
 $(function(){
-  $('#sect6 li').css({position:'relative'});
-  var tweenSect6Li=TweenMax.staggerFromTo($('#sect6 li'), 0.3, {
+  $('#sectList li').css({position:'relative'});
+  var tweenSect6Li=TweenMax.staggerFromTo($('#sectList li'), 0.3, {
     ease: Back.easeOut.config(0),
     opacity: 0,
     bottom: 0,
@@ -230,7 +261,7 @@ $(function(){
     left: 0,
   },0.05);
   var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
-    triggerElement: '#sect6',	//스크롤 애니메이션 시작 지점 설정
+    triggerElement: '#sectList',	//스크롤 애니메이션 시작 지점 설정
     duration: '60%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
   })
   .setTween(tweenSect6Li)
@@ -238,7 +269,7 @@ $(function(){
   .addIndicators();
 });
 </script>
-  <section class="pad7v" id="sect6">
+  <section class="pad7v" id="sectList">
     <div style="height:10vmin;"></div>
     <p><font class="helv_black fs30pt">9.246</font>
       <font class="helv_black fs7pt">CUBES</font></p>
@@ -371,7 +402,7 @@ $(function(){
     <div style="height:10vmin;"></div>
   </section>
 
-  <section class="pad7v">
+  <section class="pad7v" id="sectTrail">
     <div style="height:10vmin;"></div>
     <p class="helv_black fs11pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
     <div style="height:5vmin;"></div>
@@ -387,9 +418,10 @@ $(function(){
     </div>
     <div style="height:15vmin;"></div>
     <p class="helv fs6pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
+    <div style="height:10vmin;"></div>
   </section>
 
-  <div style="height:10vmin;"></div>
-</div>
+</div><!--<div id="wrap">-->
+
 </body>
 </html>
