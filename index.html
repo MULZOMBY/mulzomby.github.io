@@ -91,7 +91,7 @@ var controller2 = new ScrollMagic.Controller();
 $(function(){
 
   /*
-  var tweenChar1 = TweenMax.to('#char1',1,{
+  var tweenChar1 = TweenMax.to('#char01',1,{
     backgroundColor:"transparent",
     opacity: 100,
     scale: 2,
@@ -108,8 +108,8 @@ $(function(){
   .addIndicators();
 
   var sceneChar2 = new ScrollMagic.Scene({triggerElement: "#triggerChar2", duration: 1300})
-    .setPin("#char2")
-    .addIndicators({name: "char2 (duration: 1300)"}) // add indicators (requires plugin)
+    .setPin("#char02")
+    .addIndicators({name: "char02 (duration: 1300)"}) // add indicators (requires plugin)
     .addTo(controller2);
 
   */
@@ -118,66 +118,7 @@ $(function(){
   $('#wrap').css({marginTop:'-200vmin'});
   var wrapMarginTop=$('#wrap').offset().top*-1;
   console.log($('#wrap').offset().top*-1);
-  var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:wrapMarginTop}).setPin("#char1").addTo(controller2).addIndicators({name: "char1 (duration: 1300)"})
-
-
-
-
-  var tweenChar2=TweenMax.fromTo($('#char2'), 10.5, {
-    ease: Back.easeOut.config(1.7),
-    opacity: 0,
-    bottom: 0
-  },{
-    ease: Back.easeOut.config(1.7),
-    opacity: 1,
-    bottom: 0
-  },1.05);
-  var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
-    triggerElement: '#sect4',	//스크롤 애니메이션 시작 지점 설정
-    duration: '150%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
-  })
-  .setTween(tweenChar2)
-  .addTo(controller)
-  .addIndicators();
-
-
-  $('#sect6 li').css({position:'relative'});
-  var tweenSect6Li=TweenMax.staggerFromTo($('#sect6 li'), 0.3, {
-    ease: Back.easeOut.config(0),
-    opacity: 0,
-    bottom: 0,
-    left: -100,
-  },{
-    ease: Back.easeOut.config(10),
-    opacity: 1,
-    bottom: 0,
-    left: 0,
-  },0.05);
-  var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
-    triggerElement: '#sect6',	//스크롤 애니메이션 시작 지점 설정
-    duration: '60%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
-  })
-  .setTween(tweenSect6Li)
-  .addTo(controller)
-  .addIndicators();
-  
-
-  var tweenGhost=TweenMax.staggerFromTo($('.ghost'), 0.5, {
-    ease: Back.easeOut.config(1.7),
-    opacity: 0,
-    bottom: -60
-  },{
-    ease: Back.easeOut.config(1.7),
-    opacity: 1,
-    bottom: 0
-  },0.05);
-  var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
-    triggerElement: '#sectGhost',	//스크롤 애니메이션 시작 지점 설정
-    duration: '150%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
-  })
-  .setTween(tweenGhost)
-  .addTo(controller)
-  .addIndicators();
+  var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:wrapMarginTop}).setPin("#char01").addTo(controller2).addIndicators({name: "char01 (duration: 1300)"})
 
 });
 </script>
@@ -193,7 +134,7 @@ $(function(){
 
   <section style="position:relative;z-index:-1;">
     <div style="height:0vmin;" id="triggerChar1"></div>
-    <div class="center" id="char1"><img src="./image/character01.png"/></div>
+    <div class="center" id="char01"><img src="./image/character01.png"/></div>
   </section>
 </div>
 
@@ -203,7 +144,7 @@ $(function(){
     <div style="height:90vmin;"></div>
     <p class="helv_comp fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p>
     <div style="height:20vmin;"></div>
-    <!--<img src="./image/character01.png" id="char12222"/>-->
+    <!--<img src="./image/character01.png" id="char012222"/>-->
     <div style="height:80vmin;"></div>
     <p class="helv_comp fs15pt ls25 lh7pt center">COMING SOON</p>
     <div style="height:10vmin;"></div>
@@ -225,9 +166,29 @@ $(function(){
     <div style="height:10vmin;"></div>
   </section>
 
+<script>
+$(function(){
+  var tweenChar2=TweenMax.fromTo($('#char02'), 10.5, {
+    ease: Back.easeOut.config(1.7),
+    opacity: 0,
+    bottom: 0
+  },{
+    ease: Back.easeOut.config(1.7),
+    opacity: 1,
+    bottom: 0
+  },1.05);
+  var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
+    triggerElement: '#sect4',	//스크롤 애니메이션 시작 지점 설정
+    duration: '150%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+  })
+  .setTween(tweenChar2)
+  .addTo(controller)
+  .addIndicators();
+});
+</script>
   <section id="sect4">
     <div style="height:10vmin;" id="triggerChar2"></div>
-    <div id="char2"><img src="./image/character02.png"/></div>
+    <div id="char02"><img src="./image/character02.png"/></div>
     <div style="height:10vmin;"></div>
   </section>
 
@@ -254,6 +215,29 @@ $(function(){
     <div style="height:10vmin;"></div>
   </section>
 
+<script>
+$(function(){
+  $('#sect6 li').css({position:'relative'});
+  var tweenSect6Li=TweenMax.staggerFromTo($('#sect6 li'), 0.3, {
+    ease: Back.easeOut.config(0),
+    opacity: 0,
+    bottom: 0,
+    left: -100,
+  },{
+    ease: Back.easeOut.config(10),
+    opacity: 1,
+    bottom: 0,
+    left: 0,
+  },0.05);
+  var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
+    triggerElement: '#sect6',	//스크롤 애니메이션 시작 지점 설정
+    duration: '60%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+  })
+  .setTween(tweenSect6Li)
+  .addTo(controller)
+  .addIndicators();
+});
+</script>
   <section class="pad7v" id="sect6">
     <div style="height:10vmin;"></div>
     <p><font class="helv_black fs30pt">9.246</font>
@@ -331,24 +315,44 @@ $(function(){
     <div style="height:25vmin;"></div>
   </section>
 
-    <style>
-    .ghost{
-      display:inline-block;
-      text-align: center;
-      vertical-align:top;
-      margin:4vmin;
-      height:40vmin;
-      width:40vmin;
-    }
-    .ghost .dot{
-      height: 25vmin;
-      width: 25vmin;
-      background-color: #555555;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .ghost p{font-family:helv_comp;color:#000000}
-    </style>
+<style>
+.ghost{
+  display:inline-block;
+  text-align: center;
+  vertical-align:top;
+  margin:4vmin;
+  height:40vmin;
+  width:40vmin;
+}
+.ghost .dot{
+  height: 25vmin;
+  width: 25vmin;
+  background-color: #555555;
+  border-radius: 50%;
+  display: inline-block;
+}
+.ghost p{font-family:helv_comp;color:#000000}
+</style>
+<script>
+$(function(){
+  var tweenGhost=TweenMax.staggerFromTo($('.ghost'), 0.5, {
+    ease: Back.easeOut.config(1.7),
+    opacity: 0,
+    bottom: -60
+  },{
+    ease: Back.easeOut.config(1.7),
+    opacity: 1,
+    bottom: 0
+  },0.05);
+  var sceneGhost = new ScrollMagic.Scene({	//3. Scene object 생성
+    triggerElement: '#sectGhost',	//스크롤 애니메이션 시작 지점 설정
+    duration: '150%',	//애니메이션 재생 시간 '100%'지정하면 화면 높이에 따라 유동적으로 end위치가 정해짐
+  })
+  .setTween(tweenGhost)
+  .addTo(controller)
+  .addIndicators();
+});
+</script>
   <section class="bg_white fg_black center" id="sectGhost">
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">LEADER</p></div>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">ARTIST</p></div>
