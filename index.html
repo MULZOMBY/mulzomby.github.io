@@ -34,15 +34,11 @@
 .helv_narr{font-family:helv_narr;}
 .helv_comp{font-family:helv_comp;}
 .helv_black{font-family:helv_black;}
-
-*{font-family: dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
+*{font-family:dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
 body{max-width:100vmin;margin:0 auto;background-color:#000000;color:#EEEEEE;}
 p{margin:0;}
 li{text-indent:-5vmin;}
-img {
-  width: 100vmin;
-  height: auto;
-}
+img{width: 100vmin;height: auto;}
 
 .bg_white{background-color:#ffffff;}
 .bg_black{background-color:#000000;}
@@ -54,15 +50,10 @@ img {
 .fg_grayc{color:#cccccc;}
 .fg_skyblue{color:#00ffee;}
 
-.center{text-align: center;}
-
 .pad5v{padding:0 5vmin 0 5vmin;}
 .pad6v{padding:0 6vmin 0 6vmin;}
 .pad7v{padding:0 6.8vmin 0 6.8vmin;}
 .pad8v{padding:0 8.1vmin 0 8.1vmin;}
-
-.oblique{font-style:oblique;}
-.underline{text-decoration: underline;}
 
 .ls20{letter-spacing:0.2vmin;}
 .ls25{letter-spacing:0.25vmin;}
@@ -83,30 +74,15 @@ img {
 .fs16pt{font-size:9vmin;}
 .fs30pt{font-size:16vmin;}
 .fs36pt{font-size:20vmin;}
+
+.center{text-align: center;}
+.oblique{font-style:oblique;}
+.underline{text-decoration: underline;}
 </style>
 
 <script>
 var controller = new ScrollMagic.Controller();
 $(function(){
-  var controllerGhost = new ScrollMagic.Controller();
-
-  
-  var tweenGhost=TweenMax.staggerFromTo($('.ghost'), 0.5, {
-    ease: Back.easeOut.config(1.7),
-    opacity: 0.1,
-    bottom: -60
-  },{
-    ease: Back.easeOut.config(1.7),
-    opacity: 1,
-    bottom: 0
-  },0.05);
-  var sceneGhost = new ScrollMagic.Scene({
-    triggerElement: '#triggerSectGhost',
-    duration: '100%',
-  })
-  .setTween(tweenGhost);
-  //.addTo(controller)
-  //.addIndicators();
 
   /*
   var tweenChar1 = TweenMax.to('#char01',1,{
@@ -136,36 +112,38 @@ $(function(){
   var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:wrapMarginTop}).setPin("#char01").addTo(controller).addIndicators({name: "char01 (duration: 1300)"})
   */
 
+
+
+  var tweenGhost=TweenMax.staggerFromTo($('.ghost'), 0.5, {
+    ease: Back.easeOut.config(1.7),
+    opacity: 0.1,
+    bottom: -60
+  },{
+    ease: Back.easeOut.config(1.7),
+    opacity: 1,
+    bottom: 0
+  },0.05);
+  var sceneGhost = new ScrollMagic.Scene({
+    triggerElement: '#triggerSectGhost',
+    duration: '100%',
+  })
+  .setTween(tweenGhost);
+  //.addTo(controller)
+  //.addIndicators();
   
   //var tweenBack01=TweenMax.to('#back01',1,{
   var tweenBack01 = new TimelineMax().to('#back01',1,{
     //ease:Power0.easeOut,
-    backgroundSize:'200%',
-    height:'250vmin'
+    //backgroundSize:'200%',
+    //height:'250vmin'
   });
-  var sceneBack01=new ScrollMagic.Scene({ triggerElement: '#triggerSectTitle',duration:'500%', }).setTween(tweenBack01);//.addTo(controller).addIndicators({name:'triggerSectTitle 100%'})
-
-
-  /*
-  //create a timeline that calls myFunction() when it completes
-var tl = new TimelineLite({onComplete:myFunction});
- 
-tl.to(element, 1, {left:100})        //tween element's "left" property to 100
-  .to(element, 1, {top:50}, "-=0.25")    //then tween element's "top" property to 50, starting 0.25 seconds before the previous one ends
-  .set(element, {opacity:0})        //then set element's opacity to 0.5 immediately
-  .call(otherFunction)        //then call otherFunction()
-  .staggerTo([e1, e2, e3], 1.5, {rotation:45}, 0.25); //finally tween the rotation of e1, e2, and e3 to 45 and stagger the start times by 0.25 seconds
-  https://codepen.io/irawachaloco/pen/xwayMd
-  */
-
-  
-  controller.addScene([sceneBack01,sceneGhost]);
+  //var sceneBack01=new ScrollMagic.Scene({ triggerElement: '#triggerSectSummary',duration:'500%', }).setTween(tweenBack01);//.addTo(controller).addIndicators({name:'triggerSectTitle 100%'})
+  //controller.addScene([sceneBack01,sceneGhost]);
 });
 </script>
 </head>
 <body>
 
-<div id="layer">
 
 <style>
 #back01 {
@@ -177,34 +155,63 @@ tl.to(element, 1, {left:100})        //tween element's "left" property to 100
   background-position: center;
   background-size:100%;
 }
-#sectMenu{
-  display:flow-root;
-  margin-top:-450vmin;
-}
 </style>
-  <section style="position:relative;z-index:-1;" id="sectBack01">
+<script>
+$(function(){
+  const sceneBack01 = new ScrollMagic.Scene({
+    triggerElement: '#sectChar02',
+    triggerHook : .8,	//'onEnter' = 1, 'onCenter' = 0.5, 'onLeave' = 0
+    reverse: true, // DEFAULT=true
+    offset: '-10vmin',
+    duration:'1000vmin', // '100%'
+  }).setTween(TweenMax.to('#back01', 1, { height: '1000vmin',opacity:0, }, { ease: Quad.easeIn }))
+  //.setTween(TweenMax.to('#back01', 0.2, { height: '350px' }, { ease: Quad.easeIn }))
+  .addTo(controller)
+
+});
+</script>
+<div id="layer">
+  <section style="position:absolute;z-index:-1;" id="sectBack01">
     <div style="height:0vmin;" id="triggerBack01"></div>
     <div class="center" id="back01"><!--<img src="./image/background01.png"/>--></div>
   </section>
-  <section class="pad7v" id="sectMenu">
-    <div style="height:20vmin;"></div>
-    <p class="helv_black fs7pt ls0" style="float:left;">12WELVE</p>
-    <p class="helv_narr fs7pt ls-10" style="float:right;">Connect Wallet</p>
-  </section>
-
   <!--
   <section style="position:relative;z-index:-1;" id="sectChar01">
     <div style="height:0vmin;" id="triggerChar01"></div>
     <div class="center" id="char01"><img src="./image/character01.png"/></div>
   </section>
   -->
-
-  
-
 </div><!--<div id="layer">-->
 
-<div id="wrap">
 
+
+<style>
+#menu{
+  position:fixed;
+  width:100%;
+}
+</style>
+<script>
+$(function(){
+  $('#btn12Welve').click(function(){
+    console.log('adsf');
+  });
+  $('#btnConnect').click(function(){
+    console.log('connect');
+  });
+})
+</script>
+<div id="menu">
+  <section class="pad7v" id="sectMenu">
+    <div style="height:5vmin;"></div>
+    <p class="helv_black fs7pt ls0" style="float:left;" id="btn12Welve">12WELVE</p>
+    <p class="helv_narr fs7pt ls-10" style="float:right;" id="btnConnect">Connect Wallet</p>
+  </section>
+</div>
+
+
+
+<div id="wrap">
   <section id="sectTitle">
     <div style="height:0vmin;" id="triggerSectTitle"></div>
     <div style="height:40vmin;"></div>
