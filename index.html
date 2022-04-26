@@ -162,9 +162,9 @@ $(function(){
     triggerElement: '#sectChar02',
     triggerHook : .8,	//'onEnter' = 1, 'onCenter' = 0.5, 'onLeave' = 0
     reverse: true, // DEFAULT=true
-    offset: '-10vmin',
-    duration:'1000vmin', // '100%'
-  }).setTween(TweenMax.to('#back01', 1, { height: '1000vmin',opacity:0, }, { ease: Quad.easeIn }))
+    offset: '-100vmin',
+    duration:'1100vmin', // '100%'
+  }).setTween(TweenMax.to('#back01', 0.5, { backgroundSize:'300%',opacity:0, }, { ease: Quad.easeIn }))
   //.setTween(TweenMax.to('#back01', 0.2, { height: '350px' }, { ease: Quad.easeIn }))
   .addTo(controller)
 
