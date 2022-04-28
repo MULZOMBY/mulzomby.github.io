@@ -113,6 +113,15 @@ $(function(){
   var wrapMarginTop=$('#wrap').offset().top*-1;
   console.log($('#wrap').offset().top*-1);
   var sceneSectA = new ScrollMagic.Scene({triggerElement: "#sectA", duration:wrapMarginTop}).setPin("#char01").addTo(controller).addIndicators({name: "char01 (duration: 1300)"})
+
+
+  //var tweenBack01=TweenMax.to('#back01',1,{
+  var tweenBack01 = new TimelineMax().to('#back01',1,{
+    //ease:Power0.easeOut,
+    //backgroundSize:'200%',
+    //height:'250vmin'
+  });
+  //var sceneBack01=new ScrollMagic.Scene({ triggerElement: '#triggerSectSummary',duration:'500%', }).setTween(tweenBack01);//.addTo(controller).addIndicators({name:'triggerSectTitle 100%'})
   */
 
 
@@ -133,15 +142,17 @@ $(function(){
   .setTween(tweenGhost);
   //.addTo(controller)
   //.addIndicators();
+
+  const sceneBack01 = new ScrollMagic.Scene({
+    triggerElement: '#sectChar02',
+    triggerHook : .8,	//'onEnter' = 1, 'onCenter' = 0.5, 'onLeave' = 0
+    reverse: true, // DEFAULT=true
+    offset: '-100vmin',
+    duration:'1100vmin', // '100%'
+  }).setTween(TweenMax.to('#back01', 0.5, { backgroundSize:'300%',opacity:0, }, { ease: Quad.easeIn }))
+  //.setTween(TweenMax.to('#back01', 0.2, { height: '350px' }, { ease: Quad.easeIn }))
   
-  //var tweenBack01=TweenMax.to('#back01',1,{
-  var tweenBack01 = new TimelineMax().to('#back01',1,{
-    //ease:Power0.easeOut,
-    //backgroundSize:'200%',
-    //height:'250vmin'
-  });
-  //var sceneBack01=new ScrollMagic.Scene({ triggerElement: '#triggerSectSummary',duration:'500%', }).setTween(tweenBack01);//.addTo(controller).addIndicators({name:'triggerSectTitle 100%'})
-  //controller.addScene([sceneBack01,sceneGhost]);
+  controller.addScene([sceneBack01,sceneGhost]);
 });
 </script>
 </head>
@@ -155,21 +166,12 @@ $(function(){
   background-image: url('./image/background01.gif');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position:top; /* center; 로 하면 아이폰에서 안보임 */
   background-size:100%;
 }
 </style>
 <script>
 $(function(){
-  const sceneBack01 = new ScrollMagic.Scene({
-    triggerElement: '#sectChar02',
-    triggerHook : .8,	//'onEnter' = 1, 'onCenter' = 0.5, 'onLeave' = 0
-    reverse: true, // DEFAULT=true
-    offset: '-100vmin',
-    duration:'1100vmin', // '100%'
-  }).setTween(TweenMax.to('#back01', 0.5, { backgroundSize:'300%',opacity:0, }, { ease: Quad.easeIn }))
-  //.setTween(TweenMax.to('#back01', 0.2, { height: '350px' }, { ease: Quad.easeIn }))
-  .addTo(controller)
 
 });
 </script>
