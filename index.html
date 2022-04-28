@@ -85,8 +85,23 @@ img{width: 100vmin;height: auto;}
 
 <script>
 var controller = new ScrollMagic.Controller();
-$(function(){
 
+
+window.onresize = function(event){
+  if(window.screen.width>450){ // document.body.offsetWidth
+    $('body').css({maxWidth:'initial'});
+
+    $('#sectBack02').css({position:'absolute',zIndex:-2});
+  }else{
+    $('body').css({maxWidth:'100vmin'});
+    $('#sectBack02').css({position:'initial'});
+  }
+}
+
+
+$(function(){
+console.log(document.body.offsetWidth);
+  
   /*
   var tweenChar1 = TweenMax.to('#char01',1,{
     backgroundColor:"transparent",
@@ -375,13 +390,12 @@ $(function(){
 */
 });
 </script>
-  <section class="">
-    <div style="height:25vmin;"></div>
+  <div style="height:25vmin;"></div>
+  <section class="" id="sectBack02">
     <div style="height:0vmin;" id="triggerBack02"></div>
     <div class="" id="back02"><!--</div>><img src="./image/background02.png"/>--></div>
   </section>
-
-  <section class="pad7v" id="sectList">
+  <section class="pad7v" id="sectText02">
     <p><font class="helv_black fs30pt">9.246</font>
       <font class="helv_black fs7pt">AVATARS</font></p>
     <div style="height:8vmin;"></div>
