@@ -36,7 +36,7 @@
 .helv_black{font-family:helv_black;}
 *{font-family:dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
 body{max-width:100vmin;margin:0 auto;background-color:#000000;color:#EEEEEE;}
-section{max-width:100vmin;}
+section{max-width:100vmin;margin-left:auto;margin-right:auto;}
 p{margin:0;}
 li{text-indent:-5vmin;}
 img{width: 100vmin;height: auto;}
@@ -92,9 +92,11 @@ window.onresize = function(event){
     $('body').css({maxWidth:'initial'});
 
     $('#sectBack02').css({position:'absolute',zIndex:-2});
+    $('#back01').css({width:'100vmax'});
   }else{
     $('body').css({maxWidth:'100vmin'});
     $('#sectBack02').css({position:'initial'});
+    $('#back01').css({width:'100vmin'});
   }
 }
 
@@ -396,6 +398,7 @@ $(function(){
     <div class="" id="back02"><!--</div>><img src="./image/background02.png"/>--></div>
   </section>
   <section class="pad7v" id="sectText02">
+    <div>
     <p><font class="helv_black fs30pt">9.246</font>
       <font class="helv_black fs7pt">AVATARS</font></p>
     <div style="height:8vmin;"></div>
@@ -406,6 +409,7 @@ $(function(){
     <li class="fs7pt lh10pt">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</li>
     <li class="fs7pt lh10pt">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</li>
     <div style="height:25vmin;"></div>
+    </div>
   </section>
 
 
