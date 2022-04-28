@@ -25,6 +25,11 @@ https://greensock.com/forums/topic/20694-how-animate-a-text-with-gradient/
 
 
 
+
+
+#### https://www.hyungjoo.me/parallax-scroll-%EC%9B%90%EB%A6%AC/
+
+
 20220428 TASK
 스크롤하면
 
