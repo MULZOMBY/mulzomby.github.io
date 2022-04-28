@@ -21,3 +21,26 @@ http://302chanwoo.com/lab/tween/
 
 ### TEXT ANIMATION
 https://greensock.com/forums/topic/20694-how-animate-a-text-with-gradient/
+
+
+
+
+20220428 TASK
+스크롤하면
+
+1.
+9246....이 가만히 있고
+풍선만 올라감
+9246....은 풍선뒤에 있다
+
+2.
+풍선이 올라가다가
+12가 나오는데 풍선 위에있다
+12랑 풍선이랑 다른속도로 사라진다
+
+3.
+2번은 PC일때는 
+
+* 메카버스에 건담부분
+* png sequence sample
+
