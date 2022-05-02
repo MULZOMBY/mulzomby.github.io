@@ -237,12 +237,21 @@ img{width:100vmin;height: auto;}
 #layer3{
   -webkit-transform:translate3d(0,0,0);
   overflow-x:hidden;
-  /*width:100vmin;*/
+  margin:0 auto;
+  position:absolute;
+  z-index:7;
+  top:0;
+}
+#layer4{
+  -webkit-transform:translate3d(0,0,0);
+  overflow-x:hidden;
   margin:0 auto;
   position:relative;
-  margin-top:100vmin;
   z-index:9;
+  top:0;
 }
+
+#layer1, #layer3, #layer4{width:80vw;}
 
 xxxbody {
   height: 100vh;
@@ -301,7 +310,7 @@ $(window).on('resize',resizeWindow=function(){
     //$('#layer2').css('top','48vmin');
     $('#layer2').css('position','absolute');
     $('#layer2').css('margin-top',balloonScrollUp);
-    document.getElementById('sectBack01').style.marginTop = ( (window.scrollY-balloonScrollUp) /3 )+'px';
+    document.getElementById('sectBack01').style.marginTop = ( (window.scrollY-balloonScrollUp) /2 )+'px';
   }
 
   $('#layer1').css('z-index','1');
@@ -317,10 +326,9 @@ $(window).on('resize',resizeWindow=function(){
   */
   if(p2v(scroll)>80){
     console.log('layer1 2');
-    //$('#layer1').css('top','260vmin');
-    //$('#layer1').css('top',$('#back01').offset().top-v2p(50));
     $('#layer1 #sectTitle').css('visibility','hidden');
-$('#layer1').css('top','42vmin');
+//$('#layer1').css('top','42vmin');
+$('#layer1').css('top','-30vw');
     $('#layer1').css('position','relative');
     $('#layer1').css('z-index','3');
   }
@@ -347,7 +355,33 @@ $(function(){
     <div><p class="helv_comp fs16pt lh12pt ls25 center" style="">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
     <div style="height:200vmin;"></div>
   </section>
+</div><!--<div id="layer1">-->
 
+
+<div id="layer2" style="-webkit-transform:translate3d(0,0,0);z-index:2;">  
+  <section id="sectBack01" class="" style="max-width:100%;"><!-- style="position:absolute;z-index:-1;"-->
+    <div class="center" id="back01" style="
+    width:100%;
+    height:100vw;
+    background-image: url('./image/balloon.png');
+    background-position:top center;
+    background-size:140vw;
+    background-repeat:no-repeat;
+  "><!--<img src="./image/balloon.png"/>--></div>
+  </section>
+
+  <div style="height:100vmin"></div>
+
+  <section id="sectChar02">
+    <div style="height:10vmin;" id="triggerChar02"></div>
+    <div id="char02"><img src="./image/character02.png"/></div>
+    <div style="height:10vmin;"></div>
+  </section>
+
+</div>
+
+
+<div id="layer3">
   <section class="pad8v" id="sectSummary" style="">
     <p class="helv_black fs30pt ls0">12</p>
     <div style="height:12vmin;"></div>
@@ -385,36 +419,10 @@ Metaverse’는 완성됩니다.<br/>
     </p>
     <div style="height:10vmin;"></div>
   </section>
-
-</div><!--<div id="layer1">-->
-
+</div>"
 
 
-<div id="layer2" style="-webkit-transform:translate3d(0,0,0);z-index:2;">  
-  <section id="sectBack01" class="" style="max-width:100%;"><!-- style="position:absolute;z-index:-1;"-->
-    <div class="center" id="back01" style="
-    width:100%;
-    height:100vw;
-    background-image: url('./image/balloon.png');
-    background-position:top center;
-    background-size:140vw;
-    background-repeat:no-repeat;
-  "><!--<img src="./image/balloon.png"/>--></div>
-  </section>
-
-  <div style="height:100vmin"></div>
-
-  <section id="sectChar02">
-    <div style="height:10vmin;" id="triggerChar02"></div>
-    <div id="char02"><img src="./image/character02.png"/></div>
-    <div style="height:10vmin;"></div>
-  </section>
-
-</div>
-
-
-
-<div id="layer3" style="">
+<div id="layer4" style="">
 
   <section class="pad7v">
     <div style="height:10vmin;"></div>
@@ -622,6 +630,6 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
 
 </div><!--<div id="layer2">-->
 
-
+<div id="layer99" style="position:relative"></div>
 </body>
 </html>
