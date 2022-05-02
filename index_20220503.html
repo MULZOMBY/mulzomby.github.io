@@ -147,6 +147,22 @@ body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:dotum,-app
 .lh11pt{line-height:7vmin;}
 .lh12pt{line-height:8vmin;}
 
+/*
+.fs4pt{font-size:2.2vmin;}
+.fs5pt{font-size:2.7vmin;}
+.fs6pt{font-size:3.2vmin;}
+.fs7pt{font-size:3.7vmin;}
+.fs8pt{font-size:4.4vmin;}
+.fs9pt{font-size:4.7vmin;}
+.fs11pt{font-size:5.5vmin;}
+.fs12pt{font-size:5.8vmin;}
+.fs15pt{font-size:8.3vmin;}
+.fs16pt{font-size:9vmin;}
+.fs30pt{font-size:16vmin;}
+.fs36pt{font-size:20vmin;}
+*/
+.fs4pt{font-size:2.2vmin;}
+.fs5pt{font-size:2.7vmin;}
 .fs6pt{font-size:3.2vmin;}
 .fs7pt{font-size:3.7vmin;}
 .fs8pt{font-size:4.4vmin;}
@@ -162,7 +178,6 @@ body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:dotum,-app
 .oblique{font-style:oblique;}
 .underline{text-decoration: underline;}
 
-section{width:100%}
 p{margin:0;}
 li{text-indent:-5vmin;}
 img{width:100vmin;height: auto;}
@@ -217,10 +232,18 @@ img{width:100vmin;height: auto;}
   transform: scale(1.5);
 }
 */
+
+#layer1,#layer2,#layer3,#layer4{-webkit-transform:translate3d(0,0,0);}
+#layer1, #layer4, #layer5{width:80vw;margin:0 auto;}
+
+
+#content1,#content2,#content3,#content4,#content5,#content6{width:80vw;-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;transform:translate(-50%,0);}
+
+#content1,#content2,#content5{width:100vw;}
+
 #layer1{
-  -webkit-transform:translate3d(0,0,0);
+  position:sticky;
   overflow-x:hidden;
-  /*width:100vmin;*/
   margin:0 auto;
 }
 #layer2 {
@@ -228,30 +251,18 @@ img{width:100vmin;height: auto;}
   width:100%;
   margin:0 auto;
   top:0;
-  /*
   position:absolute;
-  margin-top:100vmin;
-  */
+  margin-top:70vmin;
 }
 
 #layer3{
   -webkit-transform:translate3d(0,0,0);
   overflow-x:hidden;
-  margin:0 auto;
-  position:absolute;
-  z-index:7;
-  top:0;
-}
-#layer4{
-  -webkit-transform:translate3d(0,0,0);
-  overflow-x:hidden;
+  z-index:3;
   margin:0 auto;
   position:relative;
-  z-index:9;
-  top:0;
+  width:62vw;
 }
-
-#layer1, #layer3, #layer4{width:80vw;}
 
 xxxbody {
   height: 100vh;
@@ -289,34 +300,23 @@ $(window).on('resize',resizeWindow=function(){
   //$('#layer2').css('margin-top','-130vmin');
 
 }).on('scroll',scrollWindow=function(event){
+  console.log('WINDOW SCROLL');
   scroll = document.documentElement.scrollTop || document.body.scrollTop;
+  try{
   //console.log('scroll '+scroll +'px '+ p2v(scroll)+'vmin sectBack01 '+$('#sectBack01').offset().top+' ');
   //console.log('scroll '+scroll +'px '+ p2v(scroll)+'vmin sectSummary '+$('#sectSummary').offset().top);
   console.log('scroll '+scroll +'px '+ p2v(scroll)+'vmin layer1 '+$('#layer1').offset().top+' '+p2v($('#layer1').offset().top));
+  }catch(e){}
 
   
 
-  //layer2 balloon
-  //layer1 text
-  $('#layer2').css({position:'absolute',top:0,marginTop:'70vmin'});
-  //if(scroll>v2p(50) && scroll<=v2p(140)){
-  if(scroll>$('#sectBack01').offset().top && scroll<=balloonScrollUp){
-    //$('#layer2').css('top','0vmin');
-    $('#layer2').css('position','sticky');
-    $('#layer2').css('margin-top',-$('#sectBack01').offset().top);
-    layer2MarginTop=$('#layer2').offset().top;
-  }else if(scroll>balloonScrollUp){
-    // $('#layer2').css('margin-top');
-    //$('#layer2').css('top','48vmin');
-    $('#layer2').css('position','absolute');
-    $('#layer2').css('margin-top',balloonScrollUp);
-    document.getElementById('sectBack01').style.marginTop = ( (window.scrollY-balloonScrollUp) /2 )+'px';
-  }
+
 
   $('#layer1').css('z-index','1');
   $('#layer1').css('top','0vmin');
   $('#layer1').css('position','sticky');
   $('#layer1 #sectTitle').css('visibility','visible');
+
   /*
   if(p2v(scroll)>80 && scroll<=p2v($('#layer2').offset().top)){
     console.log('layer1 1');
@@ -327,11 +327,52 @@ $(window).on('resize',resizeWindow=function(){
   if(p2v(scroll)>80){
     console.log('layer1 2');
     $('#layer1 #sectTitle').css('visibility','hidden');
-//$('#layer1').css('top','42vmin');
+    $('#layer1').css('position','absolute');
+/*
 $('#layer1').css('top','-30vw');
     $('#layer1').css('position','relative');
     $('#layer1').css('z-index','3');
+*/
   }
+
+  
+  //layer2 balloon
+  //layer1 text
+  $('#layer2').css({position:'absolute',top:0,marginTop:'70vmin'});
+  //if(scroll>v2p(50) && scroll<=v2p(140)){
+  if(p2v(scroll)>80 && p2v(scroll)<=160){
+    console.log('LAYER2 '+$('#layer1').height()+' '+(scroll-v2p(80)));
+    //$('#layer2').css('position','sticky');
+    $('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
+    //document.getElementById('sectBack01').style.marginTop = ( (scroll-balloonScrollUp) *1.5 )+'px';
+  }else if(p2v(scroll)>160){
+    console.log('@@@@@@@@@@@@');
+    $('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
+    document.getElementById('sectBack01').style.marginTop = ( -(scroll-v2p(160)) *1.5 )+'px';
+  }
+
+  if(p2v(scroll)>80){
+    $('#layer3').css('visibility','visible');
+    $('#layer3').css('margin-top',v2p(100+80));
+  }
+  /*
+  if(scroll>$('#sectBack01').offset().top && scroll<=balloonScrollUp){
+    console.log('LAYER2 #sectBack01 offsettop '+$('#sectBack01').offset().top);
+    //$('#layer2').css('top','0vmin');
+    $('#layer2').css('position','sticky');
+    $('#layer2').css('margin-top',-$('#sectBack01').offset().top);
+    layer2MarginTop=$('#layer2').offset().top;
+  }else if(scroll>balloonScrollUp){
+    console.log('LAYER2 '+balloonScrollUp);
+    // $('#layer2').css('margin-top');
+    //$('#layer2').css('top','48vmin');
+    $('#layer2').css('position','absolute');
+    $('#layer2').css('margin-top',balloonScrollUp);
+    document.getElementById('sectBack01').style.marginTop = ( (window.scrollY-balloonScrollUp) /2 )+'px';
+  }
+*/
+
+
 
 });
 
@@ -343,87 +384,43 @@ $(function(){
     console.log('connect');
   });
 
-  resizeWindow();
-  scrollWindow();
+    $('#content1').css('top',v2p(420));
+    setTimeout(function(){
+      $('#content2').css('top',$('#content1').offset().top+$('#content1').height());
+    },10);
+    setTimeout(function(){
+      $('#content3').css('top',$('#content2').offset().top+$('#content2').height());
+    },20);
+    setTimeout(function(){
+      $('#content4').css('top',$('#content3').offset().top+$('#content3').height());
+    },30);
+    setTimeout(function(){
+      $('#content5').css('top',$('#content4').offset().top+$('#content4').height());
+    },40);
+    setTimeout(function(){
+      $('#content6').css('top',$('#content5').offset().top+$('#content5').height());
+    },50);
+
+  setTimeout(function(){
+    resizeWindow();
+    scrollWindow();
+  },100);
+  
+  
+  
+  
+  
+  
 });
 </script>
 
-
-<div id="layer1" style="">
-  <section id="sectTitle">
-    <div style="height:30vmin;"></div>
-    <div><p class="helv_comp fs16pt lh12pt ls25 center" style="">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
-    <div style="height:200vmin;"></div>
-  </section>
-</div><!--<div id="layer1">-->
-
-
-<div id="layer2" style="-webkit-transform:translate3d(0,0,0);z-index:2;">  
-  <section id="sectBack01" class="" style="max-width:100%;"><!-- style="position:absolute;z-index:-1;"-->
-    <div class="center" id="back01" style="
-    width:100%;
-    height:100vw;
-    background-image: url('./image/balloon.png');
-    background-position:top center;
-    background-size:140vw;
-    background-repeat:no-repeat;
-  "><!--<img src="./image/balloon.png"/>--></div>
-  </section>
-
-  <div style="height:100vmin"></div>
-
+<div id="content1" style="/*visibility:hidden*/">
   <section id="sectChar02">
-    <div style="height:10vmin;" id="triggerChar02"></div>
-    <div id="char02"><img src="./image/character02.png"/></div>
-    <div style="height:10vmin;"></div>
+    <div id="char02"><img src="./image/character02.png" style="width:100vw"/></div>
   </section>
-
 </div>
 
-
-<div id="layer3">
-  <section class="pad8v" id="sectSummary" style="">
-    <p class="helv_black fs30pt ls0">12</p>
-    <div style="height:12vmin;"></div>
-    <p class="helv_black fs8pt ls20 oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
-    <div style="height:4vmin;"></div>
-    <p class="fs7pt lh10pt">
-12welve 프로젝트는 Next-K pop을 이끌어 갈 
-46 Meta 아이들(12 K-pop Idol)의 ‘9246 Unique 
-Avatars’와 12welve Metaverse의 멤버쉽 키인 
-‘9246 Unique Cubes’로 구성된 이더리움 블록체인 
-기반의 제너레이티드 3D NFTs 컬렉션입다.
-    </p>
-    <div style="height:10vmin;"></div>
-    <p class="helv_black fs8pt ls20 oblique underline">12WELVE METAVERSE</p>
-    <div style="height:4vmin;"></div>
-    <p class="fs7pt lh10pt">
-물리적 지구의 또 다른 세상인 ‘Upper Side’ 지구.<br/>
-판타지 세상인 ‘Lower Side’ 지구.<br/>
-그리고, 우리가 현재 살고있는 ‘Real Side’ 지구.<br/>
-이 3개 차원의 ‘유기적인 관계’를 통해 ‘12welve<br/>
-Metaverse’는 완성됩니다.<br/>
-12welve의 46 Meta 캐릭터(12 K-pop Idol)는<br/>
-이 세계관 안에서 정체성이 다른 ‘7 star’와<br/>
-‘5 moon’으로 성장하여 각각의 ‘멀티플 아이덴티티’<br/>
-와 ‘스토리’ 그리고 ‘음악’을 통해 3개의 차원을 <br/>
-연결하는 ‘하나의 이야기’를 만들어 갑니다. <br/>
-<br/>
-우리의 미션은 12welve 세계관을 여는 NFTs <br/>
-프로젝트를 시작으로 ‘K-pop’, ‘Webtoon’, ‘Game’ <br/>
-‘Platform’으로 연결된 매우 흥미롭고 혁신적인 <br/>
-12welve Metaverse를 만들어 나가는 것입니다.<br/>
-<br/>
-또한, 12welve와 함께하는 여러분에게 새로운 가치와 <br/>
-놀라운 경험을 제공하는 것입니다.<br/>
-    </p>
-    <div style="height:10vmin;"></div>
-  </section>
-</div>"
-
-
-<div id="layer4" style="">
-
+<div id="content2" style="/*visibility:hidden*/">
   <section class="pad7v">
     <div style="height:10vmin;"></div>
     <p class="helv_black fs36pt oblique center">1</p>
@@ -436,7 +433,6 @@ Metaverse’는 완성됩니다.<br/>
       </video>
     </div>
   </section>
-
   <section class="pad7v" id="sectList">
     <p><font class="helv_black fs30pt">9.246</font>
       <font class="helv_black fs7pt">CUBES</font></p>
@@ -457,9 +453,9 @@ Metaverse’는 완성됩니다.<br/>
     고퀄리티의 ‘3d 아바타’를 무료로 지급받습니다.</li>
     <div style="height:25vmin;"></div>
   </section>
+</div>
 
-
-  <div style="height:25vmin;"></div>
+<div id="content3" style="/*visibility:hidden*/">
   <section class="" id="sectBack02">
     <div style="height:0vmin;" id="triggerBack02"></div>
     <div class="" id="back02"><!--</div>><img src="./image/background02.png"/>--></div>
@@ -486,9 +482,10 @@ Drop 됩니다.</li>
     <div style="height:25vmin;"></div>
     </div>
   </section>
+</div>
 
 
-
+<div id="content4" style="/*visibility:hidden*/">
   <section class="pad7v center">
     <div style="height:25vmin;"></div>
     <p class="helv_black fs12pt ls20 oblique">Launch</p>
@@ -521,7 +518,6 @@ Private Sale Only<br/>
     </p>
     <div style="height:5vmin;"></div>
   </section>
-
   <section class="pad7v center">
     <div style="height:25vmin;"></div>
     <p class="helv_black fs12pt ls20 oblique">Growth</p>
@@ -560,8 +556,6 @@ K-pop과 Webtoon 프로젝트 진행.<br/>
     </p>
     <div style="height:5vmin;"></div>
   </section>
-
-
   <section class="pad7v center">
     <div style="height:25vmin;"></div>
     <p class="fs7pt lh12pt underline">
@@ -570,8 +564,10 @@ K-pop과 Webtoon 프로젝트 진행.<br/>
     </p>
     <div style="height:25vmin;"></div>
   </section>
+</div>
 
 
+<div id="content5" style="/*visibility:hidden*/">
   <section class="pad7v bg_white fg_black">
     <div style="height:20vmin;"></div>
     <p class="helv_comp fs9pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
@@ -589,7 +585,6 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
     </p>
     <div style="height:25vmin;"></div>
   </section>
-
   <section class="bg_white fg_black center" id="sectGhost">
     <div style="height:0vmin;" id="triggerSectGhost"></div>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">LEADER</p></div>
@@ -599,7 +594,6 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">DEVELOPER</p></div>
     <div class="ghost"><div class="dot"></div><p class="ls20 fs7pt">ADVISOR</p></div>
   </section>
-
   <section class="pad7v bg_white fg_black">
     <p class="fs6pt lh9pt center">
     고스트 멤버, 프로젝트 협업<br/>
@@ -608,7 +602,10 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
     </p>
     <div style="height:10vmin;"></div>
   </section>
+</div>
 
+
+<div id="content6" style="/*visibility:hidden*/">
   <section class="pad7v" id="sectTrail">
     <div style="height:10vmin;"></div>
     <p class="helv_black fs11pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
@@ -627,7 +624,78 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
     <p class="helv fs6pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
     <div style="height:10vmin;"></div>
   </section>
+</div>
 
+
+
+<!-- ################################################## LAYERS-->
+
+<div id="layer1" style="z-index:1;/*visibility:hidden;*/">
+  <section id="sectTitle">
+    <div style="height:30vmin;"></div>
+    <div><p class="helv_comp fs16pt lh12pt ls25 center" style="">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
+    <div style="height:200vmin;"></div>
+  </section>
+</div><!--<div id="layer1">-->
+
+
+<div id="layer2" style="z-index:2;/*visibility:hidden;*/">  
+  <section id="sectBack01" class="" style="max-width:100%;"><!-- style="position:absolute;z-index:-1;"-->
+    <div class="center" id="back01" style="
+    width:100%;
+    height:100vw;
+    background-image: url('./image/balloon.png');
+    background-position:top center;
+    background-size:125vw;
+    background-repeat:no-repeat;
+  "><!--<img src="./image/balloon.png"/>--></div>
+  </section>
+</div>
+
+
+<div id="layer3" style="z-index:3;/*visibility:hidden;*/">
+  <section class="pad8v" id="sectSummary" style="">
+    <p class="helv_black fs30pt ls0">12</p>
+    <div style="height:12vmin;"></div>
+    <p class="helv_black fs4pt ls20 oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
+    <div style="height:4vmin;"></div>
+    <p class="fs4pt lh7pt">
+12welve 프로젝트는 Next-K pop을 이끌어 갈 
+46 Meta 아이들(12 K-pop Idol)의 ‘9246 Unique 
+Avatars’와<br/>
+12welve Metaverse의 멤버쉽 키인 
+‘9246 Unique Cubes’로 구성된 이더리움 블록체인 
+기반의 제너레이티드 3D NFTs 컬렉션입다.
+    </p>
+    <div style="height:10vmin;"></div>
+    <p class="helv_black fs8pt ls20 oblique underline">12WELVE METAVERSE</p>
+    <div style="height:4vmin;"></div>
+    <p class="fs7pt lh10pt">
+물리적 지구의 또 다른 세상인 ‘Upper Side’ 지구.<br/>
+판타지 세상인 ‘Lower Side’ 지구.<br/>
+그리고, 우리가 현재 살고있는 ‘Real Side’ 지구.<br/>
+이 3개 차원의 ‘유기적인 관계’를 통해 ‘12welve<br/>
+Metaverse’는 완성됩니다.<br/>
+12welve의 46 Meta 캐릭터(12 K-pop Idol)는<br/>
+이 세계관 안에서 정체성이 다른 ‘7 star’와<br/>
+‘5 moon’으로 성장하여 각각의 ‘멀티플 아이덴티티’<br/>
+와 ‘스토리’ 그리고 ‘음악’을 통해 3개의 차원을 <br/>
+연결하는 ‘하나의 이야기’를 만들어 갑니다. <br/>
+<br/>
+우리의 미션은 12welve 세계관을 여는 NFTs <br/>
+프로젝트를 시작으로 ‘K-pop’, ‘Webtoon’, ‘Game’ <br/>
+‘Platform’으로 연결된 매우 흥미롭고 혁신적인 <br/>
+12welve Metaverse를 만들어 나가는 것입니다.<br/>
+<br/>
+또한, 12welve와 함께하는 여러분에게 새로운 가치와 <br/>
+놀라운 경험을 제공하는 것입니다.<br/>
+    </p>
+    <div style="height:10vmin;"></div>
+  </section>
+</div>
+
+
+<div id="layer5">
 </div><!--<div id="layer2">-->
 
 <div id="layer99" style="position:relative"></div>
