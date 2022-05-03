@@ -171,8 +171,10 @@ body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:dotum,-app
 .fs9pt{font-size:4.7vmin;}
 .fs11pt{font-size:5.5vmin;}
 .fs12pt{font-size:5.8vmin;}
+.fs13pt{font-size:6.4vmin;}
 .fs15pt{font-size:8.3vmin;}
 .fs16pt{font-size:9vmin;}
+.fs20pt{font-size:10.3vmin;}
 .fs25pt{font-size:11.5vmin;}
 .fs30pt{font-size:16vmin;}
 .fs36pt{font-size:20vmin;}
@@ -212,17 +214,20 @@ img{width:100vmin;height: auto;}
 .ghost p{font-family:helv_comp;color:#000000}
 
 #catHead img{
-  width:100%;
-  height:auto;
+  width:auto;
+  height:80vh;
 }
 #catHead{
-  width:100vmin;
-  height:100vmin;
+  width:100vw;
+  height:80vh;
+  background-color:#9e95d0;
+  padding-top:50px;
+}
+#catHead_bak{
   background-image: url('./image/cat_head.png');
   background-position: center left;
   background-size:200vmin;
 }
-
 
 
 
@@ -240,9 +245,9 @@ img{width:100vmin;height: auto;}
 #layer1, #layer4, #layer5{width:80vw;margin:0 auto;}
 
 
-#content1,#content2,#content3,#content4,#content5,#content6{width:80vw;-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;transform:translate(-50%,0);}
+#spacer,#content1,#content2,#content3,#content4,#content5,#content6{width:80vw;-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;transform:translate(-50%,0);visibility:hidden;top:2000vh;}
 
-#content1,#content2,#content5{width:100vw;}
+#content1,#content2,#content3,#content5{width:100vw;}
 #content1{z-index:10;}
 
 #layer1{
@@ -276,13 +281,15 @@ xxxbody {
 }
 
 
-#base {
+#diagonalRight {
+  /*
   background: #383838;
   height: 10vw;
+  */
   position: relative;
   width: 100vw;
 }
-#base:before {
+#diagonalRight:before {
   content: "";
   border-bottom: 50px solid #383838;
   border-left: 100vw solid transparent;
@@ -293,6 +300,28 @@ xxxbody {
   top: -49px;
   width: 0;
 }
+
+#diagonalLeft{
+  position: relative;
+  width: 100vw;
+}
+#diagonalLeft:before {
+  content: "";
+  border-bottom: 50px solid #383838;
+  border-right: 100vw solid transparent;
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: -49px;
+  width: 0;
+}
+#sectCatHead #diagonalLeft{
+  background-color:#9e95d0;
+}
+#sectCatHead #diagonalLeft:before{
+  border-bottom: 50px solid #9e95d0;
+}
+
 </style>
 <script>
 var heightContent1;
@@ -325,6 +354,7 @@ var scroll;
 var layer2MarginTop=-1;
 var layer1MarginTop=-1;
 const balloonScrollUp=v2p(200);
+var boolUnfold=false;
 
 $(window).on('resize',resizeWindow=function(){
   //console.log('WINDOW RESIZE');
@@ -360,16 +390,32 @@ $(window).on('resize',resizeWindow=function(){
   }
 
   $('#layer3').css({visibility:'hidden',marginTop:0});
-  if(p2v(scroll)>80){
+  if(p2v(scroll)<=80){
+    boolUnfold=false;
+  }else if(p2v(scroll)>80){
     $('#layer3').css('visibility','visible');
     $('#layer3').css('margin-top',v2p(100+80));
-    $('#content1').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10));
-    $('#content2').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1);
-    $('#content3').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2);
-    console.log($('#content2').height());
-    $('#content4').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3);
-    $('#content5').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4);
-    $('#content6').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4+heightContent5);
+    if(!boolUnfold){
+      setTimeout(function(){
+        $('#content1').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10));
+      },100);
+      setTimeout(function(){
+      $('#content2').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1);
+      },200);
+      setTimeout(function(){
+      $('#content3').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2);
+      },300);
+      setTimeout(function(){
+      $('#content4').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3);
+      },400);
+      setTimeout(function(){
+      $('#content5').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4);
+      },500);
+      setTimeout(function(){
+      $('#content6').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4+heightContent5);
+      },600);
+      boolUnfold=true;
+    }
   }
 
   // CONTENT
@@ -378,7 +424,7 @@ $(window).on('resize',resizeWindow=function(){
       $('#content1 section').css('margin-top',(-0.5*( scroll-($('#content1').offset().top-v2p(50)) ))+'px');
     }
     if(scroll>$('#content3').offset().top-v2p(50)){
-      $('#content2 section').css('margin-top',( 0.2*( scroll-($('#content2').offset().top-v2p(50)) ))+'px');
+      //$('#content2 section').css('margin-top',( 0.2*( scroll-($('#content2').offset().top-v2p(50)) ))+'px');
       $('#content3 section').css('margin-top',(-0.5*( scroll-($('#content3').offset().top-v2p(50)) ))+'px');
     }
     if(scroll>$('#content5').offset().top-v2p(50)){
@@ -397,6 +443,7 @@ $(function(){
     console.log('connect');
   });
 
+  /*
   $('#content1').css('top',v2p(420));
   setTimeout(function(){
     $('#content2').css('top',$('#content1').offset().top+$('#content1').height());
@@ -413,6 +460,7 @@ $(function(){
   setTimeout(function(){
     $('#content6').css('top',$('#content5').offset().top+$('#content5').height());
   },50);
+*/
 
   setTimeout(function(){
     resizeWindow();
@@ -421,10 +469,11 @@ $(function(){
 
 });
 </script>
+<!--<div id="spacer" style="height:2000vh;position:absolute;z-index:-1">spacer</div>-->
 
 <div id="content1" style="/*visibility:hidden*/">
   <section id="sectChar02">
-    <div id="base"></div>
+    <div id="diagonalRight"></div>
     <div id="char02"><img src="./image/character02.png" style="width:100vw"/></div>
   </section>
 </div>
@@ -466,29 +515,27 @@ $(function(){
 
 <div id="content3" style="/*visibility:hidden*/">
   <section class="" id="sectCatHead">
-    <div style="height:0vmin;" id="triggerCatHead"></div>
-    <div class="" id="catHead"><!--</div>><img src="./image/background02.png"/>--></div>
-  </section>
-  <section class="pad7v" id="sectText02">
-    <div>
-    <p><font class="helv_black fs30pt">9.246</font>
-      <font class="helv_black fs7pt">AVATARS</font></p>
-    <div style="height:8vmin;"></div>
-    <p class="helv_black fs8pt ls20 fg_skyblue oblique underline">FREE MINT for all cube holders</p>
-    <div style="height:6vmin;"></div>
-<li class="fs7pt lh10pt">아바타는 Next-K pop을 이끌어 갈 Upper Side의<br/>
-46 Meta 캐릭터(12 K-pop Idol)입니다.</li>
-<li class="fs7pt lh10pt">각각의 고유한 개성과 스토리를 가진 46 Type과 <br/>
-Type당 201개 에디션으로 발행되며 5개의 등급과 <br/>
-130+ Traits으로 무작위 생성된 유닉한 3D 아트웍 <br/>
-NFTs 컬렉션입니다.</li>
-<li class="fs7pt lh10pt">9246개의 유닉한 아바타 중에는 매우 특별한 46개의 <br/>
-아바타가 있으며 큐브의 스마트 컨트렉트에 기록된 <br/>
-코드네임과 연관된 아바타가 큐브 홀더에게 무작위로 <br/>
-Drop 됩니다.</li>
-<li class="fs7pt lh10pt">홀더는 보유한 아바타가 속한 K-pop Idol의 활동과<br/>
-관련된 다양한 혜택을 받습니다.</li>
-    <div style="height:25vmin;"></div>
+    <div id="diagonalLeft"></div>
+    <div class="" id="catHead">
+      <p class="helv_black fs25pt oblique center" style="margin-top:-900px">2</p>
+      <img src="./image/cat_head.png"/>
+      <div>
+        <p><font class="helv_black fs13pt">9.246</font>
+          <font class="helv_black fs6pt">AVATARS</font></p>
+        <div style="height:8vmin;"></div>
+        <p class="helv_black fs5pt ls20 fg_skyblue oblique underline">FREE MINT for all cube holders</p>
+        <div style="height:4vmin;"></div>
+        <p class="fs4pt lh4pt">아바타는 Next-K pop을 이끌어 갈 Upper Side의<br/>
+        46 Meta 캐릭터(12 K-pop Idol)입니다.</p>
+        <p class="fs4pt lh4pt">각각의 고유한 개성과 스토리를 가진 46 Type과 Type당 201개<br/>
+        에디션으로 발행되며 5개의 등급과 130+ Traits으로 무작위 생성된<br/>
+        유닉한 3D 아트웍 NFTs 컬렉션입니다.</p>
+        <p class="fs4pt lh4pt">9246개의 유닉한 아바타 중에는 매우 특별한 46개의 아바타가<br/>
+        있으며 큐브의 스마트 컨트렉트에 기록된 코드네임과 연관된<br/>
+        아바타가 큐브 홀더에게 무작위로 Drop 됩니다.</p>
+        <p class="fs4pt lh4pt">홀더는 보유한 아바타가 속한 K-pop Idol의 활동과 관련된<br/>
+        다양한 혜택을 받습니다.</p>       
+      </div>
     </div>
   </section>
 </div>
@@ -697,9 +744,5 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
 </div>
 
 
-<div id="layer5">
-</div><!--<div id="layer2">-->
-
-<div id="layer99" style="position:relative"></div>
 </body>
 </html>
