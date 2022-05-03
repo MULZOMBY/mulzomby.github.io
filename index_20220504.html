@@ -295,6 +295,12 @@ xxxbody {
 }
 </style>
 <script>
+var heightContent1;
+var heightContent2;
+var heightContent3;
+var heightContent4;
+var heightContent5;
+var heightContent6;
 
 document.addEventListener('scroll', () => {
   const scrollData = window.scrollY
@@ -322,6 +328,12 @@ const balloonScrollUp=v2p(200);
 
 $(window).on('resize',resizeWindow=function(){
   //console.log('WINDOW RESIZE');
+  heightContent1=$('#content1').height();
+  heightContent2=$('#content2').height();
+  heightContent3=$('#content3').height();
+  heightContent4=$('#content4').height();
+  heightContent5=$('#content5').height();
+  heightContent6=$('#content6').height();
 }).on('scroll',scrollWindow=function(event){
   //console.log('WINDOW SCROLL');
   scroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -352,11 +364,12 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer3').css('visibility','visible');
     $('#layer3').css('margin-top',v2p(100+80));
     $('#content1').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10));
-    $('#content2').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(20)+$('#content1').height());
-    $('#content3').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(30)+$('#content1').height()+$('#content2').height());
-    $('#content4').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(40)+$('#content1').height()+$('#content2').height()+$('#content3').height());
-    $('#content5').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(50)+$('#content1').height()+$('#content2').height()+$('#content3').height()+$('#content4').height());
-    $('#content6').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(60)+$('#content1').height()+$('#content2').height()+$('#content3').height()+$('#content4').height()+$('#content5').height());
+    $('#content2').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1);
+    $('#content3').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2);
+    console.log($('#content2').height());
+    $('#content4').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3);
+    $('#content5').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4);
+    $('#content6').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4+heightContent5);
   }
 
   // CONTENT
@@ -365,6 +378,7 @@ $(window).on('resize',resizeWindow=function(){
       $('#content1 section').css('margin-top',(-0.5*( scroll-($('#content1').offset().top-v2p(50)) ))+'px');
     }
     if(scroll>$('#content3').offset().top-v2p(50)){
+      $('#content2 section').css('margin-top',( 0.2*( scroll-($('#content2').offset().top-v2p(50)) ))+'px');
       $('#content3 section').css('margin-top',(-0.5*( scroll-($('#content3').offset().top-v2p(50)) ))+'px');
     }
     if(scroll>$('#content5').offset().top-v2p(50)){
