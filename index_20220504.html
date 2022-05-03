@@ -46,11 +46,11 @@ window.onresize = function(event){
   if(window.screen.width>450){ // document.body.offsetWidth
     $('body').css({maxWidth:'initial'});
 
-    $('#sectBack02').css({position:'absolute',zIndex:-2});
+    $('#sectCatHead').css({position:'absolute',zIndex:-2});
     $('#back01').css({width:'100vmax'});
   }else{
     $('body').css({maxWidth:'100vmin'});
-    $('#sectBack02').css({position:'initial'});
+    $('#sectCatHead').css({position:'initial'});
     $('#back01').css({width:'100vmin'});
   }
 }
@@ -211,14 +211,14 @@ img{width:100vmin;height: auto;}
 }
 .ghost p{font-family:helv_comp;color:#000000}
 
-#back02 img{
+#catHead img{
   width:100%;
   height:auto;
 }
-#back02{
+#catHead{
   width:100vmin;
   height:100vmin;
-  background-image: url('./image/background02.png');
+  background-image: url('./image/cat_head.png');
   background-position: center left;
   background-size:200vmin;
 }
@@ -465,9 +465,9 @@ $(function(){
 </div>
 
 <div id="content3" style="/*visibility:hidden*/">
-  <section class="" id="sectBack02">
-    <div style="height:0vmin;" id="triggerBack02"></div>
-    <div class="" id="back02"><!--</div>><img src="./image/background02.png"/>--></div>
+  <section class="" id="sectCatHead">
+    <div style="height:0vmin;" id="triggerCatHead"></div>
+    <div class="" id="catHead"><!--</div>><img src="./image/background02.png"/>--></div>
   </section>
   <section class="pad7v" id="sectText02">
     <div>
