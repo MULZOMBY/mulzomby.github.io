@@ -358,6 +358,7 @@ var boolUnfold=false;
 
 
 var layer3MarginTop=v2p(100+80);
+var layer2Top;
 
 $(window).on('resize',resizeWindow=function(){
   //console.log('WINDOW RESIZE');
@@ -386,19 +387,33 @@ $(window).on('resize',resizeWindow=function(){
   }
 
   $('#layer2').css({position:'absolute',top:0,marginTop:'70vmin'});
-  if(p2v(scroll)>80 && p2v(scroll)<=160){
-    $('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
+  if(p2v(scroll)<=80){
+    
+  }else if(p2v(scroll)>80){// && p2v(scroll)<=160){
+    //$('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
+//$('#layer2').css('top',-v2p(80));
+    layer2Top=-v2p(80)+$('#layer2').offset().top;
+    $('#layer2').css('top',layer2Top);
+    $('#layer2').css('position','sticky');
+    if(p2v(scroll)>160){
+      //$('#layer2').css('position','sticky');
+      //$('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
+      //$('#sectBack01').css('margin-top',( -(scroll-v2p(160)) *1.5 )+'px');
+    }
   }else if(p2v(scroll)>160){
-    $('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
-    $('#sectBack01').css('margin-top',( -(scroll-v2p(160)) *1.5 )+'px');
+    //$('#layer2').css('position','sticky');
+    //$('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
+    //$('#sectBack01').css('margin-top',( -(scroll-v2p(160)) *1.5 )+'px');
   }
 
+  
   $('#layer3').css({visibility:'hidden',marginTop:0});
   if(p2v(scroll)<=80){
     boolUnfold=false;
   }else if(p2v(scroll)>80){
     $('#layer3').css('visibility','visible');
-    $('#layer3').css('margin-top',layer3MarginTop);
+    $('#layer3').css('top',-v2p(80)-layer2Top);
+    //$('#layer3').css('margin-top',-v2p(80)-layer2Top); // layer2 sticky가 높이만큼 움직이면 풀림
     if(!boolUnfold){
       setTimeout(function(){
         $('#content1').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10));
@@ -422,6 +437,7 @@ $(window).on('resize',resizeWindow=function(){
     }
   }
 
+  /*
   // CONTENT
   if(p2v(scroll)>160){
     if(scroll>$('#content1').offset().top-v2p(50)){
@@ -435,9 +451,10 @@ $(window).on('resize',resizeWindow=function(){
       $('#content5 section').css('margin-top',(-0.5*( scroll-($('#content5').offset().top-v2p(50)) ))+'px');
     }
   }
+*/
 
+}); // }).on('scroll',scrollWindow=function(event){
 
-});
 
 $(function(){
   $('#btn12Welve').click(function(){
