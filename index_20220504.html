@@ -325,7 +325,7 @@ document.addEventListener('scroll', () => {
   //document.getElementById('text').style.top = (- scrollData/5) + '%'
   //document.getElementById('layer2').style.top = (- scrollData/5) + '%'
 })
-
+function vw2p(vmin){return(vmin*window.innerWidth)/100;}
 function v2p(vmin){
   //let sizeViewport = window.innerHeight < window.innerWidth ? window.innerHeight : window.innerWidth;
   let sizeViewport = window.innerHeight;
@@ -345,6 +345,7 @@ var boolUnfold=false;
 
 var layer3MarginTop=v2p(100+80);
 var layer2Top;
+var layer2Bottom;
 
 $(window).on('resize',resizeWindow=function(){
   //console.log('WINDOW RESIZE');
@@ -379,6 +380,7 @@ $(window).on('resize',resizeWindow=function(){
     //$('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
 //$('#layer2').css('top',-v2p(80));
     layer2Top=-v2p(80)+$('#layer2').offset().top;
+    layer2Bottom=$('#layer2').offset().top+$('#layer2').height();
     $('#layer2').css('top',layer2Top);
     $('#layer2').css('position','sticky');
     if(p2v(scroll)>160){
@@ -398,12 +400,15 @@ $(window).on('resize',resizeWindow=function(){
     boolUnfold=false;
   }else if(p2v(scroll)>80){
     $('#layer3').css('visibility','visible');
-    $('#layer3').css('top',-v2p(80)-layer2Top);
+    //$('#layer3').css('top',-v2p(80)-layer2Top);
+    $('#layer3').css('top',v2p(80+100)-layer2Bottom);
     //$('#layer3').css('margin-top',-v2p(80)-layer2Top); // layer2 sticky가 높이만큼 움직이면 풀림
     if(!boolUnfold){
+      console.log('boolUnfold');
       setTimeout(function(){
-        //$('#content1').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(100));
-        $('#content1').css('top',$('#back01').offset().top+$('#back01').height());
+        $('#content1').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(50));
+        //$('#content1').css('top',$('#back01').offset().top+$('#back01').height());
+        //$('#content1').css('top',$('#layer2').offset().top+$('#layer2').height());
       },100);
       setTimeout(function(){
         //$('#content2').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(20)+heightContent1);
@@ -422,8 +427,9 @@ $(window).on('resize',resizeWindow=function(){
         $('#content5').css('top',$('#content4').offset().top+$('#content4').height()+v2p(20));
       },500);
       setTimeout(function(){
-        $('#content6').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4+heightContent5);
-        },600);
+        //$('#content6').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4+heightContent5);
+        $('#content6').css('top',$('#content5').offset().top+$('#content5').height()+v2p(20));
+      },600);
       boolUnfold=true;
     }
   }
@@ -467,6 +473,8 @@ $(function(){
       +heightContent1+heightContent2+heightContent3});
     $('#content5').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
       +heightContent1+heightContent2+heightContent3+heightContent4});
+    $('#content6').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
+      +heightContent1+heightContent2+heightContent3+heightContent4+heightContent5});
   },100);
 
 });
@@ -728,8 +736,8 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
 </div>
 
 
-<div id="layer3" style="z-index:3;/*visibility:hidden;*/">
-  <section class="pad8v" id="sectSummary" style="">
+<div id="layer3" style="z-index:3;height:100vw;/*visibility:hidden;*/">
+  <section id="sectSummary" class="pad8v" style="position:absolute;bottom:0;">
     <p class="helv_black fs25pt ls0">12</p>
     <div style="height:12vmin;"></div>
     <p class="helv_black fs5pt ls20 fg_skyblue oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
