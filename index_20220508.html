@@ -40,6 +40,11 @@ var controller = new ScrollMagic.Controller();
 -->
 
 <style>
+
+#sectSsga001 .diagonal{ background-color:#555555; } /*05040d*/
+#sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #555555; }
+#sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #555555; }
+
 #menu{
   position:fixed;
   width:100%;
@@ -50,7 +55,10 @@ var controller = new ScrollMagic.Controller();
 #spacer,#content1,#content2,#content3,#content4,#content5,#content6{width:80%;-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;transform:translate(-50%,0);visibility:hidden;top:2000vh;}
 
 #content1,#content2,#content3,#content4,#content5{width:100%;}
-#content1{z-index:10;}
+#content1{visibility:visible;top:400vh;z-index:10;}
+#content2{visibility:visible;top:500vh;}
+#content3{visibility:visible;top:600vh;}
+#content4{visibility:visible;top:700vh;}
 
 #layer1{
   position:sticky;
@@ -168,7 +176,7 @@ $(window).on('resize',resizeWindow=function(){
     if(!boolUnfold){
       console.log('boolUnfold');
       setTimeout(function(){
-        $('#content1').css('top',$('#layer2').offset().top+$('#layer2').height()+v2p(10));
+        //$('#content1').css('top',$('#layer2').offset().top+$('#layer2').height()+v2p(10));
         //$('#content1').css('top',$('#back01').offset().top+$('#back01').height());
         //$('#content1').css('top',$('#layer2').offset().top+$('#layer2').height());
       },100);
@@ -213,7 +221,7 @@ $(function(){
     resizeWindow();
     scrollWindow();
 
-    $('#content1').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()});
+    //$('#content1').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()});
     $('#content2').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
       +heightContent1});
     $('#content3').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
@@ -427,10 +435,11 @@ $(function(){
   width:30vmin;
 }
 .ghost .dot{
-  height: 22vmin;
-  width: 22vmin;
+  height:26vmin;
+  width:26vmin;
   display: inline-block;
   background-position:center;
+  background-size:contain;
   /*
   background-color: #555555;
   border-radius: 50%;

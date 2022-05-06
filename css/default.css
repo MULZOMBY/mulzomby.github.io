@@ -111,6 +111,8 @@ html { overflow-y:scroll;}
 #sectCatHead .diagonalTopRight:before, #sectCatHead .diagonalTopLeft:before{ border-bottom:50px solid #9e95d0; }
 #sectCatHead .diagonalBottomRight:after, #sectCatHead .diagonalBottomLeft:after{ border-top:50px solid #9e95d0; }
 
-#sectSsga001 .diagonal{ background-color:#666666; } /*05040d*/
-#sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #666666; }
-#sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #666666; }
+#sectSsga001 .diagonal{ background-color:#05040d; } /*05040d*/
+#sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #05040d; }
+#sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #05040d; }
+
+/*05040d*/
