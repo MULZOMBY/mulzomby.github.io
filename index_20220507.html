@@ -97,6 +97,7 @@ function v2p(vmin){return (vmin*window.innerHeight)/100;}
 function p2v(pixel){return pixel*100/window.innerHeight;}
 
 var scroll;
+var constPoint1=80;
 var layer2MarginTop=-1;
 var layer1MarginTop=-1;
 const balloonScrollUp=v2p(200);
@@ -130,18 +131,18 @@ $(window).on('resize',resizeWindow=function(){
 
   $('#layer1').css({zIndex:1,top:0,position:'sticky'});
   $('#layer1 #sectTitle').css({visibility:'visible'});
-  if(p2v(scroll)>80){
+  if(p2v(scroll)>constPoint1){
     $('#layer1 #sectTitle').css('visibility','hidden');
     $('#layer1').css('position','absolute');
   }
 
   $('#layer2').css({position:'absolute',top:0,marginTop:'70vmin'});
-  if(p2v(scroll)<=80){
+  if(p2v(scroll)<=constPoint1){
     
-  }else if(p2v(scroll)>80){// && p2v(scroll)<=160){
+  }else if(p2v(scroll)>constPoint1){// && p2v(scroll)<=160){
     //$('#layer2').css('margin-top',v2p(70)+scroll-v2p(80));
 //$('#layer2').css('top',-v2p(80));
-    layer2Top=-v2p(80)+$('#layer2').offset().top;
+    layer2Top=-v2p(constPoint1)+$('#layer2').offset().top;
     layer2Bottom=$('#layer2').offset().top+$('#layer2').height();
     $('#layer2').css('top',layer2Top);
     $('#layer2').css('position','sticky');
@@ -157,14 +158,15 @@ $(window).on('resize',resizeWindow=function(){
   }
 
   
-  $('#layer3').css({visibility:'hidden',marginTop:0});
-  if(p2v(scroll)<=80){
+  $('#layer3').css({visibility:'hidden'});
+  $('#layer3').css({backgroundColor:'darkslategrey'});
+  if(p2v(scroll)<=constPoint1){
     boolUnfold=false;
-  }else if(p2v(scroll)>80){
+  }else if(p2v(scroll)>constPoint1){
     $('#layer3').css('visibility','visible');
-    //$('#layer3').css('top',-v2p(80)-layer2Top);
-    $('#layer3').css('top',v2p(80+100)-layer2Bottom);
-    //$('#layer3').css('margin-top',-v2p(80)-layer2Top); // layer2 sticky가 높이만큼 움직이면 풀림
+    //$('#layer3').css('top',v2p(80+100)-layer2Bottom);
+    $('#layer3').css('top',v2p(constPoint1+100)-layer2Bottom+v2p(50));
+
     if(!boolUnfold){
       console.log('boolUnfold');
       setTimeout(function(){
@@ -518,7 +520,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
   <section id="sectBack01" class="" style="max-width:100%;"><!-- style="position:absolute;z-index:-1;"-->
     <div class="center" id="back01" style="
     width:100%;
-    height:100vw;
+    height:120vw;
     background-image: url('./image/balloon_pc.png');
     background-position:top center;
     background-size:125vw;
@@ -530,6 +532,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
 
 <div id="layer3" style="z-index:3;height:100vw;/*visibility:hidden;*/">
   <section id="sectSummary" class="pad8v" style="position:absolute;bottom:0;">
+    <div style="height:100vmin;"></div>
     <p class="bebas fs25pt ls0">12</p>
     <div style="height:12vmin;"></div>
     <p class="robotob fs5pt ls20 fg_skyblue oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
