@@ -40,26 +40,20 @@ var controller = new ScrollMagic.Controller();
 -->
 
 <style>
-
-#sectSsga001 .diagonal{ background-color:#555555; } /*05040d*/
-#sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #555555; }
-#sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #555555; }
-
 #menu{
   position:fixed;
   width:100%;
 }
 
+#content1,#content2,#content3,#content4,#content5,#content6{-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;width:100%;transform:translate(-50%,0);visibility:hidden;}
+#content1{top:400vh;z-index:10;}
+#content2{top:550vh;height:200vh;}
+#content3{top:650vh;}
+#content4{top:750vh;}
+#content5{top:800vh;}
+#content6{top:900vh;}
+
 #layer1,#layer2,#layer3{-webkit-transform:translate3d(0,0,0);}
-
-#spacer,#content1,#content2,#content3,#content4,#content5,#content6{width:80%;-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;transform:translate(-50%,0);visibility:hidden;top:2000vh;}
-
-#content1,#content2,#content3,#content4,#content5{width:100%;}
-#content1{visibility:visible;top:400vh;z-index:10;}
-#content2{visibility:visible;top:500vh;}
-#content3{visibility:visible;top:600vh;}
-#content4{visibility:visible;top:700vh;}
-
 #layer1{
   position:sticky;
   height:100vh;
@@ -70,25 +64,25 @@ var controller = new ScrollMagic.Controller();
   top:50%;
   left:50%;
 }
-
-
 #layer2 {
+  position:absolute;
   overflow-x:hidden;
   width:100%;
   margin:0 auto;
   top:0;
-  position:absolute;
   margin-top:70vmin;
 }
-
 #layer3{
-  -webkit-transform:translate3d(0,0,0);
+  position:relative;
   z-index:3;
   margin:0 auto;
-  position:relative;
   width:65vw;
   height:80vh;
 }
+
+#sectSsga001 .diagonal{ background-color:#555555; } /*05040d*/
+#sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #555555; }
+#sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #555555; }
 
 </style>
 <script>
@@ -176,31 +170,22 @@ $(window).on('resize',resizeWindow=function(){
     if(!boolUnfold){
       console.log('boolUnfold');
       setTimeout(function(){
-        //$('#content1').css('top',$('#layer2').offset().top+$('#layer2').height()+v2p(10));
-        //$('#content1').css('top',$('#back01').offset().top+$('#back01').height());
-        //$('#content1').css('top',$('#layer2').offset().top+$('#layer2').height());
+        $('#content1').css({visibility:'visible', 'top':$('#layer2').offset().top+$('#layer2').height()+v2p(10)});
       },100);
       setTimeout(function(){
-        //$('#content2').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(20)+heightContent1);
-        //$('#content2').css('top',$('#content1').offset().top+$('#content1').height()+v2p(20));
-        $('#content2').css('top',$('#content1').offset().top);
+        $('#content2').css({visibility:'visible', 'top':$('#content1').offset().top});
       },200);
       setTimeout(function(){
-        //$('#content3').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(20)+heightContent1+heightContent2);
-        //$('#content3').css('top',$('#content2').offset().top+$('#content2').height()+v2p(40));
-        $('#content3').css('top',$('#content1').offset().top+$('#content1').height()+v2p(150));
+        $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
       },300);
       setTimeout(function(){
-        //$('#content4').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(50)+heightContent1+heightContent2+heightContent3);
-        $('#content4').css('top',$('#content3').offset().top+$('#content3').height()+v2p(30));
+        $('#content4').css({visibility:'visible', 'top':$('#content3').offset().top+$('#content3').height()+v2p(30)});
       },400);
       setTimeout(function(){
-        //$('#content5').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4);
-        $('#content5').css('top',$('#content4').offset().top+$('#content4').height()+v2p(15));
+        $('#content5').css({visibility:'visible', 'top':$('#content4').offset().top+$('#content4').height()+v2p(15)});
       },500);
       setTimeout(function(){
-        //$('#content6').css('top',$('#layer3').offset().top+$('#layer3').height()+v2p(10)+heightContent1+heightContent2+heightContent3+heightContent4+heightContent5);
-        $('#content6').css('top',$('#content5').offset().top+$('#content5').height()+v2p(20));
+        $('#content6').css({visibility:'visible', 'top':$('#content5').offset().top+$('#content5').height()+v2p(20)});
       },600);
       $('#content2').css('height','280vh');
       boolUnfold=true;
@@ -220,18 +205,6 @@ $(function(){
   setTimeout(function(){
     resizeWindow();
     scrollWindow();
-
-    //$('#content1').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()});
-    $('#content2').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
-      +heightContent1});
-    $('#content3').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
-      +heightContent1+heightContent2});
-    $('#content4').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
-      +heightContent1+heightContent2+heightContent3});
-    $('#content5').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
-      +heightContent1+heightContent2+heightContent3+heightContent4});
-    $('#content6').css({visibility:'visible',top:layer3MarginTop+$('#layer3').height()
-      +heightContent1+heightContent2+heightContent3+heightContent4+heightContent5});
   },100);
 
 });
