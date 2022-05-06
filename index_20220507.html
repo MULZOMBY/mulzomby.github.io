@@ -45,8 +45,7 @@ var controller = new ScrollMagic.Controller();
   width:100%;
 }
 
-#layer1,#layer2,#layer3,#layer4{-webkit-transform:translate3d(0,0,0);}
-#layer1, #layer4, #layer5{width:80%;margin:0 auto;}
+#layer1,#layer2,#layer3{-webkit-transform:translate3d(0,0,0);}
 
 #spacer,#content1,#content2,#content3,#content4,#content5,#content6{width:80%;-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;transform:translate(-50%,0);visibility:hidden;top:2000vh;}
 
@@ -55,9 +54,16 @@ var controller = new ScrollMagic.Controller();
 
 #layer1{
   position:sticky;
-  overflow-x:hidden;
-  margin:0 auto;
+  height:100vh;
 }
+#layer1 div{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  top:50%;
+  left:50%;
+}
+
+
 #layer2 {
   overflow-x:hidden;
   width:100%;
@@ -129,7 +135,7 @@ $(window).on('resize',resizeWindow=function(){
   }catch(e){}
 
 
-  $('#layer1').css({zIndex:1,top:0,position:'sticky'});
+  $('#layer1').css({zIndex:1,position:'sticky'});
   $('#layer1 #sectTitle').css({visibility:'visible'});
   if(p2v(scroll)>constPoint1){
     $('#layer1 #sectTitle').css('visibility','hidden');
@@ -509,9 +515,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
 
 <div id="layer1" style="z-index:1;/*visibility:hidden;*/">
   <section id="sectTitle">
-    <div style="height:30vmin;"></div>
     <div><p class="robotob fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
-    <div style="height:200vmin;"></div>
   </section>
 </div><!--<div id="layer1">-->
 

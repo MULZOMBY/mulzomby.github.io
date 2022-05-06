@@ -15,28 +15,15 @@
 <meta property="og:site_name" content="mulzomby">
 <meta property="og:description" content="mulzomby.github.io">
 <title>mulzomby</title>
+<link rel="stylesheet" href="./css/font.css"/>
+<link rel="stylesheet" href="./css/default.css"/>
 <script src="./js/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-<style type="text/css">
-@font-face {font-family:'helv';font-style: normal;src:url('./font/Helvetica.otf') format('opentype');}
-@font-face {font-family:'helv_narr';font-style: normal;src:url('./font/Helvetica-Narrow.otf') format('opentype');}
-@font-face {font-family:'helv_comp';font-style: normal;src:url('./font/Helvetica-Compressed-Regular.otf') format('opentype');}
-@font-face {font-family:'helv_black';font-style: normal;src:url('./font/Helvetica-Condensed-Black.otf') format('opentype');}
-.helv{font-family:helv;}
-.helv_narr{font-family:helv_narr;}
-.helv_comp{font-family:helv_comp;}
-.helv_black{font-family:helv_black;}
-
-@font-face {font-family:'bebas';font-style:normal;src:url('./font/BebasNeue-Regular.ttf') format('truetype');}
-@font-face {font-family:'ga1_light';font-style:normal;src:url('./font/GothicA1-Light.ttf') format('truetype');}
-@font-face {font-family:'ga1_regular';font-style:normal;src:url('./font/GothicA1-Light.ttf') format('truetype');}
-.bebas{font-family:bebas,ga1_light;}
-.ga1_light{font-family:ga1_light;}
-.ga1_regular{font-family:ga1_regular;}
-</style>
+<script src="./js/pc.js"></script>
+<script src="./js/mobile.js"></script>
 <script>
 var controller = new ScrollMagic.Controller();
 </script>
@@ -53,7 +40,7 @@ var controller = new ScrollMagic.Controller();
 -->
 
 <style>
-body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:dotum,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";}
+body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:ga1light,dotum,-apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;}
 
 .bg_white{background-color:#ffffff;}
 .bg_black{background-color:#000000;}
@@ -66,7 +53,7 @@ body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:dotum,-app
 .fg_graya{color:#aaaaaa;}
 .fg_grayc{color:#cccccc;}
 .fg_skyblue{color:#00ffee;}
-.fg_skypink{color:#ee00cc;}
+.fg_pink{color:#ee00cc;}
 
 .pad5v{padding:0 5vmin 0 5vmin;}
 .pad6v{padding:0 6vmin 0 6vmin;}
@@ -136,7 +123,7 @@ img{width:100vmin;height: auto;}
   border-radius: 50%;
   display: inline-block;
 }
-.ghost p{font-family:helv_comp;color:#000000}
+.ghost p{font-family:bebas;color:#000000}
 
 
 #layer1,#layer2,#layer3,#layer4{-webkit-transform:translate3d(0,0,0);}
@@ -252,6 +239,12 @@ $(window).on('resize',resizeWindow=function(){
   heightContent5=$('#content5').height();
   heightContent6=$('#content6').height();
 }).on('scroll',scrollWindow=function(event){
+  var mobile=false;
+  if(mobile){
+
+  }else{
+
+  }
   scroll = document.documentElement.scrollTop || document.body.scrollTop;
   try{
     console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, layer1 '+$('#layer1').offset().top+' '+p2v($('#layer1').offset().top));
@@ -365,7 +358,7 @@ $(function(){
 <div id="content1" style="/*visibility:hidden*/">
   <section id="sectChar02" style="position: sticky;top: 0;z-index: 0;">
     <div id="diagonalRight"></div>
-    <div id="char02" style="height:100vh;background-color:#383838;"><img src="./image/character02.png" style="width:auto;height:100vh;float:right;"/></div>
+    <div id="char02" style="height:100vh;background-color:#383838;"><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
     <div style="width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
       <div style="height:3vmin;"></div>
@@ -384,7 +377,7 @@ $(function(){
 <div id="content2" style="/*visibility:hidden*/">
   <section id="sectCube" class="pad7v" style="position: sticky;top: 0;z-index: 0;margin-top:-10vh;">
     <div style="height:10vmin;"></div>
-    <p class="helv_black fs25pt oblique center">1</p>
+    <p class="bebas fs25pt oblique center">1</p>
     <div style="height:5vmin;"></div>
     <div class="cube" style="width:50vw;overflow: hidden;position:absolute;z-index:-1;   margin-top:-12.5vh">
       <!--
@@ -398,10 +391,10 @@ $(function(){
       </video>
     </div>
     <div style="width:45vw;float:right;">
-      <p><font class="helv_black fs13pt">9.246</font>
-        <font class="helv_black fs6pt">CUBES</font></p>
+      <p><font class="roboto fs13pt">9.246</font>
+        <font class="roboto fs6pt">CUBES</font></p>
       <div style="height:8vmin;"></div>
-      <p class="helv_black fs5pt ls20 fg_skyblue oblique underline">MINT IS COMING</p>
+      <p class="robotob fs5pt ls20 fg_skyblue oblique underline">MINT IS COMING</p>
       <div style="height:4vmin;"></div>
       <p class="fs4pt lh4pt">큐브는 12welve metaverse의 비밀 조직인 x label의 기술과 절대<br/>
       파괴가 불가능한 lower side의 신비로운 5개 물질로 만들어졌습니다.</p>
@@ -421,15 +414,15 @@ $(function(){
 <div id="content3" style="/*visibility:hidden*/">
   <section class="" id="sectCatHead">
     <div id="diagonalLeft"></div>
-    <p class="helv_black fs25pt oblique center" style="padding-top:10vh;background-color:#9e95d0">2</p>
+    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#9e95d0">2</p>
     <div id="catHead" class="" style="width:100vw;height:80vh;background-color:#9e95d0;position:relative;z-index:-1;overflow:hidden;">
       <img src="./image/cat_head.png" style="width:auto;height:80vh;"/>
     </div>
     <div style="width:45vw;float:right;margin-top:-72vh;">
-      <p><font class="helv_black fs13pt">9.246</font>
-        <font class="helv_black fs6pt">AVATARS</font></p>
+      <p><font class="roboto fs13pt">9.246</font>
+        <font class="roboto fs6pt">AVATARS</font></p>
       <div style="height:8vmin;"></div>
-      <p class="helv_black fs5pt ls20 fg_skyblue oblique underline">FREE MINT for all cube holders</p>
+      <p class="robotob fs5pt ls20 fg_skyblue oblique underline">FREE MINT for all cube holders</p>
       <div style="height:4vmin;"></div>
       <p class="fs4pt lh4pt">아바타는 Next-K pop을 이끌어 갈 Upper Side의<br/>
       46 Meta 캐릭터(12 K-pop Idol)입니다.</p>
@@ -449,31 +442,31 @@ $(function(){
 <div id="content4" style="/*visibility:hidden*/">
   <section class="pad7v center">
     <div style="height:25vmin;"></div>
-    <p class="helv_black fs9pt ls20 oblique">Launch</p>
+    <p class="bebas fs9pt ls20 oblique">Launch</p>
     <div style="height:25vmin;"></div>
-    <p class="helv fs5d1pt lh12pt">PHASE 1: </p>
-    <p class="helv fs5d1pt underline">9246 CUBES MINT</p>
+    <p class="bebas fs5d1pt lh12pt">PHASE 1: </p>
+    <p class="bebas fs5d1pt underline">9246 CUBES MINT</p>
     <div style="height:5vmin;"></div>
-    <p class="helv fs4pt fg_gray9">
+    <p class="fs4pt fg_gray9">
       12welve Metaverse를 시작하는<br/>
       큐브 민트를 진행합니다.<br/>
       Special Event<br/>
       Private Sale Only<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="helv fs5d1pt lh12pt">PHASE 2:</p>
-    <p class="helv fs5d1pt underline">9246 AVATARS FREE MINT</p>
+    <p class="bebas fs5d1pt lh12pt">PHASE 2:</p>
+    <p class="bebas fs5d1pt underline">9246 AVATARS FREE MINT</p>
     <div style="height:5vmin;"></div>
-    <p class="helv fs4pt fg_gray9">
+    <p class="fs4pt fg_gray9">
       큐브 홀더만 참여 할 수 있는<br/>
       아바타 민트를 진행합니다.<br/>
       (Collabs with special artists)<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="helv fs5d1pt lh12pt">PHASE 3:</p>
-    <p class="helv fs5d1pt underline">IP DEV & BUSINESS</p>
+    <p class="bebas fs5d1pt lh12pt">PHASE 3:</p>
+    <p class="bebas fs5d1pt underline">IP DEV & BUSINESS</p>
     <div style="height:5vmin;"></div>
-    <p class="helv fs4pt fg_gray9">
+    <p class="fs4pt fg_gray9">
       K-pop & Webtoon & Fashion<br/>
       (Collabs with many artists & company)<br/>
     </p>
@@ -481,11 +474,11 @@ $(function(){
   </section>
   <section class="pad7v center">
     <div style="height:25vmin;"></div>
-    <p class="helv_black fs9pt ls20 oblique">Growth</p>
+    <p class="bebas fs9pt ls20 oblique">Growth</p>
     <div style="height:25vmin;"></div>
-    <p class="helv fs5d1pt underline">BLOCK CHAIN</p>
+    <p class="bebas fs5d1pt underline">BLOCK CHAIN</p>
     <div style="height:5vmin;"></div>
-    <p class="helv fs4pt fg_gray9">
+    <p class="fs4pt fg_gray9">
       12welve DAO 설립과 Season 2 진행.<br/>
       우리는 다양한 생태계가 존재하는<br/>
       블록체인에서 Seamless한<br/>
@@ -493,9 +486,9 @@ $(function(){
       만들어 갈 것입니다.<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="helv fs5d1pt underline">K-POP MUSIC @ WEBTOON</p>
+    <p class="bebas fs5d1pt underline">K-POP MUSIC @ WEBTOON</p>
     <div style="height:5vmin;"></div>
-    <p class="helv fs4pt fg_gray9">
+    <p class="fs4pt fg_gray9">
       ‘Real side’ 지구의 1억명 타겟층을 가진<br/>
       K-pop과 Webtoon 프로젝트 진행.<br/>
       ‘Upper side’의 46 Meta 캐릭터<br/>
@@ -505,9 +498,9 @@ $(function(){
       가치 있게 만들 것입니다.<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="helv fs5d1pt underline">METAVERSE</p>
+    <p class="bebas fs5d1pt underline">METAVERSE</p>
     <div style="height:5vmin;"></div>
-    <p class="helv fs4pt fg_gray9">
+    <p class="fs4pt fg_gray9">
       우리의 목표는 가상과 현실의 경계가 없는<br/>
       엔터테인먼트 라이프스타일과 게임이 연결된<br/>
       12welve Metaverse를 만드는 것입니다.<br/>
@@ -521,7 +514,7 @@ $(function(){
     <div style="height:20vmin;"></div>
     <p class="fs6pt lh7pt underline">
       자세한 로드맵은 12WELVE 커뮤니티
-      <font class="fg_skypink">(DISCORD)</font><br/>
+      <font class="fg_skyblue">(DISCORD)</font><br/>
       를 통해 공지될 것입니다.
     </p>
     <div style="height:25vmin;"></div>
@@ -533,7 +526,7 @@ $(function(){
   <div id="p2" style="position:absolute;height:0;"></div>
   <section class="pad7v bg_white fg_black" style="position:sticky;top:0;z-index:0;">
     <div style="height:20vmin;"></div>
-    <p class="helv_comp fs8pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
+    <p class="bebas fs8pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
     <div style="height:3vh;"></div>
     <p class="fs4pt fg_gray6 lh6pt center underline"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.<br/><br/></p>
     <p class="fs4pt fg_gray6 lh6pt center">
@@ -573,7 +566,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
 <div id="content6" style="/*visibility:hidden*/">
   <section class="pad7v" id="sectTrail">
     <div style="height:10vmin;"></div>
-    <p class="helv_black fs11pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
+    <p class="bebas fs11pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
     <div style="height:5vmin;"></div>
     <p class="fs6pt lh9pt fg_gray8 center">
     12welve 커뮤니티에 가입하시면<br/>
@@ -586,7 +579,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
       <a target="_blank" href="https://www.twitter.com/"><img src="image/twitter.svg" style="width:10vmin;"/></a>
     </div>
     <div style="height:15vmin;"></div>
-    <p class="helv fs6pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
+    <p class="bebas fs6pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
     <div style="height:10vmin;"></div>
   </section>
 </div>
@@ -600,7 +593,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
 <div id="layer1" style="z-index:1;/*visibility:hidden;*/">
   <section id="sectTitle">
     <div style="height:30vmin;"></div>
-    <div><p class="helv_comp fs16pt lh12pt ls25 center" style="">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
+    <div><p class="robotob fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
     <div style="height:200vmin;"></div>
   </section>
 </div><!--<div id="layer1">-->
@@ -611,7 +604,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
     <div class="center" id="back01" style="
     width:100%;
     height:100vw;
-    background-image: url('./image/balloon.png');
+    background-image: url('./image/balloon_pc.png');
     background-position:top center;
     background-size:125vw;
     background-repeat:no-repeat;
@@ -622,16 +615,16 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
 
 <div id="layer3" style="z-index:3;height:100vw;/*visibility:hidden;*/">
   <section id="sectSummary" class="pad8v" style="position:absolute;bottom:0;">
-    <p class="helv_black fs25pt ls0">12</p>
+    <p class="bebas fs25pt ls0">12</p>
     <div style="height:12vmin;"></div>
-    <p class="helv_black fs5pt ls20 fg_skyblue oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
+    <p class="robotob fs5pt ls20 fg_skyblue oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
     <div style="height:4vmin;"></div>
     <p class="fs4pt lh4pt">
       12welve 프로젝트는 Next-K pop을 이끌어 갈 46 Meta 아이들(12 K-pop Idol)의 ‘9246 Unique Avatars’와<br/>
       12welve Metaverse의 멤버쉽 키인 ‘9246 Unique Cubes’로 구성된 이더리움 블록체인 기반의 제너레이티드 3D NFTs 컬렉션입니다.<br/>
     </p>
     <div style="height:10vmin;"></div>
-    <p class="helv_black fs5pt ls20 fg_skyblue oblique underline">12WELVE METAVERSE</p>
+    <p class="robotob fs5pt ls20 fg_skyblue oblique underline">12WELVE METAVERSE</p>
     <div style="height:4vmin;"></div>
     <p class="fs4pt lh4pt">
       물리적 지구의 또 다른 세상인 ‘Upper Side’ 지구.<br/>
