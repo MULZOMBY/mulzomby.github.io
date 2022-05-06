@@ -119,11 +119,11 @@ var layer2Top;
 var layer2Bottom;
 
 $(window).on('resize',resizeWindow=function(){
-  document.styleSheets[0].addRule('.diagonal','width:'+document.body.clientWidth+';');
-  document.styleSheets[0].addRule('.diagonalTopLeft:before','border-right-width:'+document.body.clientWidth+';');
-  document.styleSheets[0].addRule('.diagonalTopRight:before','border-left-width:'+document.body.clientWidth+';');
-  document.styleSheets[0].addRule('.diagonalBottomLeft:before','border-right-width:'+document.body.clientWidth+';');
-  document.styleSheets[0].addRule('.diagonalBottomRight:before','border-left-width:'+document.body.clientWidth+';');
+  document.styleSheets[document.styleSheets.length-1].addRule('.diagonal','width:'+document.body.clientWidth+';');
+  document.styleSheets[document.styleSheets.length-1].addRule('.diagonalTopLeft:before','border-right-width:'+document.body.clientWidth+';');
+  document.styleSheets[document.styleSheets.length-1].addRule('.diagonalTopRight:before','border-left-width:'+document.body.clientWidth+';');
+  document.styleSheets[document.styleSheets.length-1].addRule('.diagonalBottomLeft:before','border-right-width:'+document.body.clientWidth+';');
+  document.styleSheets[document.styleSheets.length-1].addRule('.diagonalBottomRight:before','border-left-width:'+document.body.clientWidth+';');
 
   layer3MarginTop=v2p(100+80);
   heightContent1=$('#content1').height();
