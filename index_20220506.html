@@ -40,91 +40,10 @@ var controller = new ScrollMagic.Controller();
 -->
 
 <style>
-body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:ga1light,dotum,-apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;}
-
-.bg_white{background-color:#ffffff;}
-.bg_black{background-color:#000000;}
-.bg_skyblue{background-color:#00dddd;}
-
-.fg_black{color:#000000;}
-.fg_gray6{color:#666666;}
-.fg_gray8{color:#888888;}
-.fg_gray9{color:#999999;}
-.fg_graya{color:#aaaaaa;}
-.fg_grayc{color:#cccccc;}
-.fg_skyblue{color:#00ffee;}
-.fg_pink{color:#ee00cc;}
-
-.pad5v{padding:0 5vmin 0 5vmin;}
-.pad6v{padding:0 6vmin 0 6vmin;}
-.pad7v{padding:0 6.8vmin 0 6.8vmin;}
-.pad8v{padding:0 8.1vmin 0 8.1vmin;}
-
-.ls0{letter-spacing:0vmin;}
-.ls20{letter-spacing:0.2vmin;}
-.ls25{letter-spacing:0.25vmin;}
-.ls50{letter-spacing:0.4vmin;}
-
-.lh4pt{line-height:2.7vmin;}
-.lh6pt{line-height:3vmin;}
-.lh7pt{line-height:3.8vmin;}
-.lh8pt{line-height:4.7vmin;}
-.lh9pt{line-height:5.4vmin;}
-.lh10pt{line-height:6.2vmin;}
-.lh11pt{line-height:7vmin;}
-.lh12pt{line-height:8vmin;}
-
-.fs4pt{font-size:1.85vmin;}
-.fs5pt{font-size:2.0vmin;}
-.fs5d1pt{font-size:2.2vmin;}
-.fs6pt{font-size:2.8vmin;}
-.fs7pt{font-size:3.7vmin;}
-.fs8pt{font-size:4.4vmin;}
-.fs9pt{font-size:4.7vmin;}
-.fs11pt{font-size:5.5vmin;}
-.fs12pt{font-size:5.8vmin;}
-.fs13pt{font-size:6.4vmin;}
-.fs15pt{font-size:8.3vmin;}
-.fs16pt{font-size:9vmin;}
-.fs20pt{font-size:10.3vmin;}
-.fs25pt{font-size:11.5vmin;}
-.fs30pt{font-size:16vmin;}
-.fs36pt{font-size:20vmin;}
-
-.center{text-align: center;}
-.oblique{font-style:oblique;}
-.underline{text-decoration: underline;}
-
-p{margin:0;}
-li{text-indent:-5vmin;}
-img{width:100vmin;height: auto;}
-
-
-
-
 #menu{
   position:fixed;
   width:100%;
 }
-
-
-.ghost{
-  display:inline-block;
-  text-align: center;
-  vertical-align:top;
-  margin:4vmin;
-  height:40vmin;
-  width:40vmin;
-}
-.ghost .dot{
-  height: 25vmin;
-  width: 25vmin;
-  background-color: #555555;
-  border-radius: 50%;
-  display: inline-block;
-}
-.ghost p{font-family:bebas;color:#000000}
-
 
 #layer1,#layer2,#layer3,#layer4{-webkit-transform:translate3d(0,0,0);}
 #layer1, #layer4, #layer5{width:80vw;margin:0 auto;}
@@ -150,52 +69,10 @@ img{width:100vmin;height: auto;}
 
 #layer3{
   -webkit-transform:translate3d(0,0,0);
-  overflow-x:hidden;
   z-index:3;
   margin:0 auto;
   position:relative;
   width:65vw;
-}
-
-#diagonalRight {
-  /*
-  background: #383838;
-  height: 10vw;
-  */
-  position: relative;
-  width: 100vw;
-}
-#diagonalRight:before {
-  content: "";
-  border-bottom: 50px solid #383838;
-  border-left: 100vw solid transparent;
-  /*border-right: 50px solid transparent;*/
-  height: 0;
-  left: 0;
-  position: absolute;
-  top: -49px;
-  width: 0;
-}
-
-#diagonalLeft{
-  position: relative;
-  width: 100vw;
-}
-#diagonalLeft:before {
-  content: "";
-  border-bottom: 50px solid #383838;
-  border-right: 100vw solid transparent;
-  height: 0;
-  left: 0;
-  position: absolute;
-  top: -49px;
-  width: 0;
-}
-#sectCatHead #diagonalLeft{
-  background-color:#9e95d0;
-}
-#sectCatHead #diagonalLeft:before{
-  border-bottom: 50px solid #9e95d0;
 }
 
 </style>
@@ -356,9 +233,9 @@ $(function(){
 </script>
 
 <div id="content1" style="/*visibility:hidden*/">
-  <section id="sectChar02" style="position: sticky;top: 0;z-index: 0;">
-    <div id="diagonalRight"></div>
-    <div id="char02" style="height:100vh;background-color:#383838;"><img src="./image/character02.png" style="width:auto;height:100vh;float:right;"/></div>
+  <section id="sectSsga001" style="position: sticky;top: 0;z-index: 0;">
+    <div class="diagonal diagonalTopLeft"></div>
+    <div id="char02" style="height:100vh;background-color:#05040d;"><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
     <div style="width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
       <div style="height:3vmin;"></div>
@@ -370,12 +247,13 @@ $(function(){
         FEATURE : 12WELVE 세계관 최강의 막가파<br/>
       </p>
     </div>
+    <div class="diagonal diagonalBottomRight"></div>
   </section>
 </div>
 
 <!--  -->
 <div id="content2" style="/*visibility:hidden*/">
-  <section id="sectCube" class="pad7v" style="position: sticky;top: 0;z-index: 0;margin-top:-10vh;">
+  <section id="sectCube" style="position: sticky;top: 0;z-index: 0;margin-top:-10vh;">
     <div style="height:10vmin;"></div>
     <p class="bebas fs25pt oblique center">1</p>
     <div style="height:5vmin;"></div>
@@ -413,7 +291,7 @@ $(function(){
 
 <div id="content3" style="/*visibility:hidden*/">
   <section class="" id="sectCatHead">
-    <div id="diagonalLeft"></div>
+    <div class="diagonal diagonalTopLeft"></div>
     <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#9e95d0">2</p>
     <div id="catHead" class="" style="width:100vw;height:80vh;background-color:#9e95d0;position:relative;z-index:-1;overflow:hidden;">
       <img src="./image/cat_head.png" style="width:auto;height:80vh;"/>
@@ -442,31 +320,31 @@ $(function(){
 <div id="content4" style="/*visibility:hidden*/">
   <section class="pad7v center">
     <div style="height:25vmin;"></div>
-    <p class="bebas fs9pt ls20 oblique">Launch</p>
+    <p class="bebas fs10pt ls20 oblique">Launch</p>
     <div style="height:25vmin;"></div>
-    <p class="bebas fs5d1pt lh12pt">PHASE 1: </p>
-    <p class="bebas fs5d1pt underline">9246 CUBES MINT</p>
-    <div style="height:5vmin;"></div>
-    <p class="fs4pt fg_gray9">
+    <p class="bebas fs6pt ls20 lh7pt">PHASE 1: </p>
+    <p class="bebas fs6pt ls20 underline">9246 CUBES MINT</p>
+    <div style="height:3vmin;"></div>
+    <p class="fs4pt lh6pt fg_gray9">
       12welve Metaverse를 시작하는<br/>
       큐브 민트를 진행합니다.<br/>
       Special Event<br/>
       Private Sale Only<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="bebas fs5d1pt lh12pt">PHASE 2:</p>
-    <p class="bebas fs5d1pt underline">9246 AVATARS FREE MINT</p>
-    <div style="height:5vmin;"></div>
-    <p class="fs4pt fg_gray9">
+    <p class="bebas fs6pt ls20 lh7pt">PHASE 2:</p>
+    <p class="bebas fs6pt ls20 underline">9246 AVATARS FREE MINT</p>
+    <div style="height:3vmin;"></div>
+    <p class="fs4pt lh6pt fg_gray9">
       큐브 홀더만 참여 할 수 있는<br/>
       아바타 민트를 진행합니다.<br/>
       (Collabs with special artists)<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="bebas fs5d1pt lh12pt">PHASE 3:</p>
-    <p class="bebas fs5d1pt underline">IP DEV & BUSINESS</p>
-    <div style="height:5vmin;"></div>
-    <p class="fs4pt fg_gray9">
+    <p class="bebas fs6pt ls20 lh7pt">PHASE 3:</p>
+    <p class="bebas fs6pt ls20 underline">IP DEV & BUSINESS</p>
+    <div style="height:3vmin;"></div>
+    <p class="fs4pt lh6pt fg_gray9">
       K-pop & Webtoon & Fashion<br/>
       (Collabs with many artists & company)<br/>
     </p>
@@ -474,11 +352,11 @@ $(function(){
   </section>
   <section class="pad7v center">
     <div style="height:25vmin;"></div>
-    <p class="bebas fs9pt ls20 oblique">Growth</p>
+    <p class="bebas fs10pt ls20 oblique">Growth</p>
     <div style="height:25vmin;"></div>
-    <p class="bebas fs5d1pt underline">BLOCK CHAIN</p>
-    <div style="height:5vmin;"></div>
-    <p class="fs4pt fg_gray9">
+    <p class="bebas fs6pt ls20 underline">BLOCK CHAIN</p>
+    <div style="height:3vmin;"></div>
+    <p class="fs4pt lh6pt fg_gray9">
       12welve DAO 설립과 Season 2 진행.<br/>
       우리는 다양한 생태계가 존재하는<br/>
       블록체인에서 Seamless한<br/>
@@ -486,9 +364,9 @@ $(function(){
       만들어 갈 것입니다.<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="bebas fs5d1pt underline">K-POP MUSIC @ WEBTOON</p>
-    <div style="height:5vmin;"></div>
-    <p class="fs4pt fg_gray9">
+    <p class="bebas fs6pt ls20 underline">K-POP MUSIC @ WEBTOON</p>
+    <div style="height:3vmin;"></div>
+    <p class="fs4pt lh6pt fg_gray9">
       ‘Real side’ 지구의 1억명 타겟층을 가진<br/>
       K-pop과 Webtoon 프로젝트 진행.<br/>
       ‘Upper side’의 46 Meta 캐릭터<br/>
@@ -498,9 +376,9 @@ $(function(){
       가치 있게 만들 것입니다.<br/>
     </p>
     <div style="height:25vmin;"></div>
-    <p class="bebas fs5d1pt underline">METAVERSE</p>
-    <div style="height:5vmin;"></div>
-    <p class="fs4pt fg_gray9">
+    <p class="bebas fs6pt ls20 underline">METAVERSE</p>
+    <div style="height:3vmin;"></div>
+    <p class="fs4pt lh6pt fg_gray9">
       우리의 목표는 가상과 현실의 경계가 없는<br/>
       엔터테인먼트 라이프스타일과 게임이 연결된<br/>
       12welve Metaverse를 만드는 것입니다.<br/>
@@ -522,53 +400,70 @@ $(function(){
 </div>
 
 
+<style>
+.ghost{
+  display:inline-block;
+  text-align: center;
+  vertical-align:top;
+  margin:4vmin;
+  height:33vmin;
+  width:30vmin;
+}
+.ghost .dot{
+  height: 22vmin;
+  width: 22vmin;
+  display: inline-block;
+  background-position:center;
+  /*
+  background-color: #555555;
+  border-radius: 50%;
+  */
+}
+.ghost p{font-family:bebas;color:#000000}
+</style>
 <div id="content5" style="/*visibility:hidden*/">
   <div id="p2" style="position:absolute;height:0;"></div>
   <section class="pad7v bg_white fg_black" style="position:sticky;top:0;z-index:0;">
     <div style="height:20vmin;"></div>
-    <p class="bebas fs8pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
+    <p class="bebas fs9pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
     <div style="height:3vh;"></div>
     <p class="fs4pt fg_gray6 lh6pt center underline"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.<br/><br/></p>
     <p class="fs4pt fg_gray6 lh6pt center">
-팀은 NEXT-K pop을 이끌어 갈<br/>
-46 Meta 아이들(12 K-pop Idol)의 성장을 위해<br/>
-물밑에서 전폭적인 지원과 지지를 보내고,<br/>
-12welve 커뮤니티와 함께 모든 일을 헤쳐나갑니다.<br/>
+팀은 NEXT-K pop을 이끌어 갈 46 Meta 아이들(12 K-pop Idol)의 성장을 위해<br/>
+물밑에서 전폭적인 지원과 지지를 보내고, 12welve 커뮤니티와 함께 모든 일을 헤쳐나갑니다.<br/>
 <br/>
-아티스트, 프로듀서, 교수, 개발자 등의<br/>
-전문가부터 K-pop Culture를 사랑하는<br/>
-Z세대의 평범한 학생까지 12welve와 함께하는<br/>
-고스트가 될 수 있습니다.<br/>
+아티스트, 프로듀서, 교수, 개발자 등의 전문가부터 K-pop Culture를 사랑하는<br/>
+Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 있습니다.<br/>
     </p>
-    <div style="height:10vh;"></div>
+    <div style="height:13vh;"></div>
   </section>
   <section class="bg_white fg_black center" id="sectGhost" style="position:sticky;top:0;z-index:1;">
     <div style="height:0vmin;" id="triggerSectGhost"></div>
-    <div class="ghost"><div class="dot"></div><p class="ls20 fs5pt">LEADER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="ls20 fs5pt">ARTIST</p></div>
-    <div class="ghost"><div class="dot"></div><p class="ls20 fs5pt">MUSIC<br/>PRODUCER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="ls20 fs5pt">MANAGER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="ls20 fs5pt">DEVELOPER</p></div>
-    <div class="ghost"><div class="dot"></div><p class="ls20 fs5pt">ADVISOR</p></div>
-    <div style="height:10vh"></div>
-  </section>
-  <section class="pad7v bg_white fg_black" style="position:relative;z-index:2;">
-    <p class="fs5d1pt lh6pt ls20 center">
-    고스트 멤버, 프로젝트 협업<br/>
-    및 기타 문의<br/>
-    <a href="mailto:contact@12welve.io">contact@12welve.io</a>
+    <div style="margin:auto 15vw;">
+      <div class="ghost"><div class="dot" style="background-image:url('./image/ghost1.png')"></div><p class="ls20 fs6pt">LEADER</p></div>
+      <div class="ghost"><div class="dot" style="background-image:url('./image/ghost2.png')"></div><p class="ls20 fs6pt">ARTIST</p></div>
+      <div class="ghost"><div class="dot" style="background-image:url('./image/ghost3.png')"></div><p class="ls20 fs6pt">MUSIC<br/>PRODUCER</p></div>
+      <div class="ghost"><div class="dot" style="background-image:url('./image/ghost4.png')"></div><p class="ls20 fs6pt">DEVELOPER</p></div>
+      <div class="ghost"><div class="dot" style="background-image:url('./image/ghost5.png')"></div><p class="ls20 fs6pt">MANAGER</p></div>
+      <div class="ghost"><div class="dot" style="background-image:url('./image/ghost6.png')"></div><p class="ls20 fs6pt">ADVISOR</p></div>
+    </div>
+    <div style="height:6vh"></div>
+    <p class="fs6pt lh6pt ls20 center">
+      고스트 멤버, 프로젝트 협업<br/>
+      및 기타 문의<br/>
+      <a href="mailto:contact@12welve.io">contact@12welve.io</a>
     </p>
-    <div style="height:10vmin;"></div>
+    <div style="height:20vh"></div>
   </section>
 </div>
 
 
 <div id="content6" style="/*visibility:hidden*/">
   <section class="pad7v" id="sectTrail">
-    <div style="height:10vmin;"></div>
-    <p class="bebas fs11pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
+    <div style="height:8vmin;"></div>
+    <p class="bebas fs9pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
     <div style="height:5vmin;"></div>
-    <p class="fs6pt lh9pt fg_gray8 center">
+    <p class="fs6pt lh7pt fg_gray8 center">
     12welve 커뮤니티에 가입하시면<br/>
     Special event와 Private sale에 참여할 수 있습니다.
     </p>
@@ -604,7 +499,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는<br/>
     <div class="center" id="back01" style="
     width:100%;
     height:100vw;
-    background-image: url('./image/balloon.png');
+    background-image: url('./image/balloon_pc.png');
     background-position:top center;
     background-size:125vw;
     background-repeat:no-repeat;
