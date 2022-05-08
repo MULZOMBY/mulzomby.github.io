@@ -131,13 +131,6 @@ var controller = new ScrollMagic.Controller();
 
 </style>
 <script>
-var heightContent1;
-var heightContent2;
-var heightContent3;
-var heightContent4;
-var heightContent5;
-var heightContent6;
-
 document.addEventListener('scroll', () => {
   const scrollData = window.scrollY
   //document.getElementById('layer1').style.width = (100 + scrollData/5) + '%' // 오른쪽으로 빠짐
@@ -156,21 +149,16 @@ var scrollPoint1=80;
 var scrollPoint2=160;
 var layer2MarginTop=-1;
 var layer1MarginTop=-1;
-const balloonScrollUp=v2p(200);
 var boolUnfold=false;
 
 
-var layer3MarginTop=v2p(100+80);
 var layer2Top;
 var layer2Bottom;
 
 $(window).on('resize',resizeWindow=function(){
-  try{
-    console.log('RESIZE '+(window.screen.availWidth / window.screen.availHeight));
-  }catch(e){}
   if( window.screen.availWidth / window.screen.availHeight < 1 ){
     mobile=true;
-    $('html').css('font-size','16px');
+    $('html').css('font-size','9px');
     $('#layer1 p').css({fontSize:'8vmin',lineHeight:'8vmin'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png")');
     $('#layer2 > section > div').css('background-size','cover');
@@ -182,6 +170,9 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer2 > section > div').css('background-image','url("./image/balloon_pc.png")');
     $('#layer2 > section > div').css('height','120vw');
   }
+  try{
+    console.log('RESIZE MOBILE:'+mobile+', '+(window.screen.availWidth / window.screen.availHeight));
+  }catch(e){}
 
   $('#styleDiagonal').remove();
   $('<style id="styleDiagonal">'+
@@ -190,14 +181,8 @@ $(window).on('resize',resizeWindow=function(){
     '.diagonalTopRight:before,.diagonalBottomRight:after{border-left:'+document.body.clientWidth+'px solid transparent;}\n'+
     '</style>').appendTo( "head" );
   
+  scrollWindow();
 
-  layer3MarginTop=v2p(100+80);
-  heightContent1=$('#content1').height();
-  heightContent2=$('#content2').height();
-  heightContent3=$('#content3').height();
-  heightContent4=$('#content4').height();
-  heightContent5=$('#content5').height();
-  heightContent6=$('#content6').height();
 }).on('scroll',scrollWindow=function(event){
   var mobile=false;
   if(mobile){
@@ -211,6 +196,8 @@ $(window).on('resize',resizeWindow=function(){
     console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, '+JSON.stringify($('#layer2').offset()));
   }catch(e){}
 
+  if(!$('#layer2').offset()) return 
+
 
   $('#layer1').css({zIndex:1,position:'sticky',top:0});
   $('#layer1 #sectTitle').css({visibility:'visible'});
@@ -221,6 +208,7 @@ $(window).on('resize',resizeWindow=function(){
 
   $('#layer2').css({position:'absolute',top:0,marginTop:'70vh'});
   if(p2v(scroll)>scrollPoint1){
+    console.log('layer2Top=-v2p(scrollPoint1)+$(#layer2).offset().top;'+$('#layer2').offset());
     layer2Top=-v2p(scrollPoint1)+$('#layer2').offset().top;
     layer2Bottom=$('#layer2').offset().top+$('#layer2').height();
     $('#layer2').css('top',layer2Top);
@@ -240,9 +228,10 @@ $(window).on('resize',resizeWindow=function(){
     boolUnfold=false;
   }else if(p2v(scroll)>scrollPoint2){
     if(!boolUnfold){
-      console.log('boolUnfold');
+      console.log('boolUnfold mobile:'+mobile);
       setTimeout(function(){
         $('#content1').css({visibility:'visible', 'top':$('#layer2').offset().top+$('#layer2').height()+v2p(10)});
+        if(mobile) $('#content1').css({'top':'330vh'});
       },100);
       setTimeout(function(){
         $('#content2').css({visibility:'visible', 'top':$('#content1').offset().top});
@@ -276,7 +265,6 @@ $(function(){
   });
   setTimeout(function(){
     resizeWindow();
-    scrollWindow();
   },100);
 
 });
