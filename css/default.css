@@ -53,6 +53,7 @@
 .oblique{font-style:oblique;}
 .underline{text-decoration: underline;}
 
+html{font-size:11px;}
 body{margin:0 auto;background-color:#000000;color:#EEEEEE;font-family:ga1medium,dotum,-apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;}
 p{margin:0;}
 li{text-indent:-5vmin;}
