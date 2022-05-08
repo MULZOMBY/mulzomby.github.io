@@ -1,5 +1,5 @@
 PC: 1920x1080, 1920x1032
-MOBILE: 414x896, 414x800
+MOBILE: 414x896, 414x800, 828x1600
 
 
 https://codepen.io/nckprsn/pen/YzxeXG
