@@ -140,9 +140,12 @@ document.addEventListener('scroll', () => {
   //document.getElementById('text').style.top = (- scrollData/5) + '%'
   //document.getElementById('layer2').style.top = (- scrollData/5) + '%'
 })
-function vw2p(vmin){return(vmin*window.innerWidth)/100;}
 function v2p(vmin){return (vmin*window.innerHeight)/100;}
+function vh2p(vmin){return(vmin*window.innerHeight)/100;}
+function vw2p(vmin){return(vmin*window.innerWidth)/100;}
 function p2v(pixel){return pixel*100/window.innerHeight;}
+function p2vh(pixel){return pixel*100/window.innerHeight;}
+function p2vw(pixel){return pixel*100/window.innerWidth;}
 function positionContents(){
   if(contents || p2v(scroll)<scrollPoint2) return;
   console.log('contents mobile:'+mobile);
