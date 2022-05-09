@@ -111,9 +111,9 @@ html { overflow-y:scroll;}
 .pad12vw{padding:0 12vw;}
 .pad12vw_mobile{padding:0 6vw;}
 
-#sectCatHead .diagonal{ background-color:#9e95d0; }
-#sectCatHead .diagonalTopRight:before, #sectCatHead .diagonalTopLeft:before{ border-bottom:50px solid #9e95d0; }
-#sectCatHead .diagonalBottomRight:after, #sectCatHead .diagonalBottomLeft:after{ border-top:50px solid #9e95d0; }
+#sectCatHead .diagonal{ background-color:#8585fc; }
+#sectCatHead .diagonalTopRight:before, #sectCatHead .diagonalTopLeft:before{ border-bottom:50px solid #8585fc; }
+#sectCatHead .diagonalBottomRight:after, #sectCatHead .diagonalBottomLeft:after{ border-top:50px solid #8585fc; }
 
 #sectSsga001 .diagonal{ background-color:#05040d; } /*05040d*/
 #sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #05040d; }

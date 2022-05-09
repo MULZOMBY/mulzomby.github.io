@@ -96,10 +96,11 @@ var controller = new ScrollMagic.Controller();
   width:80%;
 }
 
-#sectSsga001 .diagonal{ background-color:#555555; } /*05040d*/
+/*
+#sectSsga001 .diagonal{ background-color:#555555; }
 #sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #555555; }
 #sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #555555; }
-
+*/
 
 
 .fs4pt{font-size:1.65rem;}
@@ -187,11 +188,9 @@ var layer2Bottom;
 
 $(window).on('resize',resizeWindow=function(){
   //if( window.screen.availWidth / window.screen.availHeight < 1 ){
-  if( document.body.clientWidth / document.body.clientHeight < 1 ){
-    if(mobile) return;
-    contents=false;
-    mobile=true;
-    $('html').css('font-size','15px');
+  //if( document.body.clientWidth / document.body.clientHeight < 1 ){
+  if( screen.width / screen.height < 1 ){
+    $('html').css('font-size','9px');
     $('#layer1 p').css({fontSize:'8vmin',lineHeight:'8vmin'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png")');
     $('#layer2 > section > div').css('background-size','cover');
@@ -200,15 +199,17 @@ $(window).on('resize',resizeWindow=function(){
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
     $('.pad12vw').addClass('pad12vw_mobile');
+    $('.content').addClass('mobile');
+
+    if(mobile) return;
+    contents=false;
+    mobile=true;
 
     $.each($('#content5 p'),function(idx,val){
       if($(this).hasClass('nostrip')) return;
       $(this).html($(this).html().replace(/<br[^>]*>/gi,''));
     });
   }else{
-    if(!mobile) return;
-    contents=false;
-    mobile=false;
     $('html').css('font-size','11px');
     $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_pc.png")');
@@ -217,6 +218,11 @@ $(window).on('resize',resizeWindow=function(){
     $('.growth').removeClass('growth_mobile');
     $('.ghost').removeClass('ghost_mobile');
     $('.pad12vw').removeClass('pad12vw_mobile');
+    $('.content').removeClass('mobile');
+
+    if(!mobile) return;
+    contents=false;
+    mobile=false;
 
     $.each($('#content5 p'),function(idx,val){
       if($(this).hasClass('nostrip')) return;
@@ -300,11 +306,20 @@ $(function(){
 });
 </script>
 
-<div id="content1" style="/*visibility:hidden*/">
+
+<style>
+#content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);}
+#content1.mobile .fs12pt{font-size:4rem;}
+#content1.mobile .lh10pt{line-height:5rem;}
+#content1.mobile .fs6pt{font-size:1.7rem;}
+#content1.mobile .lh8pt{line-height:2.2rem;}
+#content1.mobile .textBox{width:75vw;}
+</style>
+<div id="content1" class="content" style="/*visibility:hidden*/">
   <section id="sectSsga001" style="position: sticky;top: 0;z-index: 0;">
     <div class="diagonal diagonalTopLeft"></div>
     <div id="char02" style="height:100vh;background-color:#05040d;"><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
-    <div style="width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);">
+    <div class="textBox">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
       <div style="height:3vmin;"></div>
       <p class="bebas fs6pt lh8pt ls20">
@@ -319,13 +334,17 @@ $(function(){
   </section>
 </div>
 
-<!--  -->
-<div id="content2" style="/*visibility:hidden*/">
+
+<style>
+#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;   margin-top:-17.5vh;}
+#content2.mobile .cube{width:100%;position:relative;margin-top:0;}
+</style>  
+<div id="content2" class="content" style="/*visibility:hidden*/">
   <section id="sectCube" style="position: sticky;top: 0;z-index: 0;margin-top:-10vh;">
     <div style="height:10vmin;"></div>
     <p class="bebas fs25pt oblique center">1</p>
     <div style="height:5vmin;"></div>
-    <div class="cube" style="width:50vw;overflow: hidden;position:absolute;z-index:-1;   margin-top:-17.5vh">
+    <div class="cube">
       <!--
       <div style="position:absolute;width:100%;height:100%;text-align:center; ">
         <p class="helv_black oblique" style="position:relative; top:20%; font-size: 8vmin; color: #ffffff;">LOREM IPSUM DOLOR</p>
@@ -356,15 +375,20 @@ $(function(){
   </section>
 </div>
 
+<style>
+#content3 section{background-color:#8585fc;height:100vh;}
+#content3 .textBox{width:45vw;float:right;margin-top:15vh;z-index:1}
+#content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height: 100vh;background-size:100%;}
 
-<div id="content3" style="/*visibility:hidden*/">
+#content3.mobile section{background-color:#8585fc;height:initial;}
+#content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
+#content3.mobile .catHead{position:relative;width:100%;height:100vw;}
+</style>
+<div id="content3" class="content" style="/*visibility:hidden*/">
   <section class="" id="sectCatHead">
     <div class="diagonal diagonalTopLeft"></div>
-    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#9e95d0">2</p>
-    <div id="catHead" class="" style="width:100%;height:80vh;background-color:#9e95d0;position:relative;z-index:-1;overflow:hidden;">
-      <img src="./image/cat_head.png" style="width:auto;height:80vh;"/>
-    </div>
-    <div style="width:45vw;float:right;margin-top:-72vh;">
+    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#8585fc">2</p>
+    <div class="textBox">
       <p><font class="roboto fs13pt">9.246</font>
         <font class="roboto fs6pt">AVATARS</font></p>
       <div style="height:8vmin;"></div>
@@ -381,6 +405,7 @@ $(function(){
       <p class="fs4pt lh4pt">홀더는 보유한 아바타가 속한 K-pop Idol의 활동과 관련된<br/>
       다양한 혜택을 받습니다.</p>       
     </div>
+    <div class="catHead">&nbsp;</div>
   </section>
 </div>
 
@@ -401,7 +426,7 @@ $(function(){
   width:100%;
 }
 </style>
-<div id="content4" style="/*visibility:hidden*/">
+<div id="content4" class="content" style="/*visibility:hidden*/">
   <section class="center">
     <div style="height:20vmin;"></div>
     <p class="bebas fs10pt ls20 oblique">Launch</p>
@@ -539,7 +564,7 @@ $(function(){
 .ghost_mobile p{font-family:bebas;color:#000000}
 
 </style>
-<div id="content5" style="/*visibility:hidden*/">
+<div id="content5" class="content" style="/*visibility:hidden*/">
   <div id="p2" style="position:absolute;height:0;"></div>
   <section class="bg_white fg_black pad12vw" style="position:sticky;top:0;z-index:0;">
     <div style="height:20vmin;"></div>
@@ -579,7 +604,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
 </div>
 
 
-<div id="content6" style="/*visibility:hidden*/">
+<div id="content6" class="content" style="/*visibility:hidden*/">
   <section class="pad7v" id="sectTrail">
     <div style="height:8vmin;"></div>
     <p class="bebas fs8pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
