@@ -104,6 +104,7 @@ var controller = new ScrollMagic.Controller();
 
 .fs4pt{font-size:1.65rem;}
 .fs5pt{font-size:2.0rem;}
+.fs5d3pt{font-size:2.3rem;}
 .fs5d6pt{font-size:2.6rem;}
 .fs6pt{font-size:3rem;}
 .fs7pt{font-size:4rem;}
@@ -169,11 +170,8 @@ $(window).on('resize',resizeWindow=function(){
     $('.pad12vw').addClass('pad12vw_mobile');
 
     $.each($('#content5 p'),function(idx,val){
-      //console.log('element at index ' + idx + ' is ' + val);
-      //console.log(this);
+      if($(this).hasClass('nostrip')) return;
       $(this).html($(this).html().replace(/<br[^>]*>/gi,''));
-      //$('#content5 p').html($('').html());
-      console.log( $(this).html().replace(/<br[^>]*>/gi,'') );
     });
   }else{
     mobile=false;
@@ -185,7 +183,13 @@ $(window).on('resize',resizeWindow=function(){
     $('.growth').removeClass('growth_mobile');
     $('.ghost').removeClass('ghost_mobile');
     $('.pad12vw').removeClass('pad12vw_mobile');
+
+    $.each($('#content5 p'),function(idx,val){
+      if($(this).hasClass('nostrip')) return;
+      if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().replace(/\n/gi,'\n<br/>'));
+    });
   }
+
   try{
     console.log('RESIZE MOBILE:'+mobile+', '+(window.screen.availWidth / window.screen.availHeight));
   }catch(e){}
@@ -557,7 +561,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost6.png')"></div><p class="ls20 fs6pt">ADVISOR</p></div>
     </div>
     <div style="height:6vh"></div>
-    <p class="fs5d3pt lh6pt ls20 center">
+    <p class="fs5d3pt lh6pt ls20 center nostrip">
       고스트 멤버, 프로젝트 협업<br/>
       및 기타 문의<br/>
       <a href="mailto:contact@12welve.io">contact@12welve.io</a>
