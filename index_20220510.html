@@ -163,12 +163,18 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png")');
     $('#layer2 > section > div').css('background-size','cover');
     $('#layer2 > section > div').css('height','150vh');
+    $('.launch').addClass('launch_mobile');
+    $('.growth').addClass('growth_mobile');
+    $('.ghost').addClass('ghost_mobile');
   }else{
     mobile=false;
     $('html').css('font-size','11px');
     $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_pc.png")');
     $('#layer2 > section > div').css('height','120vw');
+    $('.launch').removeClass('launch_mobile');
+    $('.growth').removeClass('growth_mobile');
+    $('.ghost').removeClass('ghost_mobile');
   }
   try{
     console.log('RESIZE MOBILE:'+mobile+', '+(window.screen.availWidth / window.screen.availHeight));
@@ -361,8 +367,16 @@ $(function(){
   text-align: center;
   vertical-align:top;
   margin:3vmin;
-  height:33vmin;
-  width:33vmin;
+  height:33vh;
+  width:33vh;
+}
+.launch_mobile,.growth_mobile{
+  display:inline-block;
+  text-align: center;
+  vertical-align:top;
+  margin:3vmin;
+  height:33vh;
+  width:33vh;
 }
 </style>
 <div id="content4" style="/*visibility:hidden*/">
@@ -479,6 +493,26 @@ $(function(){
   */
 }
 .ghost p{font-family:bebas;color:#000000}
+.ghost_mobile{
+  display:inline-block;
+  text-align: center;
+  vertical-align:top;
+  margin:4vmin;
+  height:33vmin;
+  width:30vmin;
+}
+.ghost_mobile .dot{
+  height:26vmin;
+  width:26vmin;
+  display: inline-block;
+  background-position:center;
+  background-size:contain;
+  /*
+  background-color: #555555;
+  border-radius: 50%;
+  */
+}
+.ghost_mobile p{font-family:bebas;color:#000000}
 </style>
 <div id="content5" style="/*visibility:hidden*/">
   <div id="p2" style="position:absolute;height:0;"></div>
