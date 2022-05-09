@@ -12,11 +12,6 @@
 .fg_skyblue{color:#00ffee;}
 .fg_pink{color:#ee00cc;}
 
-.pad5v{padding:0 5vmin 0 5vmin;}
-.pad6v{padding:0 6vmin 0 6vmin;}
-.pad7v{padding:0 6.8vmin 0 6.8vmin;}
-.pad8v{padding:0 8.1vmin 0 8.1vmin;}
-
 .ls0{letter-spacing:0vmin;}
 .ls20{letter-spacing:0.2vmin;}
 .ls25{letter-spacing:0.25vmin;}
@@ -109,6 +104,13 @@ html { overflow-y:scroll;}
 	width: 0;
 }
 
+.pad5v{padding:0 5vmin 0 5vmin;}
+.pad6v{padding:0 6vmin 0 6vmin;}
+.pad7v{padding:0 6.8vmin 0 6.8vmin;}
+.pad8v{padding:0 8.1vmin 0 8.1vmin;}
+.pad12vw{padding:0 12vw;}
+.pad12vw_mobile{padding:0 6vw;}
+
 #sectCatHead .diagonal{ background-color:#9e95d0; }
 #sectCatHead .diagonalTopRight:before, #sectCatHead .diagonalTopLeft:before{ border-bottom:50px solid #9e95d0; }
 #sectCatHead .diagonalBottomRight:after, #sectCatHead .diagonalBottomLeft:after{ border-top:50px solid #9e95d0; }
@@ -118,3 +120,4 @@ html { overflow-y:scroll;}
 #sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #05040d; }
 
 /*05040d*/
+

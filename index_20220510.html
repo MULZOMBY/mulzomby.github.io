@@ -158,7 +158,7 @@ var layer2Bottom;
 $(window).on('resize',resizeWindow=function(){
   if( window.screen.availWidth / window.screen.availHeight < 1 ){
     mobile=true;
-    $('html').css('font-size','9px');
+    $('html').css('font-size','15px');
     $('#layer1 p').css({fontSize:'8vmin',lineHeight:'8vmin'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png")');
     $('#layer2 > section > div').css('background-size','cover');
@@ -166,6 +166,15 @@ $(window).on('resize',resizeWindow=function(){
     $('.launch').addClass('launch_mobile');
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
+    $('.pad12vw').addClass('pad12vw_mobile');
+
+    $.each($('#content5 p'),function(idx,val){
+      //console.log('element at index ' + idx + ' is ' + val);
+      //console.log(this);
+      $(this).html($(this).html().replace(/<br[^>]*>/gi,''));
+      //$('#content5 p').html($('').html());
+      console.log( $(this).html().replace(/<br[^>]*>/gi,'') );
+    });
   }else{
     mobile=false;
     $('html').css('font-size','11px');
@@ -175,6 +184,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.launch').removeClass('launch_mobile');
     $('.growth').removeClass('growth_mobile');
     $('.ghost').removeClass('ghost_mobile');
+    $('.pad12vw').removeClass('pad12vw_mobile');
   }
   try{
     console.log('RESIZE MOBILE:'+mobile+', '+(window.screen.availWidth / window.screen.availHeight));
@@ -374,13 +384,14 @@ $(function(){
   display:inline-block;
   text-align: center;
   vertical-align:top;
-  margin:3vmin;
-  height:33vh;
-  width:33vh;
+  margin:10vw 0;
+  height:initial;
+  width:100%;
 }
 </style>
 <div id="content4" style="/*visibility:hidden*/">
   <section class="center">
+    <div style="height:20vmin;"></div>
     <p class="bebas fs10pt ls20 oblique">Launch</p>
     <div style="height:8vmin;"></div>
     <div style="margin:auto 12vw;">
@@ -418,6 +429,7 @@ $(function(){
     <div style="height:5vmin;"></div>
   </section>
   <section class="center">
+    <div style="height:20vmin;"></div>
     <p class="bebas fs10pt ls20 oblique">Growth</p>
     <div style="height:8vmin;"></div>
     <div style="margin:auto 12vw;">
@@ -498,12 +510,12 @@ $(function(){
   text-align: center;
   vertical-align:top;
   margin:4vmin;
-  height:33vmin;
-  width:30vmin;
+  height:40vmin;
+  width:35vmin;
 }
 .ghost_mobile .dot{
-  height:26vmin;
-  width:26vmin;
+  height:100%;
+  width:100%;
   display: inline-block;
   background-position:center;
   background-size:contain;
@@ -513,26 +525,30 @@ $(function(){
   */
 }
 .ghost_mobile p{font-family:bebas;color:#000000}
+
 </style>
 <div id="content5" style="/*visibility:hidden*/">
   <div id="p2" style="position:absolute;height:0;"></div>
-  <section class="pad7v bg_white fg_black" style="position:sticky;top:0;z-index:0;">
+  <section class="bg_white fg_black pad12vw" style="position:sticky;top:0;z-index:0;">
     <div style="height:20vmin;"></div>
     <p class="bebas fs9pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
     <div style="height:3vh;"></div>
-    <p class="fs4pt fg_gray6 lh6pt center underline"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.<br/><br/></p>
+    <p class="fs4pt fg_gray6 lh6pt center underline"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.</p>
+    <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
     <p class="fs4pt fg_gray6 lh6pt center">
 팀은 NEXT-K pop을 이끌어 갈 46 Meta 아이들(12 K-pop Idol)의 성장을 위해<br/>
 물밑에서 전폭적인 지원과 지지를 보내고, 12welve 커뮤니티와 함께 모든 일을 헤쳐나갑니다.<br/>
-<br/>
+    </p>
+    <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
+    <p class="fs4pt fg_gray6 lh6pt center">
 아티스트, 프로듀서, 교수, 개발자 등의 전문가부터 K-pop Culture를 사랑하는<br/>
 Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 있습니다.<br/>
     </p>
     <div style="height:13vh;"></div>
   </section>
-  <section class="bg_white fg_black center" id="sectGhost" style="position:sticky;top:0;z-index:1;">
+  <section class="bg_white fg_black center pad12vw" id="sectGhost" style="position:sticky;top:0;z-index:1;">
     <div style="height:0vmin;" id="triggerSectGhost"></div>
-    <div style="margin:auto 12vw;">
+    <div>
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost1.png')"></div><p class="ls20 fs6pt">LEADER</p></div>
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost2.png')"></div><p class="ls20 fs6pt">ARTIST</p></div>
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost3.png')"></div><p class="ls20 fs6pt">MUSIC<br/>PRODUCER</p></div>
