@@ -186,7 +186,8 @@ var layer2Top;
 var layer2Bottom;
 
 $(window).on('resize',resizeWindow=function(){
-  if( window.screen.availWidth / window.screen.availHeight < 1 ){
+  //if( window.screen.availWidth / window.screen.availHeight < 1 ){
+  if( document.body.clientWidth / document.body.clientHeight < 1 ){
     if(mobile) return;
     contents=false;
     mobile=true;
@@ -222,10 +223,6 @@ $(window).on('resize',resizeWindow=function(){
       if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().replace(/\n/gi,'\n<br/>'));
     });
   }
-
-  try{
-    console.log('RESIZE MOBILE:'+mobile+', '+(window.screen.availWidth / window.screen.availHeight));
-  }catch(e){}
 
   $('#styleDiagonal').remove();
   $('<style id="styleDiagonal">'+
