@@ -53,22 +53,22 @@ var controller = new ScrollMagic.Controller();
 #content5{top:800vh;}
 #content6{top:900vh;}
 
-#layer1,#layer2,#layer3{-webkit-transform:translate3d(0,0,0);}
+#layer1,#layer2,#layer3{-webkit-transform:translate3d(0,0,0);width:100%;}
 #layer1{
   position:sticky;
   height:100vh;
 }
 #layer1 div{
   position:absolute;
+  width:100%;
   transform:translate(-50%,-50%);
   top:50%;
   left:50%;
-  width:100%;
 }
+#layer1 p{font-size:6vmax;line-height:6vmax;}
 #layer2 {
   position:absolute;
   overflow-x:hidden;
-  width:100%;
   margin:0 auto;
   top:0;
   margin-top:70vh;
@@ -85,19 +85,54 @@ var controller = new ScrollMagic.Controller();
   position:relative;
   z-index:3;
   margin:0 auto;
-  width:65vw;
   height:80vh;
 }
+#layer3 section{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translate(-50%,0);
+  max-width:1100px;
+  width:80%;
+}
+
+/*
+#sectSsga001 .diagonal{ background-color:#555555; }
+#sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #555555; }
+#sectSsga001 .diagonalBottomRight:after, #sectSsga001 .diagonalBottomLeft:after{ border-top:50px solid #555555; }
+*/
+
+
+.fs4pt{font-size:1.65rem;}
+.fs5pt{font-size:2.0rem;}
+.fs5d3pt{font-size:2.3rem;}
+.fs5d6pt{font-size:2.6rem;}
+.fs6pt{font-size:3rem;}
+.fs7pt{font-size:4rem;}
+.fs8pt{font-size:4.5rem;}
+.fs9pt{font-size:5rem;}
+.fs10pt{font-size:5.5rem;}
+.fs11pt{font-size:6rem;}
+.fs12pt{font-size:6.5rem;}
+.fs13pt{font-size:7rem;}
+.fs15pt{font-size:8.3rem;}
+.fs16pt{font-size:9rem;}
+.fs20pt{font-size:10.3rem;}
+.fs25pt{font-size:11.5rem;}
+.fs30pt{font-size:16rem;}
+.fs36pt{font-size:20rem;}
+
+.lh4pt{line-height:2.7rem;}
+.lh6pt{line-height:3rem;}
+.lh7pt{line-height:3.8rem;}
+.lh8pt{line-height:4.7rem;}
+.lh9pt{line-height:5.4rem;}
+.lh10pt{line-height:6.2rem;}
+.lh11pt{line-height:7rem;}
+.lh12pt{line-height:8rem;}
 
 </style>
 <script>
-var heightContent1;
-var heightContent2;
-var heightContent3;
-var heightContent4;
-var heightContent5;
-var heightContent6;
-
 document.addEventListener('scroll', () => {
   const scrollData = window.scrollY
   //document.getElementById('layer1').style.width = (100 + scrollData/5) + '%' // 오른쪽으로 빠짐
@@ -106,36 +141,93 @@ document.addEventListener('scroll', () => {
   //document.getElementById('text').style.top = (- scrollData/5) + '%'
   //document.getElementById('layer2').style.top = (- scrollData/5) + '%'
 })
-function vw2p(vmin){return(vmin*window.innerWidth)/100;}
 function v2p(vmin){return (vmin*window.innerHeight)/100;}
+function vh2p(vmin){return(vmin*window.innerHeight)/100;}
+function vw2p(vmin){return(vmin*window.innerWidth)/100;}
 function p2v(pixel){return pixel*100/window.innerHeight;}
+function p2vh(pixel){return pixel*100/window.innerHeight;}
+function p2vw(pixel){return pixel*100/window.innerWidth;}
+function positionContents(){
+  if(contents || p2v(scroll)<scrollPoint2) return;
+  console.log('contents mobile:'+mobile);
+  setTimeout(function(){
+    $('#content1').css({visibility:'visible', 'top':$('#layer2').offset().top+$('#layer2').height()+v2p(10)});
+    if(mobile) $('#content1').css({'top':'330vh'});
+  },100);
+  setTimeout(function(){
+    $('#content2').css({visibility:'visible', 'top':$('#content1').offset().top});
+  },200);
+  setTimeout(function(){
+    $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
+  },300);
+  setTimeout(function(){
+    $('#content4').css({visibility:'visible', 'top':$('#content3').offset().top+$('#content3').height()+v2p(30)});
+  },400);
+  setTimeout(function(){
+    $('#content5').css({visibility:'visible', 'top':$('#content4').offset().top+$('#content4').height()+v2p(15)});
+  },500);
+  setTimeout(function(){
+    $('#content6').css({visibility:'visible', 'top':$('#content5').offset().top+$('#content5').height()+v2p(20)});
+  },600);
+  $('#content2').css('height','280vh');
+  contents=true;
+}
 
-var mobile=false;
 var scroll;
 var scrollPoint1=80;
 var scrollPoint2=160;
+var mobile=false;
+var contents=false;
+
 var layer2MarginTop=-1;
 var layer1MarginTop=-1;
-const balloonScrollUp=v2p(200);
-var boolUnfold=false;
 
 
-var layer3MarginTop=v2p(100+80);
 var layer2Top;
 var layer2Bottom;
 
 $(window).on('resize',resizeWindow=function(){
-  try{
-    console.log('RESIZE '+(window.screen.availWidth / window.screen.availHeight));
-  }catch(e){}
-  if( window.screen.availWidth / window.screen.availHeight < 1 ){
-    mobile=true;
+  //if( window.screen.availWidth / window.screen.availHeight < 1 ){
+  //if( document.body.clientWidth / document.body.clientHeight < 1 ){
+  if( screen.width / screen.height < 1 ){
+    $('html').css('font-size','9px');
+    $('#layer1 p').css({fontSize:'8vmin',lineHeight:'8vmin'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png")');
-    $('#layer2 > section > div').css('height','300vh');
+    $('#layer2 > section > div').css('background-size','cover');
+    $('#layer2 > section > div').css('height','150vh');
+    $('.launch').addClass('launch_mobile');
+    $('.growth').addClass('growth_mobile');
+    $('.ghost').addClass('ghost_mobile');
+    $('.pad12vw').addClass('pad12vw_mobile');
+    $('.content').addClass('mobile');
+
+    if(mobile) return;
+    contents=false;
+    mobile=true;
+
+    $.each($('#content5 p'),function(idx,val){
+      if($(this).hasClass('nostrip')) return;
+      $(this).html($(this).html().replace(/<br[^>]*>/gi,''));
+    });
   }else{
-    mobile=false;
+    $('html').css('font-size','11px');
+    $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_pc.png")');
     $('#layer2 > section > div').css('height','120vw');
+    $('.launch').removeClass('launch_mobile');
+    $('.growth').removeClass('growth_mobile');
+    $('.ghost').removeClass('ghost_mobile');
+    $('.pad12vw').removeClass('pad12vw_mobile');
+    $('.content').removeClass('mobile');
+
+    if(!mobile) return;
+    contents=false;
+    mobile=false;
+
+    $.each($('#content5 p'),function(idx,val){
+      if($(this).hasClass('nostrip')) return;
+      if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().replace(/\n/gi,'\n<br/>'));
+    });
   }
 
   $('#styleDiagonal').remove();
@@ -145,14 +237,8 @@ $(window).on('resize',resizeWindow=function(){
     '.diagonalTopRight:before,.diagonalBottomRight:after{border-left:'+document.body.clientWidth+'px solid transparent;}\n'+
     '</style>').appendTo( "head" );
   
+  scrollWindow();
 
-  layer3MarginTop=v2p(100+80);
-  heightContent1=$('#content1').height();
-  heightContent2=$('#content2').height();
-  heightContent3=$('#content3').height();
-  heightContent4=$('#content4').height();
-  heightContent5=$('#content5').height();
-  heightContent6=$('#content6').height();
 }).on('scroll',scrollWindow=function(event){
   var mobile=false;
   if(mobile){
@@ -166,6 +252,8 @@ $(window).on('resize',resizeWindow=function(){
     console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, '+JSON.stringify($('#layer2').offset()));
   }catch(e){}
 
+  if(!$('#layer2').offset()) return 
+
 
   $('#layer1').css({zIndex:1,position:'sticky',top:0});
   $('#layer1 #sectTitle').css({visibility:'visible'});
@@ -176,6 +264,7 @@ $(window).on('resize',resizeWindow=function(){
 
   $('#layer2').css({position:'absolute',top:0,marginTop:'70vh'});
   if(p2v(scroll)>scrollPoint1){
+    console.log('layer2Top=-v2p(scrollPoint1)+$(#layer2).offset().top;'+$('#layer2').offset());
     layer2Top=-v2p(scrollPoint1)+$('#layer2').offset().top;
     layer2Bottom=$('#layer2').offset().top+$('#layer2').height();
     $('#layer2').css('top',layer2Top);
@@ -184,42 +273,21 @@ $(window).on('resize',resizeWindow=function(){
   
   $('#layer3').css({visibility:'hidden',height:scrollPoint1+'vh'});
   if(p2v(scroll)<=scrollPoint1){
-    boolUnfold=false;
+    contents=false;
   }else if(p2v(scroll)>scrollPoint1){
     $('#layer3').css('visibility','visible');
     //$('#layer3').css('top',v2p(80+100)-layer2Bottom);
-    
-    if(mobile) $('#layer3').css('top',v2p(scrollPoint1+100));
-    else $('#layer3').css('top',v2p(scrollPoint1+100)-layer2Bottom+v2p(50));
+    $('#layer3').css('top',v2p(scrollPoint1+100)-layer2Bottom+v2p(50));
   }
 
+  /*
   if(p2v(scroll)<=scrollPoint2){
-    boolUnfold=false;
+    contents=false;
   }else if(p2v(scroll)>scrollPoint2){
-    if(!boolUnfold){
-      console.log('boolUnfold');
-      setTimeout(function(){
-        $('#content1').css({visibility:'visible', 'top':$('#layer2').offset().top+$('#layer2').height()+v2p(10)});
-      },100);
-      setTimeout(function(){
-        $('#content2').css({visibility:'visible', 'top':$('#content1').offset().top});
-      },200);
-      setTimeout(function(){
-        $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
-      },300);
-      setTimeout(function(){
-        $('#content4').css({visibility:'visible', 'top':$('#content3').offset().top+$('#content3').height()+v2p(30)});
-      },400);
-      setTimeout(function(){
-        $('#content5').css({visibility:'visible', 'top':$('#content4').offset().top+$('#content4').height()+v2p(15)});
-      },500);
-      setTimeout(function(){
-        $('#content6').css({visibility:'visible', 'top':$('#content5').offset().top+$('#content5').height()+v2p(20)});
-      },600);
-      $('#content2').css('height','280vh');
-      boolUnfold=true;
-    }
+
   }
+*/
+  positionContents();
 
 }); // }).on('scroll',scrollWindow=function(event){
 
@@ -233,17 +301,25 @@ $(function(){
   });
   setTimeout(function(){
     resizeWindow();
-    scrollWindow();
   },100);
 
 });
 </script>
 
-<div id="content1" style="/*visibility:hidden*/">
+
+<style>
+#content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);}
+#content1.mobile .fs12pt{font-size:4rem;}
+#content1.mobile .lh10pt{line-height:5rem;}
+#content1.mobile .fs6pt{font-size:1.7rem;}
+#content1.mobile .lh8pt{line-height:2.2rem;}
+#content1.mobile .textBox{width:75vw;}
+</style>
+<div id="content1" class="content" style="/*visibility:hidden*/">
   <section id="sectSsga001" style="position: sticky;top: 0;z-index: 0;">
     <div class="diagonal diagonalTopLeft"></div>
     <div id="char02" style="height:100vh;background-color:#05040d;"><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
-    <div style="width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);">
+    <div class="textBox">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
       <div style="height:3vmin;"></div>
       <p class="bebas fs6pt lh8pt ls20">
@@ -258,13 +334,17 @@ $(function(){
   </section>
 </div>
 
-<!--  -->
-<div id="content2" style="/*visibility:hidden*/">
+
+<style>
+#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;   margin-top:-17.5vh;}
+#content2.mobile .cube{width:100%;position:relative;margin-top:0;}
+</style>  
+<div id="content2" class="content" style="/*visibility:hidden*/">
   <section id="sectCube" style="position: sticky;top: 0;z-index: 0;margin-top:-10vh;">
     <div style="height:10vmin;"></div>
     <p class="bebas fs25pt oblique center">1</p>
     <div style="height:5vmin;"></div>
-    <div class="cube" style="width:50vw;overflow: hidden;position:absolute;z-index:-1;   margin-top:-17.5vh">
+    <div class="cube">
       <!--
       <div style="position:absolute;width:100%;height:100%;text-align:center; ">
         <p class="helv_black oblique" style="position:relative; top:20%; font-size: 8vmin; color: #ffffff;">LOREM IPSUM DOLOR</p>
@@ -295,15 +375,20 @@ $(function(){
   </section>
 </div>
 
+<style>
+#content3 section{background-color:#8585fc;height:100vh;}
+#content3 .textBox{width:45vw;float:right;margin-top:15vh;z-index:1}
+#content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height: 100vh;background-size:100%;}
 
-<div id="content3" style="/*visibility:hidden*/">
+#content3.mobile section{background-color:#8585fc;height:initial;}
+#content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
+#content3.mobile .catHead{position:relative;width:100%;height:100vw;}
+</style>
+<div id="content3" class="content" style="/*visibility:hidden*/">
   <section class="" id="sectCatHead">
     <div class="diagonal diagonalTopLeft"></div>
-    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#9e95d0">2</p>
-    <div id="catHead" class="" style="width:100%;height:80vh;background-color:#9e95d0;position:relative;z-index:-1;overflow:hidden;">
-      <img src="./image/cat_head.png" style="width:auto;height:80vh;"/>
-    </div>
-    <div style="width:45vw;float:right;margin-top:-72vh;">
+    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#8585fc">2</p>
+    <div class="textBox">
       <p><font class="roboto fs13pt">9.246</font>
         <font class="roboto fs6pt">AVATARS</font></p>
       <div style="height:8vmin;"></div>
@@ -320,6 +405,7 @@ $(function(){
       <p class="fs4pt lh4pt">홀더는 보유한 아바타가 속한 K-pop Idol의 활동과 관련된<br/>
       다양한 혜택을 받습니다.</p>       
     </div>
+    <div class="catHead">&nbsp;</div>
   </section>
 </div>
 
@@ -330,15 +416,22 @@ $(function(){
   text-align: center;
   vertical-align:top;
   margin:3vmin;
-  height:33vmin;
-  width:33vmin;
+  width:21vw;
+}
+.launch_mobile,.growth_mobile{
+  display:inline-block;
+  text-align: center;
+  vertical-align:top;
+  margin:10vw 0;
+  width:100%;
 }
 </style>
-<div id="content4" style="/*visibility:hidden*/">
+<div id="content4" class="content" style="/*visibility:hidden*/">
   <section class="center">
+    <div style="height:20vmin;"></div>
     <p class="bebas fs10pt ls20 oblique">Launch</p>
     <div style="height:8vmin;"></div>
-    <div style="margin:auto 15vw;">
+    <div style="margin:auto 12vw;">
       <div class="launch">
         <p class="bebas fs6pt ls20 lh7pt">PHASE 1: </p>
         <p class="bebas fs6pt ls20 underline">9246 CUBES MINT</p>
@@ -373,9 +466,10 @@ $(function(){
     <div style="height:5vmin;"></div>
   </section>
   <section class="center">
+    <div style="height:20vmin;"></div>
     <p class="bebas fs10pt ls20 oblique">Growth</p>
     <div style="height:8vmin;"></div>
-    <div style="margin:auto 15vw;">
+    <div style="margin:auto 12vw;">
       <div class="growth">
         <p class="bebas fs6pt ls20 underline">BLOCK CHAIN</p>
         <div style="height:3vmin;"></div>
@@ -416,8 +510,8 @@ $(function(){
     </div>
   </section>
   <section class="pad7v center">
-    <div style="height:10vmin;"></div>
-    <p class="fs5d6pt lh7pt underline">
+    <div style="height:15vmin;"></div>
+    <p class="fs5d3pt lh7pt underline">
       자세한 로드맵은 12WELVE 커뮤니티
       <font class="fg_skyblue">(DISCORD)</font><br/>
       를 통해 공지될 것입니다.
@@ -448,26 +542,50 @@ $(function(){
   */
 }
 .ghost p{font-family:bebas;color:#000000}
+.ghost_mobile{
+  display:inline-block;
+  text-align: center;
+  vertical-align:top;
+  margin:4vmin;
+  height:40vmin;
+  width:35vmin;
+}
+.ghost_mobile .dot{
+  height:100%;
+  width:100%;
+  display: inline-block;
+  background-position:center;
+  background-size:contain;
+  /*
+  background-color: #555555;
+  border-radius: 50%;
+  */
+}
+.ghost_mobile p{font-family:bebas;color:#000000}
+
 </style>
-<div id="content5" style="/*visibility:hidden*/">
+<div id="content5" class="content" style="/*visibility:hidden*/">
   <div id="p2" style="position:absolute;height:0;"></div>
-  <section class="pad7v bg_white fg_black" style="position:sticky;top:0;z-index:0;">
+  <section class="bg_white fg_black pad12vw" style="position:sticky;top:0;z-index:0;">
     <div style="height:20vmin;"></div>
     <p class="bebas fs9pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
     <div style="height:3vh;"></div>
-    <p class="fs4pt fg_gray6 lh6pt center underline"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.<br/><br/></p>
+    <p class="fs4pt fg_gray6 lh6pt center underline"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.</p>
+    <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
     <p class="fs4pt fg_gray6 lh6pt center">
 팀은 NEXT-K pop을 이끌어 갈 46 Meta 아이들(12 K-pop Idol)의 성장을 위해<br/>
 물밑에서 전폭적인 지원과 지지를 보내고, 12welve 커뮤니티와 함께 모든 일을 헤쳐나갑니다.<br/>
-<br/>
+    </p>
+    <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
+    <p class="fs4pt fg_gray6 lh6pt center">
 아티스트, 프로듀서, 교수, 개발자 등의 전문가부터 K-pop Culture를 사랑하는<br/>
 Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 있습니다.<br/>
     </p>
     <div style="height:13vh;"></div>
   </section>
-  <section class="bg_white fg_black center" id="sectGhost" style="position:sticky;top:0;z-index:1;">
+  <section class="bg_white fg_black center pad12vw" id="sectGhost" style="position:sticky;top:0;z-index:1;">
     <div style="height:0vmin;" id="triggerSectGhost"></div>
-    <div style="margin:auto 15vw;">
+    <div>
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost1.png')"></div><p class="ls20 fs6pt">LEADER</p></div>
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost2.png')"></div><p class="ls20 fs6pt">ARTIST</p></div>
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost3.png')"></div><p class="ls20 fs6pt">MUSIC<br/>PRODUCER</p></div>
@@ -476,7 +594,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost6.png')"></div><p class="ls20 fs6pt">ADVISOR</p></div>
     </div>
     <div style="height:6vh"></div>
-    <p class="fs6pt lh6pt ls20 center">
+    <p class="fs5d3pt lh6pt ls20 center nostrip">
       고스트 멤버, 프로젝트 협업<br/>
       및 기타 문의<br/>
       <a href="mailto:contact@12welve.io">contact@12welve.io</a>
@@ -486,12 +604,12 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
 </div>
 
 
-<div id="content6" style="/*visibility:hidden*/">
+<div id="content6" class="content" style="/*visibility:hidden*/">
   <section class="pad7v" id="sectTrail">
     <div style="height:8vmin;"></div>
-    <p class="bebas fs9pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
+    <p class="bebas fs8pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
     <div style="height:5vmin;"></div>
-    <p class="fs6pt lh7pt fg_gray8 center">
+    <p class="fs5d3pt lh7pt fg_gray8 center">
     12welve 커뮤니티에 가입하시면<br/>
     Special event와 Private sale에 참여할 수 있습니다.
     </p>
@@ -502,7 +620,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
       <a target="_blank" href="https://www.twitter.com/"><img src="image/twitter.svg" style="width:10vmin;"/></a>
     </div>
     <div style="height:15vmin;"></div>
-    <p class="bebas fs6pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
+    <p class="fs4pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
     <div style="height:10vmin;"></div>
   </section>
 </div>
@@ -515,7 +633,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
 
 <div id="layer1" style="z-index:1;/*visibility:hidden;*/">
   <section id="sectTitle">
-    <div><p class="robotob fs16pt lh12pt ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
+    <div><p class="robotob ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
   </section>
 </div><!--<div id="layer1">-->
 
@@ -528,7 +646,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
 
 
 <div id="layer3" style="z-index:3;/*visibility:hidden;*/">
-  <section id="sectSummary" class="pad8v" style="position:absolute;bottom:0;">
+  <section id="sectSummary">
     <!--<div style="height:100vmin;"></div>-->
     <p class="bebas fs25pt ls0">12</p>
     <div style="height:12vmin;"></div>
