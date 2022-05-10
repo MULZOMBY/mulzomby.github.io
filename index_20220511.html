@@ -158,11 +158,13 @@ function positionContents(){
   setTimeout(function(){
     $('#content2').css({visibility:'visible', 'top':$('#content1').offset().top});
     content2Top=$('#content2').offset().top;
+    content2Bottom=$('#content2').offset().top+$('#content2').height();
+    content2SectionBottom=$('#content2 section').offset().top+$('#content2 section').height();
   },200);
   setTimeout(function(){
     $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
     if(mobile){
-      $('#content3').css({visibility:'visible','top':$('#content2').offset().top+$('#content2').height()+v2p(300)});
+      $('#content3').css({visibility:'visible','top':$('#content1').offset().top+v2p(200)+v2p(10) +v2p(30) });
     }
   },300);
   setTimeout(function(){
@@ -174,7 +176,6 @@ function positionContents(){
   setTimeout(function(){
     $('#content6').css({visibility:'visible', 'top':$('#content5').offset().top+$('#content5').height()+v2p(20)});
   },600);
-  $('#content2').css('height','280vh');
   contents=true;
 }
 
@@ -186,6 +187,8 @@ var contents=false;
 var layer2Top;
 var layer2Bottom;
 var content2Top;
+var content2Bottom;
+var content2SectionBottom;
 
 $(window).on('resize',resizeWindow=function(){
   //if( window.screen.availWidth / window.screen.availHeight < 1 ){
@@ -201,6 +204,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.ghost').addClass('ghost_mobile');
     $('.pad12vw').addClass('pad12vw_mobile');
     $('.content, .layer').addClass('mobile');
+    $('#content2').css('height',$('#content1').height()+$('#content2 section').height());
 
     if(mobile) return;
     contents=false;
@@ -220,6 +224,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.ghost').removeClass('ghost_mobile');
     $('.pad12vw').removeClass('pad12vw_mobile');
     $('.content').removeClass('mobile');
+    $('#content2').css('height','280vh');
 
     if(!mobile) return;
     contents=false;
@@ -279,18 +284,45 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer3').css('top',v2p(scrollPoint1+100)-layer2Bottom+v2p(50));
   }
 
-  if(content2Top) $('#content2').css('top',content2Top);
+  //if(content2Top) $('#content2').css('top',content2Top);
+  //if(content2SectionBottom) $('#sectCube').css('top','0');
   console.log(mobile+' '+scroll+' '+pb('#content1'));
-  if(mobile && scroll>pb('#content1')){
-    $('#content2').css('top', content2Top+($('#content2').height()-screen.height) );
-    console.log('content2 top move '+(content2Top+($('#content2').height()-screen.height)));
+  if(mobile && scroll>pb('#content2')-screen.height){
+    
+    //$('#content2 section').css('margin-top',-1*($('#content2').height()-screen.height));
+    
 
-    //컨텐츠3
-    //모바일일때 컨텐츠1이 올라가면
-    //컨텐츠2를 내리고 섹션top을 마이너스로 올림 약 400px
-    //바로밑에 컨텐츠4를 붙임
+    //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) );
+    //$('#content2').css('height','240vh');
 
-    //스트립 태그를 붙여서 리플레이스
+    // 컨텐츠2탑을 늘려=내려
+    // 섹션을 줄여=올려
+    // 섹션이 좁아서 컨텐츠3이 반만 걸친다음 올라가기 시작함
+    // 354px 값을 화면 비율에 맞게 조정
+    // 큐브 여백 조정
+
+    console.log('BOTTOM #CONTENT1 '+($('#content2').height()-screen.height)+' '+(content2Top+($('#content2').height()-screen.height)));
+    //$('#content2').css('top','3690px');
+    //$('#content2 section').css('top','-600px');
+    $('#content2').css('top','3244.8px'); // 2890.8px
+    $('#content2 section').css('top','-354px');
+    //$('#content2 section').height() - screen.height
+    // $('#content2').height()-$('#content2 section').height() = 876
+
+    //$('#sectCube').css('top','-377px');
+    //content2SectionBottom-pb('#content1')-screen.height +vh2p(2);
+  }
+
+  if(mobile && scroll>$('#content2').offset().top+$('#content2').height()-screen.height){
+    console.log('hole content2');
+    //content2bottom-content2sectionheight
+    //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) ); // 내려
+    //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) ); // 내려
+    //$('#content2 section').css('top',1*($('#content2').height()-screen.height)); //올려
+
+    //$('#sectCube').css({top:'initial',bottom:'0'});
+
+    //$('#sectCube').css('top','-377px');
   }
   /*
   if(p2v(scroll)<=scrollPoint2){
@@ -316,6 +348,9 @@ $(function(){
   },100);
 
 });
+
+
+
 </script>
 
 
@@ -328,7 +363,7 @@ $(function(){
 #content1.mobile .textBox{width:75vw;}
 </style>
 <div id="content1" class="content" style="/*visibility:hidden*/">
-  <section id="sectSsga001" style="position: sticky;top: 0;z-index: 0;">
+  <section id="sectSsga001" style="position: sticky;top: 0;z-index:0;">
     <div class="diagonal diagonalTopLeft"></div>
     <div id="char02" style="height:100vh;background-color:#05040d;"><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
     <div class="textBox">
@@ -348,14 +383,19 @@ $(function(){
 
 
 <style>
-#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;   margin-top:-17.5vh;}
-#content2.mobile .cube{width:100%;position:relative;margin-top:0;}
-
+#content2{height:280vh;background-color:#335533;}
+#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;}
 #content2 .textBox{width:45vw;float:right;}
+#content2.mobile .cube{width:100%;position:relative;margin-top:0;}
 #content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
+
+/*TEMP*/
+#content1{border:1px gold solid;}
+#content1 section{visibility:hidden;}
+#content2 .cube{display:xxxxnone;}
 </style>  
 <div id="content2" class="content" style="/*visibility:hidden*/">
-  <section id="sectCube" style="position: sticky;top: 0;z-index: 0;margin-top:-10vh;">
+  <section id="sectCube" style="position:sticky;top:0;z-index:0;background-color:#ff0000;opacity:0.1;">
     <div style="height:10vmin;"></div>
     <p class="bebas fs25pt oblique center">1</p>
     <div style="height:5vmin;"></div>
