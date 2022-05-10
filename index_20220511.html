@@ -164,7 +164,7 @@ function positionContents(){
   setTimeout(function(){
     $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
     if(mobile){
-      $('#content3').css({visibility:'visible','top':$('#content1').offset().top+v2p(200)+v2p(10) +v2p(30) });
+      $('#content3').css({visibility:'visible','top':$('#content1').offset().top+v2p(200)+v2p(10) +v2p(50) });
     }
   },300);
   setTimeout(function(){
@@ -287,6 +287,18 @@ $(window).on('resize',resizeWindow=function(){
   //if(content2Top) $('#content2').css('top',content2Top);
   //if(content2SectionBottom) $('#sectCube').css('top','0');
   console.log(mobile+' '+scroll+' '+pb('#content1'));
+
+  if(mobile && scroll<=pb('#content2')-screen.height){
+    //$('#content2').css('top', content2Top ); //'3244.8px'); // 2890.8px , 2640px=600px,350px
+    //$('#content2 section').css('top', '0' ); //354
+  }
+
+
+  if(mobile && scroll<pt('#content2 section')){
+    console.log('release');
+    $('#content2').css('top', content2Top ); //'3244.8px'); // 2890.8px , 2640px=600px,350px
+    $('#content2 section').css('top', '0' ); //354
+  }
   if(mobile && scroll>pb('#content2')-screen.height){
     
     //$('#content2 section').css('margin-top',-1*($('#content2').height()-screen.height));
@@ -295,17 +307,13 @@ $(window).on('resize',resizeWindow=function(){
     //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) );
     //$('#content2').css('height','240vh');
 
-    // 컨텐츠2탑을 늘려=내려
-    // 섹션을 줄여=올려
-    // 섹션이 좁아서 컨텐츠3이 반만 걸친다음 올라가기 시작함
-    // 354px 값을 화면 비율에 맞게 조정
-    // 큐브 여백 조정
 
     console.log('BOTTOM #CONTENT1 '+($('#content2').height()-screen.height)+' '+(content2Top+($('#content2').height()-screen.height)));
     //$('#content2').css('top','3690px');
     //$('#content2 section').css('top','-600px');
-    $('#content2').css('top','3244.8px'); // 2890.8px
-    $('#content2 section').css('top','-354px');
+
+    $('#content2').css('top', content2Top+(screen.height) ); //'3244.8px'); // 2890.8px , 2640px=600px,350px
+    $('#content2 section').css('top', -1*($('#content2 section').height()-screen.height+vh2p(5)) ); //354
     //$('#content2 section').height() - screen.height
     // $('#content2').height()-$('#content2 section').height() = 876
 
@@ -313,18 +321,21 @@ $(window).on('resize',resizeWindow=function(){
     //content2SectionBottom-pb('#content1')-screen.height +vh2p(2);
   }
 
-  if(mobile && scroll>$('#content2').offset().top+$('#content2').height()-screen.height){
-    console.log('hole content2');
+  if(mobile && scroll<=$('#content2').offset().top+$('#content2').height()-screen.height){
+
+  }else if(mobile && scroll>$('#content2').offset().top+$('#content2').height()-screen.height){
+    //console.log('hole content2');
     //content2bottom-content2sectionheight
     //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) ); // 내려
     //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) ); // 내려
     //$('#content2 section').css('top',1*($('#content2').height()-screen.height)); //올려
-
     //$('#sectCube').css({top:'initial',bottom:'0'});
-
     //$('#sectCube').css('top','-377px');
   }
-  /*
+
+  // 큐브 여백 조정
+
+    /*
   if(p2v(scroll)<=scrollPoint2){
     contents=false;
   }else if(p2v(scroll)>scrollPoint2){
@@ -383,19 +394,20 @@ $(function(){
 
 
 <style>
-#content2{height:280vh;background-color:#335533;}
+#content2{height:280vh;}
 #content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;}
 #content2 .textBox{width:45vw;float:right;}
 #content2.mobile .cube{width:100%;position:relative;margin-top:0;}
 #content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
 
-/*TEMP*/
+/*TEMP
 #content1{border:1px gold solid;}
 #content1 section{visibility:hidden;}
 #content2 .cube{display:xxxxnone;}
+*/
 </style>  
 <div id="content2" class="content" style="/*visibility:hidden*/">
-  <section id="sectCube" style="position:sticky;top:0;z-index:0;background-color:#ff0000;opacity:0.1;">
+  <section id="sectCube" style="position:sticky;top:0;z-index:0;">
     <div style="height:10vmin;"></div>
     <p class="bebas fs25pt oblique center">1</p>
     <div style="height:5vmin;"></div>
