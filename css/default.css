@@ -50,20 +50,23 @@
 .underline{text-decoration: underline;}
 
 ::-webkit-scrollbar{display:none;}
-html{font-size:11px;}
+html {
+	height: -webkit-fill-available;
+	overflow-y:scroll;
+	font-size:11px;
+}
 body{
-	margin:0 auto;background-color:#000000;color:#EEEEEE;
-	font-family:ga1medium,dotum,-apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;
+	min-height:100vh;
+	min-height: -webkit-fill-available;
 	-ms-overflow-style:none;
+	font-family:ga1medium,dotum,-apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;
+	margin:0 auto;
+	background-color:#000000;
+	color:#EEEEEE;
 }
 p{margin:0;}
 li{text-indent:-5vmin;}
 img{width:100vmin;height: auto;}
-
-
-html { overflow-y:scroll;}
-
-
 
 
 .diagonal{ position:relative;width: 100vw;background:#ff0066;/* height: 10vw; */ }

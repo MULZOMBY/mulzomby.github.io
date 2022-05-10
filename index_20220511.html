@@ -164,7 +164,7 @@ function positionContents(){
   setTimeout(function(){
     $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
     if(mobile){
-      $('#content3').css({visibility:'visible','top':$('#content1').offset().top+v2p(200)+v2p(10) +v2p(50) });
+      $('#content3').css({visibility:'visible','top':pb('#content2')+vh2p(10) });
     }
   },300);
   setTimeout(function(){
@@ -189,6 +189,7 @@ var layer2Bottom;
 var content2Top;
 var content2Bottom;
 var content2SectionBottom;
+var content2Lock=false;
 
 $(window).on('resize',resizeWindow=function(){
   //if( window.screen.availWidth / window.screen.availHeight < 1 ){
@@ -284,66 +285,33 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer3').css('top',v2p(scrollPoint1+100)-layer2Bottom+v2p(50));
   }
 
-  //if(content2Top) $('#content2').css('top',content2Top);
-  //if(content2SectionBottom) $('#sectCube').css('top','0');
-  console.log(mobile+' '+scroll+' '+pb('#content1'));
-
-  if(mobile && scroll<=pb('#content2')-screen.height){
-    //$('#content2').css('top', content2Top ); //'3244.8px'); // 2890.8px , 2640px=600px,350px
-    //$('#content2 section').css('top', '0' ); //354
-  }
-
-
-  if(mobile && scroll<pt('#content2 section')){
-    console.log('release');
+  if(mobile && content2Lock && scroll<pt('#content2 section') && content2Top){
+    console.log('TOP RELEASE CONTENT2');
     $('#content2').css('top', content2Top ); //'3244.8px'); // 2890.8px , 2640px=600px,350px
     $('#content2 section').css('top', '0' ); //354
+    content2Lock=false;
   }
-  if(mobile && scroll>pb('#content2')-screen.height){
-    
-    //$('#content2 section').css('margin-top',-1*($('#content2').height()-screen.height));
-    
+  if(mobile && !content2Lock && scroll>pb('#content2')-screen.height){ // 3423px
+    console.log('BOTTOM LOCK CONTENT2 '+($('#content2').height()-screen.height)+' '+(content2Top+($('#content2').height()-screen.height)));
 
-    //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) );
-    //$('#content2').css('height','240vh');
+    // 2626+2139-1343
+    // $('#content2').offset().top+$('#content2').height()-$('#content2 section').height()
+    $('#content2').css('top', $('#content2').offset().top+$('#content2').height()-$('#content2 section').height() );
 
-
-    console.log('BOTTOM #CONTENT1 '+($('#content2').height()-screen.height)+' '+(content2Top+($('#content2').height()-screen.height)));
-    //$('#content2').css('top','3690px');
-    //$('#content2 section').css('top','-600px');
-
-    $('#content2').css('top', content2Top+(screen.height) ); //'3244.8px'); // 2890.8px , 2640px=600px,350px
-    $('#content2 section').css('top', -1*($('#content2 section').height()-screen.height+vh2p(5)) ); //354
-    //$('#content2 section').height() - screen.height
-    // $('#content2').height()-$('#content2 section').height() = 876
-
-    //$('#sectCube').css('top','-377px');
-    //content2SectionBottom-pb('#content1')-screen.height +vh2p(2);
-  }
-
-  if(mobile && scroll<=$('#content2').offset().top+$('#content2').height()-screen.height){
-
-  }else if(mobile && scroll>$('#content2').offset().top+$('#content2').height()-screen.height){
-    //console.log('hole content2');
-    //content2bottom-content2sectionheight
-    //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) ); // 내려
-    //$('#content2').css('top', content2Top+($('#content2').height()-screen.height) ); // 내려
-    //$('#content2 section').css('top',1*($('#content2').height()-screen.height)); //올려
-    //$('#sectCube').css({top:'initial',bottom:'0'});
-    //$('#sectCube').css('top','-377px');
+    $('#content2 section').css('top', -1*($('#content2 section').height()-screen.height+vh2p(5)) );
+    //$('#content2 section').css('top', '-538px'); // -488px
+    content2Lock=true;
   }
 
   // 큐브 여백 조정
 
-    /*
+  /*
   if(p2v(scroll)<=scrollPoint2){
     contents=false;
   }else if(p2v(scroll)>scrollPoint2){
   }
-  */
-    
+  */  
   positionContents();
-
 }); // }).on('scroll',scrollWindow=function(event){
 
 
@@ -367,6 +335,13 @@ $(function(){
 
 <style>
 #content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);}
+#content1 .imgBox{height:100vh;background-color:#05040d;}
+#content1 .imgBox img{width:auto;height:100vh;float:right;}
+
+#content1.mobile .textBox{top:120vh;}
+#content1.mobile .imgBox{height:90vh;text-align:center;}
+#content1.mobile .imgBox img{height:95%;float:initial;}
+
 #content1.mobile .fs12pt{font-size:4rem;}
 #content1.mobile .lh10pt{line-height:5rem;}
 #content1.mobile .fs6pt{font-size:1.7rem;}
@@ -376,7 +351,7 @@ $(function(){
 <div id="content1" class="content" style="/*visibility:hidden*/">
   <section id="sectSsga001" style="position: sticky;top: 0;z-index:0;">
     <div class="diagonal diagonalTopLeft"></div>
-    <div id="char02" style="height:100vh;background-color:#05040d;"><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
+    <div class="imgBox" style=""><img src="./image/ssga001.png" style=""/></div>
     <div class="textBox">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
       <div style="height:3vmin;"></div>
@@ -396,8 +371,10 @@ $(function(){
 <style>
 #content2{height:280vh;}
 #content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;}
+#content2 .cube video{width:100%;}
 #content2 .textBox{width:45vw;float:right;}
-#content2.mobile .cube{width:100%;position:relative;margin-top:0;}
+#content2.mobile .cube{width:100%;position:relative;margin-top:0;text-align:center;}
+#content2.mobile .cube video{width:90%;}
 #content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
 
 /*TEMP
@@ -417,7 +394,7 @@ $(function(){
         <p class="helv_black oblique" style="position:relative; top:20%; font-size: 8vmin; color: #ffffff;">LOREM IPSUM DOLOR</p>
       </div>
       -->
-      <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline style="width: 100%;">
+      <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline>
         <source src="image/cube.mp4" type="video/mp4">
         <strong>Your browser does not support the video tag.</strong>
       </video>
@@ -439,6 +416,7 @@ $(function(){
       키이며 다양한 아티스트와 협업한 고퀄리티의 ‘3d 아바타’를 무료로 <br/>
       지급받습니다.</p>
     </div>
+    <div style="height:10vh;"></div>
   </section>
 </div>
 

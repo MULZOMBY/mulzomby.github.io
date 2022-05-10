@@ -93,9 +93,8 @@ var controller = new ScrollMagic.Controller();
   left:50%;
   transform:translate(-50%,0);
   max-width:1100px;
-  width:80%;
+  width:90%;
 }
-
 /*
 #sectSsga001 .diagonal{ background-color:#555555; }
 #sectSsga001 .diagonalTopRight:before, #sectSsga001 .diagonalTopLeft:before{ border-bottom:50px solid #555555; }
@@ -141,6 +140,8 @@ document.addEventListener('scroll', () => {
   //document.getElementById('text').style.top = (- scrollData/5) + '%'
   //document.getElementById('layer2').style.top = (- scrollData/5) + '%'
 })
+function pt(obj){return $(obj).offset().top;}
+function pb(obj){return $(obj).offset().top+$(obj).height();}
 function v2p(vmin){return (vmin*window.innerHeight)/100;}
 function vh2p(vmin){return(vmin*window.innerHeight)/100;}
 function vw2p(vmin){return(vmin*window.innerWidth)/100;}
@@ -149,16 +150,22 @@ function p2vh(pixel){return pixel*100/window.innerHeight;}
 function p2vw(pixel){return pixel*100/window.innerWidth;}
 function positionContents(){
   if(contents || p2v(scroll)<scrollPoint2) return;
-  console.log('contents mobile:'+mobile);
+  console.log('POSITIONCONTENTS MOBILE:'+mobile);
   setTimeout(function(){
     $('#content1').css({visibility:'visible', 'top':$('#layer2').offset().top+$('#layer2').height()+v2p(10)});
     if(mobile) $('#content1').css({'top':'330vh'});
   },100);
   setTimeout(function(){
     $('#content2').css({visibility:'visible', 'top':$('#content1').offset().top});
+    content2Top=$('#content2').offset().top;
+    content2Bottom=$('#content2').offset().top+$('#content2').height();
+    content2SectionBottom=$('#content2 section').offset().top+$('#content2 section').height();
   },200);
   setTimeout(function(){
     $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
+    if(mobile){
+      $('#content3').css({visibility:'visible','top':pb('#content2')+vh2p(10) });
+    }
   },300);
   setTimeout(function(){
     $('#content4').css({visibility:'visible', 'top':$('#content3').offset().top+$('#content3').height()+v2p(30)});
@@ -169,7 +176,6 @@ function positionContents(){
   setTimeout(function(){
     $('#content6').css({visibility:'visible', 'top':$('#content5').offset().top+$('#content5').height()+v2p(20)});
   },600);
-  $('#content2').css('height','280vh');
   contents=true;
 }
 
@@ -178,13 +184,12 @@ var scrollPoint1=80;
 var scrollPoint2=160;
 var mobile=false;
 var contents=false;
-
-var layer2MarginTop=-1;
-var layer1MarginTop=-1;
-
-
 var layer2Top;
 var layer2Bottom;
+var content2Top;
+var content2Bottom;
+var content2SectionBottom;
+var content2Lock=false;
 
 $(window).on('resize',resizeWindow=function(){
   //if( window.screen.availWidth / window.screen.availHeight < 1 ){
@@ -199,7 +204,8 @@ $(window).on('resize',resizeWindow=function(){
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
     $('.pad12vw').addClass('pad12vw_mobile');
-    $('.content').addClass('mobile');
+    $('.content, .layer').addClass('mobile');
+    $('#content2').css('height',$('#content1').height()+$('#content2 section').height());
 
     if(mobile) return;
     contents=false;
@@ -219,6 +225,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.ghost').removeClass('ghost_mobile');
     $('.pad12vw').removeClass('pad12vw_mobile');
     $('.content').removeClass('mobile');
+    $('#content2').css('height','280vh');
 
     if(!mobile) return;
     contents=false;
@@ -240,7 +247,6 @@ $(window).on('resize',resizeWindow=function(){
   scrollWindow();
 
 }).on('scroll',scrollWindow=function(event){
-  var mobile=false;
   if(mobile){
 
   }else{
@@ -249,7 +255,7 @@ $(window).on('resize',resizeWindow=function(){
   scroll = document.documentElement.scrollTop || document.body.scrollTop;
   try{
     //console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, layer1 '+$('#layer1').offset().top+' '+p2v($('#layer1').offset().top));
-    console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, '+JSON.stringify($('#layer2').offset()));
+    //console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, '+JSON.stringify($('#layer2').offset()));
   }catch(e){}
 
   if(!$('#layer2').offset()) return 
@@ -264,7 +270,6 @@ $(window).on('resize',resizeWindow=function(){
 
   $('#layer2').css({position:'absolute',top:0,marginTop:'70vh'});
   if(p2v(scroll)>scrollPoint1){
-    console.log('layer2Top=-v2p(scrollPoint1)+$(#layer2).offset().top;'+$('#layer2').offset());
     layer2Top=-v2p(scrollPoint1)+$('#layer2').offset().top;
     layer2Bottom=$('#layer2').offset().top+$('#layer2').height();
     $('#layer2').css('top',layer2Top);
@@ -280,15 +285,33 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer3').css('top',v2p(scrollPoint1+100)-layer2Bottom+v2p(50));
   }
 
+  if(mobile && content2Lock && scroll<pt('#content2 section') && content2Top){
+    console.log('TOP RELEASE CONTENT2');
+    $('#content2').css('top', content2Top ); //'3244.8px'); // 2890.8px , 2640px=600px,350px
+    $('#content2 section').css('top', '0' ); //354
+    content2Lock=false;
+  }
+  if(mobile && !content2Lock && scroll>pb('#content2')-screen.height){ // 3423px
+    console.log('BOTTOM LOCK CONTENT2 '+($('#content2').height()-screen.height)+' '+(content2Top+($('#content2').height()-screen.height)));
+
+    // 2626+2139-1343
+    // $('#content2').offset().top+$('#content2').height()-$('#content2 section').height()
+    $('#content2').css('top', $('#content2').offset().top+$('#content2').height()-$('#content2 section').height() );
+
+    $('#content2 section').css('top', -1*($('#content2 section').height()-screen.height+vh2p(5)) );
+    //$('#content2 section').css('top', '-538px'); // -488px
+    content2Lock=true;
+  }
+
+  // 큐브 여백 조정
+
   /*
   if(p2v(scroll)<=scrollPoint2){
     contents=false;
   }else if(p2v(scroll)>scrollPoint2){
-
   }
-*/
+  */  
   positionContents();
-
 }); // }).on('scroll',scrollWindow=function(event){
 
 
@@ -304,11 +327,16 @@ $(function(){
   },100);
 
 });
+
+
+
 </script>
 
 
 <style>
 #content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);}
+#content1 .imgBox{height:100%;background-color:#05040d;}
+
 #content1.mobile .fs12pt{font-size:4rem;}
 #content1.mobile .lh10pt{line-height:5rem;}
 #content1.mobile .fs6pt{font-size:1.7rem;}
@@ -316,9 +344,9 @@ $(function(){
 #content1.mobile .textBox{width:75vw;}
 </style>
 <div id="content1" class="content" style="/*visibility:hidden*/">
-  <section id="sectSsga001" style="position: sticky;top: 0;z-index: 0;">
+  <section id="sectSsga001" style="position: sticky;top: 0;z-index:0;">
     <div class="diagonal diagonalTopLeft"></div>
-    <div id="char02" style="height:100vh;background-color:#05040d;"><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
+    <div class="imgBox" style=""><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
     <div class="textBox">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
       <div style="height:3vmin;"></div>
@@ -336,11 +364,20 @@ $(function(){
 
 
 <style>
-#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;   margin-top:-17.5vh;}
+#content2{height:280vh;}
+#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;}
+#content2 .textBox{width:45vw;float:right;}
 #content2.mobile .cube{width:100%;position:relative;margin-top:0;}
+#content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
+
+/*TEMP
+#content1{border:1px gold solid;}
+#content1 section{visibility:hidden;}
+#content2 .cube{display:xxxxnone;}
+*/
 </style>  
 <div id="content2" class="content" style="/*visibility:hidden*/">
-  <section id="sectCube" style="position: sticky;top: 0;z-index: 0;margin-top:-10vh;">
+  <section id="sectCube" style="position:sticky;top:0;z-index:0;">
     <div style="height:10vmin;"></div>
     <p class="bebas fs25pt oblique center">1</p>
     <div style="height:5vmin;"></div>
@@ -355,7 +392,7 @@ $(function(){
         <strong>Your browser does not support the video tag.</strong>
       </video>
     </div>
-    <div style="width:45vw;float:right;">
+    <div class="textBox">
       <p><font class="roboto fs13pt">9.246</font>
         <font class="roboto fs6pt">CUBES</font></p>
       <div style="height:8vmin;"></div>
@@ -372,13 +409,14 @@ $(function(){
       키이며 다양한 아티스트와 협업한 고퀄리티의 ‘3d 아바타’를 무료로 <br/>
       지급받습니다.</p>
     </div>
+    <div style="height:10vh;"></div>
   </section>
 </div>
 
 <style>
 #content3 section{background-color:#8585fc;height:100vh;}
 #content3 .textBox{width:45vw;float:right;margin-top:15vh;z-index:1}
-#content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height: 100vh;background-size:100%;}
+#content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height:100vh;background-size:100%;}
 
 #content3.mobile section{background-color:#8585fc;height:initial;}
 #content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
@@ -631,22 +669,27 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
 
 <!-- ################################################## LAYERS-->
 
-<div id="layer1" style="z-index:1;/*visibility:hidden;*/">
+<div id="layer1" class="layer" style="z-index:1;/*visibility:hidden;*/">
   <section id="sectTitle">
     <div><p class="robotob ls25 center">9246 UNIQUE 12WELVE<br/>of NEXT-K POP</p></div>
   </section>
 </div><!--<div id="layer1">-->
 
 
-<div id="layer2" style="z-index:2;/*visibility:hidden;*/">  
+<div id="layer2" class="layer" style="z-index:2;/*visibility:hidden;*/">  
   <section id="sectBalloon" class="" style="max-width:100%;"><!-- style="position:absolute;z-index:-1;"-->
     <div><!--<img src="./image/balloon.png"/>--></div>
   </section>
 </div>
 
 
-<div id="layer3" style="z-index:3;/*visibility:hidden;*/">
+<style>
+#layer3.mobile section{background-color:rgb(0,0,0,0.7);}
+#layer3.mobile .textBox{margin:5vw;}
+</style>
+<div id="layer3" class="layer" style="z-index:3;/*visibility:hidden;*/">
   <section id="sectSummary">
+    <div class="textBox">
     <!--<div style="height:100vmin;"></div>-->
     <p class="bebas fs25pt ls0">12</p>
     <div style="height:12vmin;"></div>
@@ -674,6 +717,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
       또한, 12welve와 함께하는 여러분에게 새로운 가치와 놀라운 경험을 제공하는 것입니다.<br/>
     </p>
     <div style="height:10vmin;"></div>
+  </div>
   </section>
 </div>
 
