@@ -335,7 +335,12 @@ $(function(){
 
 <style>
 #content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);}
-#content1 .imgBox{height:100%;background-color:#05040d;}
+#content1 .imgBox{height:100vh;background-color:#05040d;}
+#content1 .imgBox img{width:auto;height:100vh;float:right;}
+
+#content1.mobile .textBox{top:120vh;}
+#content1.mobile .imgBox{height:90vh;text-align:center;}
+#content1.mobile .imgBox img{height:95%;float:initial;}
 
 #content1.mobile .fs12pt{font-size:4rem;}
 #content1.mobile .lh10pt{line-height:5rem;}
@@ -346,7 +351,7 @@ $(function(){
 <div id="content1" class="content" style="/*visibility:hidden*/">
   <section id="sectSsga001" style="position: sticky;top: 0;z-index:0;">
     <div class="diagonal diagonalTopLeft"></div>
-    <div class="imgBox" style=""><img src="./image/ssga001.png" style="width:auto;height:100vh;float:right;"/></div>
+    <div class="imgBox" style=""><img src="./image/ssga001.png" style=""/></div>
     <div class="textBox">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
       <div style="height:3vmin;"></div>
@@ -366,8 +371,10 @@ $(function(){
 <style>
 #content2{height:280vh;}
 #content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;}
+#content2 .cube video{width:100%;}
 #content2 .textBox{width:45vw;float:right;}
-#content2.mobile .cube{width:100%;position:relative;margin-top:0;}
+#content2.mobile .cube{width:100%;position:relative;margin-top:0;text-align:center;}
+#content2.mobile .cube video{width:90%;}
 #content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
 
 /*TEMP
@@ -387,7 +394,7 @@ $(function(){
         <p class="helv_black oblique" style="position:relative; top:20%; font-size: 8vmin; color: #ffffff;">LOREM IPSUM DOLOR</p>
       </div>
       -->
-      <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline style="width: 100%;">
+      <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline>
         <source src="image/cube.mp4" type="video/mp4">
         <strong>Your browser does not support the video tag.</strong>
       </video>
