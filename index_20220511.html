@@ -140,6 +140,8 @@ document.addEventListener('scroll', () => {
   //document.getElementById('text').style.top = (- scrollData/5) + '%'
   //document.getElementById('layer2').style.top = (- scrollData/5) + '%'
 })
+function pt(obj){return $(obj).offset().top;}
+function pb(obj){return $(obj).offset().top+$(obj).height();}
 function v2p(vmin){return (vmin*window.innerHeight)/100;}
 function vh2p(vmin){return(vmin*window.innerHeight)/100;}
 function vw2p(vmin){return(vmin*window.innerWidth)/100;}
@@ -148,19 +150,19 @@ function p2vh(pixel){return pixel*100/window.innerHeight;}
 function p2vw(pixel){return pixel*100/window.innerWidth;}
 function positionContents(){
   if(contents || p2v(scroll)<scrollPoint2) return;
-  console.log('contents mobile:'+mobile);
+  console.log('POSITIONCONTENTS MOBILE:'+mobile);
   setTimeout(function(){
     $('#content1').css({visibility:'visible', 'top':$('#layer2').offset().top+$('#layer2').height()+v2p(10)});
     if(mobile) $('#content1').css({'top':'330vh'});
   },100);
   setTimeout(function(){
     $('#content2').css({visibility:'visible', 'top':$('#content1').offset().top});
+    content2Top=$('#content2').offset().top;
   },200);
   setTimeout(function(){
     $('#content3').css({visibility:'visible', 'top':$('#content1').offset().top+$('#content1').height()+v2p(150)});
     if(mobile){
       $('#content3').css({visibility:'visible','top':$('#content2').offset().top+$('#content2').height()+v2p(300)});
-      console.log('asdf');
     }
   },300);
   setTimeout(function(){
@@ -181,13 +183,9 @@ var scrollPoint1=80;
 var scrollPoint2=160;
 var mobile=false;
 var contents=false;
-
-var layer2MarginTop=-1;
-var layer1MarginTop=-1;
-
-
 var layer2Top;
 var layer2Bottom;
+var content2Top;
 
 $(window).on('resize',resizeWindow=function(){
   //if( window.screen.availWidth / window.screen.availHeight < 1 ){
@@ -243,7 +241,6 @@ $(window).on('resize',resizeWindow=function(){
   scrollWindow();
 
 }).on('scroll',scrollWindow=function(event){
-  var mobile=false;
   if(mobile){
 
   }else{
@@ -282,15 +279,12 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer3').css('top',v2p(scrollPoint1+100)-layer2Bottom+v2p(50));
   }
 
-  /*
-  if(p2v(scroll)<=scrollPoint2){
-    contents=false;
-  }else if(p2v(scroll)>scrollPoint2){
+  if(content2Top) $('#content2').css('top',content2Top);
+  console.log(mobile+' '+scroll+' '+pb('#content1'));
+  if(mobile && scroll>pb('#content1')){
+    $('#content2').css('top', content2Top+($('#content2').height()-screen.height) );
+    console.log('content2 top move '+(content2Top+($('#content2').height()-screen.height)));
 
-  }
-*/
-
-  if(mobile && 1==0){
     //컨텐츠3
     //모바일일때 컨텐츠1이 올라가면
     //컨텐츠2를 내리고 섹션top을 마이너스로 올림 약 400px
@@ -298,6 +292,13 @@ $(window).on('resize',resizeWindow=function(){
 
     //스트립 태그를 붙여서 리플레이스
   }
+  /*
+  if(p2v(scroll)<=scrollPoint2){
+    contents=false;
+  }else if(p2v(scroll)>scrollPoint2){
+  }
+  */
+    
   positionContents();
 
 }); // }).on('scroll',scrollWindow=function(event){
@@ -392,7 +393,7 @@ $(function(){
 <style>
 #content3 section{background-color:#8585fc;height:100vh;}
 #content3 .textBox{width:45vw;float:right;margin-top:15vh;z-index:1}
-#content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height: 100vh;background-size:100%;}
+#content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height:100vh;background-size:100%;}
 
 #content3.mobile section{background-color:#8585fc;height:initial;}
 #content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
