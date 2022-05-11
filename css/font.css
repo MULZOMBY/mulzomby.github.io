@@ -3,6 +3,6 @@
 @font-face {font-family:'roboto';font-style:normal;src:url('../font/RobotoCondensed-Regular.ttf') format('truetype');}
 @font-face {font-family:'robotob';font-style:normal;src:url('../font/RobotoCondensed-Bold.ttf') format('truetype');}
 .ga1medium{font-family:ga1medium;}
-.bebas{font-family:bebas,ga1light;}
+.bebas{font-family:bebas,ga1medium;}
 .roboto{font-family:roboto;}
 .robotob{font-family:robotob;}
