@@ -1,8 +1,0 @@
-@font-face {font-family:'ga1medium';font-style:normal;src:url('../font/GothicA1-Medium.ttf') format('truetype');}
-@font-face {font-family:'bebas';font-style:normal;src:url('../font/BebasNeue-Regular.ttf') format('truetype');}
-@font-face {font-family:'roboto';font-style:normal;src:url('../font/RobotoCondensed-Regular.ttf') format('truetype');}
-@font-face {font-family:'robotob';font-style:normal;src:url('../font/RobotoCondensed-Bold.ttf') format('truetype');}
-.ga1medium{font-family:ga1medium;}
-.bebas{font-family:bebas,ga1medium;}
-.roboto{font-family:roboto;}
-.robotob{font-family:robotob;}
