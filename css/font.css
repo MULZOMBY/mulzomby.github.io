@@ -1,21 +1,3 @@
-/*
-@font-face {font-family:'helv';font-style: normal;src:url('../font/Helvetica.otf') format('opentype');}
-@font-face {font-family:'helv_narr';font-style: normal;src:url('../font/Helvetica-Narrow.otf') format('opentype');}
-@font-face {font-family:'helv_comp';font-style: normal;src:url('../font/Helvetica-Compressed-Regular.otf') format('opentype');}
-@font-face {font-family:'helv_black';font-style: normal;src:url('../font/Helvetica-Condensed-Black.otf') format('opentype');}
-.helv{font-family:helv;}
-.helv_narr{font-family:helv_narr;}
-.helv_comp{font-family:helv_comp;}
-.helv_black{font-family:helv_black;}
-*/
-
-/*
-@font-face {font-family:'ga1light';font-style:normal;src:url('../font/GothicA1-Light.ttf') format('truetype');}
-@font-face {font-family:'ga1regular';font-style:normal;src:url('../font/GothicA1-Regular.ttf') format('truetype');}
-.ga1light{font-family:ga1light;}
-.ga1regular{font-family:ga1light;}
-*/
-
 @font-face {font-family:'ga1medium';font-style:normal;src:url('../font/GothicA1-Medium.ttf') format('truetype');}
 @font-face {font-family:'bebas';font-style:normal;src:url('../font/BebasNeue-Regular.ttf') format('truetype');}
 @font-face {font-family:'roboto';font-style:normal;src:url('../font/RobotoCondensed-Regular.ttf') format('truetype');}
