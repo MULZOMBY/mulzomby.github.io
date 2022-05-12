@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,36 +14,14 @@
 <meta property="og:site_name" content="mulzomby">
 <meta property="og:description" content="mulzomby.github.io">
 <title>mulzomby</title>
-<link rel="stylesheet" href="./css/font.css"/>
 <link rel="stylesheet" href="./css/default.css"/>
 <script src="./js/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-<script src="./js/pc.js"></script>
-<script src="./js/mobile.js"></script>
-<script>
-var controller = new ScrollMagic.Controller();
-</script>
-</head>
-<body>
-<!--
-<div id="menu">
-  <section class="pad7v" id="sectMenu">
-    <div style="height:5vmin;"></div>
-    <p class="helv_black fs7pt ls0" style="float:left;" id="btn12Welve">12WELVE</p>
-    <p class="helv_narr fs7pt ls-10" style="float:right;" id="btnConnect">Connect Wallet</p>
-  </section>
-</div>
--->
-
 <style>
-#menu{
-  position:fixed;
-  width:100%;
-}
-
+#menu{position:fixed;width:100%;}
 #content1,#content2,#content3,#content4,#content5,#content6{-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;width:100%;transform:translate(-50%,0);visibility:hidden;}
 #content1{top:400vh;z-index:10;}
 #content2{top:550vh;height:200vh;}
@@ -82,6 +59,7 @@ var controller = new ScrollMagic.Controller();
   background-repeat:no-repeat;
 }
 #layer3{
+  visibility:hidden;
   position:relative;
   z-index:3;
   margin:0 auto;
@@ -102,41 +80,6 @@ var controller = new ScrollMagic.Controller();
 */
 
 
-.fs4pt{font-size:1.65rem;}
-.fs5pt{font-size:2.0rem;}
-.fs5d3pt{font-size:2.3rem;}
-.fs5d6pt{font-size:2.6rem;}
-.fs6pt{font-size:3rem;}
-.fs7pt{font-size:4rem;}
-.fs8pt{font-size:4.5rem;}
-.fs9pt{font-size:5rem;}
-.fs10pt{font-size:5.5rem;}
-.fs11pt{font-size:6rem;}
-.fs12pt{font-size:6.5rem;}
-.fs13pt{font-size:7rem;}
-.fs15pt{font-size:8.3rem;}
-.fs16pt{font-size:9rem;}
-.fs20pt{font-size:10.3rem;}
-.fs25pt{font-size:11.5rem;}
-.fs30pt{font-size:16rem;}
-.fs36pt{font-size:20rem;}
-
-.lh4pt{line-height:2.7rem;}
-.lh6pt{line-height:3rem;}
-.lh7pt{line-height:3.8rem;}
-.lh8pt{line-height:4.7rem;}
-.lh9pt{line-height:5.4rem;}
-.lh10pt{line-height:6.2rem;}
-.lh11pt{line-height:7rem;}
-.lh12pt{line-height:8rem;}
-
-</style>
-<script>
-var _0x71ca=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x74\x6F\x70","\x6F\x66\x66\x73\x65\x74","\x68\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x48\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x57\x69\x64\x74\x68","\x50\x4F\x53\x49\x54\x49\x4F\x4E\x43\x4F\x4E\x54\x45\x4E\x54\x53\x20\x4D\x4F\x42\x49\x4C\x45\x3A","\x6C\x6F\x67","\x76\x69\x73\x69\x62\x6C\x65","\x23\x6C\x61\x79\x65\x72\x32","\x63\x73\x73","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x31","\x33\x33\x30\x76\x68","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32\x20\x73\x65\x63\x74\x69\x6F\x6E","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x33","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x36","\x73\x63\x72\x6F\x6C\x6C\x54\x6F\x70","\x64\x6F\x63\x75\x6D\x65\x6E\x74\x45\x6C\x65\x6D\x65\x6E\x74","\x62\x6F\x64\x79","\x73\x74\x69\x63\x6B\x79","\x23\x6C\x61\x79\x65\x72\x31","\x23\x6C\x61\x79\x65\x72\x31\x20\x23\x73\x65\x63\x74\x54\x69\x74\x6C\x65","\x76\x69\x73\x69\x62\x69\x6C\x69\x74\x79","\x68\x69\x64\x64\x65\x6E","\x70\x6F\x73\x69\x74\x69\x6F\x6E","\x61\x62\x73\x6F\x6C\x75\x74\x65","\x37\x30\x76\x68","\x76\x68","\x23\x6C\x61\x79\x65\x72\x33","\x54\x4F\x50\x20\x52\x45\x4C\x45\x41\x53\x45\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32","\x30","\x42\x4F\x54\x54\x4F\x4D\x20\x4C\x4F\x43\x4B\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32\x20","\x20","\x6F\x6E","\x72\x65\x73\x69\x7A\x65","\x77\x69\x64\x74\x68","\x66\x6F\x6E\x74\x2D\x73\x69\x7A\x65","\x39\x70\x78","\x68\x74\x6D\x6C","\x38\x76\x6D\x69\x6E","\x23\x6C\x61\x79\x65\x72\x31\x20\x70","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x69\x6D\x61\x67\x65","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x6D\x6F\x62\x69\x6C\x65\x2E\x70\x6E\x67\x22\x29","\x23\x6C\x61\x79\x65\x72\x32\x20\x3E\x20\x73\x65\x63\x74\x69\x6F\x6E\x20\x3E\x20\x64\x69\x76","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x73\x69\x7A\x65","\x63\x6F\x76\x65\x72","\x31\x35\x30\x76\x68","\x6C\x61\x75\x6E\x63\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x61\x64\x64\x43\x6C\x61\x73\x73","\x2E\x6C\x61\x75\x6E\x63\x68","\x67\x72\x6F\x77\x74\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x72\x6F\x77\x74\x68","\x67\x68\x6F\x73\x74\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x68\x6F\x73\x74","\x70\x61\x64\x31\x32\x76\x77\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x70\x61\x64\x31\x32\x76\x77","\x6D\x6F\x62\x69\x6C\x65","\x2E\x63\x6F\x6E\x74\x65\x6E\x74\x2C\x20\x2E\x6C\x61\x79\x65\x72","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35\x20\x70","\x6E\x6F\x73\x74\x72\x69\x70","\x68\x61\x73\x43\x6C\x61\x73\x73","","\x72\x65\x70\x6C\x61\x63\x65","\x65\x61\x63\x68","\x31\x31\x70\x78","\x36\x76\x6D\x61\x78","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x70\x63\x2E\x70\x6E\x67\x22\x29","\x31\x32\x30\x76\x77","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x2E\x63\x6F\x6E\x74\x65\x6E\x74","\x32\x38\x30\x76\x68","\x6D\x61\x74\x63\x68","\x0A\x3C\x62\x72\x2F\x3E","\x72\x65\x6D\x6F\x76\x65","\x23\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C","\x68\x65\x61\x64","\x61\x70\x70\x65\x6E\x64\x54\x6F","\x3C\x73\x74\x79\x6C\x65\x20\x69\x64\x3D\x22\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C\x22\x3E","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x7B\x77\x69\x64\x74\x68\x3A","\x63\x6C\x69\x65\x6E\x74\x57\x69\x64\x74\x68","\x70\x78\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x4C\x65\x66\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x4C\x65\x66\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x72\x69\x67\x68\x74\x3A","\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x74\x72\x61\x6E\x73\x70\x61\x72\x65\x6E\x74\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x52\x69\x67\x68\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x52\x69\x67\x68\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x6C\x65\x66\x74\x3A","\x3C\x2F\x73\x74\x79\x6C\x65\x3E","\x61\x64\x73\x66","\x63\x6C\x69\x63\x6B","\x23\x62\x74\x6E\x31\x32\x57\x65\x6C\x76\x65","\x63\x6F\x6E\x6E\x65\x63\x74","\x23\x62\x74\x6E\x43\x6F\x6E\x6E\x65\x63\x74"];document[_0x71ca[2]](_0x71ca[0],()=>{const _0x19c7x1=window[_0x71ca[1]]});function pt(_0x19c7x3){return $(_0x19c7x3)[_0x71ca[4]]()[_0x71ca[3]]}function pb(_0x19c7x3){return $(_0x19c7x3)[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x19c7x3)[_0x71ca[5]]()}function v2p(_0x19c7x6){return (_0x19c7x6* window[_0x71ca[6]])/ 100}function vh2p(_0x19c7x6){return (_0x19c7x6* window[_0x71ca[6]])/ 100}function vw2p(_0x19c7x6){return (_0x19c7x6* window[_0x71ca[7]])/ 100}function p2v(_0x19c7xa){return _0x19c7xa* 100/ window[_0x71ca[6]]}function p2vh(_0x19c7xa){return _0x19c7xa* 100/ window[_0x71ca[6]]}function p2vw(_0x19c7xa){return _0x19c7xa* 100/ window[_0x71ca[7]]}function positionContents(){if(contents|| p2v(scroll)< scrollPoint2){return};console[_0x71ca[9]](_0x71ca[8]+ mobile);setTimeout(function(){$(_0x71ca[13])[_0x71ca[12]]({visibility:_0x71ca[10],'\x74\x6F\x70':$(_0x71ca[11])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[11])[_0x71ca[5]]()+ v2p(10)});if(mobile){$(_0x71ca[13])[_0x71ca[12]]({'\x74\x6F\x70':_0x71ca[14]})}},100);setTimeout(function(){$(_0x71ca[15])[_0x71ca[12]]({visibility:_0x71ca[10],'\x74\x6F\x70':$(_0x71ca[13])[_0x71ca[4]]()[_0x71ca[3]]});content2Top= $(_0x71ca[15])[_0x71ca[4]]()[_0x71ca[3]];content2Bottom= $(_0x71ca[15])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[15])[_0x71ca[5]]();content2SectionBottom= $(_0x71ca[16])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[16])[_0x71ca[5]]()},200);setTimeout(function(){$(_0x71ca[17])[_0x71ca[12]]({visibility:_0x71ca[10],'\x74\x6F\x70':$(_0x71ca[13])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[13])[_0x71ca[5]]()+ v2p(150)});if(mobile){$(_0x71ca[17])[_0x71ca[12]]({visibility:_0x71ca[10],'\x74\x6F\x70':pb(_0x71ca[15])+ vh2p(10)})}},300);setTimeout(function(){$(_0x71ca[18])[_0x71ca[12]]({visibility:_0x71ca[10],'\x74\x6F\x70':$(_0x71ca[17])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[17])[_0x71ca[5]]()+ v2p(30)})},400);setTimeout(function(){$(_0x71ca[19])[_0x71ca[12]]({visibility:_0x71ca[10],'\x74\x6F\x70':$(_0x71ca[18])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[18])[_0x71ca[5]]()+ v2p(15)})},500);setTimeout(function(){$(_0x71ca[20])[_0x71ca[12]]({visibility:_0x71ca[10],'\x74\x6F\x70':$(_0x71ca[19])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[19])[_0x71ca[5]]()+ v2p(20)})},600);contents= true}var scroll;var scrollPoint1=80;var scrollPoint2=160;var mobile=false;var contents=false;var layer2Top;var layer2Bottom;var content2Top;var content2Bottom;var content2SectionBottom;var content2Lock=false;$(window)[_0x71ca[38]](_0x71ca[39],resizeWindow= function(){if(screen[_0x71ca[40]]/ screen[_0x71ca[5]]< 1){$(_0x71ca[43])[_0x71ca[12]](_0x71ca[41],_0x71ca[42]);$(_0x71ca[45])[_0x71ca[12]]({fontSize:_0x71ca[44],lineHeight:_0x71ca[44]});$(_0x71ca[48])[_0x71ca[12]](_0x71ca[46],_0x71ca[47]);$(_0x71ca[48])[_0x71ca[12]](_0x71ca[49],_0x71ca[50]);$(_0x71ca[48])[_0x71ca[12]](_0x71ca[5],_0x71ca[51]);$(_0x71ca[54])[_0x71ca[53]](_0x71ca[52]);$(_0x71ca[56])[_0x71ca[53]](_0x71ca[55]);$(_0x71ca[58])[_0x71ca[53]](_0x71ca[57]);$(_0x71ca[60])[_0x71ca[53]](_0x71ca[59]);$(_0x71ca[62])[_0x71ca[53]](_0x71ca[61]);$(_0x71ca[15])[_0x71ca[12]](_0x71ca[5],$(_0x71ca[13])[_0x71ca[5]]()+ $(_0x71ca[16])[_0x71ca[5]]());if(mobile){return};contents= false;mobile= true;$[_0x71ca[68]]($(_0x71ca[63]),function(_0x19c7x1a,_0x19c7x1b){if($(this)[_0x71ca[65]](_0x71ca[64])){return};$(this)[_0x71ca[43]]($(this)[_0x71ca[43]]()[_0x71ca[67]](/<br[^>]*>/gi,_0x71ca[66]))})}else {$(_0x71ca[43])[_0x71ca[12]](_0x71ca[41],_0x71ca[69]);$(_0x71ca[45])[_0x71ca[12]]({fontSize:_0x71ca[70],lineHeight:_0x71ca[70]});$(_0x71ca[48])[_0x71ca[12]](_0x71ca[46],_0x71ca[71]);$(_0x71ca[48])[_0x71ca[12]](_0x71ca[5],_0x71ca[72]);$(_0x71ca[54])[_0x71ca[73]](_0x71ca[52]);$(_0x71ca[56])[_0x71ca[73]](_0x71ca[55]);$(_0x71ca[58])[_0x71ca[73]](_0x71ca[57]);$(_0x71ca[60])[_0x71ca[73]](_0x71ca[59]);$(_0x71ca[74])[_0x71ca[73]](_0x71ca[61]);$(_0x71ca[15])[_0x71ca[12]](_0x71ca[5],_0x71ca[75]);if(!mobile){return};contents= false;mobile= false;$[_0x71ca[68]]($(_0x71ca[63]),function(_0x19c7x1a,_0x19c7x1b){if($(this)[_0x71ca[65]](_0x71ca[64])){return};if(!$(this)[_0x71ca[43]]()[_0x71ca[76]](/<br[^>]*>/i)){$(this)[_0x71ca[43]]($(this)[_0x71ca[43]]()[_0x71ca[67]](/\n/gi,_0x71ca[77]))}})};$(_0x71ca[79])[_0x71ca[78]]();$(_0x71ca[82]+ _0x71ca[83]+ document[_0x71ca[23]][_0x71ca[84]]+ _0x71ca[85]+ _0x71ca[86]+ document[_0x71ca[23]][_0x71ca[84]]+ _0x71ca[87]+ _0x71ca[88]+ document[_0x71ca[23]][_0x71ca[84]]+ _0x71ca[87]+ _0x71ca[89])[_0x71ca[81]](_0x71ca[80]);scrollWindow()})[_0x71ca[38]](_0x71ca[0],scrollWindow= function(_0x19c7x19){if(mobile){}else {};scroll= document[_0x71ca[22]][_0x71ca[21]]|| document[_0x71ca[23]][_0x71ca[21]];try{}catch(e){};if(!$(_0x71ca[11])[_0x71ca[4]]()){return};$(_0x71ca[25])[_0x71ca[12]]({zIndex:1,position:_0x71ca[24],top:0});$(_0x71ca[26])[_0x71ca[12]]({visibility:_0x71ca[10]});if(p2v(scroll)> scrollPoint1){$(_0x71ca[26])[_0x71ca[12]](_0x71ca[27],_0x71ca[28]);$(_0x71ca[25])[_0x71ca[12]](_0x71ca[29],_0x71ca[30])};$(_0x71ca[11])[_0x71ca[12]]({position:_0x71ca[30],top:0,marginTop:_0x71ca[31]});if(p2v(scroll)> scrollPoint1){layer2Top= -v2p(scrollPoint1)+ $(_0x71ca[11])[_0x71ca[4]]()[_0x71ca[3]];layer2Bottom= $(_0x71ca[11])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[11])[_0x71ca[5]]();$(_0x71ca[11])[_0x71ca[12]](_0x71ca[3],layer2Top);$(_0x71ca[11])[_0x71ca[12]](_0x71ca[29],_0x71ca[24])};$(_0x71ca[33])[_0x71ca[12]]({visibility:_0x71ca[28],height:scrollPoint1+ _0x71ca[32]});if(p2v(scroll)<= scrollPoint1){contents= false}else {if(p2v(scroll)> scrollPoint1){$(_0x71ca[33])[_0x71ca[12]](_0x71ca[27],_0x71ca[10]);$(_0x71ca[33])[_0x71ca[12]](_0x71ca[3],v2p(scrollPoint1+ 100)- layer2Bottom+ v2p(50))}};if(mobile&& content2Lock&& scroll< pt(_0x71ca[16])&& content2Top){console[_0x71ca[9]](_0x71ca[34]);$(_0x71ca[15])[_0x71ca[12]](_0x71ca[3],content2Top);$(_0x71ca[16])[_0x71ca[12]](_0x71ca[3],_0x71ca[35]);content2Lock= false};if(mobile&&  !content2Lock&& scroll> pb(_0x71ca[15])- screen[_0x71ca[5]]){console[_0x71ca[9]](_0x71ca[36]+ ($(_0x71ca[15])[_0x71ca[5]]()- screen[_0x71ca[5]])+ _0x71ca[37]+ (content2Top+ ($(_0x71ca[15])[_0x71ca[5]]()- screen[_0x71ca[5]])));$(_0x71ca[15])[_0x71ca[12]](_0x71ca[3],$(_0x71ca[15])[_0x71ca[4]]()[_0x71ca[3]]+ $(_0x71ca[15])[_0x71ca[5]]()- $(_0x71ca[16])[_0x71ca[5]]());$(_0x71ca[16])[_0x71ca[12]](_0x71ca[3],-1* ($(_0x71ca[16])[_0x71ca[5]]()- screen[_0x71ca[5]]+ vh2p(5)));content2Lock= true};positionContents()});$(function(){$(_0x71ca[92])[_0x71ca[91]](function(){console[_0x71ca[9]](_0x71ca[90])});$(_0x71ca[94])[_0x71ca[91]](function(){console[_0x71ca[9]](_0x71ca[93])});setTimeout(function(){resizeWindow()},100)})
-</script>
-
-
-<style>
 #content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0);}
 #content1 .imgBox{height:100vh;background-color:#05040d;}
 #content1 .imgBox img{width:auto;height:100vh;float:right;}
@@ -150,33 +93,12 @@ var _0x71ca=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
 #content1.mobile .fs6pt{font-size:1.7rem;}
 #content1.mobile .lh8pt{line-height:2.2rem;}
 #content1.mobile .textBox{width:75vw;}
-</style>
-<div id="content1" class="content" style="/*visibility:hidden*/">
-  <section id="sectSsga001" style="position: sticky;top: 0;z-index:0;">
-    <div class="diagonal diagonalTopLeft"></div>
-    <div class="imgBox" style=""><img src="./image/ssga001.png" style=""/></div>
-    <div class="textBox">
-      <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
-      <div style="height:3vmin;"></div>
-      <p class="bebas fs6pt lh8pt ls20">
-        CODENAME : SSGA001<br/>
-        INTRODUCE : <font class="ls0">캐릭터 가면을 쓰고 활동하는 <br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;혼성 3인조 비밀 프로듀싱 팀 리더</font><br/>
-        GENRE : ELECTRIC & HIPHOP MUSIC<br/>
-        FEATURE : 12WELVE 세계관 최강의 막가파<br/>
-      </p>
-    </div>
-    <div class="diagonal diagonalBottomRight"></div>
-  </section>
-</div>
 
-
-<style>
 #content2{height:280vh;}
-#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;}
-#content2 .cube video{width:100%;}
+#content2 .cube{width:50vw;overflow: hidden;position:absolute;z-index:-1;text-align:right;margin-top:-6vmin;}
+#content2 .cube video{width:70%;}
 #content2 .textBox{width:45vw;float:right;}
-#content2.mobile .cube{width:100%;position:relative;margin-top:0;text-align:center;}
+#content2.mobile .cube{width:100%;position:relative;text-align:center;margin-top:0;}
 #content2.mobile .cube video{width:90%;}
 #content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
 
@@ -185,80 +107,15 @@ var _0x71ca=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
 #content1 section{visibility:hidden;}
 #content2 .cube{display:xxxxnone;}
 */
-</style>  
-<div id="content2" class="content" style="/*visibility:hidden*/">
-  <section id="sectCube" style="position:sticky;top:0;z-index:0;">
-    <div style="height:10vmin;"></div>
-    <p class="bebas fs25pt oblique center">1</p>
-    <div style="height:5vmin;"></div>
-    <div class="cube">
-      <!--
-      <div style="position:absolute;width:100%;height:100%;text-align:center; ">
-        <p class="helv_black oblique" style="position:relative; top:20%; font-size: 8vmin; color: #ffffff;">LOREM IPSUM DOLOR</p>
-      </div>
-      -->
-      <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline>
-        <source src="image/cube.mp4" type="video/mp4">
-        <strong>Your browser does not support the video tag.</strong>
-      </video>
-    </div>
-    <div class="textBox">
-      <p><font class="roboto fs13pt">9.246</font>
-        <font class="roboto fs6pt">CUBES</font></p>
-      <div style="height:8vmin;"></div>
-      <p class="robotob fs5pt ls20 fg_skyblue oblique underline">MINT IS COMING</p>
-      <div style="height:4vmin;"></div>
-      <p class="fs4pt lh4pt">큐브는 12welve metaverse의 비밀 조직인 x label의 기술과 절대<br/>
-      파괴가 불가능한 lower side의 신비로운 5개 물질로 만들어졌습니다.</p>
-      <p class="fs4pt lh4pt">큐브는 3개 차원의 12welve metaverse에서 부와 권력을 상징하며<br/>
-      높은 등급의 큐브를 수집 할수록 더 많은 권한을 가집니다.</p>
-      <p class="fs4pt lh4pt">5개 등급의 큐브에는 최고의 가치를 지닌 46개의 스페셜 큐브가<br/>
-      있으며 12개 심볼의 동일 등급 큐브를 수집하여 더욱 가치있는 큐브를<br/>
-      만들 수 있습니다.</p>
-      <p class="fs4pt lh4pt">큐브는 또한, 12welve metaverse의 특별한 정보에 접근 할 수 있는 <br/>
-      키이며 다양한 아티스트와 협업한 고퀄리티의 ‘3d 아바타’를 무료로 <br/>
-      지급받습니다.</p>
-    </div>
-    <div style="height:10vh;"></div>
-  </section>
-</div>
 
-<style>
 #content3 section{background-color:#8585fc;height:100vh;}
-#content3 .textBox{width:45vw;float:right;margin-top:15vh;z-index:1}
+#content3 .textBox{width:45vw;float:right;margin-top:5vmin;z-index:1}
 #content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height:100vh;background-size:100%;}
 
 #content3.mobile section{background-color:#8585fc;height:initial;}
 #content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw;}
 #content3.mobile .catHead{position:relative;width:100%;height:100vw;}
-</style>
-<div id="content3" class="content" style="/*visibility:hidden*/">
-  <section class="" id="sectCatHead">
-    <div class="diagonal diagonalTopLeft"></div>
-    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#8585fc">2</p>
-    <div class="textBox">
-      <p><font class="roboto fs13pt">9.246</font>
-        <font class="roboto fs6pt">AVATARS</font></p>
-      <div style="height:8vmin;"></div>
-      <p class="robotob fs5pt ls20 fg_skyblue oblique underline">FREE MINT for all cube holders</p>
-      <div style="height:4vmin;"></div>
-      <p class="fs4pt lh4pt">아바타는 Next-K pop을 이끌어 갈 Upper Side의<br/>
-      46 Meta 캐릭터(12 K-pop Idol)입니다.</p>
-      <p class="fs4pt lh4pt">각각의 고유한 개성과 스토리를 가진 46 Type과 Type당 201개<br/>
-      에디션으로 발행되며 5개의 등급과 130+ Traits으로 무작위 생성된<br/>
-      유닉한 3D 아트웍 NFTs 컬렉션입니다.</p>
-      <p class="fs4pt lh4pt">9246개의 유닉한 아바타 중에는 매우 특별한 46개의 아바타가<br/>
-      있으며 큐브의 스마트 컨트렉트에 기록된 코드네임과 연관된<br/>
-      아바타가 큐브 홀더에게 무작위로 Drop 됩니다.</p>
-      <p class="fs4pt lh4pt">홀더는 보유한 아바타가 속한 K-pop Idol의 활동과 관련된<br/>
-      다양한 혜택을 받습니다.</p>       
-    </div>
-    <div class="catHead">&nbsp;</div>
-  </section>
-</div>
 
-
-<style>
 .launch,.growth{
   display:inline-block;
   text-align: center;
@@ -273,103 +130,11 @@ var _0x71ca=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
   margin:10vw 0;
   width:100%;
 }
-</style>
-<div id="content4" class="content" style="/*visibility:hidden*/">
-  <section class="center">
-    <div style="height:20vmin;"></div>
-    <p class="bebas fs10pt ls20 oblique">Launch</p>
-    <div style="height:8vmin;"></div>
-    <div style="margin:auto 12vw;">
-      <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 1: </p>
-        <p class="bebas fs6pt ls20 underline">9246 CUBES MINT</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9">
-          12welve Metaverse를 시작하는<br/>
-          큐브 민트를 진행합니다.<br/>
-          Special Event<br/>
-          Private Sale Only<br/>
-        </p>
-      </div>
-      <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 2:</p>
-        <p class="bebas fs6pt ls20 underline">9246 AVATARS FREE MINT</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9">
-          큐브 홀더만 참여 할 수 있는<br/>
-          아바타 민트를 진행합니다.<br/>
-          (Collabs with special artists)<br/>
-        </p>
-      </div>
-      <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 3:</p>
-        <p class="bebas fs6pt ls20 underline">IP DEV & BUSINESS</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9">
-          K-pop & Webtoon & Fashion<br/>
-          (Collabs with many artists & company)<br/>
-        </p>
-      </div>
-    </div>
-    <div style="height:5vmin;"></div>
-  </section>
-  <section class="center">
-    <div style="height:20vmin;"></div>
-    <p class="bebas fs10pt ls20 oblique">Growth</p>
-    <div style="height:8vmin;"></div>
-    <div style="margin:auto 12vw;">
-      <div class="growth">
-        <p class="bebas fs6pt ls20 underline">BLOCK CHAIN</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9">
-          12welve DAO 설립과 Season 2 진행.<br/>
-          우리는 다양한 생태계가 존재하는<br/>
-          블록체인에서 Seamless한<br/>
-          생명력을 가진 12welve NFTs를<br/>
-          만들어 갈 것입니다.<br/>
-        </p>
-      </div>
-      <div class="growth">
-        <p class="bebas fs6pt ls20 underline">K-POP MUSIC @ WEBTOON</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9">
-          ‘Real side’ 지구의 1억명 타겟층을 가진<br/>
-          K-pop과 Webtoon 프로젝트 진행.<br/>
-          ‘Upper side’의 46 Meta 캐릭터<br/>
-          (12 K-pop Idol)를 물리적인 세계와 연결하는<br/>
-          매우 흥미로운 메타버스 프로젝트이며<br/>
-          여러분이 보유한 12welve 컬렉션을 더욱<br/>
-          가치 있게 만들 것입니다.<br/>
-        </p>
-      </div>
-      <div class="growth">
-        <p class="bebas fs6pt ls20 underline">METAVERSE</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9">
-          우리의 목표는 가상과 현실의 경계가 없는<br/>
-          엔터테인먼트 라이프스타일과 게임이 연결된<br/>
-          12welve Metaverse를 만드는 것입니다.<br/>
-          12welve NFTs는 이미 그 시작의 일부이며<br/>
-          언젠가 여러분 모두를 12welve의<br/>
-          놀라운 세상으로 안내할 것입니다.<br/>
-        </p>
-      </div>
 
-    </div>
-  </section>
-  <section class="pad7v center">
-    <div style="height:15vmin;"></div>
-    <p class="fs5d3pt lh7pt underline">
-      자세한 로드맵은 12WELVE 커뮤니티
-      <font class="fg_skyblue">(DISCORD)</font><br/>
-      를 통해 공지될 것입니다.
-    </p>
-    <div style="height:10vmin;"></div>
-  </section>
-</div>
+#content4.mobile .fs5d3pt{font-size:1.5rem;}
+#content4.mobile .lh7pt{line-height:2.2rem;}
+#content4.mobile .lh6pt{line-height:2.1rem;}
 
-
-<style>
 .ghost{
   display:inline-block;
   text-align: center;
@@ -411,21 +176,228 @@ var _0x71ca=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
 }
 .ghost_mobile p{font-family:bebas;color:#000000}
 
+#content5 .bottomMargin1{height:6vh;}
+#content5 .bottomMargin2{height:20vh;}
+#content5.mobile .bottomMargin1{height:15vh;}
+#content5.mobile .bottomMargin2{height:10vh;}
+
+#content5.mobile .fs9pt{font-size:6vw;}
+#content5.mobile .fs8pt{font-size:3rem;}
+#content5.mobile .fs5d3pt{font-size:1.5rem;}
+#content5.mobile .lh6pt{line-height:2rem;}
+
+#content6 .gapTop{height:8vmin;}
+#content6.mobile .gapTop{height:8vmin;}
+#content6.mobile .fs8pt{font-size:3rem;}
+#content6.mobile .fs5d3pt{font-size:1.5rem;}
+#content6.mobile .lh7pt{line-height:2.2rem;}
+
+#layer3.mobile section{background-color:rgb(0,0,0,0.7);}
+#layer3.mobile .textBox{margin:5vw;}
 </style>
+<script>
+var _0x767b=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x74\x6F\x70","\x6F\x66\x66\x73\x65\x74","\x68\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x48\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x57\x69\x64\x74\x68","\x50\x4F\x53\x49\x54\x49\x4F\x4E\x43\x4F\x4E\x54\x45\x4E\x54\x53\x20\x4D\x4F\x42\x49\x4C\x45\x3A","\x6C\x6F\x67","\x76\x69\x73\x69\x62\x6C\x65","\x23\x6C\x61\x79\x65\x72\x32","\x63\x73\x73","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x31","\x33\x33\x30\x76\x68","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32\x20\x73\x65\x63\x74\x69\x6F\x6E","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x33","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x36","\x73\x63\x72\x6F\x6C\x6C\x54\x6F\x70","\x64\x6F\x63\x75\x6D\x65\x6E\x74\x45\x6C\x65\x6D\x65\x6E\x74","\x62\x6F\x64\x79","\x73\x74\x69\x63\x6B\x79","\x23\x6C\x61\x79\x65\x72\x31","\x23\x6C\x61\x79\x65\x72\x31\x20\x23\x73\x65\x63\x74\x54\x69\x74\x6C\x65","\x76\x69\x73\x69\x62\x69\x6C\x69\x74\x79","\x68\x69\x64\x64\x65\x6E","\x70\x6F\x73\x69\x74\x69\x6F\x6E","\x61\x62\x73\x6F\x6C\x75\x74\x65","\x37\x30\x76\x68","\x76\x68","\x23\x6C\x61\x79\x65\x72\x33","\x54\x4F\x50\x20\x52\x45\x4C\x45\x41\x53\x45\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32","\x30","\x42\x4F\x54\x54\x4F\x4D\x20\x4C\x4F\x43\x4B\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32\x20","\x20","\x6F\x6E","\x72\x65\x73\x69\x7A\x65","\x77\x69\x64\x74\x68","\x66\x6F\x6E\x74\x2D\x73\x69\x7A\x65","\x39\x70\x78","\x68\x74\x6D\x6C","\x38\x76\x6D\x69\x6E","\x23\x6C\x61\x79\x65\x72\x31\x20\x70","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x69\x6D\x61\x67\x65","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x6D\x6F\x62\x69\x6C\x65\x2E\x70\x6E\x67\x22\x29","\x23\x6C\x61\x79\x65\x72\x32\x20\x3E\x20\x73\x65\x63\x74\x69\x6F\x6E\x20\x3E\x20\x64\x69\x76","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x73\x69\x7A\x65","\x63\x6F\x76\x65\x72","\x31\x35\x30\x76\x68","\x6C\x61\x75\x6E\x63\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x61\x64\x64\x43\x6C\x61\x73\x73","\x2E\x6C\x61\x75\x6E\x63\x68","\x67\x72\x6F\x77\x74\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x72\x6F\x77\x74\x68","\x67\x68\x6F\x73\x74\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x68\x6F\x73\x74","\x70\x61\x64\x31\x32\x76\x77\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x70\x61\x64\x31\x32\x76\x77","\x6D\x6F\x62\x69\x6C\x65","\x2E\x63\x6F\x6E\x74\x65\x6E\x74\x2C\x20\x2E\x6C\x61\x79\x65\x72","\x70\x2E\x73\x74\x72\x69\x70","","\x72\x65\x70\x6C\x61\x63\x65","\x65\x61\x63\x68","\x31\x31\x70\x78","\x36\x76\x6D\x61\x78","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x70\x63\x2E\x70\x6E\x67\x22\x29","\x31\x32\x30\x76\x77","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x2E\x63\x6F\x6E\x74\x65\x6E\x74","\x32\x38\x30\x76\x68","\x6D\x61\x74\x63\x68","\x0A\x3C\x62\x72\x2F\x3E","\x72\x65\x6D\x6F\x76\x65","\x23\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C","\x68\x65\x61\x64","\x61\x70\x70\x65\x6E\x64\x54\x6F","\x3C\x73\x74\x79\x6C\x65\x20\x69\x64\x3D\x22\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C\x22\x3E","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x7B\x77\x69\x64\x74\x68\x3A","\x63\x6C\x69\x65\x6E\x74\x57\x69\x64\x74\x68","\x70\x78\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x4C\x65\x66\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x4C\x65\x66\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x72\x69\x67\x68\x74\x3A","\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x74\x72\x61\x6E\x73\x70\x61\x72\x65\x6E\x74\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x52\x69\x67\x68\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x52\x69\x67\x68\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x6C\x65\x66\x74\x3A","\x3C\x2F\x73\x74\x79\x6C\x65\x3E","\x61\x64\x73\x66","\x63\x6C\x69\x63\x6B","\x23\x62\x74\x6E\x31\x32\x57\x65\x6C\x76\x65","\x63\x6F\x6E\x6E\x65\x63\x74","\x23\x62\x74\x6E\x43\x6F\x6E\x6E\x65\x63\x74"];var controller= new ScrollMagic.Controller();document[_0x767b[2]](_0x767b[0],()=>{const _0xa526x2=window[_0x767b[1]]});function pt(_0xa526x4){return $(_0xa526x4)[_0x767b[4]]()[_0x767b[3]]}function pb(_0xa526x4){return $(_0xa526x4)[_0x767b[4]]()[_0x767b[3]]+ $(_0xa526x4)[_0x767b[5]]()}function v2p(_0xa526x7){return (_0xa526x7* window[_0x767b[6]])/ 100}function vh2p(_0xa526x7){return (_0xa526x7* window[_0x767b[6]])/ 100}function vw2p(_0xa526x7){return (_0xa526x7* window[_0x767b[7]])/ 100}function p2v(_0xa526xb){return _0xa526xb* 100/ window[_0x767b[6]]}function p2vh(_0xa526xb){return _0xa526xb* 100/ window[_0x767b[6]]}function p2vw(_0xa526xb){return _0xa526xb* 100/ window[_0x767b[7]]}function positionContents(){if(contents|| p2v(scroll)< scrollPoint2){return};console[_0x767b[9]](_0x767b[8]+ mobile);setTimeout(function(){$(_0x767b[13])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':$(_0x767b[11])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[11])[_0x767b[5]]()+ v2p(10)});if(mobile){$(_0x767b[13])[_0x767b[12]]({'\x74\x6F\x70':_0x767b[14]})}},100);setTimeout(function(){$(_0x767b[15])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':$(_0x767b[13])[_0x767b[4]]()[_0x767b[3]]});content2Top= $(_0x767b[15])[_0x767b[4]]()[_0x767b[3]];content2Bottom= $(_0x767b[15])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[15])[_0x767b[5]]();content2SectionBottom= $(_0x767b[16])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[16])[_0x767b[5]]()},200);setTimeout(function(){if(!mobile){$(_0x767b[17])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':$(_0x767b[13])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[13])[_0x767b[5]]()+ v2p(150)})}else {$(_0x767b[17])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':pb(_0x767b[15])+ vh2p(10)})}},300);setTimeout(function(){$(_0x767b[18])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':$(_0x767b[17])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[17])[_0x767b[5]]()+ v2p(5)})},400);setTimeout(function(){$(_0x767b[19])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':$(_0x767b[18])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[18])[_0x767b[5]]()+ v2p(15)})},500);setTimeout(function(){if(!mobile){$(_0x767b[20])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':$(_0x767b[19])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[19])[_0x767b[5]]()+ v2p(20)})}else {$(_0x767b[20])[_0x767b[12]]({visibility:_0x767b[10],'\x74\x6F\x70':$(_0x767b[19])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[19])[_0x767b[5]]()+ v2p(5)})}},600);contents= true}var scroll;var scrollPoint1=80;var scrollPoint2=160;var mobile=false;var contents=false;var layer2Top;var layer2Bottom;var content2Top;var content2Bottom;var content2SectionBottom;var content2Lock=false;$(window)[_0x767b[38]](_0x767b[39],resizeWindow= function(){if(screen[_0x767b[40]]/ screen[_0x767b[5]]< 1){$(_0x767b[43])[_0x767b[12]](_0x767b[41],_0x767b[42]);$(_0x767b[45])[_0x767b[12]]({fontSize:_0x767b[44],lineHeight:_0x767b[44]});$(_0x767b[48])[_0x767b[12]](_0x767b[46],_0x767b[47]);$(_0x767b[48])[_0x767b[12]](_0x767b[49],_0x767b[50]);$(_0x767b[48])[_0x767b[12]](_0x767b[5],_0x767b[51]);$(_0x767b[54])[_0x767b[53]](_0x767b[52]);$(_0x767b[56])[_0x767b[53]](_0x767b[55]);$(_0x767b[58])[_0x767b[53]](_0x767b[57]);$(_0x767b[60])[_0x767b[53]](_0x767b[59]);$(_0x767b[62])[_0x767b[53]](_0x767b[61]);$(_0x767b[15])[_0x767b[12]](_0x767b[5],$(_0x767b[13])[_0x767b[5]]()+ $(_0x767b[16])[_0x767b[5]]());if(mobile){return};contents= false;mobile= true;$[_0x767b[66]]($(_0x767b[63]),function(_0xa526x1b,_0xa526x1c){console[_0x767b[9]]($(this)[_0x767b[43]]());$(this)[_0x767b[43]]($(this)[_0x767b[43]]()[_0x767b[65]](/<br[^>]*>/gi,_0x767b[64]))})}else {$(_0x767b[43])[_0x767b[12]](_0x767b[41],_0x767b[67]);$(_0x767b[45])[_0x767b[12]]({fontSize:_0x767b[68],lineHeight:_0x767b[68]});$(_0x767b[48])[_0x767b[12]](_0x767b[46],_0x767b[69]);$(_0x767b[48])[_0x767b[12]](_0x767b[5],_0x767b[70]);$(_0x767b[54])[_0x767b[71]](_0x767b[52]);$(_0x767b[56])[_0x767b[71]](_0x767b[55]);$(_0x767b[58])[_0x767b[71]](_0x767b[57]);$(_0x767b[60])[_0x767b[71]](_0x767b[59]);$(_0x767b[72])[_0x767b[71]](_0x767b[61]);$(_0x767b[15])[_0x767b[12]](_0x767b[5],_0x767b[73]);if(!mobile){return};contents= false;mobile= false;$[_0x767b[66]]($(_0x767b[63]),function(_0xa526x1b,_0xa526x1c){if(!$(this)[_0x767b[43]]()[_0x767b[74]](/<br[^>]*>/i)){$(this)[_0x767b[43]]($(this)[_0x767b[43]]()[_0x767b[65]](/\n/gi,_0x767b[75]))}})};$(_0x767b[77])[_0x767b[76]]();$(_0x767b[80]+ _0x767b[81]+ document[_0x767b[23]][_0x767b[82]]+ _0x767b[83]+ _0x767b[84]+ document[_0x767b[23]][_0x767b[82]]+ _0x767b[85]+ _0x767b[86]+ document[_0x767b[23]][_0x767b[82]]+ _0x767b[85]+ _0x767b[87])[_0x767b[79]](_0x767b[78]);scrollWindow()})[_0x767b[38]](_0x767b[0],scrollWindow= function(_0xa526x1a){scroll= document[_0x767b[22]][_0x767b[21]]|| document[_0x767b[23]][_0x767b[21]];try{}catch(e){};if(!$(_0x767b[11])[_0x767b[4]]()){return};$(_0x767b[25])[_0x767b[12]]({zIndex:1,position:_0x767b[24],top:0});$(_0x767b[26])[_0x767b[12]]({visibility:_0x767b[10]});if(p2v(scroll)> scrollPoint1){$(_0x767b[26])[_0x767b[12]](_0x767b[27],_0x767b[28]);$(_0x767b[25])[_0x767b[12]](_0x767b[29],_0x767b[30])};$(_0x767b[11])[_0x767b[12]]({position:_0x767b[30],top:0,marginTop:_0x767b[31]});if(p2v(scroll)> scrollPoint1){layer2Top= -v2p(scrollPoint1)+ $(_0x767b[11])[_0x767b[4]]()[_0x767b[3]];layer2Bottom= $(_0x767b[11])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[11])[_0x767b[5]]();$(_0x767b[11])[_0x767b[12]](_0x767b[3],layer2Top);$(_0x767b[11])[_0x767b[12]](_0x767b[29],_0x767b[24])};$(_0x767b[33])[_0x767b[12]]({visibility:_0x767b[28],height:scrollPoint1+ _0x767b[32]});if(p2v(scroll)<= scrollPoint1){contents= false}else {if(p2v(scroll)> scrollPoint1){$(_0x767b[33])[_0x767b[12]](_0x767b[27],_0x767b[10]);$(_0x767b[33])[_0x767b[12]](_0x767b[3],v2p(scrollPoint1+ 100)- layer2Bottom+ v2p(50))}};if(mobile&& content2Lock&& scroll< pt(_0x767b[16])&& content2Top){console[_0x767b[9]](_0x767b[34]);$(_0x767b[15])[_0x767b[12]](_0x767b[3],content2Top);$(_0x767b[16])[_0x767b[12]](_0x767b[3],_0x767b[35]);content2Lock= false};if(mobile&&  !content2Lock&& scroll> pb(_0x767b[15])- screen[_0x767b[5]]){console[_0x767b[9]](_0x767b[36]+ ($(_0x767b[15])[_0x767b[5]]()- screen[_0x767b[5]])+ _0x767b[37]+ (content2Top+ ($(_0x767b[15])[_0x767b[5]]()- screen[_0x767b[5]])));$(_0x767b[15])[_0x767b[12]](_0x767b[3],$(_0x767b[15])[_0x767b[4]]()[_0x767b[3]]+ $(_0x767b[15])[_0x767b[5]]()- $(_0x767b[16])[_0x767b[5]]());$(_0x767b[16])[_0x767b[12]](_0x767b[3],-1* ($(_0x767b[16])[_0x767b[5]]()- screen[_0x767b[5]]+ vh2p(5)));content2Lock= true};positionContents()});$(function(){$(_0x767b[90])[_0x767b[89]](function(){console[_0x767b[9]](_0x767b[88])});$(_0x767b[92])[_0x767b[89]](function(){console[_0x767b[9]](_0x767b[91])});setTimeout(function(){resizeWindow()},100)})
+</script>
+</head>
+<body>
+<!--
+<div id="menu" style="z-index:999;top:0;">
+  <section class="pad7v" id="sectMenu">
+    <div style="height:5vmin;"></div>
+    <p class="helv_black fs4pt ls0" style="float:left;" id="btn12Welve">12WELVE</p>
+    <p class="helv_narr fs4pt ls-10" style="float:right;" id="btnConnect">Connect Wallet</p>
+  </section>
+</div>
+-->
+
+<div id="content1" class="content" style="/*visibility:hidden*/">
+  <section id="sectSsga001" style="position: sticky;top: 0;z-index:0;">
+    <div class="diagonal diagonalTopLeft"></div>
+    <div class="imgBox" style=""><img src="./image/ssga001.png" style=""/></div>
+    <div class="textBox">
+      <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
+      <div style="height:3vmin;"></div>
+      <p class="bebas fs6pt lh8pt ls20">
+        CODENAME : SSGA001<br/>
+        INTRODUCE : <font class="ls0">캐릭터 가면을 쓰고 활동하는 <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;혼성 3인조 비밀 프로듀싱 팀 리더</font><br/>
+        GENRE : ELECTRIC & HIPHOP MUSIC<br/>
+        FEATURE : 12WELVE 세계관 최강의 막가파<br/>
+      </p>
+    </div>
+    <div class="diagonal diagonalBottomRight"></div>
+  </section>
+</div>
+
+<div id="content2" class="content" style="/*visibility:hidden*/">
+  <section id="sectCube" style="position:sticky;top:0;z-index:0;">
+    <div style="height:10vmin;"></div>
+    <p class="bebas fs25pt oblique center">1</p>
+    <div style="height:5vmin;"></div>
+    <div class="cube">
+      <!--
+      <div style="position:absolute;width:100%;height:100%;text-align:center; ">
+        <p class="helv_black oblique" style="position:relative; top:20%; font-size: 8vmin; color: #ffffff;">LOREM IPSUM DOLOR</p>
+      </div>
+      -->
+      <video id="video1" muted="muted" autoplay="autoplay" loop="loop" playsinline>
+        <source src="image/cube.mp4" type="video/mp4">
+        <strong>Your browser does not support the video tag.</strong>
+      </video>
+    </div>
+    <div class="textBox">
+      <p><font class="roboto fs13pt">9.246</font>
+        <font class="roboto fs6pt">CUBES</font></p>
+      <div style="height:8vmin;"></div>
+      <p class="robotob fs5pt ls20 fg_skyblue oblique underline">MINT IS COMING</p>
+      <div style="height:4vmin;"></div>
+      <p class="fs4pt lh4pt strip">큐브는 12welve metaverse의 비밀 조직인 x label의 기술과 절대<br/>
+      파괴가 불가능한 lower side의 신비로운 5개 물질로 만들어졌습니다.</p>
+      <p class="fs4pt lh4pt strip">큐브는 3개 차원의 12welve metaverse에서 부와 권력을 상징하며<br/>
+      높은 등급의 큐브를 수집 할수록 더 많은 권한을 가집니다.</p>
+      <p class="fs4pt lh4pt strip">5개 등급의 큐브에는 최고의 가치를 지닌 46개의 스페셜 큐브가<br/>
+      있으며 12개 심볼의 동일 등급 큐브를 수집하여 더욱 가치있는 큐브를<br/>
+      만들 수 있습니다.</p>
+      <p class="fs4pt lh4pt strip">큐브는 또한, 12welve metaverse의 특별한 정보에 접근 할 수 있는 <br/>
+      키이며 다양한 아티스트와 협업한 고퀄리티의 ‘3d 아바타’를 무료로 <br/>
+      지급받습니다.</p>
+    </div>
+    <div style="height:10vh;"></div>
+  </section>
+</div>
+
+<div id="content3" class="content" style="/*visibility:hidden*/">
+  <section class="" id="sectCatHead">
+    <div class="diagonal diagonalTopLeft"></div>
+    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#8585fc">2</p>
+    <div class="textBox">
+      <p><font class="roboto fs13pt">9.246</font>
+        <font class="roboto fs6pt">AVATARS</font></p>
+      <div style="height:8vmin;"></div>
+      <p class="robotob fs5pt ls20 fg_skyblue oblique underline">FREE MINT for all cube holders</p>
+      <div style="height:4vmin;"></div>
+      <p class="fs4pt lh4pt strip">아바타는 Next-K pop을 이끌어 갈 Upper Side의<br/>
+      46 Meta 캐릭터(12 K-pop Idol)입니다.</p>
+      <p class="fs4pt lh4pt strip">각각의 고유한 개성과 스토리를 가진 46 Type과 Type당 201개<br/>
+      에디션으로 발행되며 5개의 등급과 130+ Traits으로 무작위 생성된<br/>
+      유닉한 3D 아트웍 NFTs 컬렉션입니다.</p>
+      <p class="fs4pt lh4pt strip">9246개의 유닉한 아바타 중에는 매우 특별한 46개의 아바타가<br/>
+      있으며 큐브의 스마트 컨트렉트에 기록된 코드네임과 연관된<br/>
+      아바타가 큐브 홀더에게 무작위로 Drop 됩니다.</p>
+      <p class="fs4pt lh4pt strip">홀더는 보유한 아바타가 속한 K-pop Idol의 활동과 관련된<br/>
+      다양한 혜택을 받습니다.</p>       
+    </div>
+    <div class="catHead">&nbsp;</div>
+  </section>
+</div>
+
+<div id="content4" class="content" style="/*visibility:hidden*/">
+  <section class="center">
+    <div style="height:20vmin;"></div>
+    <p class="bebas fs10pt ls20 oblique">Launch</p>
+    <div style="height:8vmin;"></div>
+    <div style="margin:auto 12vw;">
+      <div class="launch">
+        <p class="bebas fs6pt ls20 lh7pt">PHASE 1: </p>
+        <p class="bebas fs6pt ls20 underline">9246 CUBES MINT</p>
+        <div style="height:3vmin;"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip">
+          12welve Metaverse를 시작하는<br/>
+          큐브 민트를 진행합니다.<br/>
+          Special Event<br/>
+          Private Sale Only<br/>
+        </p>
+      </div>
+      <div class="launch">
+        <p class="bebas fs6pt ls20 lh7pt">PHASE 2:</p>
+        <p class="bebas fs6pt ls20 underline">9246 AVATARS FREE MINT</p>
+        <div style="height:3vmin;"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip">
+          큐브 홀더만 참여 할 수 있는<br/>
+          아바타 민트를 진행합니다.<br/>
+          (Collabs with special artists)<br/>
+        </p>
+      </div>
+      <div class="launch">
+        <p class="bebas fs6pt ls20 lh7pt">PHASE 3:</p>
+        <p class="bebas fs6pt ls20 underline">IP DEV & BUSINESS</p>
+        <div style="height:3vmin;"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip">
+          K-pop & Webtoon & Fashion<br/>
+          (Collabs with many artists & company)<br/>
+        </p>
+      </div>
+    </div>
+    <div style="height:5vmin;"></div>
+  </section>
+  <section class="center">
+    <div style="height:20vmin;"></div>
+    <p class="bebas fs10pt ls20 oblique">Growth</p>
+    <div style="height:8vmin;"></div>
+    <div style="margin:auto 12vw;">
+      <div class="growth">
+        <p class="bebas fs6pt ls20 underline">BLOCK CHAIN</p>
+        <div style="height:3vmin;"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip">
+          12welve DAO 설립과 Season 2 진행.<br/>
+          우리는 다양한 생태계가 존재하는<br/>
+          블록체인에서 Seamless한<br/>
+          생명력을 가진 12welve NFTs를<br/>
+          만들어 갈 것입니다.<br/>
+        </p>
+      </div>
+      <div class="growth">
+        <p class="bebas fs6pt ls20 underline">K-POP MUSIC @ WEBTOON</p>
+        <div style="height:3vmin;"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip">
+          ‘Real side’ 지구의 1억명 타겟층을 가진<br/>
+          K-pop과 Webtoon 프로젝트 진행.<br/>
+          ‘Upper side’의 46 Meta 캐릭터<br/>
+          (12 K-pop Idol)를 물리적인 세계와 연결하는<br/>
+          매우 흥미로운 메타버스 프로젝트이며<br/>
+          여러분이 보유한 12welve 컬렉션을 더욱<br/>
+          가치 있게 만들 것입니다.<br/>
+        </p>
+      </div>
+      <div class="growth">
+        <p class="bebas fs6pt ls20 underline">METAVERSE</p>
+        <div style="height:3vmin;"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip">
+          우리의 목표는 가상과 현실의 경계가 없는<br/>
+          엔터테인먼트 라이프스타일과 게임이 연결된<br/>
+          12welve Metaverse를 만드는 것입니다.<br/>
+          12welve NFTs는 이미 그 시작의 일부이며<br/>
+          언젠가 여러분 모두를 12welve의<br/>
+          놀라운 세상으로 안내할 것입니다.<br/>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="pad7v center">
+    <div style="height:15vmin;"></div>
+    <p class="fs5d3pt lh7pt underline">
+      자세한 로드맵은 12WELVE 커뮤니티
+      <font class="fg_skyblue">(DISCORD)</font><br/>
+      를 통해 공지될 것입니다.
+    </p>
+    <div style="height:10vmin;"></div>
+  </section>
+</div>
+
 <div id="content5" class="content" style="/*visibility:hidden*/">
   <div id="p2" style="position:absolute;height:0;"></div>
   <section class="bg_white fg_black pad12vw" style="position:sticky;top:0;z-index:0;">
     <div style="height:20vmin;"></div>
     <p class="bebas fs9pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
     <div style="height:3vh;"></div>
-    <p class="fs4pt fg_gray6 lh6pt center underline"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.</p>
+    <p class="fs4pt fg_gray6 lh6pt center underline strip"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.</p>
     <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
-    <p class="fs4pt fg_gray6 lh6pt center">
+    <p class="fs4pt fg_gray6 lh6pt center strip">
 팀은 NEXT-K pop을 이끌어 갈 46 Meta 아이들(12 K-pop Idol)의 성장을 위해<br/>
 물밑에서 전폭적인 지원과 지지를 보내고, 12welve 커뮤니티와 함께 모든 일을 헤쳐나갑니다.<br/>
     </p>
     <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
-    <p class="fs4pt fg_gray6 lh6pt center">
+    <p class="fs4pt fg_gray6 lh6pt center strip">
 아티스트, 프로듀서, 교수, 개발자 등의 전문가부터 K-pop Culture를 사랑하는<br/>
 Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 있습니다.<br/>
     </p>
@@ -441,23 +413,22 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost5.png')"></div><p class="ls20 fs6pt">MANAGER</p></div>
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost6.png')"></div><p class="ls20 fs6pt">ADVISOR</p></div>
     </div>
-    <div style="height:6vh"></div>
-    <p class="fs5d3pt lh6pt ls20 center nostrip">
+    <div class="bottomMargin1"></div>
+    <p class="textContact fs5d3pt lh6pt ls20 center">
       고스트 멤버, 프로젝트 협업<br/>
       및 기타 문의<br/>
       <a href="mailto:contact@12welve.io">contact@12welve.io</a>
     </p>
-    <div style="height:20vh"></div>
+    <div class="bottomMargin2"></div>
   </section>
 </div>
 
-
 <div id="content6" class="content" style="/*visibility:hidden*/">
   <section class="pad7v" id="sectTrail">
-    <div style="height:8vmin;"></div>
-    <p class="bebas fs8pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
+    <div class="gapTop"></div>
+    <p class="textJoin bebas fs8pt ls50 fg_skyblue underline center">JOIN OUR DISCORD</p>
     <div style="height:5vmin;"></div>
-    <p class="fs5d3pt lh7pt fg_gray8 center">
+    <p class="textMsg fs5d3pt lh7pt fg_gray8 center">
     12welve 커뮤니티에 가입하시면<br/>
     Special event와 Private sale에 참여할 수 있습니다.
     </p>
@@ -468,16 +439,12 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
       <a target="_blank" href="https://www.twitter.com/"><img src="image/twitter.svg" style="width:10vmin;"/></a>
     </div>
     <div style="height:15vmin;"></div>
-    <p class="fs4pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
+    <p class="textCopy fs4pt fg_grayc center">© 2022 12WELVE. ALL RIGHTS RESERVED</p>
     <div style="height:10vmin;"></div>
   </section>
 </div>
 
 
-
-
-
-<!-- ################################################## LAYERS-->
 
 <div id="layer1" class="layer" style="z-index:1;/*visibility:hidden;*/">
   <section id="sectTitle">
@@ -485,18 +452,12 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
   </section>
 </div><!--<div id="layer1">-->
 
-
 <div id="layer2" class="layer" style="z-index:2;/*visibility:hidden;*/">  
   <section id="sectBalloon" class="" style="max-width:100%;"><!-- style="position:absolute;z-index:-1;"-->
     <div><!--<img src="./image/balloon.png"/>--></div>
   </section>
 </div>
 
-
-<style>
-#layer3.mobile section{background-color:rgb(0,0,0,0.7);}
-#layer3.mobile .textBox{margin:5vw;}
-</style>
 <div id="layer3" class="layer" style="z-index:3;/*visibility:hidden;*/">
   <section id="sectSummary">
     <div class="textBox">
@@ -505,32 +466,41 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
     <div style="height:12vmin;"></div>
     <p class="robotob fs5pt ls20 fg_skyblue oblique underline">DOUBLE 9246 UNIQUE 12WELVE</p>
     <div style="height:4vmin;"></div>
-    <p class="fs4pt lh4pt">
+    <p class="fs4pt lh4pt strip">
       12welve 프로젝트는 Next-K pop을 이끌어 갈 46 Meta 아이들(12 K-pop Idol)의 ‘9246 Unique Avatars’와<br/>
-      12welve Metaverse의 멤버쉽 키인 ‘9246 Unique Cubes’로 구성된 이더리움 블록체인 기반의 제너레이티드 3D NFTs 컬렉션입니다.<br/>
+      12welve Metaverse의 멤버쉽 키인 ‘9246 Unique Cubes’로 구성된 이더리움 블록체인 기반의 제너레이티드 3D NFTs 컬렉션입니다.
     </p>
     <div style="height:10vmin;"></div>
     <p class="robotob fs5pt ls20 fg_skyblue oblique underline">12WELVE METAVERSE</p>
     <div style="height:4vmin;"></div>
-    <p class="fs4pt lh4pt">
+    <p class="fs4pt lh4pt strip">
       물리적 지구의 또 다른 세상인 ‘Upper Side’ 지구.<br/>
+    </p><p class="fs4pt lh4pt strip">
       판타지 세상인 ‘Lower Side’ 지구.<br/>
+    </p><p class="fs4pt lh4pt strip">
       그리고, 우리가 현재 살고있는 ‘Real Side’ 지구.<br/>
+    </p><p class="fs4pt lh4pt strip">
       이 3개 차원의 ‘유기적인 관계’를 통해 ‘12welve Metaverse’는 완성됩니다.<br/>
       <br/>
+    </p>
+    <p class="fs4pt lh4pt strip">&nbsp;</p>
+    <p class="fs4pt lh4pt strip">
       12welve의 46 Meta 캐릭터(12 K-pop Idol)는 이 세계관 안에서 정체성이 다른 ‘7 star’와 ‘5 moon’으로 성장하여 각각의<br/>
       ‘멀티플 아이덴티티’ 와 ‘스토리’ 그리고 ‘음악’을 통해 3개의 차원을 연결하는 ‘하나의 이야기’를 만들어 갑니다.<br/>
-      <br/>
+    </p>
+    <p class="fs4pt lh4pt strip">&nbsp;</p>
+    <p class="fs4pt lh4pt strip">
       <font class="fg_skyblue">우리의 미션</font>은 12welve 세계관을 여는 NFTs 프로젝트를 시작으로 ‘K-pop’, ‘Webtoon’, ‘Game’, ‘Platform’으로 연결된 매우 흥미롭고<br/>
       혁신적인 12welve Metaverse를 만들어 나가는 것입니다.<br/>
-      <br/>
+    </p>
+    <p class="fs4pt lh4pt strip">&nbsp;</p>
+    <p class="fs4pt lh4pt strip">
       또한, 12welve와 함께하는 여러분에게 새로운 가치와 놀라운 경험을 제공하는 것입니다.<br/>
     </p>
     <div style="height:10vmin;"></div>
   </div>
   </section>
 </div>
-
 
 </body>
 </html>
