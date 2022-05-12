@@ -367,12 +367,13 @@ $(window).on('resize',resizeWindow=function(){
   */
 
   if(p2v(scroll)>scrollPoint2 && scroll<pb('#layer2')){
-    var value=scroll-v2p(scrollPoint2)
-    var scale=1+(Math.round(value*0.14)/100)
-    console.log('LAYER2 SCALE '+ value +' '+ scale );
+    var value=scroll-v2p(scrollPoint2);
+    var position=-(Math.round(value*0.14*2.5));
+    var scale=1+(Math.round(value*0.14)/100);
+    console.log('LAYER2 SCALE '+ value +' '+ scale+' '+position);
     
     //$('#layer2 section').css({transform:'translateY(-'+(value*0.05)+'px)'});
-    $('#layer2 section').css({transform:'scale('+scale+')'});
+    $('#layer2 section').css({transform:'scale('+scale+') translateY('+position+'px)'});
 
 
   }
