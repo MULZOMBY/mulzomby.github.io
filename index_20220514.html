@@ -103,7 +103,7 @@
 #content2 .textBox{width:45vw;float:right;}
 #content2.mobile .cube{width:100%;position:relative;text-align:center;margin-top:0;}
 #content2.mobile .cube video{width:80%;}
-#content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;margin-top:5vh;}
+#content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;margin-top:5vh;margin-bottom:10vh;}
 
 /*TEMP
 #content1{border:1px gold solid;}
@@ -114,10 +114,12 @@
 #content3 section{background-color:#8585fc;height:100vh;}
 #content3 .textBox{width:45vw;float:right;margin-top:5vmin;z-index:1}
 #content3 .catHead{position:absolute;top:0;background-image: url('./image/cat_head.png');background-repeat: no-repeat;background-position: left bottom;width:50vw;height:100vh;background-size:100%;}
+#content3.mobile .titleBox{padding-top:10vh;background-color:#8585fc;}
 
 #content3.mobile section{background-color:#8585fc;height:initial;}
 #content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw;margin-top:5vh;}
 #content3.mobile .catHead{position:relative;width:100%;height:100vw;}
+#content3.mobile .titleBox{padding-top:5vh;}
 
 .launch,.growth{
   display:inline-block;
@@ -134,9 +136,16 @@
   width:100%;
 }
 
-#content4.mobile .fs5d3pt{font-size:1.5rem;}
-#content4.mobile .lh7pt{line-height:2.2rem;}
-#content4.mobile .lh6pt{line-height:2.1rem;}
+
+#content4 .gap{height:3vmin;}
+#content4.mobile .gap{height:2.5rem;}
+
+#content4.mobile .fs5pt{font-size:1.5rem;}
+#content4.mobile .fs5d3pt{font-size:2.2rem;}
+#content4.mobile .fs6pt{font-size:2.3rem;}
+#content4.mobile .fs10pt{font-size:3.4rem;}
+#content4.mobile .lh7pt{line-height:3.5rem;}
+#content4.mobile .lh6pt{line-height:3rem;}
 
 .ghost{
   display:inline-block;
@@ -445,7 +454,7 @@ $(function(){
     <div class="imgBox" style=""><img src="./image/ssga001.png" style=""/></div>
     <div class="textBox">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
-      <div style="height:3vmin;"></div>
+      <div class="gap" style="height:3vmin;"></div>
       <p class="bebas fs6pt lh8pt ls20">
         CODENAME : SSGA001<br/>
         INTRODUCE : <font class="ls0">캐릭터 가면을 쓰고 활동하는 <br/>
@@ -498,7 +507,7 @@ $(function(){
 <div id="content3" class="content" style="/*visibility:hidden*/">
   <section class="" id="sectCatHead">
     <div class="diagonal diagonalTopLeft"></div>
-    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#8585fc">2</p>
+    <p class="titleBox bebas fs25pt oblique center">2</p>
     <div class="textBox">
       <p><font class="roboto fs13pt">9.246</font>
         <font class="roboto fs5pt">AVATARS</font></p>
@@ -527,9 +536,9 @@ $(function(){
     <div style="height:8vmin;"></div>
     <div style="margin:auto 12vw;">
       <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 1: </p>
+        <p class="bebas fs5d3pt ls20 lh7pt">PHASE 1: </p>
         <p class="bebas fs6pt ls20 underline">9246 CUBES MINT</p>
-        <div style="height:3vmin;"></div>
+        <div class="gap"></div>
         <p class="fs4pt lh6pt fg_gray9 strip">
           12welve Metaverse를 시작하는<br/>
           큐브 민트를 진행합니다.<br/>
@@ -542,9 +551,9 @@ $(function(){
         </p>
       </div>
       <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 2:</p>
+        <p class="bebas fs5d3pt ls20 lh7pt">PHASE 2:</p>
         <p class="bebas fs6pt ls20 underline">9246 AVATARS FREE MINT</p>
-        <div style="height:3vmin;"></div>
+        <div class="gap"></div>
         <p class="fs4pt lh6pt fg_gray9 strip">
           큐브 홀더만 참여 할 수 있는<br/>
           아바타 민트를 진행합니다.<br/></p>
@@ -553,9 +562,9 @@ $(function(){
         </p>
       </div>
       <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 3:</p>
+        <p class="bebas fs5d3pt ls20 lh7pt">PHASE 3:</p>
         <p class="bebas fs6pt ls20 underline">IP DEV & BUSINESS</p>
-        <div style="height:3vmin;"></div>
+        <div class="gap"></div>
         <p class="fs4pt lh6pt fg_gray9 strip">
           K-pop & Webtoon & Merch<br/></p>
         <p class="fs4pt lh6pt fg_gray9 strip">
@@ -572,7 +581,7 @@ $(function(){
     <div style="margin:auto 12vw;">
       <div class="growth">
         <p class="bebas fs6pt ls20 underline">BLOCK CHAIN</p>
-        <div style="height:3vmin;"></div>
+        <div class="gap"></div>
         <p class="fs4pt lh6pt fg_gray9 strip">
           12welve DAO 설립과 Season 2 진행.<br/></p>
         <p class="fs4pt lh6pt fg_gray9 strip">
@@ -584,7 +593,7 @@ $(function(){
       </div>
       <div class="growth">
         <p class="bebas fs6pt ls20 underline">K-POP MUSIC & WEBTOON</p>
-        <div style="height:3vmin;"></div>
+        <div class="gap"></div>
         <p class="fs4pt lh6pt fg_gray9 strip">
           ‘Real side’ 지구의 1억명 타겟층을 가진<br/>
           K-pop과 Webtoon 프로젝트 진행.<br/></p>
@@ -598,7 +607,7 @@ $(function(){
       </div>
       <div class="growth">
         <p class="bebas fs6pt ls20 underline">METAVERSE</p>
-        <div style="height:3vmin;"></div>
+        <div class="gap"></div>
         <p class="fs4pt lh6pt fg_gray9 strip">
           우리의 목표는 가상과 현실의 경계가 없는<br/>
           엔터테인먼트 라이프스타일과 게임이 연결된<br/>
@@ -613,7 +622,7 @@ $(function(){
   </section>
   <section class="pad7v bg_black center">
     <div style="height:15vmin;"></div>
-    <p class="fs5d3pt lh7pt underline">
+    <p class="fs5pt lh7pt underline">
       자세한 로드맵은 12WELVE 커뮤니티
       <font class="fg_skyblue">(DISCORD)</font><br/>
       를 통해 공지될 것입니다.
