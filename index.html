@@ -21,13 +21,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 <style>
-#menu{position:fixed;width:100%}#content1,#content2,#content3,#content4,#content5,#content6{-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;width:100%;transform:translate(-50%,0);visibility:hidden}#content1{top:400vh;z-index:10}#content2{top:550vh;height:200vh}#content3{top:650vh}#content4{top:750vh}#content5{top:800vh}#content6{top:900vh}#layer1,#layer2,#layer3{-webkit-transform:translate3d(0,0,0);width:100%}#layer1{position:sticky;height:100vh}#layer1 div{position:absolute;width:100%;transform:translate(-50%,-50%);top:50%;left:50%}#layer1 p{font-size:6vmax;line-height:6vmax}#layer2{position:absolute;overflow-x:hidden;margin:0 auto;top:0;margin-top:70vh}#layer2 > section > div{width:100%;height:120vw;background-image:url(./image/balloon_pc.png);background-position:top center;background-size:125vw;background-repeat:no-repeat}#layer3{visibility:hidden;position:relative;z-index:3;margin:0 auto;height:80vh}#layer3 section{position:absolute;bottom:0;left:50%;transform:translate(-50%,0);max-width:1100px;width:90%}#content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0)}#content1 .imgBox{height:100vh;background-color:#05040d}#content1 .imgBox img{width:auto;height:100vh;float:right}#content1.mobile .textBox{top:120vh}#content1.mobile .imgBox{height:90vh;text-align:center}#content1.mobile .imgBox img{height:95%;float:initial}#content1.mobile .fs12pt{font-size:4rem}#content1.mobile .lh10pt{line-height:5rem}#content1.mobile .fs6pt{font-size:1.7rem}#content1.mobile .lh8pt{line-height:2.2rem}#content1.mobile .textBox{width:75vw}#content2{height:280vh}#content2 .cube{width:50vw;overflow:hidden;position:absolute;z-index:-1;text-align:right;margin-top:-6vmin}#content2 .cube video{width:70%}#content2 .textBox{width:45vw;float:right}#content2.mobile .cube{width:100%;position:relative;text-align:center;margin-top:0}#content2.mobile .cube video{width:90%}#content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw}#content3 section{background-color:#8585fc;height:100vh}#content3 .textBox{width:45vw;float:right;margin-top:5vmin;z-index:1}#content3 .catHead{position:absolute;top:0;background-image:url(./image/cat_head.png);background-repeat:no-repeat;background-position:left bottom;width:50vw;height:100vh;background-size:100%}#content3.mobile section{background-color:#8585fc;height:initial}#content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw}#content3.mobile .catHead{position:relative;width:100%;height:100vw}.launch,.growth{display:inline-block;text-align:center;vertical-align:top;margin:3vmin;width:21vw}.launch_mobile,.growth_mobile{display:inline-block;text-align:center;vertical-align:top;margin:10vw 0;width:100%}#content4.mobile .fs5d3pt{font-size:1.5rem}#content4.mobile .lh7pt{line-height:2.2rem}#content4.mobile .lh6pt{line-height:2.1rem}.ghost{display:inline-block;text-align:center;vertical-align:top;margin:4vmin;height:33vmin;width:30vmin}.ghost .dot{height:26vmin;width:26vmin;display:inline-block;background-position:center;background-size:contain}.ghost p{font-family:bebas;color:#000}.ghost_mobile{display:inline-block;text-align:center;vertical-align:top;margin:4vmin;height:40vmin;width:35vmin}.ghost_mobile .dot{height:100%;width:100%;display:inline-block;background-position:center;background-size:contain}.ghost_mobile p{font-family:bebas;color:#000}#content5 .bottomMargin1{height:6vh}#content5 .bottomMargin2{height:20vh}#content5.mobile .bottomMargin1{height:15vh}#content5.mobile .bottomMargin2{height:10vh}#content5.mobile .fs9pt{font-size:6vw}#content5.mobile .fs8pt{font-size:3rem}#content5.mobile .fs5d3pt{font-size:1.5rem}#content5.mobile .lh6pt{line-height:2rem}#content6 .gapTop{height:8vmin}#content6.mobile .gapTop{height:8vmin}#content6.mobile .fs8pt{font-size:3rem}#content6.mobile .fs5d3pt{font-size:1.5rem}#content6.mobile .lh7pt{line-height:2.2rem}#layer3.mobile section{background-color:#000}#layer3.mobile .textBox{margin:5vw}#layer3.mobile .fs25pt{font-size:10rem}#content2.mobile .fs25pt{font-size:10rem}#content3.mobile .fs25pt{font-size:10rem}
+#menu{position:fixed;width:100%}#content1,#content2,#content3,#content4,#content5,#content6{-webkit-transform:translate3d(0,0,0);position:absolute;left:50%;width:100%;transform:translate(-50%,0);visibility:hidden}#content1{top:400vh;z-index:10}#content2{top:550vh;height:200vh}#content3{top:650vh}#content4{top:750vh}#content5{top:800vh}#content6{top:900vh}#content5 section{-webkit-transform:translate3d(0,0,0)}#layer1,#layer2,#layer3{-webkit-transform:translate3d(0,0,0);width:100%}#layer1{position:sticky;height:100vh}#layer1 div{position:absolute;width:100%;transform:translate(-50%,-50%);top:50%;left:50%}#layer1 p{font-size:6vmax;line-height:6vmax}#layer2{position:absolute;overflow-x:hidden;margin:0 auto;top:0;margin-top:70vh}#layer2 > section > div{width:100%;height:120vw;background-image:url(./image/balloon_pc.png);background-position:top center;background-size:125vw;background-repeat:no-repeat}#layer3{visibility:hidden;position:relative;z-index:3;margin:0 auto;height:80vh}#layer3 section{position:absolute;bottom:0;left:50%;transform:translate(-50%,0);max-width:1100px;width:90%}#content1 .textBox{width:55vw;margin-top:-70vh;position:absolute;left:50%;transform:translate(-50%,0)}#content1 .imgBox{height:100vh;background-color:#05040d}#content1 .imgBox img{width:auto;height:100vh;float:right}#content1.mobile .textBox{top:120vh}#content1.mobile .imgBox{height:90vh;text-align:center}#content1.mobile .imgBox img{height:95%;float:initial}#content1.mobile .fs12pt{font-size:4rem}#content1.mobile .lh10pt{line-height:5rem}#content1.mobile .fs6pt{font-size:1.7rem}#content1.mobile .lh8pt{line-height:2.2rem}#content1.mobile .textBox{width:75vw}#content2{height:280vh}#content2 .cube{width:50vw;overflow:hidden;position:absolute;z-index:-1;text-align:right;margin-top:-6vmin}#content2 .cube video{width:70%}#content2 .textBox{width:45vw;float:right}#content2.mobile .cube{width:100%;position:relative;text-align:center;margin-top:0}#content2.mobile .cube video{width:80%}#content2.mobile .textBox{width:initial;float:initial;margin:auto 10vw;margin-top:5vh;margin-bottom:10vh}#content3 section{background-color:#8585fc;height:100vh}#content3 .textBox{width:45vw;float:right;margin-top:5vmin;z-index:1}#content3 .catHead{position:absolute;top:0;background-image:url(./image/cat_head.png);background-repeat:no-repeat;background-position:left bottom;width:50vw;height:100vh;background-size:100%}#content3.mobile .titleBox{padding-top:10vh;background-color:#8585fc}#content3.mobile section{background-color:#8585fc;height:initial}#content3.mobile .textBox{width:initial;float:initial;margin:auto 10vw;margin-top:5vh}#content3.mobile .catHead{position:relative;width:100%;height:100vw}#content3.mobile .titleBox{padding-top:5vh}.launch,.growth{display:inline-block;text-align:center;vertical-align:top;margin:3vmin;width:20vw}.launch_mobile,.growth_mobile{display:inline-block;text-align:center;vertical-align:top;margin:10vw 0;width:100%}.ghost{display:inline-block;text-align:center;vertical-align:top;margin:4vmin;height:33vmin;width:30vmin}.ghost .dot{height:26vmin;width:26vmin;display:inline-block;background-position:center;background-size:contain}.ghost p{font-family:bebas;color:#000}.ghost_mobile{display:inline-block;text-align:center;vertical-align:top;margin:4vmin;height:40vmin;width:35vmin}.ghost_mobile .dot{height:100%;width:100%;display:inline-block;background-position:center;background-size:contain}.ghost_mobile p{font-family:bebas;color:#000}#content5 .bottomMargin1{height:6vh}#content5 .bottomMargin2{height:20vh}#content5.mobile .bottomMargin1{height:15vh}#content5.mobile .bottomMargin2{height:10vh}#content5.mobile .fs9pt{font-size:6vw}#content5.mobile .fs8pt{font-size:3rem}#content5.mobile .fs5d3pt{font-size:1.5rem}#content5.mobile .lh6pt{line-height:2rem}#content6 .gapTop{height:8vmin}#content6.mobile .gapTop{height:8vmin}#content6.mobile .fs8pt{font-size:3rem}#content6.mobile .fs5d3pt{font-size:1.5rem}#content6.mobile .lh7pt{line-height:2.2rem}#layer3.mobile section{background-color:#000}#layer3.mobile .textBox{margin:5vw}#layer3.mobile .fs25pt{font-size:10rem}#content2.mobile .fs25pt{font-size:10rem}#content3.mobile .fs25pt{font-size:10rem}
 </style>
-
 <script>
-var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x74\x6F\x70","\x6F\x66\x66\x73\x65\x74","\x68\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x48\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x57\x69\x64\x74\x68","\x50\x4F\x53\x49\x54\x49\x4F\x4E\x43\x4F\x4E\x54\x45\x4E\x54\x53\x20\x4D\x4F\x42\x49\x4C\x45\x3A","\x6C\x6F\x67","\x76\x69\x73\x69\x62\x6C\x65","\x23\x6C\x61\x79\x65\x72\x32","\x63\x73\x73","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x31","\x33\x33\x30\x76\x68","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32\x20\x73\x65\x63\x74\x69\x6F\x6E","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x33","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x36","\x73\x63\x72\x6F\x6C\x6C\x54\x6F\x70","\x64\x6F\x63\x75\x6D\x65\x6E\x74\x45\x6C\x65\x6D\x65\x6E\x74","\x62\x6F\x64\x79","\x73\x74\x69\x63\x6B\x79","\x23\x6C\x61\x79\x65\x72\x31","\x23\x6C\x61\x79\x65\x72\x31\x20\x23\x73\x65\x63\x74\x54\x69\x74\x6C\x65","\x76\x69\x73\x69\x62\x69\x6C\x69\x74\x79","\x68\x69\x64\x64\x65\x6E","\x70\x6F\x73\x69\x74\x69\x6F\x6E","\x61\x62\x73\x6F\x6C\x75\x74\x65","\x37\x30\x76\x68","\x76\x68","\x23\x6C\x61\x79\x65\x72\x33","\x54\x4F\x50\x20\x52\x45\x4C\x45\x41\x53\x45\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32","\x30","\x42\x4F\x54\x54\x4F\x4D\x20\x4C\x4F\x43\x4B\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32\x20","\x20","\x72\x6F\x75\x6E\x64","\x4C\x41\x59\x45\x52\x32\x20\x53\x43\x41\x4C\x45\x20","\x73\x63\x61\x6C\x65\x28","\x29\x20\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28","\x70\x78\x29","\x23\x6C\x61\x79\x65\x72\x32\x20\x73\x65\x63\x74\x69\x6F\x6E","\x6F\x6E","\x72\x65\x73\x69\x7A\x65","\x77\x69\x64\x74\x68","\x66\x6F\x6E\x74\x2D\x73\x69\x7A\x65","\x39\x70\x78","\x68\x74\x6D\x6C","\x38\x76\x6D\x69\x6E","\x23\x6C\x61\x79\x65\x72\x31\x20\x70","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x69\x6D\x61\x67\x65","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x6D\x6F\x62\x69\x6C\x65\x2E\x70\x6E\x67\x22\x29","\x23\x6C\x61\x79\x65\x72\x32\x20\x3E\x20\x73\x65\x63\x74\x69\x6F\x6E\x20\x3E\x20\x64\x69\x76","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x73\x69\x7A\x65","\x63\x6F\x76\x65\x72","\x31\x35\x30\x76\x68","\x6C\x61\x75\x6E\x63\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x61\x64\x64\x43\x6C\x61\x73\x73","\x2E\x6C\x61\x75\x6E\x63\x68","\x67\x72\x6F\x77\x74\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x72\x6F\x77\x74\x68","\x67\x68\x6F\x73\x74\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x68\x6F\x73\x74","\x70\x61\x64\x31\x32\x76\x77\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x70\x61\x64\x31\x32\x76\x77","\x6D\x6F\x62\x69\x6C\x65","\x2E\x63\x6F\x6E\x74\x65\x6E\x74\x2C\x20\x2E\x6C\x61\x79\x65\x72","\x70\x2E\x73\x74\x72\x69\x70","","\x72\x65\x70\x6C\x61\x63\x65","\x65\x61\x63\x68","\x31\x31\x70\x78","\x36\x76\x6D\x61\x78","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x70\x63\x2E\x70\x6E\x67\x22\x29","\x31\x32\x30\x76\x77","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x2E\x63\x6F\x6E\x74\x65\x6E\x74","\x32\x38\x30\x76\x68","\x6D\x61\x74\x63\x68","\x0A\x3C\x62\x72\x2F\x3E","\x72\x65\x6D\x6F\x76\x65","\x23\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C","\x68\x65\x61\x64","\x61\x70\x70\x65\x6E\x64\x54\x6F","\x3C\x73\x74\x79\x6C\x65\x20\x69\x64\x3D\x22\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C\x22\x3E","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x7B\x77\x69\x64\x74\x68\x3A","\x63\x6C\x69\x65\x6E\x74\x57\x69\x64\x74\x68","\x70\x78\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x4C\x65\x66\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x4C\x65\x66\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x72\x69\x67\x68\x74\x3A","\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x74\x72\x61\x6E\x73\x70\x61\x72\x65\x6E\x74\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x52\x69\x67\x68\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x52\x69\x67\x68\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x6C\x65\x66\x74\x3A","\x3C\x2F\x73\x74\x79\x6C\x65\x3E","\x31\x32\x77\x65\x6C\x76\x65","\x63\x6C\x69\x63\x6B","\x23\x62\x74\x6E\x31\x32\x57\x65\x6C\x76\x65","\x63\x6F\x6E\x6E\x65\x63\x74","\x23\x62\x74\x6E\x43\x6F\x6E\x6E\x65\x63\x74","\x31\x30\x30\x76\x68","\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x5A\x28\x2D\x34\x30\x76\x68\x29\x20\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28\x31\x30\x76\x68\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x30\x29","\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x5A\x28\x30\x76\x68\x29\x20\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28\x30\x76\x68\x29","\x72\x65\x6C\x61\x74\x69\x76\x65","\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28\x30\x76\x68\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x31\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x32\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x30\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x31\x29"];var controller= new ScrollMagic.Controller();document[_0x3448[2]](_0x3448[0],()=>{const _0x5eb6x2=window[_0x3448[1]]});function pt(_0x5eb6x4){return $(_0x5eb6x4)[_0x3448[4]]()[_0x3448[3]]}function pb(_0x5eb6x4){return $(_0x5eb6x4)[_0x3448[4]]()[_0x3448[3]]+ $(_0x5eb6x4)[_0x3448[5]]()}function v2p(_0x5eb6x7){return (_0x5eb6x7* window[_0x3448[6]])/ 100}function vh2p(_0x5eb6x7){return (_0x5eb6x7* window[_0x3448[6]])/ 100}function vw2p(_0x5eb6x7){return (_0x5eb6x7* window[_0x3448[7]])/ 100}function p2v(_0x5eb6xb){return _0x5eb6xb* 100/ window[_0x3448[6]]}function p2vh(_0x5eb6xb){return _0x5eb6xb* 100/ window[_0x3448[6]]}function p2vw(_0x5eb6xb){return _0x5eb6xb* 100/ window[_0x3448[7]]}function positionContents(){if(contents|| p2v(scroll)< scrollPoint2){return};console[_0x3448[9]](_0x3448[8]+ mobile);setTimeout(function(){$(_0x3448[13])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':$(_0x3448[11])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[11])[_0x3448[5]]()+ v2p(10)});if(mobile){$(_0x3448[13])[_0x3448[12]]({'\x74\x6F\x70':_0x3448[14]})}},100);setTimeout(function(){$(_0x3448[15])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':$(_0x3448[13])[_0x3448[4]]()[_0x3448[3]]});content2Top= $(_0x3448[15])[_0x3448[4]]()[_0x3448[3]];content2Bottom= $(_0x3448[15])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[15])[_0x3448[5]]();content2SectionBottom= $(_0x3448[16])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[16])[_0x3448[5]]()},200);setTimeout(function(){if(!mobile){$(_0x3448[17])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':$(_0x3448[13])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[13])[_0x3448[5]]()+ v2p(150)})}else {$(_0x3448[17])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':pb(_0x3448[15])+ vh2p(10)})}},300);setTimeout(function(){$(_0x3448[18])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':$(_0x3448[17])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[17])[_0x3448[5]]()+ v2p(5)})},400);setTimeout(function(){$(_0x3448[19])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':$(_0x3448[18])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[18])[_0x3448[5]]()+ v2p(15)})},500);setTimeout(function(){if(!mobile){$(_0x3448[20])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':$(_0x3448[19])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[19])[_0x3448[5]]()+ v2p(20)})}else {$(_0x3448[20])[_0x3448[12]]({visibility:_0x3448[10],'\x74\x6F\x70':$(_0x3448[19])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[19])[_0x3448[5]]()+ v2p(5)})}},600);contents= true}var scroll;var scrollPoint1=80;var scrollPoint2=160;var mobile=false;var contents=false;var layer2Top;var layer2Bottom;var content2Top;var content2Bottom;var content2SectionBottom;var content2Lock=false;$(window)[_0x3448[44]](_0x3448[45],resizeWindow= function(){if(screen[_0x3448[46]]/ screen[_0x3448[5]]< 1){$(_0x3448[49])[_0x3448[12]](_0x3448[47],_0x3448[48]);$(_0x3448[51])[_0x3448[12]]({fontSize:_0x3448[50],lineHeight:_0x3448[50]});$(_0x3448[54])[_0x3448[12]](_0x3448[52],_0x3448[53]);$(_0x3448[54])[_0x3448[12]](_0x3448[55],_0x3448[56]);$(_0x3448[54])[_0x3448[12]](_0x3448[5],_0x3448[57]);$(_0x3448[60])[_0x3448[59]](_0x3448[58]);$(_0x3448[62])[_0x3448[59]](_0x3448[61]);$(_0x3448[64])[_0x3448[59]](_0x3448[63]);$(_0x3448[66])[_0x3448[59]](_0x3448[65]);$(_0x3448[68])[_0x3448[59]](_0x3448[67]);$(_0x3448[15])[_0x3448[12]](_0x3448[5],$(_0x3448[13])[_0x3448[5]]()+ $(_0x3448[16])[_0x3448[5]]());if(mobile){return};contents= false;mobile= true;$[_0x3448[72]]($(_0x3448[69]),function(_0x5eb6x1e,_0x5eb6x1f){$(this)[_0x3448[49]]($(this)[_0x3448[49]]()[_0x3448[71]](/<br[^>]*>/gi,_0x3448[70]))})}else {$(_0x3448[49])[_0x3448[12]](_0x3448[47],_0x3448[73]);$(_0x3448[51])[_0x3448[12]]({fontSize:_0x3448[74],lineHeight:_0x3448[74]});$(_0x3448[54])[_0x3448[12]](_0x3448[52],_0x3448[75]);$(_0x3448[54])[_0x3448[12]](_0x3448[5],_0x3448[76]);$(_0x3448[60])[_0x3448[77]](_0x3448[58]);$(_0x3448[62])[_0x3448[77]](_0x3448[61]);$(_0x3448[64])[_0x3448[77]](_0x3448[63]);$(_0x3448[66])[_0x3448[77]](_0x3448[65]);$(_0x3448[78])[_0x3448[77]](_0x3448[67]);$(_0x3448[15])[_0x3448[12]](_0x3448[5],_0x3448[79]);if(!mobile){return};contents= false;mobile= false;$[_0x3448[72]]($(_0x3448[69]),function(_0x5eb6x1e,_0x5eb6x1f){if(!$(this)[_0x3448[49]]()[_0x3448[80]](/<br[^>]*>/i)){$(this)[_0x3448[49]]($(this)[_0x3448[49]]()[_0x3448[71]](/\n/gi,_0x3448[81]))}})};$(_0x3448[83])[_0x3448[82]]();$(_0x3448[86]+ _0x3448[87]+ document[_0x3448[23]][_0x3448[88]]+ _0x3448[89]+ _0x3448[90]+ document[_0x3448[23]][_0x3448[88]]+ _0x3448[91]+ _0x3448[92]+ document[_0x3448[23]][_0x3448[88]]+ _0x3448[91]+ _0x3448[93])[_0x3448[85]](_0x3448[84]);scrollWindow()})[_0x3448[44]](_0x3448[0],scrollWindow= function(_0x5eb6x1a){scroll= document[_0x3448[22]][_0x3448[21]]|| document[_0x3448[23]][_0x3448[21]];try{}catch(e){};if(!$(_0x3448[11])[_0x3448[4]]()){return};$(_0x3448[25])[_0x3448[12]]({zIndex:1,position:_0x3448[24],top:0});$(_0x3448[26])[_0x3448[12]]({visibility:_0x3448[10]});if(p2v(scroll)> scrollPoint1){$(_0x3448[26])[_0x3448[12]](_0x3448[27],_0x3448[28]);$(_0x3448[25])[_0x3448[12]](_0x3448[29],_0x3448[30])};$(_0x3448[11])[_0x3448[12]]({position:_0x3448[30],top:0,marginTop:_0x3448[31]});if(p2v(scroll)> scrollPoint1){layer2Top= -v2p(scrollPoint1)+ $(_0x3448[11])[_0x3448[4]]()[_0x3448[3]];layer2Bottom= $(_0x3448[11])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[11])[_0x3448[5]]();$(_0x3448[11])[_0x3448[12]](_0x3448[3],layer2Top);$(_0x3448[11])[_0x3448[12]](_0x3448[29],_0x3448[24])};$(_0x3448[33])[_0x3448[12]]({visibility:_0x3448[28],height:scrollPoint1+ _0x3448[32]});if(p2v(scroll)<= scrollPoint1){contents= false}else {if(p2v(scroll)> scrollPoint1){$(_0x3448[33])[_0x3448[12]](_0x3448[27],_0x3448[10]);$(_0x3448[33])[_0x3448[12]](_0x3448[3],v2p(scrollPoint1+ 100)- layer2Bottom+ v2p(50))}};if(mobile&& content2Lock&& scroll< pt(_0x3448[16])&& content2Top){console[_0x3448[9]](_0x3448[34]);$(_0x3448[15])[_0x3448[12]](_0x3448[3],content2Top);$(_0x3448[16])[_0x3448[12]](_0x3448[3],_0x3448[35]);content2Lock= false};if(mobile&&  !content2Lock&& scroll> pb(_0x3448[15])- screen[_0x3448[5]]){console[_0x3448[9]](_0x3448[36]+ ($(_0x3448[15])[_0x3448[5]]()- screen[_0x3448[5]])+ _0x3448[37]+ (content2Top+ ($(_0x3448[15])[_0x3448[5]]()- screen[_0x3448[5]])));$(_0x3448[15])[_0x3448[12]](_0x3448[3],$(_0x3448[15])[_0x3448[4]]()[_0x3448[3]]+ $(_0x3448[15])[_0x3448[5]]()- $(_0x3448[16])[_0x3448[5]]());$(_0x3448[16])[_0x3448[12]](_0x3448[3],-1* ($(_0x3448[16])[_0x3448[5]]()- screen[_0x3448[5]]+ vh2p(5)));content2Lock= true};if(p2v(scroll)> scrollPoint2&& scroll< pb(_0x3448[11])){var _0x5eb6x1b=scroll- v2p(scrollPoint2);var _0x5eb6x1c=-(Math[_0x3448[38]](_0x5eb6x1b* 0.14* 2.5));var _0x5eb6x1d=1+ (Math[_0x3448[38]](_0x5eb6x1b* 0.14)/ 100);console[_0x3448[9]](_0x3448[39]+ _0x5eb6x1b+ _0x3448[37]+ _0x5eb6x1d+ _0x3448[37]+ _0x5eb6x1c);$(_0x3448[43])[_0x3448[12]]({transform:_0x3448[40]+ _0x5eb6x1d+ _0x3448[41]+ _0x5eb6x1c+ _0x3448[42]})};positionContents()});$(function(){$(_0x3448[96])[_0x3448[95]](function(){alert(_0x3448[94])});$(_0x3448[98])[_0x3448[95]](function(){alert(_0x3448[97])});setTimeout(function(){resizeWindow();$(_0x3448[18])[_0x3448[12]]({perspectiveOrigin:_0x3448[3],perspective:_0x3448[99]});if(mobile){$(_0x3448[101])[_0x3448[12]]({position:_0x3448[24],zIndex:0,top:0,transform:_0x3448[100],zoom:1.4})}else {$(_0x3448[101])[_0x3448[12]]({position:_0x3448[24],zIndex:0,top:0,transform:_0x3448[102],zoom:1})};$(_0x3448[105])[_0x3448[12]]({position:_0x3448[103],zIndex:1,transform:_0x3448[104]});$(_0x3448[106])[_0x3448[12]]({position:_0x3448[103],zIndex:2,transform:_0x3448[104]});$(_0x3448[19])[_0x3448[12]]({perspectiveOrigin:_0x3448[3],perspective:_0x3448[99]});$(_0x3448[107])[_0x3448[12]]({position:_0x3448[24],zIndex:0,top:0,transform:_0x3448[102],zoom:1});$(_0x3448[108])[_0x3448[12]]({position:_0x3448[103],zIndex:1,transform:_0x3448[104]})},100)})
+var _0x3d46=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x74\x6F\x70","\x6F\x66\x66\x73\x65\x74","\x68\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x48\x65\x69\x67\x68\x74","\x69\x6E\x6E\x65\x72\x57\x69\x64\x74\x68","\x50\x4F\x53\x49\x54\x49\x4F\x4E\x43\x4F\x4E\x54\x45\x4E\x54\x53\x20\x4D\x4F\x42\x49\x4C\x45\x3A","\x6C\x6F\x67","\x76\x69\x73\x69\x62\x6C\x65","\x23\x6C\x61\x79\x65\x72\x32","\x63\x73\x73","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x31","\x33\x33\x30\x76\x68","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x32\x20\x73\x65\x63\x74\x69\x6F\x6E","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x33","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x36","\x73\x63\x72\x6F\x6C\x6C\x54\x6F\x70","\x64\x6F\x63\x75\x6D\x65\x6E\x74\x45\x6C\x65\x6D\x65\x6E\x74","\x62\x6F\x64\x79","\x73\x74\x69\x63\x6B\x79","\x23\x6C\x61\x79\x65\x72\x31","\x23\x6C\x61\x79\x65\x72\x31\x20\x23\x73\x65\x63\x74\x54\x69\x74\x6C\x65","\x76\x69\x73\x69\x62\x69\x6C\x69\x74\x79","\x68\x69\x64\x64\x65\x6E","\x70\x6F\x73\x69\x74\x69\x6F\x6E","\x61\x62\x73\x6F\x6C\x75\x74\x65","\x37\x30\x76\x68","\x76\x68","\x23\x6C\x61\x79\x65\x72\x33","\x54\x4F\x50\x20\x52\x45\x4C\x45\x41\x53\x45\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32","\x30","\x42\x4F\x54\x54\x4F\x4D\x20\x4C\x4F\x43\x4B\x20\x43\x4F\x4E\x54\x45\x4E\x54\x32\x20","\x20","\x72\x6F\x75\x6E\x64","\x4C\x41\x59\x45\x52\x32\x20\x53\x43\x41\x4C\x45\x20","\x73\x63\x61\x6C\x65\x28","\x29\x20\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28","\x70\x78\x29","\x23\x6C\x61\x79\x65\x72\x32\x20\x73\x65\x63\x74\x69\x6F\x6E","\x6F\x6E","\x72\x65\x73\x69\x7A\x65","\x77\x69\x64\x74\x68","\x66\x6F\x6E\x74\x2D\x73\x69\x7A\x65","\x39\x70\x78","\x68\x74\x6D\x6C","\x38\x76\x6D\x69\x6E","\x23\x6C\x61\x79\x65\x72\x31\x20\x70","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x69\x6D\x61\x67\x65","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x6D\x6F\x62\x69\x6C\x65\x2E\x70\x6E\x67\x22\x29","\x23\x6C\x61\x79\x65\x72\x32\x20\x3E\x20\x73\x65\x63\x74\x69\x6F\x6E\x20\x3E\x20\x64\x69\x76","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x73\x69\x7A\x65","\x63\x6F\x76\x65\x72","\x31\x35\x30\x76\x68","\x6C\x61\x75\x6E\x63\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x61\x64\x64\x43\x6C\x61\x73\x73","\x2E\x6C\x61\x75\x6E\x63\x68","\x67\x72\x6F\x77\x74\x68\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x72\x6F\x77\x74\x68","\x67\x68\x6F\x73\x74\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x67\x68\x6F\x73\x74","\x70\x61\x64\x31\x32\x76\x77\x5F\x6D\x6F\x62\x69\x6C\x65","\x2E\x70\x61\x64\x31\x32\x76\x77","\x6D\x6F\x62\x69\x6C\x65","\x2E\x63\x6F\x6E\x74\x65\x6E\x74\x2C\x20\x2E\x6C\x61\x79\x65\x72","\x70\x2E\x73\x74\x72\x69\x70","","\x72\x65\x70\x6C\x61\x63\x65","\x65\x61\x63\x68","\x31\x31\x70\x78","\x36\x76\x6D\x61\x78","\x75\x72\x6C\x28\x22\x2E\x2F\x69\x6D\x61\x67\x65\x2F\x62\x61\x6C\x6C\x6F\x6F\x6E\x5F\x70\x63\x2E\x70\x6E\x67\x22\x29","\x31\x32\x30\x76\x77","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x2E\x63\x6F\x6E\x74\x65\x6E\x74","\x32\x38\x30\x76\x68","\x6D\x61\x74\x63\x68","\x0A\x3C\x62\x72\x2F\x3E","\x72\x65\x6D\x6F\x76\x65","\x23\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C","\x68\x65\x61\x64","\x61\x70\x70\x65\x6E\x64\x54\x6F","\x3C\x73\x74\x79\x6C\x65\x20\x69\x64\x3D\x22\x73\x74\x79\x6C\x65\x44\x69\x61\x67\x6F\x6E\x61\x6C\x22\x3E","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x7B\x77\x69\x64\x74\x68\x3A","\x63\x6C\x69\x65\x6E\x74\x57\x69\x64\x74\x68","\x70\x78\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x4C\x65\x66\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x4C\x65\x66\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x72\x69\x67\x68\x74\x3A","\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x74\x72\x61\x6E\x73\x70\x61\x72\x65\x6E\x74\x3B\x7D\x0A","\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x54\x6F\x70\x52\x69\x67\x68\x74\x3A\x62\x65\x66\x6F\x72\x65\x2C\x2E\x64\x69\x61\x67\x6F\x6E\x61\x6C\x42\x6F\x74\x74\x6F\x6D\x52\x69\x67\x68\x74\x3A\x61\x66\x74\x65\x72\x7B\x62\x6F\x72\x64\x65\x72\x2D\x6C\x65\x66\x74\x3A","\x3C\x2F\x73\x74\x79\x6C\x65\x3E","\x31\x32\x77\x65\x6C\x76\x65","\x63\x6C\x69\x63\x6B","\x23\x62\x74\x6E\x31\x32\x57\x65\x6C\x76\x65","\x63\x6F\x6E\x6E\x65\x63\x74","\x23\x62\x74\x6E\x43\x6F\x6E\x6E\x65\x63\x74","\x31\x30\x30\x76\x68","\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x5A\x28\x2D\x34\x30\x76\x68\x29\x20\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28\x31\x30\x76\x68\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x30\x29","\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x5A\x28\x30\x76\x68\x29\x20\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28\x30\x76\x68\x29","\x72\x65\x6C\x61\x74\x69\x76\x65","\x74\x72\x61\x6E\x73\x6C\x61\x74\x65\x59\x28\x30\x76\x68\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x31\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x34\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x32\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x30\x29","\x23\x63\x6F\x6E\x74\x65\x6E\x74\x35\x20\x73\x65\x63\x74\x69\x6F\x6E\x3A\x65\x71\x28\x31\x29"];var controller= new ScrollMagic.Controller();document[_0x3d46[2]](_0x3d46[0],()=>{const _0x9115x2=window[_0x3d46[1]]});function pt(_0x9115x4){return $(_0x9115x4)[_0x3d46[4]]()[_0x3d46[3]]}function pb(_0x9115x4){return $(_0x9115x4)[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x9115x4)[_0x3d46[5]]()}function v2p(_0x9115x7){return (_0x9115x7* window[_0x3d46[6]])/ 100}function vh2p(_0x9115x7){return (_0x9115x7* window[_0x3d46[6]])/ 100}function vw2p(_0x9115x7){return (_0x9115x7* window[_0x3d46[7]])/ 100}function p2v(_0x9115xb){return _0x9115xb* 100/ window[_0x3d46[6]]}function p2vh(_0x9115xb){return _0x9115xb* 100/ window[_0x3d46[6]]}function p2vw(_0x9115xb){return _0x9115xb* 100/ window[_0x3d46[7]]}function positionContents(){if(contents|| p2v(scroll)< scrollPoint2){return};console[_0x3d46[9]](_0x3d46[8]+ mobile);setTimeout(function(){$(_0x3d46[13])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':$(_0x3d46[11])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[11])[_0x3d46[5]]()+ v2p(10)});if(mobile){$(_0x3d46[13])[_0x3d46[12]]({'\x74\x6F\x70':_0x3d46[14]})}},100);setTimeout(function(){$(_0x3d46[15])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':$(_0x3d46[13])[_0x3d46[4]]()[_0x3d46[3]]});content2Top= $(_0x3d46[15])[_0x3d46[4]]()[_0x3d46[3]];content2Bottom= $(_0x3d46[15])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[15])[_0x3d46[5]]();content2SectionBottom= $(_0x3d46[16])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[16])[_0x3d46[5]]()},200);setTimeout(function(){if(!mobile){$(_0x3d46[17])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':$(_0x3d46[13])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[13])[_0x3d46[5]]()+ v2p(150)})}else {$(_0x3d46[17])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':pb(_0x3d46[15])+ vh2p(10)})}},300);setTimeout(function(){$(_0x3d46[18])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':$(_0x3d46[17])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[17])[_0x3d46[5]]()+ v2p(5)})},400);setTimeout(function(){$(_0x3d46[19])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':$(_0x3d46[18])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[18])[_0x3d46[5]]()+ v2p(15)})},500);setTimeout(function(){if(!mobile){$(_0x3d46[20])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':$(_0x3d46[19])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[19])[_0x3d46[5]]()+ v2p(20)})}else {$(_0x3d46[20])[_0x3d46[12]]({visibility:_0x3d46[10],'\x74\x6F\x70':$(_0x3d46[19])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[19])[_0x3d46[5]]()+ v2p(5)})}},600);contents= true}var scroll;var scrollPoint1=80;var scrollPoint2=160;var mobile=false;var contents=false;var layer2Top;var layer2Bottom;var content2Top;var content2Bottom;var content2SectionBottom;var content2Lock=false;$(window)[_0x3d46[44]](_0x3d46[45],resizeWindow= function(){if(screen[_0x3d46[46]]/ screen[_0x3d46[5]]< 1){$(_0x3d46[49])[_0x3d46[12]](_0x3d46[47],_0x3d46[48]);$(_0x3d46[51])[_0x3d46[12]]({fontSize:_0x3d46[50],lineHeight:_0x3d46[50]});$(_0x3d46[54])[_0x3d46[12]](_0x3d46[52],_0x3d46[53]);$(_0x3d46[54])[_0x3d46[12]](_0x3d46[55],_0x3d46[56]);$(_0x3d46[54])[_0x3d46[12]](_0x3d46[5],_0x3d46[57]);$(_0x3d46[60])[_0x3d46[59]](_0x3d46[58]);$(_0x3d46[62])[_0x3d46[59]](_0x3d46[61]);$(_0x3d46[64])[_0x3d46[59]](_0x3d46[63]);$(_0x3d46[66])[_0x3d46[59]](_0x3d46[65]);$(_0x3d46[68])[_0x3d46[59]](_0x3d46[67]);$(_0x3d46[15])[_0x3d46[12]](_0x3d46[5],$(_0x3d46[13])[_0x3d46[5]]()+ $(_0x3d46[16])[_0x3d46[5]]());if(mobile){return};contents= false;mobile= true;$[_0x3d46[72]]($(_0x3d46[69]),function(_0x9115x1e,_0x9115x1f){$(this)[_0x3d46[49]]($(this)[_0x3d46[49]]()[_0x3d46[71]](/<br[^>]*>/gi,_0x3d46[70]))})}else {$(_0x3d46[49])[_0x3d46[12]](_0x3d46[47],_0x3d46[73]);$(_0x3d46[51])[_0x3d46[12]]({fontSize:_0x3d46[74],lineHeight:_0x3d46[74]});$(_0x3d46[54])[_0x3d46[12]](_0x3d46[52],_0x3d46[75]);$(_0x3d46[54])[_0x3d46[12]](_0x3d46[5],_0x3d46[76]);$(_0x3d46[60])[_0x3d46[77]](_0x3d46[58]);$(_0x3d46[62])[_0x3d46[77]](_0x3d46[61]);$(_0x3d46[64])[_0x3d46[77]](_0x3d46[63]);$(_0x3d46[66])[_0x3d46[77]](_0x3d46[65]);$(_0x3d46[78])[_0x3d46[77]](_0x3d46[67]);$(_0x3d46[15])[_0x3d46[12]](_0x3d46[5],_0x3d46[79]);if(!mobile){return};contents= false;mobile= false;$[_0x3d46[72]]($(_0x3d46[69]),function(_0x9115x1e,_0x9115x1f){if(!$(this)[_0x3d46[49]]()[_0x3d46[80]](/<br[^>]*>/i)){$(this)[_0x3d46[49]]($(this)[_0x3d46[49]]()[_0x3d46[71]](/\n/gi,_0x3d46[81]))}})};$(_0x3d46[83])[_0x3d46[82]]();$(_0x3d46[86]+ _0x3d46[87]+ document[_0x3d46[23]][_0x3d46[88]]+ _0x3d46[89]+ _0x3d46[90]+ document[_0x3d46[23]][_0x3d46[88]]+ _0x3d46[91]+ _0x3d46[92]+ document[_0x3d46[23]][_0x3d46[88]]+ _0x3d46[91]+ _0x3d46[93])[_0x3d46[85]](_0x3d46[84]);scrollWindow()})[_0x3d46[44]](_0x3d46[0],scrollWindow= function(_0x9115x1a){scroll= document[_0x3d46[22]][_0x3d46[21]]|| document[_0x3d46[23]][_0x3d46[21]];try{}catch(e){};if(!$(_0x3d46[11])[_0x3d46[4]]()){return};$(_0x3d46[25])[_0x3d46[12]]({zIndex:1,position:_0x3d46[24],top:0});$(_0x3d46[26])[_0x3d46[12]]({visibility:_0x3d46[10]});if(p2v(scroll)> scrollPoint1){$(_0x3d46[26])[_0x3d46[12]](_0x3d46[27],_0x3d46[28]);$(_0x3d46[25])[_0x3d46[12]](_0x3d46[29],_0x3d46[30])};$(_0x3d46[11])[_0x3d46[12]]({position:_0x3d46[30],top:0,marginTop:_0x3d46[31]});if(p2v(scroll)> scrollPoint1){layer2Top= -v2p(scrollPoint1)+ $(_0x3d46[11])[_0x3d46[4]]()[_0x3d46[3]];layer2Bottom= $(_0x3d46[11])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[11])[_0x3d46[5]]();$(_0x3d46[11])[_0x3d46[12]](_0x3d46[3],layer2Top);$(_0x3d46[11])[_0x3d46[12]](_0x3d46[29],_0x3d46[24])};$(_0x3d46[33])[_0x3d46[12]]({visibility:_0x3d46[28],height:scrollPoint1+ _0x3d46[32]});if(p2v(scroll)<= scrollPoint1){contents= false}else {if(p2v(scroll)> scrollPoint1){$(_0x3d46[33])[_0x3d46[12]](_0x3d46[27],_0x3d46[10]);$(_0x3d46[33])[_0x3d46[12]](_0x3d46[3],v2p(scrollPoint1+ 100)- layer2Bottom+ v2p(50))}};if(mobile&& content2Lock&& scroll< pt(_0x3d46[16])&& content2Top){console[_0x3d46[9]](_0x3d46[34]);$(_0x3d46[15])[_0x3d46[12]](_0x3d46[3],content2Top);$(_0x3d46[16])[_0x3d46[12]](_0x3d46[3],_0x3d46[35]);content2Lock= false};if(mobile&&  !content2Lock&& scroll> pb(_0x3d46[15])- screen[_0x3d46[5]]){console[_0x3d46[9]](_0x3d46[36]+ ($(_0x3d46[15])[_0x3d46[5]]()- screen[_0x3d46[5]])+ _0x3d46[37]+ (content2Top+ ($(_0x3d46[15])[_0x3d46[5]]()- screen[_0x3d46[5]])));$(_0x3d46[15])[_0x3d46[12]](_0x3d46[3],$(_0x3d46[15])[_0x3d46[4]]()[_0x3d46[3]]+ $(_0x3d46[15])[_0x3d46[5]]()- $(_0x3d46[16])[_0x3d46[5]]());$(_0x3d46[16])[_0x3d46[12]](_0x3d46[3],-1* ($(_0x3d46[16])[_0x3d46[5]]()- screen[_0x3d46[5]]+ vh2p(5)));content2Lock= true};if(p2v(scroll)> scrollPoint2&& scroll< pb(_0x3d46[11])){var _0x9115x1b=scroll- v2p(scrollPoint2);var _0x9115x1c=-(Math[_0x3d46[38]](_0x9115x1b* 0.14* 2.5));var _0x9115x1d=1+ (Math[_0x3d46[38]](_0x9115x1b* 0.14)/ 100);console[_0x3d46[9]](_0x3d46[39]+ _0x9115x1b+ _0x3d46[37]+ _0x9115x1d+ _0x3d46[37]+ _0x9115x1c);$(_0x3d46[43])[_0x3d46[12]]({transform:_0x3d46[40]+ _0x9115x1d+ _0x3d46[41]+ _0x9115x1c+ _0x3d46[42]})};positionContents()});$(function(){$(_0x3d46[96])[_0x3d46[95]](function(){alert(_0x3d46[94])});$(_0x3d46[98])[_0x3d46[95]](function(){alert(_0x3d46[97])});setTimeout(function(){resizeWindow()},100);setTimeout(function(){$(_0x3d46[18])[_0x3d46[12]]({perspectiveOrigin:_0x3d46[3],perspective:_0x3d46[99]});if(mobile){$(_0x3d46[101])[_0x3d46[12]]({position:_0x3d46[24],zIndex:0,top:0,transform:_0x3d46[100],zoom:1.4})}else {$(_0x3d46[101])[_0x3d46[12]]({position:_0x3d46[24],zIndex:0,top:0,transform:_0x3d46[102],zoom:1})};$(_0x3d46[105])[_0x3d46[12]]({position:_0x3d46[103],zIndex:1,transform:_0x3d46[104]});$(_0x3d46[106])[_0x3d46[12]]({position:_0x3d46[103],zIndex:2,transform:_0x3d46[104]});$(_0x3d46[19])[_0x3d46[12]]({perspectiveOrigin:_0x3d46[3],perspective:_0x3d46[99]});$(_0x3d46[107])[_0x3d46[12]]({position:_0x3d46[24],zIndex:0,top:0});$(_0x3d46[108])[_0x3d46[12]]({position:_0x3d46[103],zIndex:1})},200)})
 </script>
-
 </head>
 <body>
 <!--
@@ -46,11 +44,11 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
     <div class="imgBox" style=""><img src="./image/ssga001.png" style=""/></div>
     <div class="textBox">
       <p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>
-      <div style="height:3vmin;"></div>
+      <div class="gap" style="height:3vmin;"></div>
       <p class="bebas fs6pt lh8pt ls20">
         CODENAME : SSGA001<br/>
         INTRODUCE : <font class="ls0">캐릭터 가면을 쓰고 활동하는 <br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;혼성 3인조 비밀 프로듀싱 팀 리더</font><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;혼성 3인조 비밀 프로듀싱 팀 리더</font><br/>
         GENRE : ELECTRIC MUSIC<br/>
         FEATURE : 12WELVE 세계관 최강의 막가파<br/>
       </p>
@@ -99,7 +97,7 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
 <div id="content3" class="content" style="/*visibility:hidden*/">
   <section class="" id="sectCatHead">
     <div class="diagonal diagonalTopLeft"></div>
-    <p class="bebas fs25pt oblique center" style="padding-top:10vh;background-color:#8585fc">2</p>
+    <p class="titleBox bebas fs25pt oblique center">2</p>
     <div class="textBox">
       <p><font class="roboto fs13pt">9.246</font>
         <font class="roboto fs5pt">AVATARS</font></p>
@@ -121,45 +119,46 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
   </section>
 </div>
 
+
 <div id="content4" class="content" style="/*visibility:hidden*/">
   <section class="center">
     <div style="height:20vmin;"></div>
-    <p class="bebas fs10pt ls20 oblique">Launch</p>
+    <p class="bebas fs10pt ls20 oblique lg_txt1">Launch</p>
     <div style="height:8vmin;"></div>
-    <div style="margin:auto 12vw;">
+    <div style="margin:auto 11vw;">
       <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 1: </p>
-        <p class="bebas fs6pt ls20 underline">9246 CUBES MINT</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="bebas fs5d3pt ls20 lh7pt lg_txt2">PHASE 1: </p>
+        <p class="bebas fs6pt ls20 underline lg_txt3">9246 CUBES MINT</p>
+        <div class="gap"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           12welve Metaverse를 시작하는<br/>
           큐브 민트를 진행합니다.<br/>
         </p>
-        <p class="fs4pt lh6pt fg_gray9 strip">&nbsp;</p>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">&nbsp;</p>
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           Special Event<br/></p>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           Pre Sale Only<br/>
         </p>
       </div>
       <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 2:</p>
-        <p class="bebas fs6pt ls20 underline">9246 AVATARS FREE MINT</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="bebas fs5d3pt ls20 lh7pt lg_txt2">PHASE 2:</p>
+        <p class="bebas fs6pt ls20 underline lg_txt3">9246 AVATARS FREE MINT</p>
+        <div class="gap"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           큐브 홀더만 참여 할 수 있는<br/>
           아바타 민트를 진행합니다.<br/></p>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           (Collabs with special artists)<br/>
         </p>
       </div>
       <div class="launch">
-        <p class="bebas fs6pt ls20 lh7pt">PHASE 3:</p>
-        <p class="bebas fs6pt ls20 underline">IP DEV & BUSINESS</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="bebas fs5d3pt ls20 lh7pt lg_txt2">PHASE 3:</p>
+        <p class="bebas fs6pt ls20 underline lg_txt3">IP DEV & BUSINESS</p>
+        <div class="gap"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           K-pop & Webtoon & Merch<br/></p>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           (Collabs with many artists & company)<br/>
         </p>
       </div>
@@ -168,15 +167,15 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
   </section>
   <section class="bg_black center">
     <div style="height:20vmin;"></div>
-    <p class="bebas fs10pt ls20 oblique">Growth</p>
+    <p class="bebas fs10pt ls20 oblique lg_txt1">Growth</p>
     <div style="height:8vmin;"></div>
-    <div style="margin:auto 12vw;">
+    <div style="margin:auto 11vw;">
       <div class="growth">
-        <p class="bebas fs6pt ls20 underline">BLOCK CHAIN</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="bebas fs6pt ls20 underline lg_txt3">BLOCK CHAIN</p>
+        <div class="gap"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           12welve DAO 설립과 Season 2 진행.<br/></p>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           우리는 다양한 생태계가 존재하는<br/>
           블록체인에서 Seamless한<br/>
           생명력을 가진 12welve NFTs를<br/>
@@ -184,12 +183,12 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
         </p>
       </div>
       <div class="growth">
-        <p class="bebas fs6pt ls20 underline">K-POP MUSIC & WEBTOON</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="bebas fs6pt ls20 underline lg_txt3">K-POP MUSIC & WEBTOON</p>
+        <div class="gap"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           ‘Real side’ 지구의 1억명 타겟층을 가진<br/>
           K-pop과 Webtoon 프로젝트 진행.<br/></p>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           ‘Upper side’의 46 Meta 캐릭터<br/>
           (12 K-pop Idol)를 물리적인 세계와 연결하는<br/>
           매우 흥미로운 메타버스 프로젝트이며<br/>
@@ -198,13 +197,13 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
         </p>
       </div>
       <div class="growth">
-        <p class="bebas fs6pt ls20 underline">METAVERSE</p>
-        <div style="height:3vmin;"></div>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="bebas fs6pt ls20 underline lg_txt3">METAVERSE</p>
+        <div class="gap"></div>
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           우리의 목표는 가상과 현실의 경계가 없는<br/>
           엔터테인먼트 라이프스타일과 게임이 연결된<br/>
           12welve Metaverse를 만드는 것입니다.<br/></p>
-        <p class="fs4pt lh6pt fg_gray9 strip">
+        <p class="fs4pt lh6pt fg_gray9 strip lg_txt4">
           12welve NFTs는 이미 그 시작의 일부이며<br/>
           언젠가 여러분 모두를 12welve의<br/>
           놀라운 세상으로 안내할 것입니다.<br/>
@@ -214,7 +213,7 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
   </section>
   <section class="pad7v bg_black center">
     <div style="height:15vmin;"></div>
-    <p class="fs5d3pt lh7pt underline">
+    <p class="fs5pt lh7pt underline">
       자세한 로드맵은 12WELVE 커뮤니티
       <font class="fg_skyblue">(DISCORD)</font><br/>
       를 통해 공지될 것입니다.
@@ -223,20 +222,41 @@ var _0x3448=["\x73\x63\x72\x6F\x6C\x6C","\x73\x63\x72\x6F\x6C\x6C\x59","\x61\x64
   </section>
 </div>
 
+
+<style>
+.lg_txt1{font-size:3vw;line-height:3vw;letter-spacing:0.2vmin;}
+.lg_txt2{font-size:1.3vw;line-height:1.5vw;letter-spacing:0.2vmin;}
+.lg_txt3{font-size:1.4vw;line-height:1.4vw;letter-spacing:0.2vmin;}
+.lg_txt4{font-size:1.0vw;line-height:1.3vw;}
+#content4.mobile .lg_txt1{font-size:3.4rem;line-height:3.4rem;letter-spacing:0.2vmin;}
+#content4.mobile .lg_txt2{font-size:2.2rem;line-height:3.5rem;letter-spacing:0.2vmin;}
+#content4.mobile .lg_txt3{font-size:2.3rem;line-height:3rem;letter-spacing:0.2vmin;}
+#content4.mobile .lg_txt4{font-size:1.65rem;line-height:3rem;}
+#content4 .gap{height:3vmin;}
+#content4.mobile .gap{height:2.5rem;}
+
+
+.gh_txt1{}
+.gh_txt2{}
+.gh_txt3{font-size:1.1vw;line-height:1.5vw;}
+
+#content5.mobile .gh_txt3{font-size:1.5rem;line-height:2.0rem;}
+</style>
+  
 <div id="content5" class="content bg_white" style="/*visibility:hidden*/">
   <!--<div id="p2" style="position:absolute;height:0;"></div>-->
-  <section class="fg_black pad12vw" style="">
+  <section class="fg_black pad12vw">
     <div style="height:20vmin;"></div>
-    <p class="bebas fs9pt ls50 center oblique">WE ARE ALL GHOSTS OF 12WELVE</p>
+    <p class="bebas fs9pt ls50 center oblique gh_txt1">WE ARE ALL GHOSTS OF 12WELVE</p>
     <div style="height:3vh;"></div>
-    <p class="fs4pt fg_gray6 lh6pt center underline strip"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.</p>
-    <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
-    <p class="fs4pt fg_gray6 lh6pt center strip">
+    <p class="fs4pt fg_gray6 lh6pt center underline strip gh_txt2"><br/>우리는 작지만 강력한 비전을 가진 팀입니다.</p>
+    <p class="fs4pt fg_gray6 lh6pt center gh_txt2">&nbsp;</p>
+    <p class="fs4pt fg_gray6 lh6pt center strip gh_txt2">
 팀은 NEXT-K pop을 이끌어 갈 46 Meta 캐릭터(12 K-pop Idol)의 성장을 위해<br/>
 물밑에서 전폭적인 지원과 지지를 보내고 12welve 커뮤니티와 함께 모든 일을 헤쳐나갑니다.<br/>
     </p>
-    <p class="fs4pt fg_gray6 lh6pt center">&nbsp;</p>
-    <p class="fs4pt fg_gray6 lh6pt center strip">
+    <p class="fs4pt fg_gray6 lh6pt center gh_txt2">&nbsp;</p>
+    <p class="fs4pt fg_gray6 lh6pt center strip gh_txt2">
 아티스트, 프로듀서, 교수, 개발자 등의 전문가부터 K-pop Culture를 좋아하는<br/>
 Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 있습니다.<br/>
     </p>
@@ -253,7 +273,7 @@ Z세대의 평범한 학생까지 12welve와 함께하는 고스트가 될 수 �
       <div class="ghost"><div class="dot" style="background-image:url('./image/ghost6.png')"></div><p class="ls20 fs6pt">ADVISOR</p></div>
     </div>
     <div class="bottomMargin1"></div>
-    <p class="textContact fs5d3pt lh6pt ls20 center">
+    <p class="textContact fs5d3pt lh6pt ls20 center gh_txt3">
       고스트 멤버, 프로젝트 협업<br/>
       및 기타 문의<br/>
       <a href="mailto:contact@12welve.io">contact@12welve.io</a>
