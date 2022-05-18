@@ -310,7 +310,7 @@ $(window).on('resize',resizeWindow=function(){
     $.each($('p.strip'),function(idx,val){
       if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().replace(/\n/gi,'\n<br/>'));
     });
-  }else if(!mobile ){ // MOBILE
+  }else if( !mobile ){ // MOBILE
     scrollPoint1=v2p(80);
     scrollPoint2=v2p(160);
     lockContent=false;
@@ -350,6 +350,8 @@ $(window).on('resize',resizeWindow=function(){
 }).on('scroll',scrollWindow=function(event){
   scroll = document.documentElement.scrollTop || document.body.scrollTop;
   //$('#debug').text(mob()+' '+px100vh+' '+px150vh+' '+window.screen.height+' '+window.innerHeight+' '+scroll+' '+navigator.userAgent);
+  $('#debug').text(mob()+' '+px100vh+' '+px150vh+' '+window.screen.height+' '+window.innerHeight+' '+scroll+' '+navigator.userAgent);
+  
   try{
     //console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, layer1 '+$('#layer1').offset().top+' '+p2v($('#layer1').offset().top));
     //console.log('SCROLL '+Math.round(p2v(scroll))+'vh, '+scroll +'px, '+JSON.stringify($('#layer2').offset()));
