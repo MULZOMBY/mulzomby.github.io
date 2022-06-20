@@ -22,17 +22,61 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 <script src="./js/default.js?v=0615"></script>
 <style>
-section{opacity:0.3;}
+section{xxopacity:0.3;}
 #content2,#content3,#content1{XXXopacity:0.5}</style>
 <script>
 
-
+var keyLoading=false;
+var keyTimeout=false;
 var scroll;
 var isMobile=null;
 var lockMobile=false;
 var content2Lock=false;
 var content2Top;
 var content2GapMobileDevice=mobDevice() ? vh2p(33) : 0;
+
+
+function positionContents(){
+  setTimeout(function(){
+    if(!isMobile){
+      if(ph('#content2 section')>window.innerHeight){
+        /* ANI2: 스틱키높이 = 1섹션높이 + 2섹션높이
+          2섹션 밑이 화면밑에 닿으면
+            2컨텐츠탑(높이) = 2컨텐츠밑 - 2섹션높이
+            2섹션탑 = -( 2섹션높이 - 창높이 + 여백 )
+          2섹션 위가 화면위에 닿으면
+            2컨텐츠탑(높이), 2섹션탑 리셋
+        */
+        $('#content1').css({xvisibility:'visible',top:pb('#layer3 section')+vh2p(50)});
+        $('#content2').css({xvisibility:'visible',top:pt('#content1')});
+        $('#content2').css({height:ph('#content1 section')+ph('#content2 section') +gh(50)});
+        console.log(pb('#content2'));
+        $('#content3').css({xvisibility:'visible',top:pb('#content2') +gh(50) });
+        content2Top=$('#content2').offset().top;
+      }else{
+        /* ANI1 스틱키높이 = 1섹션높이 + 2섹션높이 + 2섹션높이 + 여백 */
+        $('#content1').css({xvisibility:'visible',top:pb('#layer3 section')+vh2p(50)});
+        $('#content2').css({xvisibility:'visible',top:pt('#content1')});
+        $('#content3').css({xvisibility:'visible', top:pb('#content1')+ph('#content2 section')+gh(20) });
+        $('#content2').css({height:pb('#content3')-pt('#content2')+gh(10)});
+        content2Top=null;
+      }
+    }else{
+      $('#content1').css({xvisibility:'visible',top:pb('#layer3 section')+vh2p(30)});
+      $('#content2').css({xvisibility:'visible',top:pt('#content1')});
+      content2Top=$('#content2').offset().top;
+      $('#content3').css({xvisibility:'visible', 'top':pb('#content2')+vh2p(20) });
+      $('#content2').css('height',$('#content1').height()+$('#content2 section').height()+/* content1,2 간격 */v2p(15)+content2GapMobileDevice);
+    }
+    $('#content4').css({xvisibility:'visible','top':pb('#content3')});
+    $('#content5').css({xvisibility:'visible','top':pb('#content4')+v2p(15)});
+    if(!isMobile) $('#content6').css({xvisibility:'visible','top':pb('#content5')});
+    else $('#content6').css({xvisibility:'visible','top':pb('#content5')});
+  },50);
+  setTimeout(function(){
+    
+  },100);
+}
 
 // RESIZE START //////////////////////////////////////////////////
 $(window).on('resize',resizeWindow=function(){
@@ -48,8 +92,7 @@ $(window).on('resize',resizeWindow=function(){
     $('html').removeClass('noscroll').css('font-size','11px');
     $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_pc.png?v=0615")');
-    $('#imgLoading').attr('src','./image/balloon_pc.png?v=0615');
-    $('#layer2 > section > div').css('height','120vw');
+    $('#layer2 > section > div').css('height','195vw');
     $('.launch').removeClass('launch_mobile');
     $('.growth').removeClass('growth_mobile');
     $('.ghost').removeClass('ghost_mobile');
@@ -71,7 +114,6 @@ $(window).on('resize',resizeWindow=function(){
     if(mobDevice()) $('html').addClass('noscroll')
     $('#layer1 p').css({fontSize:'8vmin',lineHeight:'8vmin'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png?v=0615")');
-    $('#imgLoading').attr('src','./image/balloon_mobile.png?v=0615');
     $('#layer2 > section > div').css('background-size','cover');
     $('#layer2 > section > div').css('height','150vh');
     $('.launch').addClass('launch_mobile');
@@ -98,45 +140,7 @@ $(window).on('resize',resizeWindow=function(){
   }
   */
 
-  setTimeout(function(){
-    if(!isMobile){
-      if(ph('#content2 section')>window.innerHeight){
-        /* ANI2: 스틱키높이 = 1섹션높이 + 2섹션높이
-          2섹션 밑이 화면밑에 닿으면
-            2컨텐츠탑(높이) = 2컨텐츠밑 - 2섹션높이
-            2섹션탑 = -( 2섹션높이 - 창높이 + 여백 )
-          2섹션 위가 화면위에 닿으면
-            2컨텐츠탑(높이), 2섹션탑 리셋
-        */
-        $('#content1').css({visibility:'visible',top:pb('#layer3 section')+vh2p(50)});
-        $('#content2').css({visibility:'visible',top:pt('#content1')});
-        $('#content2').css({height:ph('#content1 section')+ph('#content2 section') +gh(50)});
-        console.log(pb('#content2'));
-        $('#content3').css({visibility:'visible',top:pb('#content2') +gh(50) });
-        content2Top=$('#content2').offset().top;
-      }else{
-        /* ANI1 스틱키높이 = 1섹션높이 + 2섹션높이 + 2섹션높이 + 여백 */
-        $('#content1').css({visibility:'visible',top:pb('#layer3 section')+vh2p(50)});
-        $('#content2').css({visibility:'visible',top:pt('#content1')});
-        $('#content3').css({ visibility:'visible', top:pb('#content1')+ph('#content2 section')+gh(20) });
-        $('#content2').css({height:pb('#content3')-pt('#content2')+gh(10)});
-        content2Top=null;
-      }
-    }else{
-      $('#content1').css({visibility:'visible',top:pb('#layer3 section')+vh2p(30)});
-      $('#content2').css({visibility:'visible',top:pt('#content1')});
-      content2Top=$('#content2').offset().top;
-      $('#content3').css({ visibility:'visible', 'top':pb('#content2')+vh2p(20) });
-      $('#content2').css('height',$('#content1').height()+$('#content2 section').height()+/* content1,2 간격 */v2p(5)+content2GapMobileDevice);
-    }
-  },50);
-  setTimeout(function(){
-    $('#content4').css({visibility:'visible','top':pb('#content3')});
-    $('#content5').css({visibility:'visible','top':pb('#content4')+v2p(15)});
-    if(!isMobile) $('#content6').css({visibility:'visible','top':pb('#content5')});
-    else $('#content6').css({visibility:'visible','top':pb('#content5')});
-  },100);
-
+  positionContents();
   scrollWindow();
 
 // RESIZE END, SCROLL START //////////////////////////////////////////////////
@@ -162,18 +166,52 @@ $(window).on('resize',resizeWindow=function(){
 });
 // SCROLL END, READY START //////////////////////////////////////////////////
 $(function(){
+  TweenMax.to('#loading img',0.7,{
+    opacity:1,
+    rotation:720,
+    ease:Linear.easeNone,
+    repeat:0
+  });
+  
   isMobile=mobRatio();
-
   resizeWindow();
+
+  $('#imgLoading').on('load',function(){
+    keyLoading=true;
+    loading();
+  }).attr('src',isMobile ? './image/balloon_mobile.png?v=0615' : './image/balloon_pc.png?v=0615');
+  setTimeout(function(){
+    keyTimeout=true;
+    loading();
+  },500);
+});
+// READY END //////////////////////////////////////////////////
+
+
+function loading(){
+  console.log('LOADING',keyLoading,keyTimeout,pb('#layer2 section'));
+  if(!keyLoading || !keyTimeout) return;
+  $('#layer3').css('top',pb('#layer2 section'));
+  if(!isMobile) $('#layer3').css('top',pb('#layer2 section')-(0.6*ph('#sectBalloon')));
+  positionContents();
+  gsap.fromTo('#content1,#content2,#content3,#content4,#content5,#content6',{opacity:0},{opacity:1,duration:1});
+  $('#content1,#content2,#content3,#content4,#content5,#content6').css('visibility','visible');
+
+  TweenMax.to('#loading *',0.25,{
+    opacity:0,
+    ease:Linear.easeNone,
+    repeat:0
+  });
+  setTimeout(function(){$('#loading *').remove();},300);
+  setTimeout(function(){$('#menu,#layer1,#layer2,#layer3').css('visibility','visible');},600);
 
   setTimeout(function(){
     // TWEEN
     sceneLayer1 = new ScrollMagic.Scene({
       triggerElement: '#trigger1',
       triggerHook:0,
-      duration: '100%'
-    })
-    .setTween(TweenMax.to("#layer1",1, {
+      duration:'60%'
+    }).setTween(TweenMax.to("#layer1",1, {
       //scale:0.7,
       opacity:0,
       ease:Linear.easeNone//'circ.in' //Linear.easeNone
@@ -182,8 +220,7 @@ $(function(){
       triggerElement: '#trigger2',
       triggerHook: 1, // "onEnter" => 1, "onCenter" => 0.5, "onLeave" => 0
       duration: '100%'
-    })
-    .setTween(TweenMax.to("#sectBalloon",0.1 ,{ // not working in scroll magic
+    }).setTween(TweenMax.to("#sectBalloon",0.1 ,{ // not working in scroll magic
       scale:1.5,
       opacity:0.25,
       ease:Linear.easeNone //'circ.out' //'circ.out' //Linear.easeNone
@@ -209,40 +246,17 @@ $(function(){
     $('#content5 section:eq(0)').css({position:'sticky',zIndex:0,top:0});
     $('#content5 section:eq(1)').css({position:'relative',zIndex:1});
 
+    if(scroll>0) $('html,body').animate({scrollTop:0},scroll/5<800 ? 800 : scroll/5);
   },150); // setTimeout(function(){
-
-
-  $('#imgLoading').on('load',function(){
-    keyLoading=true;
-    loading();
-  });
-
-  setTimeout(function(){
-    keyTimeout=true;
-    loading();
-  },1000);
-
-
-});
-// READY END //////////////////////////////////////////////////
-
-var keyLoading=true;
-var keyTimeout=false;
-function loading(){
-  if(!keyLoading || !keyTimeout) return;
-  $('#layer3').css('top',pb('#layer2 section'));
-  if(!isMobile) $('#layer3').css('top',pb('#layer2 section')-(0.6*ph('#sectBalloon')));
-  $('#layer1, #layer2, #layer3').css('visibility','visible');
-  $('#loading').hide();
 }
 
 
 </script>
 </head>
 <body>
-  <div id="debug" class="fg_skyblue" style="position:fixed;top:30px;z-index:9999;font-size:2rem;"></div>
-  <div id="trigger1" style="position:absolute;top:0px;"></div>
-  <div id="trigger2" style="position:absolute;top:1500px;"></div>
+<div id="debug" class="fg_skyblue" style="position:fixed;top:30px;z-index:9999;font-size:2rem;"></div>
+<div id="trigger1" style="position:absolute;top:0px;"></div>
+<div id="trigger2" style="position:absolute;top:1500px;"></div>
 <div id="menu" style="z-index:999;top:0;">
   <section class="pad7v" id="sectMenu">
     <div style="height:5vmin;"></div>
@@ -590,13 +604,11 @@ FEATURE : <font class="ga1regular">He is the strongest outlaw in the 12WELVE uni
   </section>
 </div>
 
-<div id="loading" style="position:fixed;top:0;width:100%;height:100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);">
-  <section><img src="./image/loading.gif"/></section>
-  <img id="imgLoading" style="display:none;"/>
+<div id="loading">
+  <img src="./image/ghost7.png?v=0615"/>
+  <p class="robotob ls0" style="font-size:2rem;cursor:default;" id="btn12Welve">12WELVE</p>
 </div>
+<img id="imgLoading" style="position:absolute;display:none;"/>
 
 </body>
 </html>
