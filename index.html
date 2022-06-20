@@ -115,7 +115,8 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer1 p').css({fontSize:'8vmin',lineHeight:'8vmin'});
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png?v=0615")');
     $('#layer2 > section > div').css('background-size','cover');
-    $('#layer2 > section > div').css('height','150vh');
+    //$('#layer2 > section > div').css('height','150vh');
+    $('#layer2 > section > div').css('height',vh2p(150));
     $('.launch').addClass('launch_mobile');
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
@@ -247,7 +248,7 @@ function loading(){
     $('#content5 section:eq(1)').css({position:'relative',zIndex:1});
 
     if(scroll>0) $('html,body').animate({scrollTop:0},scroll/5<800 ? 800 : scroll/5);
-  },150); // setTimeout(function(){
+  },300); // setTimeout(function(){
 }
 
 
