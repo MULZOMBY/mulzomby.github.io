@@ -116,12 +116,13 @@ $(window).on('resize',resizeWindow=function(){
     $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png?v=0615")');
     $('#layer2 > section > div').css('background-size','cover');
     //$('#layer2 > section > div').css('height','150vh');
-    $('#layer2 > section > div').css('height',vh2p(150));
     $('.launch').addClass('launch_mobile');
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
     $('.content, .layer').addClass('mobile');
 
+    $('#layer2 > section > div').css('height',vh2p(150));
+    $('#content1 > section > div.textBox').css('margin-top',vh2p(-48));
     lockMobile=true;
     console.log('RESIZE MOBILE',scroll,' ,mobdevice:',mobDevice(),' ,mobratio:',mobRatio());
   }
