@@ -122,6 +122,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.content, .layer').addClass('mobile');
 
     $('#layer2 > section > div').css('height',vh2p(150));
+    $('#content1 > section > div.imgBox').css('margin-top',vh2p(90));
     $('#content1 > section > div.textBox').css('margin-top',vh2p(-48));
     lockMobile=true;
     console.log('RESIZE MOBILE',scroll,' ,mobdevice:',mobDevice(),' ,mobratio:',mobRatio());
@@ -262,7 +263,7 @@ function loading(){
 <div id="menu" style="z-index:999;top:0;">
   <section class="pad7v" id="sectMenu">
     <div style="height:5vmin;"></div>
-    <p class="robotob ls0" style="font-size:2rem;cursor:default;float:left;" id="btn12Welve">12WELVE</p>
+    <p class="robotob" style="font-size:2rem;cursor:default;float:left;" id="btn12Welve">12WELVE</p>
     <!--
     <p class="robotob fg_gray9 ls-10" style="font-size:3vmin;cursor:default;float:right;" id="btnConnect">Connect Wallet</p>
     -->
@@ -279,14 +280,12 @@ function loading(){
     <div class="diagonal diagonalTopLeft"></div>
     <div class="imgBox"><img src="./image/ssga001.jpg?v=0615"/></div>
     <div class="textBox">
-      <!--<p class="bebas fs12pt lh10pt ls50 underline">ONE OF 12WELVE</p>-->
       <p class="bebas underline txt1">ONE OF 12WELVE</p>
       <div class="gap" style="height:3vmin;"></div>
-      <!--<p class="bebas fs6pt lh8pt ls20">-->
       <p class="bebas txt3">
         <!--
         CODENAME : SSGA001<br/>
-        INTRODUCE : <font class="ls0">캐릭터 가면을 쓰고 활동하는 <br/>
+        INTRODUCE : <font class="">캐릭터 가면을 쓰고 활동하는 <br/>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;혼성 3인조 비밀 프로듀싱 팀 리더</font><br/>
         GENRE : ELECTRIC MUSIC<br/>
         FEATURE : 12WELVE 세계관 최강의 막가파<br/>
@@ -344,7 +343,7 @@ FEATURE : <font class="ga1regular">He is the strongest outlaw in the 12WELVE uni
       <p><font class="robotob txt2 fs13pt" style="letter-spacing:0.1rem;">9.246</font>
         <font class="robotob txt3 fs5pt">&nbsp;AVATARS</font></p>
       <div style="height:4.8rem;"></div>
-      <p class="robotob txt4 fs5pt ls20 fg_pink oblique underline" style="letter-spacing:0.2rem;">FREE MINT for all cube holders</p>
+      <p class="robotob txt4 fs5pt fg_pink oblique underline" style="letter-spacing:0.2rem;">FREE MINT for all cube holders</p>
       <div style="height:3rem;"></div>
       <p class="txt5 strip areaKor">
         아바타는 Next-K pop을 이끌어 갈 Upper Side의 46 Meta 캐릭터(12 K-pop Idols)입니다.<br/>
@@ -562,7 +561,7 @@ FEATURE : <font class="ga1regular">He is the strongest outlaw in the 12WELVE uni
 <div id="layer3" class="layer" style="z-index:3;/*visibility:hidden;*/">
   <section id="sectSummary">
     <div class="textBox">
-    <p class="bebas ls0 txt1">12</p>
+    <p class="bebas txt1">12</p>
     <div style="height:8vmin;"></div>
     <p class="robotob fs5pt ls20 fg_pink oblique underline txt2">DOUBLE 9246 UNIQUE 12WELVE</p>
     <div style="height:4vmin;"></div>
@@ -608,7 +607,7 @@ FEATURE : <font class="ga1regular">He is the strongest outlaw in the 12WELVE uni
 
 <div id="loading">
   <img src="./image/ghost7.png?v=0615"/>
-  <p class="robotob ls0" style="font-size:2rem;cursor:default;" id="btn12Welve">12WELVE</p>
+  <p class="robotob" style="font-size:2rem;cursor:default;" id="btn12Welve">12WELVE</p>
 </div>
 <img id="imgLoading" style="position:absolute;display:none;"/>
 
