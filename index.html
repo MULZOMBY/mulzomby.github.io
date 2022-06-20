@@ -21,11 +21,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 <script src="./js/default.js?v=0615"></script>
-<style>
-section{xxopacity:0.3;}
-#content2,#content3,#content1{XXXopacity:0.5}</style>
+<style>section{xxopacity:0.3;}</style>
 <script>
 
+
+
+/*
+1. 온로드
+2. 로딩이미지 로테이션
+3. 윈도우 리사이즈 resize
+4.   컨텐츠123456 셋팅 positionContents
+4. 윈도우 스크롤 scroll
+5. 이미지 로딩
+6. 온로드
+7. 레이어3 셋팅
+8. 컨텐츠123456 셋팅 positionContents
+9. 레이어12 트윈
+10. 스크롤탑
+*/
 var keyLoading=false;
 var keyTimeout=false;
 var scroll;
@@ -34,7 +47,6 @@ var lockMobile=false;
 var content2Lock=false;
 var content2Top;
 var content2GapMobileDevice=mobDevice() ? vh2p(33) : 0;
-
 
 function positionContents(){
   setTimeout(function(){
@@ -175,7 +187,7 @@ $(function(){
     ease:Linear.easeNone,
     repeat:0
   });
-  
+
   isMobile=mobRatio();
   resizeWindow();
 
