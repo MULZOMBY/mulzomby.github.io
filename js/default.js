@@ -54,7 +54,8 @@ function mobDevice(){ if(/MRA58N\)/.test(navigator.userAgent))return false;
 	return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);}
 function mobRatio(){
 	if(mobDevice()) return true;
-	else if(window.innerWidth<1150) return true;
+	//else if(window.innerWidth<1150) return true;
+	else if(window.innerWidth<900) return true;
 	else return false;}
 
 $(function(){
