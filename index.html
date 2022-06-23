@@ -79,8 +79,7 @@ function positionContents(){
       content2Top=$('#content2').offset().top;
     }
     $('#content4').css({'top':pb('#content3')});
-    $('#content5').css({'top':pb('#content4')+v2p(15)});
-    $('#content6').css({'top':pb('#content5')});
+    setContent5();
   },50);
   setTimeout(function(){
     
@@ -209,6 +208,11 @@ function setLayer3(){
   if(!isMobile) $('#layer3').css('top',pb('#layer2 section')-(0.6*ph('#sectBalloon')));
 }
 
+function setContent5(){
+  $('#content5').css({'top':pb('#content4')+v2p(15)});
+  $('#content6').css({'top':pb('#content5')});
+}
+
 function loading(){
   console.log('LOADING',keyLoading,keyTimeout,pb('#layer2 section'));
   if(!keyLoading || !keyTimeout) return;
@@ -262,9 +266,13 @@ function loading(){
       $('#content4 section:eq(0)').css({transform:'translateZ(-40vh) translateY(10vh) scale(1)',zoom:1.45});
     }
 
+    
     $('#content5').css({perspectiveOrigin:'top',perspective:'100vw'});
     $('#content5 section:eq(0)').css({position:'sticky',zIndex:0,top:0});
     $('#content5 section:eq(1)').css({position:'relative',zIndex:1});
+
+    setContent5();
+    
 
     if(scroll>0) $('html,body').animate({scrollTop:0},scroll/5<800 ? 800 : scroll/5);
   },300); // setTimeout(function(){
