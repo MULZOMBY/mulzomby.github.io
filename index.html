@@ -95,9 +95,9 @@ $(window).on('resize',resizeWindow=function(){
   else if(isMobile==false){
     setLayer3();
     $.each($('p.strip'),function(idx,val){
-      if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().replace(/\n/gi,'\n<br/>'));
+      if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().trim().replace(/\n/gi,'\n<br/>'));
     });
-    $('#layer2 > section > div, #content1 > section, #content1 > section > div.textBox').removeAttr('style');
+    $('#layer2, #layer2 > section > div, #content1 > section, #content1 > section > div.textBox').removeAttr('style');
 
     $('html').removeClass('noscroll').css('font-size','11px');
     $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
@@ -133,6 +133,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.content, .layer').addClass('mobile');
     
     //$('#layer2 > section > div').css('height',vh2p(150));
+    if(mobDevice()) $('#layer2').css('margin-top',vh2p(56));
     $('#layer2 > section > div').css('height',r2p(145));
     $('#content1 > section').css('height',vh2p(90));
     //$('#content1 > section > div.textBox').css('margin-top',vh2p(-48));

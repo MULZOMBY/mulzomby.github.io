@@ -177,8 +177,10 @@ li{text-indent:-5vmin;}
   margin:0 auto;
   top:0;
 }
+#layer2.mobile{margin-top:75vh;}
+
 #layer2 > section {transform-origin:bottom;}
-#layer2.mobile{margin-top:75vh;overflow:initial;}
+#layer2.mobile > section {transform-origin:top;}
 
 #layer2 > section > div{
   background-image:url('../image/balloon_pc.png?v=0623');
@@ -248,7 +250,7 @@ li{text-indent:-5vmin;}
 #content2 .cube{width:50vw;overflow:hidden;position:absolute;z-index:-1;text-align:right;margin-top:1.3vmin;}
 #content2 .cube video{width:48rem;} /*< 55% < 70%*/
 #content2.mobile .cube{width:100%;position:relative;text-align:center;margin-top:0;}
-#content2.mobile .cube video{width:80%;}
+#content2.mobile .cube video{width:46rem;}
 
 #content3 section{background-color:#8585fc;min-height:760px;height:100vh;}
 /*#content3 .textBox{width:45vw;float:right;margin-top:3rem;z-index:1}*/
