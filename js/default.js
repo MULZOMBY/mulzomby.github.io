@@ -47,6 +47,7 @@ function vw2p(vmin){return(vmin*screen.width)/100;}
 function p2v(pixel){return pixel*100/screen.height;}
 function p2vh(pixel){return pixel*100/screen.height;}
 function p2vw(pixel){return pixel*100/screen.width;}
+function r2p(rem){ return rem * parseFloat(getComputedStyle(document.documentElement).fontSize); }
 //function mob(){ if( screen.width / screen.height < 1)return true;else return false;}
 //function mobRatio(){ return window.innerHeight/window.innerWidth>1.3; }
 function mobDevice(){ if(/MRA58N\)/.test(navigator.userAgent))return false;

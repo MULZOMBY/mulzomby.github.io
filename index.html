@@ -51,6 +51,9 @@ var content2GapMobileDevice=mobDevice() ? vh2p(33) : 0;
 function positionContents(){
   setTimeout(function(){
     if(!isMobile){
+      //$('#content1').css({top:pb('#layer3 section')+vh2p(20)});
+      $('#content1').css({top:pb('#layer3 section')+r2p(20)});
+      $('#content2').css({top:pt('#content1')});
       if(ph('#content2 section')>window.innerHeight){
         /* ANI2: 스틱키높이 = 1섹션높이 + 2섹션높이
           2섹션 밑이 화면밑에 닿으면
@@ -59,31 +62,24 @@ function positionContents(){
           2섹션 위가 화면위에 닿으면
             2컨텐츠탑(높이), 2섹션탑 리셋
         */
-        $('#content1').css({xvisibility:'visible',top:pb('#layer3 section')+vh2p(50)});
-        $('#content2').css({xvisibility:'visible',top:pt('#content1')});
         $('#content2').css({height:ph('#content1 section')+ph('#content2 section') +gh(50)});
-        console.log(pb('#content2'));
-        $('#content3').css({xvisibility:'visible',top:pb('#content2') +gh(50) });
+        $('#content3').css({top:pb('#content2') +gh(50) });
         content2Top=$('#content2').offset().top;
       }else{
         /* ANI1 스틱키높이 = 1섹션높이 + 2섹션높이 + 2섹션높이 + 여백 */
-        $('#content1').css({xvisibility:'visible',top:pb('#layer3 section')+vh2p(50)});
-        $('#content2').css({xvisibility:'visible',top:pt('#content1')});
-        $('#content3').css({xvisibility:'visible', top:pb('#content1')+ph('#content2 section')+gh(20) });
+        $('#content3').css({ top:pb('#content1')+ph('#content2 section')+gh(20) });
         $('#content2').css({height:pb('#content3')-pt('#content2')+gh(10)});
         content2Top=null;
       }
     }else{
-      $('#content1').css({xvisibility:'visible',top:pb('#layer3 section')+vh2p(30)});
-      $('#content2').css({xvisibility:'visible',top:pt('#content1')});
-      content2Top=$('#content2').offset().top;
-      $('#content3').css({xvisibility:'visible', 'top':pb('#content2')+vh2p(20) });
+      $('#content1').css({top:pb('#layer3 section')});
+      $('#content2').css({top:pt('#content1')});
+      $('#content3').css({ 'top':pb('#content2')+vh2p(20) });
       $('#content2').css('height',$('#content1').height()+$('#content2 section').height()+/* content1,2 간격 */v2p(15)+content2GapMobileDevice);
+      content2Top=$('#content2').offset().top;
     }
-    $('#content4').css({xvisibility:'visible','top':pb('#content3')});
-    $('#content5').css({xvisibility:'visible','top':pb('#content4')+v2p(15)});
-    if(!isMobile) $('#content6').css({xvisibility:'visible','top':pb('#content5')});
-    else $('#content6').css({xvisibility:'visible','top':pb('#content5')});
+    $('#content4').css({'top':pb('#content3')});
+    setContent5();
   },50);
   setTimeout(function(){
     
@@ -97,14 +93,16 @@ $(window).on('resize',resizeWindow=function(){
   if(!mobDevice()) isMobile=mobRatio();
   if(isMobile==null) return;
   else if(isMobile==false){
+    setLayer3();
     $.each($('p.strip'),function(idx,val){
       if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().replace(/\n/gi,'\n<br/>'));
     });
+    $('#layer2 > section > div, #content1 > section, #content1 > section > div.textBox').removeAttr('style');
 
     $('html').removeClass('noscroll').css('font-size','11px');
     $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
-    $('#layer2 > section > div').css('background-image','url("./image/balloon_pc.png?v=0615")');
-    $('#layer2 > section > div').css('height','195vw');
+    //$('#layer2 > section > div').css('height','195vw');
+    //$('#layer2 > section > div').css({height:'345vh',backgroundSize:'220vh',backgroundPosition:'center',backgroundImage:'url("./image/balloon_pc.png?v=0615")'});
     $('.launch').removeClass('launch_mobile');
     $('.growth').removeClass('growth_mobile');
     $('.ghost').removeClass('ghost_mobile');
@@ -125,17 +123,20 @@ $(window).on('resize',resizeWindow=function(){
     $('html').css('font-size','9px');
     if(mobDevice()) $('html').addClass('noscroll')
     $('#layer1 p').css({fontSize:'8vmin',lineHeight:'8vmin'});
-    $('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png?v=0615")');
-    $('#layer2 > section > div').css('background-size','cover');
-    //$('#layer2 > section > div').css('height','150vh');
+    //$('#layer2 > section > div').css('background-image','url("./image/balloon_mobile.png?v=0615")');
+    //$('#layer2 > section > div').css('background-size','cover');
+    //$('#layer2 > section > div').css('background-position','top center');
+    //$('#layer2 > section > div').css('height',vh2p(150));
     $('.launch').addClass('launch_mobile');
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
     $('.content, .layer').addClass('mobile');
-
-    $('#layer2 > section > div').css('height',vh2p(150));
-    $('#content1 > section > div.imgBox').css('height',vh2p(90));
-    $('#content1 > section > div.textBox').css('margin-top',vh2p(-48));
+    
+    //$('#layer2 > section > div').css('height',vh2p(150));
+    $('#layer2 > section > div').css('height',r2p(145));
+    $('#content1 > section').css('height',vh2p(90));
+    //$('#content1 > section > div.textBox').css('margin-top',vh2p(-48));
+    $('#content1 > section > div.textBox').css('margin-top',r2p(-30));
     lockMobile=true;
     console.log('RESIZE MOBILE',scroll,' ,mobdevice:',mobDevice(),' ,mobratio:',mobRatio());
   }
@@ -202,12 +203,20 @@ $(function(){
 });
 // READY END //////////////////////////////////////////////////
 
+function setLayer3(){
+  $('#layer3').css('top',pb('#layer2 section'));
+  if(!isMobile) $('#layer3').css('top',pb('#layer2 section')-(0.6*ph('#sectBalloon')));
+}
+
+function setContent5(){
+  $('#content5').css({'top':pb('#content4')+v2p(15)});
+  $('#content6').css({'top':pb('#content5')});
+}
 
 function loading(){
   console.log('LOADING',keyLoading,keyTimeout,pb('#layer2 section'));
   if(!keyLoading || !keyTimeout) return;
-  $('#layer3').css('top',pb('#layer2 section'));
-  if(!isMobile) $('#layer3').css('top',pb('#layer2 section')-(0.6*ph('#sectBalloon')));
+  setLayer3();
   positionContents();
   gsap.fromTo('#content1,#content2,#content3,#content4,#content5,#content6',{opacity:0},{opacity:1,duration:1});
   $('#content1,#content2,#content3,#content4,#content5,#content6').css('visibility','visible');
@@ -257,9 +266,13 @@ function loading(){
       $('#content4 section:eq(0)').css({transform:'translateZ(-40vh) translateY(10vh) scale(1)',zoom:1.45});
     }
 
+    
     $('#content5').css({perspectiveOrigin:'top',perspective:'100vw'});
     $('#content5 section:eq(0)').css({position:'sticky',zIndex:0,top:0});
     $('#content5 section:eq(1)').css({position:'relative',zIndex:1});
+
+    setContent5();
+    
 
     if(scroll>0) $('html,body').animate({scrollTop:0},scroll/5<800 ? 800 : scroll/5);
   },300); // setTimeout(function(){
@@ -271,7 +284,7 @@ function loading(){
 <body>
 <div id="debug" class="fg_skyblue" style="position:fixed;top:30px;z-index:9999;font-size:2rem;"></div>
 <div id="trigger1" style="position:absolute;top:0px;"></div>
-<div id="trigger2" style="position:absolute;top:1500px;"></div>
+<div id="trigger2" style="position:absolute;top:145vh;"></div>
 <div id="menu" style="z-index:999;top:0;">
   <section class="pad7v" id="sectMenu">
     <div style="height:5vmin;"></div>
@@ -288,8 +301,9 @@ function loading(){
 
 
 <div id="content1" class="content" style="/*visibility:hidden*/">
+  <div class="diagonal diagonalTopLeft"></div>
   <section id="sectSsga001" style="position: sticky;top: 0;z-index:0;">
-    <div class="diagonal diagonalTopLeft"></div>
+    
     <div class="imgBox"><img src="./image/ssga001.jpg?v=0615"/></div>
     <div class="textBox">
       <p class="bebas underline txt1">ONE OF 12WELVE</p>
@@ -309,8 +323,9 @@ GENRE : ELECTRIC MUSIC<br/>
 FEATURE : <font class="ga1regular">He is the strongest outlaw in the 12WELVE universe.</font><br/>
       </p>
     </div>
-    <div class="diagonal diagonalBottomRight"></div>
+    
   </section>
+  <div class="diagonal diagonalBottomRight"></div>
 </div>
 
 <div id="content2" class="content" style="/*visibility:hidden*/">
