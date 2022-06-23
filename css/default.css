@@ -244,7 +244,7 @@ li{text-indent:-5vmin;}
 #content1.mobile .txt3, #layer3.mobile .txt3{font-size:1.5rem;line-height:2.7rem;}
 
 
-#content2{height:280vh;}
+#content2{height:280vh;background-color:#040305;}
 #content2 .cube{width:50vw;overflow:hidden;position:absolute;z-index:-1;text-align:right;margin-top:1.3vmin;}
 #content2 .cube video{width:48rem;} /*< 55% < 70%*/
 #content2.mobile .cube{width:100%;position:relative;text-align:center;margin-top:0;}
