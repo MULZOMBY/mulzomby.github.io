@@ -67,15 +67,17 @@ function positionContents(){
         content2Top=$('#content2').offset().top;
       }else{
         /* ANI1 스틱키높이 = 1섹션높이 + 2섹션높이 + 2섹션높이 + 여백 */
-        $('#content3').css({ top:pb('#content1')+ph('#content2 section')+gh(20) });
+        $('#content3').css({top:pb('#content1')+ph('#content2 section')+gh(20) });
         $('#content2').css({height:pb('#content3')-pt('#content2')+gh(10)});
         content2Top=null;
       }
     }else{
       $('#content1').css({top:pb('#layer3 section')});
+      console.log('layer3section pb',pb('#layer3 section'));
       $('#content2').css({top:pt('#content1')});
       $('#content3').css({ 'top':pb('#content2')+vh2p(20) });
       $('#content2').css('height',$('#content1').height()+$('#content2 section').height()+/* content1,2 간격 */v2p(15)+content2GapMobileDevice);
+      console.log('content2 height',$('#content1').height()+$('#content2 section').height()+/* content1,2 간격 */v2p(15)+content2GapMobileDevice);
       content2Top=$('#content2').offset().top;
     }
     $('#content4').css({'top':pb('#content3')});
@@ -97,7 +99,7 @@ $(window).on('resize',resizeWindow=function(){
     $.each($('p.strip'),function(idx,val){
       if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().trim().replace(/\n/gi,'\n<br/>'));
     });
-    $('#layer2, #layer2 > section > div, #content1 > section, #content1 > section > div.textBox').removeAttr('style');
+    $('#layer2 > section > div, #content1 > section, #content1 > section > div.textBox').removeAttr('style');
 
     $('html').removeClass('noscroll').css('font-size','11px');
     $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
@@ -106,7 +108,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.launch').removeClass('launch_mobile');
     $('.growth').removeClass('growth_mobile');
     $('.ghost').removeClass('ghost_mobile');
-    $('.content, .layer').removeClass('mobile');
+    $('.content, .layer').removeClass('mobile').removeClass('ios');
 
     console.log('RESIZE PC',scroll,' ,mobdevice:',mobDevice(),' ,mobratio:',mobRatio());
   }else if(isMobile==true){
@@ -131,9 +133,9 @@ $(window).on('resize',resizeWindow=function(){
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
     $('.content, .layer').addClass('mobile');
+    if(/iPad|iPhone|iPod/.test(navigator.userAgent)) $('#layer2').addClass('ios');
     
-    //$('#layer2 > section > div').css('height',vh2p(150));
-    if(mobDevice()) $('#layer2').css('margin-top',vh2p(56));
+    //if(mobDevice()) $('#layer2').css('margin-top',vh2p(56));
     $('#layer2 > section > div').css('height',r2p(145));
     $('#content1 > section').css('height',vh2p(90));
     //$('#content1 > section > div.textBox').css('margin-top',vh2p(-48));
@@ -373,11 +375,12 @@ FEATURE : <font class="ga1regular">He is the strongest outlaw in the 12WELVE uni
       <div style="height:4.8rem;"></div>
       <p class="robotob txt4 fg_pink oblique underline" style="letter-spacing:0.2rem;">FREE MINT for all cube holders</p>
       <div style="height:3rem;"></div>
-      <p class="txt5 strip areaKor">
+      <p class="txt5 areaKor">
         아바타는 Next-K pop을 이끌어 갈 Upper Side의 46 Meta 캐릭터(12 K-pop Idols)입니다.<br/>
         각각의 고유한 개성과 스토리를 가진 46 Type과 Type당 201개 에디션으로 발행되며 5개의 등급과 130+ Traits으로 무작위 생성된 유니크한 아트웍 NFTs 컬렉션입니다.<br/>
         9246개의 유닉한 아바타 중에는 매우 특별한 46개의 아바타가 있으며 큐브의 스마트 컨트렉트에 기록된 코드네임과 연관된 아바타가 큐브 홀더에게 무작위로 Drop 됩니다.<br/>
         홀더는 보유한 아바타가 속한 K-pop Idols의 활동과 관련된 다양한 혜택을 받습니다.
+        <br/><br/>
       </p>
       <p class="txt5 strip areaEng">
         Our avatars are 46 Upper Side Meta characters (12 K-pop Idols) who will lead the Next-K pop era.<br/>
