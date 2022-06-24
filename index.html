@@ -130,7 +130,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.launch').addClass('launch_mobile');
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
-    $('.content, .layer').addClass('mobile');
+    $('.content, .layer, #trigger2').addClass('mobile');
     if(/iPad|iPhone|iPod/.test(navigator.userAgent)) $('#layer2').addClass('ios');
     
     //if(mobDevice()) $('#layer2').css('margin-top',vh2p(56));
@@ -243,12 +243,12 @@ function loading(){
     }));
     sceneLayer2 = new ScrollMagic.Scene({
       triggerElement: '#trigger2',
-      triggerHook: 1, // "onEnter" => 1, "onCenter" => 0.5, "onLeave" => 0
+      triggerHook: 0, // "onEnter" => 1, "onCenter" => 0.5, "onLeave" => 0
       duration: '100%'
     }).setTween(TweenMax.to("#sectBalloon",0.1 ,{ // not working in scroll magic
       scale:1.5,
       opacity:0.25,
-      ease:Linear.easeNone //'circ.out' //'circ.out' //Linear.easeNone
+      ease:Linear.easeNone //'circ.out' //Linear.easeNone
     }));
     controller.addScene([sceneLayer1,sceneLayer2]);
   
@@ -284,8 +284,7 @@ function loading(){
 </head>
 <body>
 <div id="debug" class="fg_skyblue" style="position:fixed;top:30px;z-index:9999;font-size:2rem;"></div>
-<div id="trigger1" style="position:absolute;top:0px;"></div>
-<div id="trigger2" style="position:absolute;top:160vh;"></div>
+<div id="trigger1"></div>
 <div id="menu" style="z-index:999;top:0;">
   <section class="pad7v" id="sectMenu">
     <div style="height:5vmin;"></div>
@@ -579,10 +578,9 @@ FEATURE : <font class="ga1regular">He is the strongest outlaw in the 12WELVE uni
   </section>
 </div>
 
-<div id="layer2" class="layer" style="z-index:2;/*visibility:hidden;*/">  
-  <section id="sectBalloon" class="" style="max-width:100%;">
-    <div><!--<img src="./image/balloon.png"/>--></div>
-  </section>
+<div id="layer2" class="layer" style="z-index:2;/*visibility:hidden;*/">
+  <div id="trigger2"></div>
+  <section id="sectBalloon" class="" style="max-width:100%;"><div></div></section>
 </div>
 
 <div id="layer3" class="layer" style="z-index:3;/*visibility:hidden;*/">
