@@ -74,6 +74,7 @@ $(function(){
 		$('.areaKor').show();
 		setCookie('language','kor');
 		lockMobile=false;
+		content2Lock=true;
 		resizeWindow();
 	});
 
@@ -84,6 +85,7 @@ $(function(){
 		$('.areaEng').show();
 		setCookie('language','eng',1);
 		lockMobile=false;
+		content2Lock=true;
 		resizeWindow();
 	});
 
