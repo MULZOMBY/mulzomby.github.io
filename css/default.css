@@ -178,6 +178,7 @@ li{text-indent:-5vmin;}
   top:0;
 }
 #layer2.mobile{margin-top:75vh;}
+#layer2.ios{margin-top:65vh;}
 
 #layer2 > section {transform-origin:bottom;}
 #layer2.mobile > section {transform-origin:top;}

@@ -97,7 +97,7 @@ $(window).on('resize',resizeWindow=function(){
     $.each($('p.strip'),function(idx,val){
       if(!$(this).html().match(/<br[^>]*>/i)) $(this).html($(this).html().trim().replace(/\n/gi,'\n<br/>'));
     });
-    $('#layer2, #layer2 > section > div, #content1 > section, #content1 > section > div.textBox').removeAttr('style');
+    $('#layer2 > section > div, #content1 > section, #content1 > section > div.textBox').removeAttr('style');
 
     $('html').removeClass('noscroll').css('font-size','11px');
     $('#layer1 p').css({fontSize:'6vmax',lineHeight:'6vmax'});
@@ -106,7 +106,7 @@ $(window).on('resize',resizeWindow=function(){
     $('.launch').removeClass('launch_mobile');
     $('.growth').removeClass('growth_mobile');
     $('.ghost').removeClass('ghost_mobile');
-    $('.content, .layer').removeClass('mobile');
+    $('.content, .layer').removeClass('mobile').removeClass('ios');
 
     console.log('RESIZE PC',scroll,' ,mobdevice:',mobDevice(),' ,mobratio:',mobRatio());
   }else if(isMobile==true){
@@ -131,9 +131,9 @@ $(window).on('resize',resizeWindow=function(){
     $('.growth').addClass('growth_mobile');
     $('.ghost').addClass('ghost_mobile');
     $('.content, .layer').addClass('mobile');
+    if(/iPad|iPhone|iPod/.test(navigator.userAgent)) $('#layer2').addClass('ios');
     
-    //$('#layer2 > section > div').css('height',vh2p(150));
-    if(mobDevice()) $('#layer2').css('margin-top',vh2p(56));
+    //if(mobDevice()) $('#layer2').css('margin-top',vh2p(56));
     $('#layer2 > section > div').css('height',r2p(145));
     $('#content1 > section').css('height',vh2p(90));
     //$('#content1 > section > div.textBox').css('margin-top',vh2p(-48));

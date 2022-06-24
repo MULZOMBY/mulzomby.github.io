@@ -73,6 +73,7 @@ $(function(){
 		$('.areaEng').hide();
 		$('.areaKor').show();
 		setCookie('language','kor');
+		resizeWindow();
 	});
 
 	$('#btnEng').click(function(){
@@ -81,6 +82,7 @@ $(function(){
 		$('.areaKor').hide();
 		$('.areaEng').show();
 		setCookie('language','eng',1);
+		resizeWindow();
 	});
 
 	if(getCookie('language')=='kor') $('#btnKor').click();
