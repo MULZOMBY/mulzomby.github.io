@@ -278,12 +278,13 @@ li{text-indent:-5vmin;}
 #content2 .txt3,#content3 .txt3{font-size:2rem;}
 #content2 .txt4,#content3 .txt4{font-size:2rem;letter-spacing:0.2rem;}
 #content2 .txt5,#content3 .txt5{font-size:1.5rem;line-height:2.7rem;}
+#content2 .gap{height:10vh;}
 #content2.mobile .txt1,#content3.mobile .txt1{font-size:8rem;line-height:8rem;}
 #content2.mobile .txt2,#content3.mobile .txt2{font-size:7rem;letter-spacing:0.1rem;}
 #content2.mobile .txt3,#content3.mobile .txt3{font-size:2rem;}
 #content2.mobile .txt4,#content3.mobile .txt4{font-size:2rem;letter-spacing:0.2rem;}
 #content2.mobile .txt5,#content3.mobile .txt5{font-size:1.65rem;line-height:2.7rem;}
-
+#content2.mobile .gap{height:14vh;}
 
 .launch, .growth{
   display:inline-block;
