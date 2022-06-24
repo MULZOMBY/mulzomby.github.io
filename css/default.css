@@ -181,7 +181,7 @@ li{text-indent:-5vmin;}
 #layer2.ios{margin-top:65vh;}
 
 #layer2 > section {transform-origin:bottom;}
-#layer2.mobile > section {transform-origin:top;}
+/*#layer2.mobile > section {transform-origin:top;}*/
 
 #layer2 > section > div{
   background-image:url('../image/balloon_pc.png?v=0623');
