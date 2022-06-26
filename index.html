@@ -92,7 +92,12 @@ function positionContents(){
 $(window).on('resize',resizeWindow=function(){
   scroll = document.documentElement.scrollTop || document.body.scrollTop;
 
-  if(!mobDevice()) isMobile=mobRatio();
+  if(!mobDevice() && isMobile!=null && isMobile!=mobRatio()){
+    //isMobile=mobRatio();
+    //loading();
+    location.reload();
+    return;
+  }
   if(isMobile==null) return;
   else if(isMobile==false){
     setLayer3();
@@ -208,6 +213,7 @@ $(function(){
 // READY END //////////////////////////////////////////////////
 
 function setLayer3(){
+  if($('#layer2 section').css('opacity')!='1') return;
   $('#layer3').css('top',pb('#layer2 section'));
   if(!isMobile) $('#layer3').css('top',pb('#layer2 section')-(0.555*ph('#sectBalloon')));
 }
