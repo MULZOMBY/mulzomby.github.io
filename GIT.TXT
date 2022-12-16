@@ -1,0 +1,14 @@
+
+cd /Users/Shared/PROJECT
+git clone https://github.com/MULZOMBY/android_app_restart_1.git
+
+vi /Users/Shared/PROJECT/android_app_restart_1/.git/config
+### ADD USER INFO
+[user]
+    name = mulzomby
+    email = mulzomby@gmail.com
+
+### COPY SOURCE
+### OPEN PROJECT BY ANDROID STUDIO
+
+/Users/ahndoori/PROJECT/penguinrush_ios/Unity-iPhone.xcodeproj error project: Signing for "Unity-iPhone" requires a development team. Select a development team in the Signing & Capabilities editor.
