@@ -13,6 +13,9 @@ vi /Users/Shared/PROJECT/android_app_restart_1/.git/config
 
 /Users/ahndoori/PROJECT/penguinrush_ios/Unity-iPhone.xcodeproj error project: Signing for "Unity-iPhone" requires a development team. Select a development team in the Signing & Capabilities editor.
 
+# 강제 푸시
+git push -u origin +main
+
 
 프론트에서 ios에다가 getDeviceTime() > 리턴으로 감
 ios가 프론트에 callbackGetDeviceTime(시간값)
