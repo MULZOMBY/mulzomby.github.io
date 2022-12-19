@@ -1,7 +1,4 @@
 
-cd /Users/Shared/PROJECT
-git clone https://github.com/MULZOMBY/android_app_restart_1.git
-
 vi /Users/Shared/PROJECT/android_app_restart_1/.git/config
 ### ADD USER INFO
 [user]
@@ -19,3 +16,21 @@ git push -u origin +main
 
 프론트에서 ios에다가 getDeviceTime() > 리턴으로 감
 ios가 프론트에 callbackGetDeviceTime(시간값)
+
+
+
+
+cd /Users/Shared/PROJECT
+git clone https://github.com/MULZOMBY/android_app_restart_1.git
+
+
+### CREATE GIT REPO WITH .gitignore (Android)
+cd /Users/Shared/PROJECT
+git clone https://github.com/MULZOMBY/android_background_timer_1.git
+### COPY PROJECT WITHOUT .gitignore, .git
+### ADD USER INFO .git/config
+[user]
+    name = mulzomby
+    email = mulzomby@gmail.com
+### GIT PUSH BY ANDROID STUDIO
+Initial commit
