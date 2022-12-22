@@ -34,3 +34,7 @@ git clone https://github.com/MULZOMBY/android_background_timer_1.git
     email = mulzomby@gmail.com
 ### GIT PUSH BY ANDROID STUDIO
 Initial commit
+
+
+sudo xcode-select --switch /Users/Shared/APPLICATION/Xcode.app
+
