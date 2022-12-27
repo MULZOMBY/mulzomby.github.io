@@ -1,4 +1,19 @@
 
+
+##### FINAL CUT VOICE SETTING
+
+### VOICE
+오디오 음질 향상 ALT+COMM+A
+사용자 지정 속도 CTL+ALT+R > 110%
+음량 > 12.0db
+이퀄라이제이션 > 저음증폭
+음성분리 > 정도 100%
+
+
+
+
+##### YOUTUBE UPLOAD VIDEO
+
 ### 자동 위치 허용
 체크해제
 
