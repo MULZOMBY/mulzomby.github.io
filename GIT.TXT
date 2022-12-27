@@ -24,17 +24,27 @@ cd /Users/Shared/PROJECT
 git clone https://github.com/MULZOMBY/android_app_restart_1.git
 
 
+sudo xcode-select --switch /Users/Shared/APPLICATION/Xcode.app
+
+android_webview_1
+android_webview_2
+
+
+##### SET MULZOMBY YOUTUBE REPOSITORY
+
 ### CREATE GIT REPO WITH .gitignore (Android)
+
 cd /Users/Shared/PROJECT
 git clone https://github.com/MULZOMBY/android_background_timer_1.git
+
 ### COPY PROJECT WITHOUT .gitignore, .git
+
 ### ADD USER INFO .git/config
 [user]
     name = mulzomby
     email = mulzomby@gmail.com
+
 ### GIT PUSH BY ANDROID STUDIO
 Initial commit
 
-
-sudo xcode-select --switch /Users/Shared/APPLICATION/Xcode.app
 
